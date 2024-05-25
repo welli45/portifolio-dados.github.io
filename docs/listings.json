@@ -1,0 +1,54 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projetos-R/posts/Script-Teste-T.html",
+      "/projetos-R/posts/analise-PROUNI.html",
+      "/projetos-R/posts/analise-DataSenado.html",
+      "/projetos-R/posts/projeto-PNADc.html",
+      "/projetos-R/posts/projeto-sidrar.html",
+      "/projetos-R/posts/projeto-ARS.html",
+      "/projetos-PBI/posts/projeto-dax.html",
+      "/projetos-PBI/posts/projeto-qualidade.html",
+      "/projetos-PBI/posts/projeto-sim.html",
+      "/projetos-PBI/posts/projeto-ipc.html"
+    ]
+  },
+  {
+    "listing": "/projetos-R/index.html",
+    "items": [
+      "/projetos-R/posts/Script-Teste-T.html",
+      "/projetos-R/posts/analise-PROUNI.html",
+      "/projetos-R/posts/analise-DataSenado.html",
+      "/projetos-R/posts/projeto-PNADc.html",
+      "/projetos-R/posts/projeto-sidrar.html",
+      "/projetos-R/posts/projeto-ARS.html"
+    ]
+  },
+  {
+    "listing": "/projetos-PBI/index.html",
+    "items": [
+      "/projetos-PBI/posts/projeto-dax.html",
+      "/projetos-PBI/posts/projeto-qualidade.html",
+      "/projetos-PBI/posts/projeto-sim.html",
+      "/projetos-PBI/posts/projeto-ipc.html"
+    ]
+  },
+  {
+    "listing": "/projetos-Python/index.html",
+    "items": [
+      "/projetos-Python/posts/projeto-sidrapy.html"
+    ]
+  },
+  {
+    "listing": "/Vida-Academica/index.html",
+    "items": [
+      "/Vida-Academica/posts/palestras-GIARS.html",
+      "/Vida-Academica/posts/redes_completas.html"
+    ]
+  },
+  {
+    "listing": "/ccc/index.html",
+    "items": []
+  }
+]

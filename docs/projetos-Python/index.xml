@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Portifólio de Dados</title>
+<link>https://github.com/welli45/portifolio/projetos-Python/</link>
+<atom:link href="https://github.com/welli45/portifolio/projetos-Python/index.xml" rel="self" type="application/rss+xml"/>
+<description>O Python é uma linguagem de programação de alto nível utilizada em diferentes tipos de aplicações, como para o desenvolvimento web, em Machine Learning, no desenvolvimento de jogos e muito mais.[Fonte](https://blog.betrybe.com/python/)</description>
+<image>
+<url>https://github.com/welli45/portifolio/images/profile.png</url>
+<title>Portifólio de Dados</title>
+<link>https://github.com/welli45/portifolio/projetos-Python/</link>
+</image>
+<generator>quarto-1.4.551</generator>
+<lastBuildDate>Mon, 12 Feb 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>COLETANDO DADOS DO SIDRA COM O PYTHON</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://github.com/welli45/portifolio/projetos-Python/posts/projeto-sidrapy.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><em>Este artigo foi reescrito em Segunda, 25 de Março de 2024.</em></p>
+<p><img src="https://github.com/welli45/portifolio/projetos-Python/images/01.sidrar/sidra.png" class="img-fluid" data-fig-title="Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar" alt="SIDRAr"></p>
+<p>COLETANDO DADOS DO SIDRA COM O PYTHON</p>
+<p>O primeiro passo será instalar a biblioteca sidrapy, se estiver usando o VSCode pode digitar o código <code>pip install sidrapy</code> no termianl que você irá instalar a biblioteca usada para fazer o download dos dados.</p>
+<p>O segundo passo será importar essa biblioteca para isso faça;</p>
+<div id="956e1315" class="cell" data-message="false" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> sidrapy</span></code></pre></div>
+</details>
+</div>
+<p>Agora que temos nossa biblioteca instalada vamos baixar nossos dados.</p>
+<div id="b9651e7f" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Importa os dados do SIDRA</span></span>
+<span id="cb2-2">pib_sa_raw <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sidrapy.get_table(table_code<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1621"</span>,</span>
+<span id="cb2-3">                            territorial_level <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>,</span>
+<span id="cb2-4">                            ibge_territorial_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"all"</span>,</span>
+<span id="cb2-5">                            period <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"all"</span>,</span>
+<span id="cb2-6">                            classification <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"11255/90707"</span>)</span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Checamos a importação</span></span>
+<span id="cb2-9">pib_sa_raw.head()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">NC</th>
+<th data-quarto-table-cell-role="th">NN</th>
+<th data-quarto-table-cell-role="th">MC</th>
+<th data-quarto-table-cell-role="th">MN</th>
+<th data-quarto-table-cell-role="th">V</th>
+<th data-quarto-table-cell-role="th">D1C</th>
+<th data-quarto-table-cell-role="th">D1N</th>
+<th data-quarto-table-cell-role="th">D2C</th>
+<th data-quarto-table-cell-role="th">D2N</th>
+<th data-quarto-table-cell-role="th">D3C</th>
+<th data-quarto-table-cell-role="th">D3N</th>
+<th data-quarto-table-cell-role="th">D4C</th>
+<th data-quarto-table-cell-role="th">D4N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Nível Territorial (Código)</td>
+<td>Nível Territorial</td>
+<td>Unidade de Medida (Código)</td>
+<td>Unidade de Medida</td>
+<td>Valor</td>
+<td>Brasil (Código)</td>
+<td>Brasil</td>
+<td>Trimestre (Código)</td>
+<td>Trimestre</td>
+<td>Setores e subsetores (Código)</td>
+<td>Setores e subsetores</td>
+<td>Variável (Código)</td>
+<td>Variável</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>99.42</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199601</td>
+<td>1º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>100.65</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199602</td>
+<td>2º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>104.16</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199603</td>
+<td>3º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>103.38</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199604</td>
+<td>4º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div id="7cd37adb" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Substitui as colunas pela primeira observação</span></span>
+<span id="cb3-2">pib_sa_raw.columns <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pib_sa_raw.iloc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Retira a primeira observação</span></span>
+<span id="cb3-5">pib_sa_raw <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pib_sa_raw.iloc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:, :]</span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Altera para float a coluna do valor</span></span>
+<span id="cb3-8">pib_sa_raw[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Valor'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pib_sa_raw[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Valor'</span>].astype(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>)</span>
+<span id="cb3-9">pib_sa_raw.head()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Nível Territorial (Código)</th>
+<th data-quarto-table-cell-role="th">Nível Territorial</th>
+<th data-quarto-table-cell-role="th">Unidade de Medida (Código)</th>
+<th data-quarto-table-cell-role="th">Unidade de Medida</th>
+<th data-quarto-table-cell-role="th">Valor</th>
+<th data-quarto-table-cell-role="th">Brasil (Código)</th>
+<th data-quarto-table-cell-role="th">Brasil</th>
+<th data-quarto-table-cell-role="th">Trimestre (Código)</th>
+<th data-quarto-table-cell-role="th">Trimestre</th>
+<th data-quarto-table-cell-role="th">Setores e subsetores (Código)</th>
+<th data-quarto-table-cell-role="th">Setores e subsetores</th>
+<th data-quarto-table-cell-role="th">Variável (Código)</th>
+<th data-quarto-table-cell-role="th">Variável</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>99.42</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199601</td>
+<td>1º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>100.65</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199602</td>
+<td>2º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>104.16</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199603</td>
+<td>3º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>103.38</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199604</td>
+<td>4º trimestre 1996</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1</td>
+<td>Brasil</td>
+<td>30</td>
+<td>Número-índice</td>
+<td>104.41</td>
+<td>1</td>
+<td>Brasil</td>
+<td>199701</td>
+<td>1º trimestre 1997</td>
+<td>90707</td>
+<td>PIB a preços de mercado</td>
+<td>584</td>
+<td>Série encadeada do índice de volume trimestral...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>sidrapy</category>
+  <category>Python</category>
+  <guid>https://github.com/welli45/portifolio/projetos-Python/posts/projeto-sidrapy.html</guid>
+  <pubDate>Mon, 12 Feb 2024 03:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

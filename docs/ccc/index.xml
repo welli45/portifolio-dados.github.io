@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Portifólio de Dados</title>
+<link>https://github.com/welli45/portifolio/ccc/index.html</link>
+<atom:link href="https://github.com/welli45/portifolio/ccc/index.xml" rel="self" type="application/rss+xml"/>
+<description>Mestrado em Sociologia - UFMG 2024-2025</description>
+<image>
+<url>https://github.com/welli45/portifolio/images/profile.png</url>
+<title>Portifólio de Dados</title>
+<link>https://github.com/welli45/portifolio/ccc/index.html</link>
+</image>
+<generator>quarto-1.3.450</generator>
+<lastBuildDate>Sun, 24 Mar 2024 20:35:14 GMT</lastBuildDate>
+</channel>
+</rss>

@@ -1,0 +1,14 @@
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: [cosmo, theme-dark.scss]
+    toc: false
+    smooth-scroll: true
+    format:
+      html:
+        link-external-icon: true
+        link-external-newwindow: true
+        link-external-filter: 'https://welli45.github.io/portifolio/'
+        linkcolor: rebeccapurple
+        callout-appearance: simple

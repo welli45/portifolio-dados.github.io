@@ -1,0 +1,36 @@
+---
+title: "Índice de Percepção de Corrupção (IPC)"
+subtitle: "Dashboard Interativo"
+description: "O Índice de Percepção de Corrupção (IPC) é o ranking global de corrupção mais utilizado no mundo. Mede até que ponto o sector público de cada país é considerado corrupto, de acordo com especialistas e empresários."
+author: "Wellington Santos Souza"
+date: "2024-02-12"
+categories: [IPC, Power BI, Transparência Internacional]
+open-graph:
+  description: "IPC"
+  image: ../images/03.ipc/ipc.png
+twitter-card:
+  description: "IPC"
+  image: ../images/03.ipc/ipc.png
+---
+
+*Este artigo foi reescrito em Segunda-Feira, 12 de Fevereiro de 2024.* 
+
+![](../images/03.ipc/ipc.png){fig-alt="IPC" width=50%}} 
+
+O Índice de Percepção de Corrupção (IPC) é o ranking global de corrupção mais utilizado no mundo. Mede até que ponto o sector público de cada país é considerado corrupto, de acordo com especialistas e empresários.
+
+A pontuação de cada país é uma combinação de pelo menos 3 fontes de dados extraídas de 13 pesquisas e avaliações diferentes sobre corrupção. Estas fontes de dados são recolhidas por diversas instituições conceituadas, incluindo o Banco Mundial e o Fórum Económico Mundial.
+
+A pontuação de um país é o nível percebido de corrupção no sector público numa escala de 0 a 100, onde 0 significa altamente corrupto e 100 significa muito limpo.
+
+A classificação de um país é a sua posição em relação aos outros países no índice. As classificações podem mudar apenas se o número de países incluídos no índice mudar.
+
+A classificação não é, portanto, tão importante como a pontuação em termos de indicar o nível de corrupção nesse país.
+
+A pontuação de um país pode mudar de um ano para o outro, mas as mudanças são geralmente pequenas. As mudanças significativas são raras, mas podem acontecer.
+
+**Aqui está um dashboard interativo que mostra o IPC de 2012 a 2021:**
+
+<iframe title="Corruption Perceptions Index (CPI)" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiYmY0ZDk0YzctOTlkZC00Njg3LWIxMDgtZjhkNTM1ZDJhN2UzIiwidCI6IjkzMTA1Y2MzLTI4OTctNDdlMC1iMjY1LWRkZWQ1ODg2MTU2YSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
+
+Fonte: https://www.transparency.org/en/news/how-cpi-scores-are-calculated

@@ -1,0 +1,113 @@
+---
+title: "Análise de dados do Programa Universidade para Todos (ProUni)"
+subtitle: "Análise dos dados com o R"
+description: "O relatório traz algumas análises dos dados disponíveis no portal Dados Abertos"
+author: "Wellington Santos Souza"
+date: "2024-05-09"
+format: 
+  html:
+    code-fold: true
+    code-copy: true
+    code-tools: true
+categories: [prouni, r, dados, Estatística]
+open-graph:
+  description: "ProUni"
+  image: ../images/04.prouni/logo_prouni.61b3a00c.svg
+twitter-card:
+  description: "ProUni"
+  image: ../images/04.prouni/logo_prouni.61b3a00c.svg
+---
+
+*Artigo em construção*
+
+# Transformando Vidas: O Impacto do Prouni no Brasil
+
+![](../images/04.prouni/logo_prouni.svg){fig-alt="ProUni" fig-title="ProUni" }
+
+### Sobre o Programa Universidade para Todos (Prouni)
+
+O Programa Universidade para Todos (Prouni) é uma iniciativa do Ministério da Educação, estabelecida pelo governo federal em 2004. Ele oferece bolsas de estudo, tanto integrais quanto parciais (50%), em instituições privadas de ensino superior do Brasil, para estudantes brasileiros que ainda não possuem diploma de nível superior. Para mais informações, acesse  [aqui](https://acessounico.mec.gov.br/prouni/duvidas#o-prouni).
+
+### Dados Disponíveis
+
+No portal [Dados Abertos](https://dadosabertos.mec.gov.br/prouni) é possível baixar os dados brutos em formatos .CSV e .XML, bem como consultar o [Dicionário de Dados](https://dadosabertos.mec.gov.br/images/pdf/dicionario-prouni-20161222.pdf). 
+
+### Análise de Dados
+
+Apresentamos uma análise detalhada do número de bolsas concedidas anualmente, segmentadas por:
+
+- Região, UF e município;
+- Instituição de ensino superior;
+- Nome do curso;
+- Modalidade de ensino (presencial ou a distância - EAD);
+- Turno;
+- Tipo de bolsa.
+
+### Tratamento dos dados
+
+Os dados disponíveis no site são organizados em vários arquivos no formato .csv, separados por ano. É importante notar que as colunas podem ter nomes diferentes entre os anos. Além disso, algumas informações que possuíam um nome específico no passado podem ter sido padronizadas para outro nome atualmente. Faremos o tratamento necessário para garantir consistência e facilitar a análise.
+
+Carregando os pacotes utilizados na análise
+```{r}
+#| label: load-packages
+#| message: false
+if(!require(tidyverse)) install.packages("tidyverse");library(tidyverse)
+if(!require(readxl)) install.packages("readxl");library(readxl)
+if(!require(highcharter)) install.packages("highcharter");library(highcharter)
+```
+
+Carregando a base de dados
+```{r}
+#| label: load-data
+#| message: false
+#| warning: false
+
+rm(list = ls())
+dados <-
+    list.files(path = "~/portifolio/projetos-R/dados_prouni/", full.names = TRUE, pattern = ".csv" ) |> 
+    purrr::map(readr::read_csv2, locale = locale(encoding = "ISO-8859-1"))  |> 
+    dplyr::bind_rows()
+```
+
+Tratamento dos dados
+```{r}
+#| label: prep-data
+
+dados_prep <- dados |> 
+  drop_na() |> 
+  mutate(
+    TIPO_BOLSA = case_when(
+       TIPO_BOLSA == "BOLSA INTEGRAL" ~ "INTEGRAL",
+       TIPO_BOLSA == "BOLSA PARCIAL 50%" ~ "PARCIAL",
+       TIPO_BOLSA == "BOLSA COMPLEMENTAR 25%" ~ "BOLSA COMPLEMENTAR 25%",
+       TIPO_BOLSA == "INTEGRAL" ~ "INTEGRAL",
+       TIPO_BOLSA == "PARCIAL" ~ "PARCIAL"))
+```
+
+## Capítulo 1: O Início de uma Jornada
+
+Em 2004, o governo federal brasileiro lançou o Programa Universidade para Todos (Prouni), uma iniciativa revolucionária destinada a ampliar o acesso à educação superior no país. Os dados iniciais do Prouni revelam um aumento significativo no número de bolsas concedidas a cada ano, indicando uma crescente demanda por oportunidades educacionais entre os brasileiros.
+
+```{r}
+#| message: false
+#| warning: false
+dados_prep  |> 
+  group_by(ano=as_factor(ANO_CONCESSAO_BOLSA)) |> 
+  summarise(qtd_bolsas_ano = n()) |> 
+  ggplot(mapping = aes(x =  ano, y = qtd_bolsas_ano, group = 1)) +
+  geom_line()+
+  geom_point()+
+    labs(title = "Número Bolsas concedidas por ano", y = NULL, x = NULL, subtitle = "PROUNI - (2005 - 2020)") + 
+  theme_minimal()+
+  geom_text(aes(x = ano, y = qtd_bolsas_ano, label = paste0(qtd_bolsas_ano)),
+                        vjust = -1.5, size = 2, color = "blue")+
+  theme(plot.title = element_text(size=12),axis.text.x= element_text(size=),
+                            axis.text.y= element_text(size=8), axis.title=element_text(size=6))+
+  scale_fill_brewer(palette = "Set3")+ 
+  theme(axis.text.y = element_blank())
+```
+Como podemos notar o ano de 2015 foi o que mais teve bolsas concedidas. Tivemos um aumento até 2015 e depois uma queda.
+
+## Capítulo 2: Distribuição de Bolsas por Região
+
+

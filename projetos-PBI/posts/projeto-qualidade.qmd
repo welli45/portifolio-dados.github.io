@@ -1,0 +1,32 @@
+---
+title: "Dashboard de Qualidade"
+subtitle: "Dashboard Interativo"
+description: "O relatorio de qualidade é um conjunto de dados que permite a visualização de indicadores de qualidade de uma empresa."
+author: "Wellington Santos Souza"
+date: "2024-02-12"
+categories: [Qualidade, Power BI, Gestão da Qualidade]
+open-graph:
+  description: "Dashboard de Qualidade"
+  image: ../images/04.qualidade/qualidade.png
+twitter-card:
+  description: "Dashboard de Qualidade"
+  image: ../images/04.qualidade/qualidade.png
+---
+
+*Este artigo foi reescrito em Segunda-Feira, 12 de Fevereiro de 2024.*
+
+![](../images/04.qualidade/qualidade.png){fig-alt="Qualidade" width=50%}
+
+## Resumo do Projeto
+Visando aplicar os conhecimentos adquiridos no curso técnico em qualidade, concluído em 2017 no COTIL-UNICAMP, e aprimorar minhas habilidades no Power BI, decidi criar um Dashboard fictício como exercício prático. Este Dashboard possui duas páginas distintas, cada uma fornecendo informações relevantes relacionadas à análise de qualidade, permitindo uma compreensão abrangente dos dados.
+
+A primeira página do Dashboard apresenta uma visão geral das amostras analisadas, abrangendo diferentes métricas essenciais. São exibidos dados como o número de defeitos identificados, o score de qualidade obtido e a quantidade de erros fatais registrados. Além disso, essas informações são desagregadas com base em diversos critérios, como local de trabalho, supervisor, auditor e funcionário responsável. Tudo isso é apresentado num intervalo de datas específico, possibilitando a identificação de tendências ao longo do tempo.
+
+A segunda página do Dashboard se concentra na avaliação de desempenho individual de cada funcionário e supervisor, mantendo o mesmo intervalo de datas para uma análise comparativa consistente. Nessa seção, é possível examinar de perto a desempenho de cada membro da equipe em relação às métricas de qualidade definidas. Isso permite uma compreensão mais detalhada de como diferentes indivíduos estão contribuindo para os resultados gerais de qualidade.
+
+É importante destacar que esse Dashboard foi desenvolvido com o propósito de servir como um exercício prático para consolidar minhas habilidades no uso do Power BI, assim como aplicar os princípios de qualidade aprendidos durante o curso no COTIL-UNICAMP. Embora os dados e cenários sejam fictícios, a abordagem e as técnicas empregadas são reflexos da minha busca por um contínuo aprendizado e aprimoramento.
+
+Ao compartilhar este projeto, desejo ressaltar a relevância da integração entre a gestão da qualidade e a visualização de dados. A capacidade de extrair insights valiosos a partir de informações aparentemente complexas é fundamental para a tomada de decisões informadas e o aprimoramento contínuo dos processos. Além disso, a utilização do Power BI como ferramenta de análise e visualização ressalta a importância da proficiência em tecnologias contemporâneas para impulsionar a eficácia das análises de qualidade.
+
+**Você pode explorar o Dashboard interativo abaixo.**
+<iframe title="Quality Dashboard" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiNDg3ZTI3MzYtODA1Ni00YWVkLWJkYTAtZmYxNWM1ZTE3MTEzIiwidCI6IjkzMTA1Y2MzLTI4OTctNDdlMC1iMjY1LWRkZWQ1ODg2MTU2YSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>

@@ -1,0 +1,16 @@
+project:
+  type: website
+  output-dir: docs
+metadata-files:
+  - _website.yml
+  - _format.yml
+
+website:
+  title: "Portifólio de Dados"
+format:
+  html:
+    theme: dark
+    css: styles.css
+    toc: true
+
+

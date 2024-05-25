@@ -1,0 +1,32 @@
+---
+title: "Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave"
+image: ../../Vida-Academica/images/redes.png
+description: "Artigo Publicado!"
+author: "Wellington Santos Souza"
+date: "2024-02-07"
+categories: [análisis de redes sociales, sociología relacional, redes cognitivas, líderes comunitarios, PESCARTE, social network analysis, relational sociology, cognitive networks, communitarian leaders]
+---
+
+## Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave
+
+**Autores**
+
+Dimitri Fazito
+
+Silvio Salej Higgins
+
+Antonio Carlos Andrade Ribeiro
+
+Geraldo Timoteo
+
+Wellington Santos Souza
+
+**DOI:** https://doi.org/10.5944/empiria.58.2023.37382
+
+**Palabras clave:** análisis de redes sociales, sociología relacional, redes cognitivas, líderes comunitarios, PESCARTE, social network analysis, relational sociology, cognitive networks, communitarian leaders
+
+## Resumen
+
+Este trabajo propone una estrategia, denominada como Modelo de Redes Sociales Cognitivas (MRSC), para recolectar datos relacionales a partir de informantes-clave. Ofrecemos una solución para la doble problemática de, por un lado, definir los límites de una red de interaciones y, por el otro, recolectar datos de una red completa basada en la percepción de informantes que son observadores privilegiados del proceso social en estudio. El proyecto fue implementado para diagnosticar la dinámica de las relaciones comunitarias en comunidades de pesquerías tradicionales, por encomienda de un proyecto de investigación-acción (PESCARTE), en el campo de la educación ambiental, en el litoral del estado de Rio de Janeiro (Brasil). La propuesta combina técnicas de recolección de datos de redes personales y de redes completas. Los instrumentos elaborados para la recogida de datos y los procedimientos utilizados para validar la estrategia son detallados. Artículo financiado por el Proyecto de Educación Ambiental (PEA) PESCARTE, iniciativa de mitigación exigida por la Licencia Federal Ambiental conducida por el Instituto Brasilero del Medio Ambiente y de los Recursos Naturales Renovables (IBAMA).
+
+Para acessar o artigo completo clique [AQUI](https://revistas.uned.es/index.php/empiria/article/view/37382).

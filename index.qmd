@@ -1,0 +1,77 @@
+---
+title: "Portifólio de Dados"
+comments: False
+format:
+  html:
+    page-layout: full
+listing:
+  - id: landing-posts
+    contents: projetos-R/posts
+    type: default
+    max-items: 3
+    sort: 
+      - "date desc"
+      - "title asc"
+  - id: landing-apps
+    contents: projetos-PBI/posts
+    type: default
+    max-items: 3
+    sort: 
+      - "date desc"
+      - "title asc"
+about:
+  id: about-welli45
+  template: jolla
+  image: imagens/profile.jpg
+  image-shape: round
+  links:
+    - icon: twitter
+      text: "Twitter"
+      href: https://twitter.com/Wellington_s_sS
+    - icon: linkedin
+      text: "Linkedin"
+      href: https://www.linkedin.com/in/wellington-santos-souza/
+    - icon: clipboard-data
+      text: "Kaggle"
+      href: https://www.kaggle.com/wellingtonstssza
+    - icon: github
+      text: "GitHub"
+      href: https://github.com/welli45
+    - icon: Lattes
+      text: "Lattes"
+      href: http://lattes.cnpq.br/6574776498457184
+    - icon: envelope
+      text: "Email"
+      href: mailto:wellingtonstssza@gmail.com
+back-to-top-navigation: false
+---
+
+::::{#about-welli45}
+
+Sou uma pessoa curiosa e apaixonada por tecnologia, música e ciência. Acredito que a Sociologia, com seus métodos científicos, aliada à programação e análise de dados, pode ser uma ferramenta poderosa para resolver problemas dentro das organizações e melhorar a vida das pessoas.
+
+Para mais informações sobre mim clique [aqui](about.qmd).
+
+Sinta-se à vontade para entrar em contato comigo através de um dos botões abaixo!
+:::
+
+:::::{.grid}
+::::{.g-col-12 .g-col-md-6}
+## Projetos em R
+Clique [aqui](projetos-R/index.qmd) para acesar meus projetos em R.
+
+:::{#landing-posts}
+:::
+::::
+
+::::{.g-col-12 .g-col-md-6}
+## Projetos em Power BI
+
+Clique [aqui](projetos-PBI/index.qmd) para acessar meus meu projetos em Power BI
+
+:::{#landing-apps}
+:::
+::::
+:::::
+
+O intuito deste Portifólio é compartilhar conhecimento e experiências, e também para que eu possa ter um registro de tudo que venho aprendendo. Espero que você encontre algo útil por aqui. Seja bem-vindo (a)!

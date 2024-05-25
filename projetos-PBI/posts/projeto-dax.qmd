@@ -1,0 +1,27 @@
+---
+title: "Dashboard - Projeto Majestic"
+subtitle: "Dashboard Interativo"
+description: "O relatorio de vendas é um conjunto de dados que permite a visualização de indicadores de vendas de uma empresa."
+author: "Wellington Santos Souza"
+date: "2024-02-12"
+categories: [Vendas, Dados, Power BI, DAX]
+open-graph:
+  description: "DAX - POWER BI"
+  image: ../images/06.dax/dax.png
+twitter-card:
+  description: "DAX - POWER BI"
+  image: ../images/06.dax/dax.png
+---
+*Este artigo foi reescrito em Segunda-Feira, 12 de Fevereiro de 2024.* 
+
+![](../images/06.dax/dax.png){fig-alt="DAX - POWER BI" width=30%}
+
+Com o objetivo de aprimorar meus conhecimentos em Linguagem DAX, decidi realizar o curso oferecido pelo instrutor Felipe Mafra na plataforma Udemy. Durante o curso, tive a oportunidade de significativamente aprimorar minha compreensão em DAX, por meio da execução de um projeto abrangente com foco na aplicação prática.
+Nesse projeto, assumi o papel de analista de Power BI na empresa Majestic, uma exportadora de materiais escolares. Ao longo desse cenário fictício, desenvolvemos relatórios que abrangem áreas como vendas, classificação de gerentes, margem de lucro por continente e país. Além disso, também exploramos a criação de elementos visuais dinâmicos, os quais se adaptam de acordo com as métricas selecionadas.
+Essa experiência proporcionou um ambiente de aprendizado altamente envolvente, no qual pude não apenas aprimorar minha habilidade com a Linguagem DAX, mas também entender como aplicá-la de maneira eficaz em situações do mundo real.
+
+Ao compartilhar este projeto, desejo ressaltar a importância da Linguagem DAX como uma ferramenta poderosa para a análise de dados. A capacidade de criar cálculos personalizados e métricas específicas é fundamental para a compreensão aprofundada dos dados e a geração de insights valiosos. Além disso, a utilização do Power BI como ferramenta de visualização ressalta a importância da proficiência em tecnologias contemporâneas para impulsionar a eficácia das análises de vendas.
+
+**Você pode explorar o Dashboard interativo abaixo.**
+
+<iframe title="ProjetoMajestic" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiNTAxOTQ3ZjQtYmNlNi00OTk4LTk4MTAtZTYxY2RlZWNjOTMyIiwidCI6IjkzMTA1Y2MzLTI4OTctNDdlMC1iMjY1LWRkZWQ1ODg2MTU2YSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>

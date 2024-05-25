@@ -1,0 +1,51 @@
+---
+title: "Amostragem de survey em Ciências Sociais:práticas, desafios e soluções"
+image: ../../Vida-Academica/images/1.png
+description: "Palestras GIARS E CPEQS"
+author: "Wellington Santos Souza"
+date: "2024-02-07"
+categories: [Amostragem, Palestra, GIARS, UFMG, CPEQS]
+---
+# Palestras Imperdíveis!
+
+Junte-se a nós para uma discussão sobre Amostragem de Survey em Ciências Sociais com os especialistas Matheus Dias e Marcos Ruben de Oliveira!
+
+- Data: 22 de abril de 2024
+
+- Lugar: FAFICH –UFMG
+
+- Organizador: Prof. Silvio Salej Higgins (DSO-FAFICH)
+
+![](../../Vida-Academica/images/1.png){fig-alt="R" width=50% height=50%}
+
+## Público alvo
+
+#### - Profissionais de empresas de pesquisa de BH e região
+
+#### - Professores e pesquisadores das Ciências Sociais
+
+#### - Discentes das Ciências Sociais
+
+# Desenho de amostras probabilísticas e coleta de dados
+
+**Primeira Palestra – 14:00 até 15:30**
+Palestrante: 
+
+Matheus Dias 
+
+Diretor da OPUS – Consultoria & Pesquisa
+
+
+![](../../Vida-Academica/images/2.png){fig-alt="R" width=50% height=50%}
+
+# Como corrigir os erros de amostragem?
+
+**Segunda  Palestra – 16:00 até 17:30**
+
+Palestrante: 
+
+Marcos Ruben de Oliveira
+
+Coordenador do Instituto DataSenado
+
+![](../../Vida-Academica/images/3.png){fig-alt="R" width=50% height=50%}

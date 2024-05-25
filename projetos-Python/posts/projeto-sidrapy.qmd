@@ -1,0 +1,55 @@
+---
+title: "COLETANDO DADOS DO SIDRA COM O PYTHON"
+subtitle: "sidrapy"
+description: ""
+author: "Wellington Santos Souza"
+date: "2024-02-12"
+format: 
+  html:
+    code-fold: true
+categories: [sidrapy, Python]
+open-graph:
+  description: "IPC"
+  image: ../images/01.sidrar/sidra.png
+twitter-card:
+  description: "IPC"
+  image: ../images/01.sidrar/sidra.png
+---
+
+*Este artigo foi reescrito em Segunda, 25 de Março de 2024.* 
+
+![](../images/01.sidrar/sidra.png){fig-alt="SIDRAr" fig-title="Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar" }
+
+COLETANDO DADOS DO SIDRA COM O PYTHON
+
+O primeiro passo será instalar a biblioteca sidrapy, se estiver usando o VSCode pode digitar o código `pip install sidrapy` no termianl que você irá instalar a biblioteca usada para fazer o download dos dados. 
+
+O segundo passo será importar essa biblioteca para isso faça;
+```{python}
+#| message: false
+import sidrapy
+```
+Agora que temos nossa biblioteca instalada vamos baixar nossos dados.
+```{python}
+# Importa os dados do SIDRA
+pib_sa_raw = sidrapy.get_table(table_code= "1621",
+                            territorial_level = "1",
+                            ibge_territorial_code = "all",
+                            period = "all",
+                            classification = "11255/90707")
+
+# Checamos a importação
+pib_sa_raw.head()
+```
+
+```{python}
+# Substitui as colunas pela primeira observação
+pib_sa_raw.columns = pib_sa_raw.iloc[0]
+
+# Retira a primeira observação
+pib_sa_raw = pib_sa_raw.iloc[1:, :]
+
+# Altera para float a coluna do valor
+pib_sa_raw['Valor'] = pib_sa_raw['Valor'].astype(float)
+pib_sa_raw.head()
+```
