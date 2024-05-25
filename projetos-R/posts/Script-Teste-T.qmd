@@ -20,7 +20,7 @@ twitter-card:
 
 *Este artigo foi escrito em Sábado, 25 de Maio de 2024.*
 
-![](../images/05.test-t/OIP.jpg){fig-alt="Curva-Normal" fig-title="Curva Normal" }
+![](../images/05.test-t/OIP.jpg){fig-alt="Curva-Normal" fig-title="Curva Normal"}
 
 ## Teste T para amostras independentes
 
@@ -61,11 +61,12 @@ if(!require(tidyverse)){install.packages("tidyverse")};library(tidyverse)
 if(!require(readr)){install.packages("readr")}; library(readr)
 if(!require(rstatix)){install.packages("rstatix")}; library(rstatix)
 if(!require(kableExtra)){install.packages("kableExtra")}; library(kableExtra)
+if(!require(broom)){install.packages("broom")}; library(broom)
 ```
 
 Lendo os dados do Github
 
-Os dados que vamos utilizar são os dados disponiblizados pela Fernanda Peres no seu repositório do Github (“Fernanda Peres | Estatística aplicada”, [s.d.]).
+Os dados que vamos utilizar são os dados disponiblizados pela Fernanda Peres no seu repositório do Github (“Fernanda Peres \| Estatística aplicada”, \[s.d.\]).
 
 ```{r}
 #| warning: FALSE
@@ -87,7 +88,7 @@ kable(head(dados))
 #| warning: FALSE
 #| message: FALSE
 # Verificando estrutura dos dados
-str(dados)
+(str(dados))
 ```
 
 **Questões que vamos responder com o teste t**
@@ -103,16 +104,24 @@ $H_1: \text{A média das notas em (Biologia/história) para alunos do sexo Mascu
 **Verificando a distribuição das medidas em cada grupo**
 
 Nota de Biologia
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+media_biol <- dados |> 
+  group_by(Genero) |> 
+  summarise(media = mean(Nota_Biol, na.rm = TRUE))
+
 
 dados |> 
   ggplot(aes(x = Nota_Biol, fill = Genero)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em Biologia por Gênero")
+  labs(title = "Distribuição das notas em Biologia por Gênero")+
+  geom_vline(data = media_biol, aes(xintercept = media, color = Genero),
+             linetype = "dashed", size = 1) 
 ```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -124,19 +133,28 @@ dados |>
   theme_minimal() +
   labs(title = "Boxplot das notas em Biologia por Gênero")
 ```
+
 O gráfico de boxplot mostra que a distribuição das notas em Biologia para alunos do sexo masculino e feminino é semelhante.
 
 Nota de História
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+
+media_hist <- dados |> 
+  group_by(Genero) |> 
+  summarise(media = mean(Nota_Hist, na.rm = TRUE))
 
 dados |> 
   ggplot(aes(x = Nota_Hist, fill = Genero)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em História por Gênero")
-```  
+  labs(title = "Distribuição das notas em História por Gênero")+
+  geom_vline(data = media_hist, aes(xintercept = media, color = Genero),
+             linetype = "dashed", size = 1) 
+```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -147,7 +165,7 @@ dados |>
   geom_boxplot() +
   theme_minimal() +
   labs(title = "Boxplot das notas em História por Gênero")
-```  
+```
 
 O gráfico de boxplot mostra que a distribuição das notas em História para alunos do sexo masculino e feminino é semelhante.
 
@@ -197,7 +215,7 @@ O teste de Levene é um teste de homogeneidade de variância que testa a hipóte
 
 $H_0: \text{As variâncias são iguais}$
 
-$H_1: \text{As variâncias não são iguais}$ 
+$H_1: \text{As variâncias não são iguais}$
 
 Como o valor de p é maior que $0,05$, não rejeitamos a hipótese nula. Portanto, as variâncias são iguais em todos os grupos.
 
@@ -211,7 +229,7 @@ Notas de Biologia
 #| warning: FALSE
 #| message: FALSE
 
-t.test(Nota_Biol ~ Genero, var.equal = TRUE, data = dados)
+kable(tidy(t.test(Nota_Biol ~ Genero, var.equal = TRUE, data = dados)))
 ```
 
 Como o valor de p $(0,6791)$ é maior que $0,05$, rejeitamos a hipótese nula. Portanto, a média das notas em Biologia para alunos do sexo masculino pode ser igual à média das notas em Biologia para alunos do sexo feminino.Outra evidência que temos é que o intervalo de confiança $(-20.24491;  13.36991)$ para a diferença das médias inclui o zero.
@@ -222,7 +240,8 @@ Notas de História
 #| warning: FALSE
 #| message: FALSE
 
-t.test(Nota_Hist ~ Genero, var.equal = TRUE, data = dados)
+kable(tidy(t.test(Nota_Hist ~ Genero, var.equal = TRUE, data = dados)))
+
 ```
 
 Como o valor de p $(0,6791)$ é maior que $0,05$, rejeitamos a hipótese nula. Portanto, a média das notas em História para alunos do sexo masculino pode ser igual à média das notas em História para alunos do sexo feminino. Outra evidência que temos é que o intervalo de confiança $(-20.75202; 14.62702)$ para a diferença das médias inclui o zero.
@@ -238,16 +257,24 @@ $H_1: \text{A média das notas em (Física/Biologia/história) para alunos de es
 **Verificando a distribuição das medidas em cada grupo**
 
 Nota de Física
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+
+media_fisica <- dados |> 
+  group_by(Escola) |> 
+  summarise(media = mean(Nota_Fis, na.rm = TRUE))
 
 dados |> 
   ggplot(aes(x = Nota_Fis, fill = Escola)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em Física por Escola")
+  labs(title = "Distribuição das notas em Física por Escola")+
+  geom_vline(data = media_fisica, aes(xintercept = media, color = Escola),
+             linetype = "dashed", size = 1) 
 ```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -259,19 +286,28 @@ dados |>
   theme_minimal() +
   labs(title = "Boxplot das notas em Física por Escola")
 ```
+
 O gráfico de boxplot mostra que a distribuição das notas em Física para alunos de escolas públicas e privadas parece ser diferentes.
 
 Nota de Biologia
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+
+media <- dados |> 
+  group_by(Escola) |> 
+  summarise(media = mean(Nota_Biol, na.rm = TRUE))
 
 dados |> 
   ggplot(aes(x = Nota_Biol, fill = Escola)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em Biologia por Escola")
+  labs(title = "Distribuição das notas em Biologia por Escola") +
+  geom_vline(data = media, aes(xintercept = media, color = Escola),
+             linetype = "dashed", size = 1) 
 ```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -283,18 +319,25 @@ dados |>
   theme_minimal() +
   labs(title = "Boxplot das notas em Biologia por Escola")
 ```
+
 O gráfico de boxplot mostra que a distribuição das notas em Biologia para alunos de escolas públicas e privadas parece ser diferentes.
 
 Nota de História
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+media <- dados |> 
+  group_by(Escola) |> 
+  summarise(media = mean(Nota_Hist, na.rm = TRUE))
 
 dados |> 
   ggplot(aes(x = Nota_Hist, fill = Escola)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em História por Escola")
+  labs(title = "Distribuição das notas em História por Escola") +
+  geom_vline(data = media, aes(xintercept = media, color = Escola),
+             linetype = "dashed", size = 1) 
 ```
 
 ```{r}
@@ -309,6 +352,7 @@ dados |>
   labs(title = "Boxplot das notas em História por Escola")
 
 ```
+
 O gráfico de boxplot mostra que a distribuição das notas em História para alunos de escolas públicas e privadas parece ser diferentes.
 
 **Verificando pressupostos para o teste T para amostras independentes**
@@ -322,6 +366,7 @@ kable(dados |>
   group_by(Escola) |> 
   shapiro_test(Nota_Fis, Nota_Biol, Nota_Hist))
 ```
+
 Como o valor de p é menor que $0,05$, em quase todos os grupos rejeitamos a hipótese nula. Portanto, a variável dependente não é normalmente distribuída em todos os grupos. Com isso, já poderíamos parar por aqui, pois o teste T para amostras independentes requer que a variável dependente seja normalmente distribuída em cada grupo.
 
 2.  Verificando homogeneidade de variância
@@ -332,6 +377,7 @@ Como o valor de p é menor que $0,05$, em quase todos os grupos rejeitamos a hip
 
 kable(levene_test(Nota_Biol ~ Escola, data = dados, center = "mean"))
 ```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -345,6 +391,7 @@ kable(levene_test(Nota_Fis ~ Escola, data = dados, center = "mean"))
 
 kable(levene_test(Nota_Hist ~ Genero, data = dados, center = "mean"))
 ```
+
 Assim como o teste de normalidade, o teste de homogeneidade de variância também não é atendido. Portanto, não podemos prosseguir com o teste T para amostras independentes.
 
 **Questão 3:** Existe diferença entre as notas em Biologia/História de alunos que se sentam na frente e fundo da sala?
@@ -358,16 +405,23 @@ $H_1: \text{A média das notas em (Biologia/história) para alunos que se sentam
 **Verificando a distribuição das medidas em cada grupo**
 
 Notas de Biologia
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+media <- dados |> 
+  group_by(Posicao_Sala) |> 
+  summarise(media = mean(Nota_Biol, na.rm = TRUE))
 
 dados |> 
   ggplot(aes(x = Nota_Biol, fill = Posicao_Sala)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em História por Posição na Sala")
+  labs(title = "Distribuição das notas em Biologia por Posição na Sala") +
+  geom_vline(data = media, aes(xintercept = media, color = Posicao_Sala),
+             linetype = "dashed", size = 1)
 ```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -380,19 +434,27 @@ dados |>
   labs(title = "Boxplot das notas em Biologia por Posição na Sala")
 
 ```
+
 O gráfico de boxplot mostra que a distribuição das notas em Biologia para alunos que se sentam na frente e fundo da sala parece ser diferentes.
 
 Notas de História
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+media <- dados |> 
+  group_by(Posicao_Sala) |> 
+  summarise(media = mean(Nota_Hist, na.rm = TRUE))
 
 dados |> 
   ggplot(aes(x = Nota_Hist, fill = Posicao_Sala)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas em História por Posição na Sala")
+  labs(title = "Distribuição das notas em História por Posição na Sala") +
+  geom_vline(data = media, aes(xintercept = media, color = Posicao_Sala),
+             linetype = "dashed", size = 1)
 ```
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -405,6 +467,7 @@ dados |>
   labs(title = "Boxplot das notas em História por Posição na Sala")
 
 ```
+
 O gráfico de boxplot mostra que a distribuição das notas em História para alunos que se sentam na frente e fundo da sala parece ser diferentes.
 
 **Verificando pressupostos para o teste T para amostras independentes**
@@ -429,6 +492,7 @@ Como o valor de p é maior que $0,05$, em todos os grupos não rejeitamos a hip�
 
 kable(levene_test(Nota_Hist ~ Posicao_Sala, data = dados, center = "mean"))
 ```
+
 O teste de homogeneidade de variância não foi atendido. Portanto, não podemos prosseguir com o teste T para amostras independentes para a variável Nota_Hist.
 
 ```{r}
@@ -437,15 +501,18 @@ O teste de homogeneidade de variância não foi atendido. Portanto, não podemos
 
 kable(levene_test(Nota_Biol ~ Posicao_Sala, data = dados, center = "mean"))
 ```
+
 Já aqui, o teste de homogeneidade de variância foi atendido. Portanto, podemos prosseguir com o teste T para amostras independentes para a variável Nota_Biol.
 
 **Realizando o teste T para amostras independentes**
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 
-t.test(Nota_Biol ~ Posicao_Sala, var.equal = TRUE, data = dados)
+kable(tidy(t.test(Nota_Biol ~ Posicao_Sala, var.equal = TRUE, data = dados)))
 ```
+
 Como o valor de p $(0.02401)$ é menor que $0,05$, rejeitamos a hipótese nula. Portanto, a média das notas em Biologia para alunos que se sentam na frente pode ser diferente da média das notas em Biologia para alunos que se sentam no fundo. Outra evidência que temos é que o intervalo de confiança $(2.542596;  33.527992)$ para a diferença das médias não inclui o zero.
 
 ## Teste T para amostras pareadas
@@ -470,19 +537,20 @@ $Y \sim Normal(\mu, \sigma^2_Y)$
 
 A fórmula do teste T para amostras pareadas é:
 
-$$t = \frac{\bar{d}}{\frac{s_d}{\sqrt{n}}}$$ 
+$$t = \frac{\bar{d}}{\frac{s_d}{\sqrt{n}}}$$
 
-Onde: 
+Onde:
 
-- $\bar{d}$ é a média das diferenças entre as duas amostras.
+-   $\bar{d}$ é a média das diferenças entre as duas amostras.
 
-- $s_d$ é o desvio padrão das diferenças entre as duas amostras.
+-   $s_d$ é o desvio padrão das diferenças entre as duas amostras.
 
-- $n$ é o tamanho das amostras.
+-   $n$ é o tamanho das amostras.
 
 Aplicação no R:
 
 Para fins didáticos, vamos criar um exemplo fictício de um teste T para amostras pareadas.Para tal, vamos supor que a nota de física será a nota da segunda prova de Biologia.
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
@@ -495,14 +563,18 @@ dados_01 <- dados |>
 ```{r}
 #| warning: FALSE
 #| message: FALSE
+mean_Nota_Biol <- mean(dados_01$Nota_Biol, na.rm = TRUE)
+mean_Nota_Biol_2 <- mean(dados_01$Nota_Biol_2, na.rm = TRUE)
+
 dados_01 |> 
-  ggplot(aes(x = Nota_Biol, fill = "Nota_Biol")) +
-  geom_density(alpha = 0.5) +
+  ggplot(aes(x = Nota_Biol)) +
+  geom_density(aes(fill = "Nota_Biol"), alpha = 0.5) +
   geom_density(aes(x = Nota_Biol_2, fill = "Nota_Biol_2"), alpha = 0.5) +
   theme_minimal() +
-  labs(title = "Distribuição das notas de Biologia e Biologia 2")
+  labs(title = "Distribuição das notas de Biologia e Biologia 2", fill = "Variável") +
+  geom_vline(aes(xintercept = mean_Nota_Biol, color = "Nota_Biol"), linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = mean_Nota_Biol_2, color = "Nota_Biol_2"), linetype = "dashed", size = 1)
 ```
-
 
 ```{r}
 #| warning: FALSE
@@ -516,26 +588,28 @@ dados_01 |>
   labs(title = "Boxplot das notas de Biologia e Biologia 2")
   
 ```
+
 Aqui, podemos notar que a distribuição das notas de Biologia e Biologia 2 é semelhante.Agora vamos realizar o teste T para amostras pareadas para verificar se isso se confirma.
 
 **Realizando o teste T para amostras pareadas**
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 
-t.test(dados_01$Nota_Biol_2, dados_01$Nota_Biol, paired = TRUE)
+kable(tidy(t.test(dados_01$Nota_Biol_2, dados_01$Nota_Biol, paired = TRUE)))
 ```
-Como o valor de p $(0.3335)$ é maior que $0,05$, não rejeitamos a hipótese nula. Portanto, a média das notas de Biologia pode ser igual à média das notas de Biologia 2. Outra evidência que temos é que o intervalo de confiança $(-2.292,  6.292)$ para a diferença das médias inclui o zero.
 
+Como o valor de p $(0.3335)$ é maior que $0,05$, não rejeitamos a hipótese nula. Portanto, a média das notas de Biologia pode ser igual à média das notas de Biologia 2. Outra evidência que temos é que o intervalo de confiança $(-2.292,  6.292)$ para a diferença das médias inclui o zero.
 
 **Referências**
 
-BARBETTA, P. A. Estatística aplicada às Ciências Sociais. [s.l.] Editora UFSC, 2014. 
+BARBETTA, P. A. Estatística aplicada às Ciências Sociais. \[s.l.\] Editora UFSC, 2014.
 
-Fernanda Peres | Estatística aplicada. Disponível em: <https://fernandafperes.com.br/>. Acesso em: 25 maio. 2024. 
+Fernanda Peres \| Estatística aplicada. Disponível em: <https://fernandafperes.com.br/>. Acesso em: 25 maio. 2024.
 
-FIGUEIREDO FILHO, D. B. Métodos quantitativos em ciência política. [s.l.] Editora Intersaberes, 2019. 
+FIGUEIREDO FILHO, D. B. Métodos quantitativos em ciência política. \[s.l.\] Editora Intersaberes, 2019.
 
 GASPAR, J. DE S. Como descrever meus dados e quais testes estatísticos devo usar? Zenodo, , 22 abr. 2023. Disponível em: <https://zenodo.org/records/7855276>. Acesso em: 23 jan. 2024
 
----
+------------------------------------------------------------------------

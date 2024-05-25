@@ -72,6 +72,8 @@ dados <-
 Tratamento dos dados
 ```{r}
 #| label: prep-data
+#| message: false
+#| warning: false
 
 dados_prep <- dados |> 
   drop_na() |> 
@@ -81,7 +83,19 @@ dados_prep <- dados |>
        TIPO_BOLSA == "BOLSA PARCIAL 50%" ~ "PARCIAL",
        TIPO_BOLSA == "BOLSA COMPLEMENTAR 25%" ~ "BOLSA COMPLEMENTAR 25%",
        TIPO_BOLSA == "INTEGRAL" ~ "INTEGRAL",
-       TIPO_BOLSA == "PARCIAL" ~ "PARCIAL"))
+       TIPO_BOLSA == "PARCIAL" ~ "PARCIAL")) |> 
+  mutate(
+    REGIAO_BENEFICIARIO_BOLSA = case_when(
+      REGIAO_BENEFICIARIO_BOLSA == "NORTE" ~ "Norte",
+      REGIAO_BENEFICIARIO_BOLSA == "NORDESTE" ~ "Nordeste",
+      REGIAO_BENEFICIARIO_BOLSA == "CENTRO-OESTE" ~ "Centro-Oeste",
+      REGIAO_BENEFICIARIO_BOLSA == "SUDESTE" ~ "Sudeste",
+      REGIAO_BENEFICIARIO_BOLSA == "SUL" ~ "Sul",
+      REGIAO_BENEFICIARIO_BOLSA == "Norte" ~ "Norte",
+      REGIAO_BENEFICIARIO_BOLSA == "Nordeste" ~ "Nordeste",
+      REGIAO_BENEFICIARIO_BOLSA == "Centro-Oeste" ~ "Centro-Oeste",
+      REGIAO_BENEFICIARIO_BOLSA == "Sudeste" ~ "Sudeste",
+      REGIAO_BENEFICIARIO_BOLSA == "Sul" ~ "Sul"))
 ```
 
 ## Capítulo 1: O Início de uma Jornada
@@ -109,5 +123,71 @@ dados_prep  |>
 Como podemos notar o ano de 2015 foi o que mais teve bolsas concedidas. Tivemos um aumento até 2015 e depois uma queda.
 
 ## Capítulo 2: Distribuição de Bolsas por Região
+
+Gráfico de Número de Bolsas Concedidas por Ano e Região
+```{r}
+dados_prep |> 
+  group_by(ano = as.factor(ANO_CONCESSAO_BOLSA), regiao = REGIAO_BENEFICIARIO_BOLSA) |> 
+  summarise(qtd_bolsas_ano = n(), .groups = 'drop') %>%
+  ggplot(mapping = aes(x = ano, y = qtd_bolsas_ano, fill = regiao, label = qtd_bolsas_ano)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(position = position_stack(vjust = 0.5), size = 3, color = "white") +
+  labs(
+    title = "Número de Bolsas Concedidas por Ano e Região", 
+    subtitle = "PROUNI - (2005 - 2020)", 
+    y = "Quantidade de Bolsas", 
+    x = "",
+    fill = "Região"
+  ) + 
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.text.x = element_text(size = 10, angle = 45, hjust = 1),
+    axis.text.y = element_text(size = 8),
+    axis.title = element_text(size = 10)
+  ) +
+  scale_fill_brewer(palette = "Set1")
+```
+
+Gráfico de Proporção de Bolsas Concedidas por Ano e Região
+```{r}
+total_por_ano <- dados_prep |> 
+  group_by(as.factor(ANO_CONCESSAO_BOLSA)) |> 
+  summarise(total_bolsas_ano = n(), .groups = 'drop') |> 
+  rename(ano = "as.factor(ANO_CONCESSAO_BOLSA)")
+
+dados_por_ano_regiao <- dados_prep  |> 
+  group_by(ano = as.factor(ANO_CONCESSAO_BOLSA), regiao = REGIAO_BENEFICIARIO_BOLSA)  |> 
+  summarise(qtd_bolsas_ano = n(), .groups = 'drop')
+
+dados_proporcao <- left_join(dados_por_ano_regiao, total_por_ano, by = "ano")  |> 
+  mutate(proporcao = (qtd_bolsas_ano / total_bolsas_ano))
+
+ggplot(dados_proporcao, aes(x = ano, y = proporcao, fill = regiao)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = scales::percent(round(proporcao, 3)), y = proporcao), 
+            position = position_stack(vjust = 0.5), 
+            size = 3, 
+            color = "black") +  
+  labs(
+    title = "Proporção de Bolsas Concedidas por Ano e Região", 
+    subtitle = "PROUNI - (2005 - 2020)", 
+    y = "",
+    x = "",
+    fill = "Região"
+  ) + 
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.text.x = element_text(size = 10, angle = 45, hjust = 1),
+    axis.text.y = element_text(size = 8),
+    axis.title = element_text(size = 10)
+  ) +
+  scale_fill_brewer(palette = "Set1")
+
+```
+
 
 
