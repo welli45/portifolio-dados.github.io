@@ -1,0 +1,82 @@
+---
+title: "Projeto final de Data Analytics do Google"
+subtitle: "Dashboard Interativo"
+description: "O Projeto Final de Data Analytics do Google consistiu em uma análise sobre o perfil religioso do Brasil, utilizando um conjunto de dados público do Censo de 2000 e 2010 do IBGE. O processo começou com a formulação da pergunta de pesquisa, que foi definida como investigar o perfil religioso da população brasileira."
+author: "Wellington Santos Souza"
+date: "2024-02-12"
+categories: [Google, Power BI, Religião, Dados]
+open-graph:
+  description: "Em constru..."
+  image: ../images/07.google/sec.png
+twitter-card:
+  description: "Em constru..."
+  image: ../images/07.google/sec.png
+---
+*Este artigo foi reescrito em Segunda-Feira, 12 de Fevereiro de 2024.*
+
+![](../images/07.google/sec.png)
+
+# Projeto final de Data Analytics do Google
+
+## Estudo de caso
+
+### Resumo do Projeto Final de Data Analytics
+
+O Projeto Final de Data Analytics do Google consistiu em uma análise sobre o perfil religioso do Brasil, utilizando um conjunto de dados público do Censo de 2000 e 2010 do IBGE. O processo começou com a formulação da pergunta de pesquisa, que foi definida como investigar o perfil religioso da população brasileira.
+
+Após a definição da pergunta, foram pesquisadas fontes de dados adequadas para obter informações relevantes. O conjunto de dados do Censo de 2000 e 2010 do IBGE foi identificado como a fonte ideal para o estudo, pois continha informações sobre a religião da população brasileira.
+
+Em seguida, os dados foram limpos e processados utilizando a linguagem de programação R, resultando na criação de uma tabela de dados. Com a tabela pronta, foram criadas visualizações utilizando o Microsoft Power BI, facilitando a compreensão dos dados analisados.
+
+### Obtenção dos dados
+
+Para a obtenção dos dados, foi utilizado o pacote SIDRA, uma API que permite a raspagem (ou coleta) de dados de forma rápida e prática. O SIDRA (Sistema IBGE de Recuperação Automática) é uma ferramenta fornecida pelo Instituto Brasileiro de Geografia e Estatística (IBGE) que possibilita o acesso a diversas informações estatísticas, incluindo os dados do Censo de 2000 e 2010 referentes à religião da população brasileira.
+
+Com o auxílio do pacote SIDRA, os dados necessários para a análise do projeto foram obtidos de maneira automatizada, facilitando o processo de coleta e preparação dos dados para a análise de Data Analytics. Esse tipo de abordagem permite que os dados sejam acessados de forma eficiente e confiável, garantindo a qualidade e a atualização das informações utilizadas no projeto.
+
+### Obtendo os dados de acordo com os parâmetros estabelecidos
+
+Os parâmetros utilizados para a geração das tabelas no projeto foram os seguintes:
+
+1.  Religião: Esse parâmetro permitiu filtrar os dados com base nas diferentes religiões presentes na população brasileira. As religiões consideradas no Censo 2010 podem incluir, por exemplo, católicos, evangélicos, espíritas, entre outras.
+
+2.  Período: O período selecionado refere-se ao ano ou intervalo de tempo em que os dados foram coletados. No caso do projeto, o período correspondeu ao Censo 2010, que é a fonte de dados utilizada.
+
+3.  Cor ou Raça: Esse parâmetro possibilitou a segmentação dos dados com base na autodeclaração dos indivíduos quanto à sua cor ou raça. As categorias podem abranger brancos, negros, pardos, amarelos e indígenas, seguindo a classificação utilizada pelo IBGE.
+
+4.  Sexo: Esse parâmetro permitiu analisar os dados separadamente para homens e mulheres, proporcionando insights sobre possíveis diferenças ou tendências específicas relacionadas à religião.
+
+5.  Unidade Geográfica: Esse parâmetro possibilitou a segmentação dos dados por diferentes unidades geográficas, como estados, municípios, regiões, entre outras. Com isso, foi possível identificar padrões e variações regionais no perfil religioso da população brasileira.
+
+A utilização desses parâmetros foi fundamental para uma análise detalhada e completa sobre o perfil religioso do Brasil, permitindo investigar diferentes aspectos socioculturais relacionados à religião em diferentes contextos geográficos e demográficos.
+
+# Resultados
+
+O projeto consistiu em encontrar um conjunto de dados público sobre um tópico de interesse e realizar uma análise dos dados.
+Este repositório contém os arquivos usados para completar o projeto final de Data Analytics do Google. O projeto consistiu em encontrar um conjunto de dados público sobre um tópico de interesse e realizar uma análise dos dados.
+
+O primeiro passo foi decidir a pergunta de pesquisa. Eu decidi investigar o perfil religioso do Brasil. Depois de decidir a pergunta, eu pesquisei fontes de dados que poderiam fornecer informações relevantes. Encontrei um conjunto de dados do Censo 2010 do IBGE que incluía informações sobre a religião da população brasileira.
+
+O próximo passo foi limpar e processar os dados. Eu usei a linguagem de programação R para limpar os dados e criar uma tabela de dados. Em seguida, usei o Power BI para criar visualizações dos dados.
+
+A análise dos dados revelou que a maioria da população brasileira é católica. No entanto, o número de evangélicos está aumentando. A maior parte dos evangélicos está localizada nas regiões Norte e Nordeste do Brasil.
+
+![image](../images/07.google/pagina_inicial.png)
+
+O gráfico 1 mostra o número de fiéis para cada religião por ano, comparando os anos de 2000 e 2010 no Brasil. A religião Católica teve uma pequena diminuição no número de fiéis, enquanto as "Outras Religiões" e a "Evangélica De Origem Pentecostal" tiveram um aumento significativo. As categorias "Sem Religião", "Evangélica De Missão", "Outras Cristãs" e "Religiões Afro-Brasileiras" também apresentaram crescimento, mas em menor escala.
+
+O gráfico 2 mostra o número de evangélicos por cor/raça e ano no Brasil, comparando os anos 2000 e 2010. Há um aumento notável em todas as categorias, exceto "Sem declaração". A categoria "Parda" teve o maior aumento absoluto, enquanto a categoria "Amarela" teve o maior aumento percentual.
+
+O gráfico 3 mostra o número de católicos por cor/raça e ano no Brasil, comparando os anos 2000 e 2010. Há um aumento notável na quantidade de católicos em todas as categorias de cor/raça, exceto "Sem declaração". A categoria "Branca" tem o maior número de católicos, seguida pela categoria "Parda". As categorias "Amarela", "Indígena" e "Sem declaração" têm números significativamente menores.
+
+O gráfico 4 mostra a distribuição de pessoas que seguem outras religiões ou não têm religião, divididas por cor/raça e ano (2000 e 2010). Há um aumento notável em todas as categorias de cor/raça. A categoria "Parda" viu o maior aumento, de 14 milhões para 125 milhões.
+
+![image](../images/07.google/sec.png)
+
+**Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX**
+
+[Download do Dashboard Projeto Final G. Analytics](..\arquivos-pbix\Projeto Final G. Analytics.pbix)
+
+Além disso, você pode acessar o script R que usei para limpar os dados e criar a tabela de dados.
+
+[Link do repositório do GitHub](https://github.com/welli45/Projeto-final-de-Data-Analytics-do-Google)

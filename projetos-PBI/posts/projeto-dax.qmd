@@ -22,6 +22,6 @@ Essa experiência proporcionou um ambiente de aprendizado altamente envolvente, 
 
 Ao compartilhar este projeto, desejo ressaltar a importância da Linguagem DAX como uma ferramenta poderosa para a análise de dados. A capacidade de criar cálculos personalizados e métricas específicas é fundamental para a compreensão aprofundada dos dados e a geração de insights valiosos. Além disso, a utilização do Power BI como ferramenta de visualização ressalta a importância da proficiência em tecnologias contemporâneas para impulsionar a eficácia das análises de vendas.
 
-**Você pode explorar o Dashboard interativo abaixo.**
+**Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX**
 
-<iframe title="ProjetoMajestic" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiNTAxOTQ3ZjQtYmNlNi00OTk4LTk4MTAtZTYxY2RlZWNjOTMyIiwidCI6IjkzMTA1Y2MzLTI4OTctNDdlMC1iMjY1LWRkZWQ1ODg2MTU2YSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
+[Download Dashboard - Projeto Majestic](..\arquivos-pbix\ProjetoMajestic.pbix)

@@ -20,6 +20,6 @@ O Dashboard de hoje foi elaborado utilizando informações provenientes do Siste
 
 O Dashboard é composto por quatro páginas distintas, cada uma fornecendo uma perspectiva única dos dados coletados. A primeira página apresenta uma visão geral dos óbitos registrados, permitindo a visualização de tendências ao longo do tempo. Além disso, é possível identificar padrões relevantes relacionados à distribuição dos óbitos por região e Unidade da Federação. A segunda página do Dashboard se concentra na análise dos óbitos por UF e Capitais do Brasil. A terceira se concentra nos dados por UF e Municípios´. Já a quarta página você pode explorar os dados com base em critérios específicos, como gênero, identificação étnico-racial, faixa etária e região. Isso permite uma compreensão mais detalhada da distribuição dos óbitos em relação a esses critérios, fornecendo insights valiosos para a formulação de políticas públicas e ações de saúde.
 
-**Você pode explorar o Dashboard interativo abaixo:**
+**Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX**
 
-<iframe title="Sistema de Informações sobre Mortalidade" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiMDFkNDVlNmEtOTA3MC00ZmFjLWIwMWYtOWQ1NzZlZjVmOWY5IiwidCI6IjkzMTA1Y2MzLTI4OTctNDdlMC1iMjY1LWRkZWQ1ODg2MTU2YSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
+[Download do Dashboard Sistema de Informações sobre Mortalidade](..\arquivos-pbix\Sistema de Informações sobre Mortalidade.pbix)
