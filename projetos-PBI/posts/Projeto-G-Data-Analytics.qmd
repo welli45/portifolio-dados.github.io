@@ -30,7 +30,7 @@ Em seguida, os dados foram limpos e processados utilizando a linguagem de progra
 
 ### Obtenção dos dados
 
-Para a obtenção dos dados, foi utilizado o pacote SIDRA, uma API que permite a raspagem (ou coleta) de dados de forma rápida e prática. O SIDRA (Sistema IBGE de Recuperação Automática) é uma ferramenta fornecida pelo Instituto Brasileiro de Geografia e Estatística (IBGE) que possibilita o acesso a diversas informações estatísticas, incluindo os dados do Censo de 2000 e 2010 referentes à religião da população brasileira.
+Para a obtenção dos dados, foi utilizado o pacote SIDRA, uma API que permite a raspagem (ou coleta) de dados de forma rápida e prática. O SIDRA (Sistema IBGE de Recuperação Automática) é uma ferramenta fornecida pelo Instituto Brasileiro de Geografia e Estatística (IBGE) que possibilita o acesso a diversas informações estatísticas, incluindo os dados do Censo de 2000 e 2010 referentes à religião da população brasileira. *Tenho dois tutoriais em como raspar esses dados usando o R e Python, dê uma olhada no meu portifólio*
 
 Com o auxílio do pacote SIDRA, os dados necessários para a análise do projeto foram obtidos de maneira automatizada, facilitando o processo de coleta e preparação dos dados para a análise de Data Analytics. Esse tipo de abordagem permite que os dados sejam acessados de forma eficiente e confiável, garantindo a qualidade e a atualização das informações utilizadas no projeto.
 
