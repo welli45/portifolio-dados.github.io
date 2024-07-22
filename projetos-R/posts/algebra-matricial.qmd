@@ -1,0 +1,188 @@
+---
+title: "Álgebra Matricial"
+subtitle: "Aplicação em R"
+description: "Esse documento foi desenvolvido para organizar meus estudos em álgebra matricial aplicada em R. Aqui você encontrará conceitos, definições, propriedades e aplicações de matrizes e vetores em R."
+author: "Wellington Santos Souza"
+date: "2024-07-22"
+format: 
+  html:
+    code-fold: true
+    code-copy: true
+    code-tools: true
+categories: ["Matemática", "R", 'matrizes',"métodos-multivaridados"]
+open-graph:
+  description: "Matriz"
+  image: ../images/06.matriz/OIP.jpg
+twitter-card:
+  description: "Martriz"
+  image: ../images/06.matriz/OIP.jpg
+---
+
+*Este artigo foi escrito em Segunda, 22 de Julho de 2024.*
+
+![](../images/06.matriz/OIP.jpg){fig-alt="Matriz" fig-title="Matriz"}
+
+# Porque devemos estudar álgebra matricial?
+
+A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial.
+
+# Matrizes, Vetores e escalares
+
+## Matriz
+
+Uma *matriz* m x n é um arranjo de número de com m linhas e n colunas, considerado como uma única entidade.
+
+$$
+A=
+\begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+$$
+
+Veja o exemplo de uma matriz criada no R abaixo.
+
+Para criarmos uma matriz A com 5 linhas x 5 colunas no R usamos os seguintes comandos.
+
+```{r}
+# Criando uma matriz 5 x 5
+A <- matrix(1:25, nrow = 5, ncol = 5)
+A
+```
+
+A matriz acima é uma matriz quadrada, pois o número de linhas é igual ao número de colunas.
+
+## Vetor
+
+Caso tivéssemos uma matriz com uma única coluna, teríamos um vetor coluna. Veja o exemplo abaixo.
+
+$$
+\mathbf{c} = \begin{bmatrix}
+    c_1 \\
+    c_2 \\
+    \vdots \\
+    c_m
+\end{bmatrix}
+$$
+
+```{r}
+# Criando um vetor coluna da matriz A
+c <- A[,1]
+c
+```
+
+Caso tivéssemos somente uma linha, teríamos um vetor linha. Veja o exemplo abaixo.
+
+$$
+\mathbf{r} = \begin{bmatrix}
+    r_1 & r_2 & \cdots & r_n
+\end{bmatrix}
+$$
+
+```{r}
+# Criando um vetor linha da matriz A
+r <- A[1,]
+r
+```
+
+## Escalar
+
+Em álgebra matricial um escalar pode ser definido como um único número $k = a_{11}$
+```{r}
+# escalar
+k <- A[1,1]
+k
+```
+
+
+## Tipos de Matrizes
+
+Há diversos tipos de matrizes, dentre elas podemos citar:
+
+Matriz zero: matriz onde todos os elementos são iguais a zero.
+```{r}
+# Matriz zero
+Z <- matrix(0, nrow = 5, ncol = 5)
+Z
+```
+Matriz diagonal: matriz onde todos os elementos fora da diagonal principal são iguais a zero.
+```{r}
+# Matriz diagonal
+D <- diag(1:5)
+D
+```
+
+Matriz simétrica: matriz onde a transposta é igual a matriz original.
+```{r}
+# Matriz simétrica
+n = 4
+l = matrix(1:(n:4), nrow = n, ncol = n)
+
+S <- l + t(l)
+S
+```
+```{r}
+# Verificando se a matriz é simétrica
+t(S)
+```
+
+Matriz identidade: matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.
+```{r}
+# Matriz identidade
+I <- diag(1, nrow = 5, ncol = 5)
+I
+```
+
+Duas _matrizes são iguais_ se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.
+
+```{r}
+X = matrix(1:25, nrow = 5, ncol = 5)
+Y = matrix(1:25, nrow = 5, ncol = 5)
+# Verificando se duas matrizes são iguais
+X == Y
+```
+
+O _traço_ de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir $X$ criada anteriormente.
+```{r}
+# Traço de uma matriz
+sum(diag(X))
+```
+
+## Operações com Matrizes
+
+Soma e subtração de matrizes
+
+Soma: a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes.
+Por exemplo, sejam as matrizes $A$ e $B$ abaixo.
+
+```{r}
+A = matrix(1:25, nrow = 5, ncol = 5)
+
+B = matrix(26:50, nrow = 5, ncol = 5)
+
+# Soma de matrizes
+A + B
+```
+
+
+Subtração: a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes $A$ e $B$ criadas anteriormente, temos:
+
+```{r}
+# Subtração de matrizes
+A - B
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
