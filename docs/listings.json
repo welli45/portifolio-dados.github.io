@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/projetos-R/posts/algebra-matricial.html",
       "/projetos-R/posts/Script-Teste-T.html",
       "/projetos-R/posts/analise-PROUNI.html",
       "/projetos-R/posts/analise-DataSenado.html",
@@ -18,6 +19,7 @@
   {
     "listing": "/projetos-R/index.html",
     "items": [
+      "/projetos-R/posts/algebra-matricial.html",
       "/projetos-R/posts/Script-Teste-T.html",
       "/projetos-R/posts/analise-PROUNI.html",
       "/projetos-R/posts/analise-DataSenado.html",
@@ -45,7 +47,6 @@
   {
     "listing": "/Vida-Academica/index.html",
     "items": [
-      "/Vida-Academica/posts/palestras-GIARS.html",
       "/Vida-Academica/posts/redes_completas.html"
     ]
   },

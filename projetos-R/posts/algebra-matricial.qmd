@@ -44,7 +44,7 @@ $$
 
 Veja o exemplo de uma matriz criada no R abaixo.
 
-Para criarmos uma matriz A com 5 linhas x 5 colunas no R usamos os seguintes comandos.
+Para criarmos uma matriz **A** com 5 linhas x 5 colunas no R usamos os seguintes comandos.
 
 ```{r}
 # Criando uma matriz 5 x 5
@@ -73,7 +73,7 @@ c <- A[,1]
 c
 ```
 
-Caso tivéssemos somente uma linha, teríamos um vetor linha. Veja o exemplo abaixo.
+Caso tivéssemos somente uma linha, teríamos um **vetor linha**. Veja o exemplo abaixo.
 
 $$
 \mathbf{r} = \begin{bmatrix}
@@ -89,32 +89,36 @@ r
 
 ## Escalar
 
-Em álgebra matricial um escalar pode ser definido como um único número $k = a_{11}$
+Em álgebra matricial um *escalar* pode ser definido como um único número $k = a_{11}$
+
 ```{r}
 # escalar
-k <- A[1,1]
+k <- A[3,3]
 k
 ```
-
 
 ## Tipos de Matrizes
 
 Há diversos tipos de matrizes, dentre elas podemos citar:
 
-Matriz zero: matriz onde todos os elementos são iguais a zero.
+**Matriz zero:** matriz onde todos os elementos são iguais a zero.
+
 ```{r}
 # Matriz zero
 Z <- matrix(0, nrow = 5, ncol = 5)
 Z
 ```
-Matriz diagonal: matriz onde todos os elementos fora da diagonal principal são iguais a zero.
+
+**Matriz diagonal:** matriz onde todos os elementos fora da diagonal principal são iguais a zero.
+
 ```{r}
 # Matriz diagonal
 D <- diag(1:5)
 D
 ```
 
-Matriz simétrica: matriz onde a transposta é igual a matriz original.
+**Matriz simétrica:** matriz onde a transposta é igual a matriz original.
+
 ```{r}
 # Matriz simétrica
 n = 4
@@ -123,19 +127,21 @@ l = matrix(1:(n:4), nrow = n, ncol = n)
 S <- l + t(l)
 S
 ```
+
 ```{r}
 # Verificando se a matriz é simétrica
 t(S)
 ```
 
-Matriz identidade: matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.
+**Matriz identidade:** matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.
+
 ```{r}
 # Matriz identidade
 I <- diag(1, nrow = 5, ncol = 5)
 I
 ```
 
-Duas _matrizes são iguais_ se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.
+Duas **matrizes são iguais** se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.
 
 ```{r}
 X = matrix(1:25, nrow = 5, ncol = 5)
@@ -144,7 +150,8 @@ Y = matrix(1:25, nrow = 5, ncol = 5)
 X == Y
 ```
 
-O _traço_ de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir $X$ criada anteriormente.
+O **traço** de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir $X$ criada anteriormente.
+
 ```{r}
 # Traço de uma matriz
 sum(diag(X))
@@ -152,10 +159,9 @@ sum(diag(X))
 
 ## Operações com Matrizes
 
-Soma e subtração de matrizes
+### Soma e subtração de matrizes
 
-Soma: a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes.
-Por exemplo, sejam as matrizes $A$ e $B$ abaixo.
+**Soma:** a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes. Por exemplo, sejam as matrizes $A$ e $B$ abaixo.
 
 ```{r}
 A = matrix(1:25, nrow = 5, ncol = 5)
@@ -166,23 +172,199 @@ B = matrix(26:50, nrow = 5, ncol = 5)
 A + B
 ```
 
-
-Subtração: a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes $A$ e $B$ criadas anteriormente, temos:
+**Subtração:** a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes **A** e **B** criadas anteriormente, temos:
 
 ```{r}
 # Subtração de matrizes
 A - B
 ```
 
+### Multiplicação
 
+Multiplicação de uma matriz com um escalar
 
+A multiplicação de um escalar com uma matriz é defina por: a multiplicação de cada elemento de **A** por **k**. Observe o exemplo a seguir aplicado ao R.
 
+Escalar K
 
+```{r}
+k
+```
 
+Matriz A
 
+```{r}
+A
+```
 
+Escalar k multiplicado pela matriz A:
 
+```{r}
+# escalar k multiplicado pela matriz A.
+k * A
+```
 
+Já a multilicação de duas matrizes definidas como **A**x**B** não é tão simples. AxB é definida somente se, o número de colunas de **A** é igual ao número de linhas de **B**. Veja o exemplo a seguir, aqui assumimos que **A** é de tamanho mxn e **B** nxc, então a multiplicação é definida para reproduzir o resultado **A**x**B**.
 
+Veja o exemplo aplicado ao R:
+
+Matriz **A**
+
+```{r}
+A = matrix(1:15, nrow = 3, ncol = 5)
+A
+```
+
+Matriz **B**
+
+```{r}
+B = matrix(1:30, nrow = 5, ncol = 6)
+B
+```
+
+A matriz A multiplicado pela matriz **B** usando o R, observe que o código `A%*%B` produz uma multiplicação de matrizes compatíveis, de acordo com a definição enterior, não é uma multiplicação padrão.
+
+```{r}
+A%*%B
+```
+
+Assim, o elemento da i-ésima linha e k-ésima coluna de **A**x**B** é: $$
+\sum{a_{ij}*b_{jk} = a_{i1}*b_{1k} + a_{i2}*b_{2k} + ...+a_{in}*b_{nk}}
+$$ Nesse caso o elemento $a_{11} = 135$ na multiplicação anteior foi definido por:
+
+```{r}
+sum((A[1,]*B[,1]))
+```
+
+O elemento $a_{12} = 310$
+
+```{r}
+sum((A[1,]*B[,2]))
+```
+
+Quando as matrizes **A** e **B** são matrizes quadradas **A**x**B** está definida. Entretanto AxB é diferente de **B**x**A**. Veja o exemplo abaixo:
+
+Matriz quadrada **A**
+
+```{r}
+A = matrix(c(2,1,-1,1), nrow = 2, ncol = 2)
+A
+```
+
+Matriz quadrada **B**
+
+```{r}
+B = matrix(c(1,0,1,1), nrow = 2, ncol = 2)
+B
+```
+
+Então **A**x**B**:
+
+```{r}
+A%*%B
+```
+
+e **B**x**A**:
+
+```{r}
+B%*%A
+```
+
+## Inversão matricial
+
+A inversão matricial é análogo ao processo comum aritmético de divisão. Onde, para um escalar **k**, é certamente verdadeiro que $k*k^{-1}=1$. Veja o exemplo abaixo apicado no R, onde temos o escalar $k = 978$.
+
+```{r}
+k = matrix(978)
+k
+```
+
+A matriz inversa $k^{-1}$ é:
+
+```{r}
+solve(k)
+```
+
+Então $k*k^{-1}$ é dado por:
+
+```{r}
+k*solve(k)
+```
+
+De maneira similar se **A** é uma matriz quadrada e $A*A^{-1} = I$, em que $I$ é a matriz identidade, então a matriz $A^{-1}$ é a inversa de **A**. Veja o exemplo abaixo:
+
+```{r}
+A = matrix(c(2,1,1,2),2,2)
+A
+```
+
+Inversa da matriz **A**
+
+```{r}
+solve(A)
+```
+
+então, $A*A^{-1}$ é:
+
+```{r}
+round(A*solve(A))
+```
+
+Lembre-se que, as inversas só exestem para matrizes quadradas, mas nem toda matriz quadrada possui inversa. A matriz inversa de uma matriz 2 x 2, se existe, pode ser facilmente calculada. A equação é:
+
+$$
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}^{-1} = 
+\begin{bmatrix}
+a/\Delta & b/\Delta \\
+c/\Delta & d/\Delta
+\end{bmatrix}
+$$ onde $\Delta = (a*d)-(b*c)$. Aqui o escalar $\Delta$ é chamado de *determinante* da matriz que está sendo invertida. Portanto, se $\Delta = 0$ a matriz inversa não é definida.
+
+Por isso, se o determinante é 0, então a inversa não existe, e vice-versa. Uma matriz com determinate 0 é chamada de **singular**.
+
+Uma matriz com a *inversa* igual à *transposta* é dita **ortogonais**. Portanto, **A** é ortogonal se $A^{-1} = **A**'$.
+
+# Formas quadráticas
+
+Supomos que **A** é uma mariz quadrada axa e x é um vetor coluna de comprimento a. Então a quantidade Q é: $$
+Q=x'Ax
+$$ Veja o exemplo no R:
+
+Matriz **A**
+
+```{r}
+# matriz A
+A = matrix(1:4,2,2)
+A
+```
+
+Vetor coluna **x**
+
+```{r}
+x = matrix(10:11,2,1)
+x
+```
+
+Assim, Q é igual a:
+
+```{r}
+Q=t(x)%*%A%*%x
+Q
+```
+
+Esse escalar chamado de *forma quadrática*. Pode também ser expresso como: $$
+Q=\sum^n_{i=1}\sum^n_{j=1}{x_ia{ij}x_j}
+$$ Onde,
+
+-    $x_i$: elemento da $i-ésima$ linha de x
+
+-   $a_{ij}$: é o elemento na $i-ésima$ linha e $j-ésima$ coluna de uma matiz **A**.
+
+# Autovalores e autovetores
+
+# Referências
 
 
