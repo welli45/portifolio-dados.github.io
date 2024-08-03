@@ -15,7 +15,7 @@
 <link>https://github.com/welli45/portifolio/projetos-R/</link>
 </image>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Mon, 22 Jul 2024 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 03 Aug 2024 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Introdução Álgebra Matricial</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
@@ -25,7 +25,7 @@
 
 
 
-<p><em>Este artigo foi escrito em Segunda, 22 de Julho de 2024.</em></p>
+<p><em>Este artigo foi escrito em Segunda, 03 de Agosto de 2024.</em></p>
 <p><img src="https://github.com/welli45/portifolio/projetos-R/images/06.matriz/OIP.jpg" class="img-fluid" data-fig-title="Matriz" alt="Matriz"></p>
 <section id="porque-devemos-estudar-álgebra-matricial" class="level1">
 <h1>Porque devemos estudar álgebra matricial?</h1>
@@ -1036,7 +1036,7 @@ font-style: inherit;">%*%</span>x</span>
   <category>matrizes</category>
   <category>métodos-multivaridados</category>
   <guid>https://github.com/welli45/portifolio/projetos-R/posts/algebra-matricial.html</guid>
-  <pubDate>Mon, 22 Jul 2024 03:00:00 GMT</pubDate>
+  <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Teste T para amostras independentes e amostras pareadas</title>

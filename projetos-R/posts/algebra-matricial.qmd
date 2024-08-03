@@ -3,7 +3,7 @@ title: "Introdução Álgebra Matricial"
 subtitle: "Aplicação em R"
 description: "Esse documento foi desenvolvido para organizar meus estudos em álgebra matricial aplicada em R. Aqui você encontrará conceitos, definições, propriedades e aplicações de matrizes e vetores em R."
 author: "Wellington Santos Souza"
-date: "2024-07-22"
+date: "2024-08-03"
 format: 
   html:
     code-fold: true
@@ -19,7 +19,7 @@ twitter-card:
 bibliography: references.bib
 ---
 
-*Este artigo foi escrito em Segunda, 22 de Julho de 2024.*
+*Este artigo foi escrito em Segunda, 03 de Agosto de 2024.*
 
 ![](../images/06.matriz/OIP.jpg){fig-alt="Matriz" fig-title="Matriz"}
 
