@@ -34,8 +34,8 @@
 <h3 class="anchored" data-anchor-id="notações">Notações</h3>
 <table class="table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 34%">
+<col style="width: 65%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1014,8 +1014,8 @@ font-style: inherit;">%*%</span>x</span>
 <li><p><img src="https://latex.codecogs.com/png.latex?a_%7Bij%7D">: é o elemento na <img src="https://latex.codecogs.com/png.latex?i-%C3%A9sima"> linha e <img src="https://latex.codecogs.com/png.latex?j-%C3%A9sima"> coluna de uma matiz <strong>A</strong>.</p></li>
 </ul>
 </section>
-<section id="autovalores-e-autovetores" class="level1">
-<h1>Autovalores e autovetores</h1>
+<section id="section" class="level1">
+<h1></h1>
 </section>
 <section id="referências" class="level1">
 
