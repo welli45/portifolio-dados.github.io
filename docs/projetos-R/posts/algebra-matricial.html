@@ -9,7 +9,7 @@
 <meta name="author" content="Wellington Santos Souza">
 <meta name="description" content="Esse documento foi desenvolvido para organizar meus estudos em álgebra matricial aplicada em R. Aqui você encontrará conceitos, definições, propriedades e aplicações de matrizes e vetores em R.">
 
-<title>Portifólio de Dados - Álgebra Matricial</title>
+<title>Portifólio de Dados - Introdução Álgebra Matricial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -137,7 +157,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Portifólio de Dados - Álgebra Matricial">
+<meta property="og:title" content="Portifólio de Dados - Introdução Álgebra Matricial">
 <meta property="og:description" content="Matriz">
 <meta property="og:image" content="https://github.com/welli45/portifolio/projetos-R/images/06.matriz/OIP.jpg">
 <meta property="og:site_name" content="Portifólio de Dados">
@@ -224,7 +244,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#porque-devemos-estudar-álgebra-matricial" id="toc-porque-devemos-estudar-álgebra-matricial" class="nav-link active" data-scroll-target="#porque-devemos-estudar-álgebra-matricial">Porque devemos estudar álgebra matricial?</a></li>
+  <li><a href="#porque-devemos-estudar-álgebra-matricial" id="toc-porque-devemos-estudar-álgebra-matricial" class="nav-link active" data-scroll-target="#porque-devemos-estudar-álgebra-matricial">Porque devemos estudar álgebra matricial?</a>
+  <ul>
+  <li><a href="#notações" id="toc-notações" class="nav-link" data-scroll-target="#notações">Notações</a></li>
+  </ul></li>
   <li><a href="#matrizes-vetores-e-escalares" id="toc-matrizes-vetores-e-escalares" class="nav-link" data-scroll-target="#matrizes-vetores-e-escalares">Matrizes, Vetores e escalares</a>
   <ul>
   <li><a href="#matriz" id="toc-matriz" class="nav-link" data-scroll-target="#matriz">Matriz</a></li>
@@ -239,6 +262,8 @@ window.Quarto = {
   <li><a href="#inversão-matricial" id="toc-inversão-matricial" class="nav-link" data-scroll-target="#inversão-matricial">Inversão matricial</a></li>
   </ul></li>
   <li><a href="#formas-quadráticas" id="toc-formas-quadráticas" class="nav-link" data-scroll-target="#formas-quadráticas">Formas quadráticas</a></li>
+  <li><a href="#autovalores-e-autovetores" id="toc-autovalores-e-autovetores" class="nav-link" data-scroll-target="#autovalores-e-autovetores">Autovalores e autovetores</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
   </ul>
 </nav>
     </div>
@@ -247,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Álgebra Matricial</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Introdução Álgebra Matricial</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 <p class="subtitle lead">Aplicação em R</p>
   <div class="quarto-categories">
     <div class="quarto-category">Matemática</div>
@@ -292,7 +317,82 @@ window.Quarto = {
 <p><img src="../images/06.matriz/OIP.jpg" class="img-fluid" data-fig-title="Matriz" alt="Matriz"></p>
 <section id="porque-devemos-estudar-álgebra-matricial" class="level1">
 <h1>Porque devemos estudar álgebra matricial?</h1>
-<p>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial.</p>
+<p>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial <span class="citation" data-cites="métodos2021">(<a href="#ref-métodos2021" role="doc-biblioref"><em>Métodos estatísticos multivariados: uma introdução</em> 2021</a>)</span>.</p>
+<section id="notações" class="level3">
+<h3 class="anchored" data-anchor-id="notações">Notações</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 66%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A, B, C\)</span></td>
+<td><span class="math inline">\(\text{letras maiúsculas representam matrizes}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(u, v, w\)</span></td>
+<td><span class="math inline">\(\text{letras minúsculas representam vetores}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\text{A de tamanho m x n ou (m x n)}\)</span></td>
+<td><span class="math inline">\(\text{a matriz A tem linhas m e colunas n }\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A^T\)</span></td>
+<td><span class="math inline">\(\text{a transposição da matriz A}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(v^T\)</span></td>
+<td><span class="math inline">\(\text{a transposição do vetor v}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A^{-1}\)</span></td>
+<td><span class="math inline">\(\text{o inverso da matriz A}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\text{det (A)}\)</span></td>
+<td><span class="math inline">\(\text{o determinate da matriz A}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(AB\)</span></td>
+<td><span class="math inline">\(\text{multilicação das matrizes A e B}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(u ⋅ v; ⟨u,v⟩\)</span></td>
+<td><span class="math inline">\(\text{produto escalar de vetores u e v}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{R}\)</span></td>
+<td><span class="math inline">\(\text{conjunto de vetores bidimensionais, por exempo 0, -0.3, 2,3.4}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{R}^2\)</span></td>
+<td>conjunto de vetores bidimensionais, por exemplo<span class="math inline">\(v = [1- 3]^T\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{R}^n\)</span></td>
+<td><span class="math inline">\(\text{conjunto devetores n-dimensionais}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(v \in \mathbb{R}^2\)</span></td>
+<td>o vetor <span class="math inline">\(v\)</span> é um elemento de <span class="math inline">\(\mathbb{R}^2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(|v|_1\)</span></td>
+<td><span class="math inline">\(\text{Normal L1 de um vetor}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(|v|_2;|v|;||v||\)</span></td>
+<td><span class="math inline">\(\text{Norma L2 de um vetor}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(T:\mathbb{R}2\to\mathbb{R}^3;T(v) = w\)</span></td>
+<td>transformação <span class="math inline">\(T\)</span> de um vetor <span class="math inline">\(v \in \mathbb{R}\)</span> no vetor <span class="math inline">\(w \in \mathbb{R}^3\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="matrizes-vetores-e-escalares" class="level1">
 <h1>Matrizes, Vetores e escalares</h1>
@@ -796,7 +896,7 @@ c/\Delta &amp; d/\Delta
 </section>
 <section id="formas-quadráticas" class="level1">
 <h1>Formas quadráticas</h1>
-<p>Supomos que <strong>A</strong> é uma mariz quadrada axa e x é um vetor coluna de comprimento a. Então a quantidade <span class="math display">\[
+<p>Supomos que <strong>A</strong> é uma mariz quadrada axa e x é um vetor coluna de comprimento a. Então a quantidade Q é: <span class="math display">\[
 Q=x'Ax
 \]</span> Veja o exemplo no R:</p>
 <p>Matriz <strong>A</strong></p>
@@ -840,14 +940,29 @@ Q=x'Ax
 </div>
 <p>Esse escalar chamado de <em>forma quadrática</em>. Pode também ser expresso como: <span class="math display">\[
 Q=\sum^n_{i=1}\sum^n_{j=1}{x_ia{ij}x_j}
-\]</span></p>
+\]</span> Onde,</p>
+<ul>
+<li><p><span class="math inline">\(x_i\)</span>: elemento da <span class="math inline">\(i-ésima\)</span> linha de x</p></li>
+<li><p><span class="math inline">\(a_{ij}\)</span>: é o elemento na <span class="math inline">\(i-ésima\)</span> linha e <span class="math inline">\(j-ésima\)</span> coluna de uma matiz <strong>A</strong>.</p></li>
+</ul>
+</section>
+<section id="autovalores-e-autovetores" class="level1">
+<h1>Autovalores e autovetores</h1>
+</section>
+<section id="referências" class="level1">
+
 
 
 <!-- -->
 
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-métodos2021" class="csl-entry" role="listitem">
+<em>Métodos estatísticos multivariados: uma introdução</em>. 2021. Bookman.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1453,7 +1568,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb69" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Álgebra Matricial"</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Introdução Álgebra Matricial"</span></span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Aplicação em R"</span></span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Esse documento foi desenvolvido para organizar meus estudos em álgebra matricial aplicada em R. Aqui você encontrará conceitos, definições, propriedades e aplicações de matrizes e vetores em R."</span></span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Wellington Santos Souza"</span></span>
@@ -1470,332 +1585,378 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="an">twitter-card:</span></span>
 <span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a><span class="co">  description: "Martriz"</span></span>
 <span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a><span class="co">  image: ../images/06.matriz/OIP.jpg</span></span>
-<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a>*Este artigo foi escrito em Segunda, 22 de Julho de 2024.*</span>
-<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/06.matriz/OIP.jpg)</span>{fig-alt="Matriz" fig-title="Matriz"}</span>
-<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-25"><a href="#cb69-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Porque devemos estudar álgebra matricial?</span></span>
-<span id="cb69-26"><a href="#cb69-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-27"><a href="#cb69-27" aria-hidden="true" tabindex="-1"></a>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial.</span>
-<span id="cb69-28"><a href="#cb69-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-29"><a href="#cb69-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Matrizes, Vetores e escalares</span></span>
-<span id="cb69-30"><a href="#cb69-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-31"><a href="#cb69-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matriz</span></span>
-<span id="cb69-32"><a href="#cb69-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-33"><a href="#cb69-33" aria-hidden="true" tabindex="-1"></a>Uma *matriz* m x n é um arranjo de número de com m linhas e n colunas, considerado como uma única entidade.</span>
-<span id="cb69-34"><a href="#cb69-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-35"><a href="#cb69-35" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-36"><a href="#cb69-36" aria-hidden="true" tabindex="-1"></a>A=</span>
-<span id="cb69-37"><a href="#cb69-37" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb69-38"><a href="#cb69-38" aria-hidden="true" tabindex="-1"></a>    a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} <span class="sc">\\</span></span>
-<span id="cb69-39"><a href="#cb69-39" aria-hidden="true" tabindex="-1"></a>    a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} <span class="sc">\\</span></span>
-<span id="cb69-40"><a href="#cb69-40" aria-hidden="true" tabindex="-1"></a>    \vdots &amp; \vdots &amp; \ddots &amp; \vdots <span class="sc">\\</span></span>
-<span id="cb69-41"><a href="#cb69-41" aria-hidden="true" tabindex="-1"></a>    a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}</span>
-<span id="cb69-42"><a href="#cb69-42" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb69-43"><a href="#cb69-43" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-44"><a href="#cb69-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-45"><a href="#cb69-45" aria-hidden="true" tabindex="-1"></a>Veja o exemplo de uma matriz criada no R abaixo.</span>
-<span id="cb69-46"><a href="#cb69-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-47"><a href="#cb69-47" aria-hidden="true" tabindex="-1"></a>Para criarmos uma matriz **A** com 5 linhas x 5 colunas no R usamos os seguintes comandos.</span>
-<span id="cb69-48"><a href="#cb69-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-51"><a href="#cb69-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-52"><a href="#cb69-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando uma matriz 5 x 5</span></span>
-<span id="cb69-53"><a href="#cb69-53" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-54"><a href="#cb69-54" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb69-55"><a href="#cb69-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
+<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a>*Este artigo foi escrito em Segunda, 22 de Julho de 2024.*</span>
+<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/06.matriz/OIP.jpg)</span>{fig-alt="Matriz" fig-title="Matriz"}</span>
+<span id="cb69-25"><a href="#cb69-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-26"><a href="#cb69-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Porque devemos estudar álgebra matricial?</span></span>
+<span id="cb69-27"><a href="#cb69-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-28"><a href="#cb69-28" aria-hidden="true" tabindex="-1"></a>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial <span class="co">[</span><span class="ot">@métodos2021</span><span class="co">]</span>.</span>
+<span id="cb69-29"><a href="#cb69-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-30"><a href="#cb69-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Notações</span></span>
+<span id="cb69-31"><a href="#cb69-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-32"><a href="#cb69-32" aria-hidden="true" tabindex="-1"></a>|                                         |                                                                                |</span>
+<span id="cb69-33"><a href="#cb69-33" aria-hidden="true" tabindex="-1"></a>|-----------------------------------------|--------------------------------------------------------------------------------|</span>
+<span id="cb69-34"><a href="#cb69-34" aria-hidden="true" tabindex="-1"></a>| $A, B, C$                               | $\text{letras maiúsculas representam matrizes}$                                |</span>
+<span id="cb69-35"><a href="#cb69-35" aria-hidden="true" tabindex="-1"></a>| $u, v, w$                               | $\text{letras minúsculas representam vetores}$                                 |</span>
+<span id="cb69-36"><a href="#cb69-36" aria-hidden="true" tabindex="-1"></a>| $\text{A de tamanho m x n ou (m x n)}$  | $\text{a matriz A tem linhas m e colunas n }$                                  |</span>
+<span id="cb69-37"><a href="#cb69-37" aria-hidden="true" tabindex="-1"></a>| $A^T$                                   | $\text{a transposição da matriz A}$                                            |</span>
+<span id="cb69-38"><a href="#cb69-38" aria-hidden="true" tabindex="-1"></a>| $v^T$                                   | $\text{a transposição do vetor v}$                                             |</span>
+<span id="cb69-39"><a href="#cb69-39" aria-hidden="true" tabindex="-1"></a>| $A^{-1}$                                | $\text{o inverso da matriz A}$                                                 |</span>
+<span id="cb69-40"><a href="#cb69-40" aria-hidden="true" tabindex="-1"></a>| $\text{det (A)}$                        | $\text{o determinate da matriz A}$                                             |</span>
+<span id="cb69-41"><a href="#cb69-41" aria-hidden="true" tabindex="-1"></a>| $AB$                                    | $\text{multilicação das matrizes A e B}$                                       |</span>
+<span id="cb69-42"><a href="#cb69-42" aria-hidden="true" tabindex="-1"></a>| $u ⋅ v; ⟨u,v⟩$                          | $\text{produto escalar de vetores u e v}$                                      |</span>
+<span id="cb69-43"><a href="#cb69-43" aria-hidden="true" tabindex="-1"></a>| $\mathbb{R}$                            | $\text{conjunto de vetores bidimensionais, por exempo 0, -0.3, 2,3.4}$         |</span>
+<span id="cb69-44"><a href="#cb69-44" aria-hidden="true" tabindex="-1"></a>| $\mathbb{R}^2$                          | conjunto de vetores bidimensionais, por exemplo$v = <span class="co">[</span><span class="ot">1- 3</span><span class="co">]</span>^T$                  |</span>
+<span id="cb69-45"><a href="#cb69-45" aria-hidden="true" tabindex="-1"></a>| $\mathbb{R}^n$                          | $\text{conjunto devetores n-dimensionais}$                                     |</span>
+<span id="cb69-46"><a href="#cb69-46" aria-hidden="true" tabindex="-1"></a>| $v \in \mathbb{R}^2$                    | o vetor $v$ é um elemento de $\mathbb{R}^2$                                    |</span>
+<span id="cb69-47"><a href="#cb69-47" aria-hidden="true" tabindex="-1"></a>| $|v|_1$                                 | $\text{Normal L1 de um vetor}$                                                 |</span>
+<span id="cb69-48"><a href="#cb69-48" aria-hidden="true" tabindex="-1"></a>| $|v|_2;|v|;||v||$                       | $\text{Norma L2 de um vetor}$                                                  |</span>
+<span id="cb69-49"><a href="#cb69-49" aria-hidden="true" tabindex="-1"></a>| $T:\mathbb{R}2\to\mathbb{R}^3;T(v) = w$ | transformação $T$ de um vetor $v \in \mathbb{R}$ no vetor $w \in \mathbb{R}^3$ |</span>
+<span id="cb69-50"><a href="#cb69-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-51"><a href="#cb69-51" aria-hidden="true" tabindex="-1"></a><span class="fu"># Matrizes, Vetores e escalares</span></span>
+<span id="cb69-52"><a href="#cb69-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-53"><a href="#cb69-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matriz</span></span>
+<span id="cb69-54"><a href="#cb69-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-55"><a href="#cb69-55" aria-hidden="true" tabindex="-1"></a>Uma *matriz* m x n é um arranjo de número de com m linhas e n colunas, considerado como uma única entidade.</span>
 <span id="cb69-56"><a href="#cb69-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-57"><a href="#cb69-57" aria-hidden="true" tabindex="-1"></a>A matriz acima é uma matriz quadrada, pois o número de linhas é igual ao número de colunas.</span>
-<span id="cb69-58"><a href="#cb69-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-59"><a href="#cb69-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vetor</span></span>
-<span id="cb69-60"><a href="#cb69-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-61"><a href="#cb69-61" aria-hidden="true" tabindex="-1"></a>Caso tivéssemos uma matriz com uma única coluna, teríamos um vetor coluna. Veja o exemplo abaixo.</span>
-<span id="cb69-62"><a href="#cb69-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-63"><a href="#cb69-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-64"><a href="#cb69-64" aria-hidden="true" tabindex="-1"></a>\mathbf{c} = \begin{bmatrix}</span>
-<span id="cb69-65"><a href="#cb69-65" aria-hidden="true" tabindex="-1"></a>    c_1 <span class="sc">\\</span></span>
-<span id="cb69-66"><a href="#cb69-66" aria-hidden="true" tabindex="-1"></a>    c_2 <span class="sc">\\</span></span>
-<span id="cb69-67"><a href="#cb69-67" aria-hidden="true" tabindex="-1"></a>    \vdots <span class="sc">\\</span></span>
-<span id="cb69-68"><a href="#cb69-68" aria-hidden="true" tabindex="-1"></a>    c_m</span>
-<span id="cb69-69"><a href="#cb69-69" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb69-70"><a href="#cb69-70" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-71"><a href="#cb69-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-74"><a href="#cb69-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-75"><a href="#cb69-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um vetor coluna da matriz A</span></span>
-<span id="cb69-76"><a href="#cb69-76" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> A[,<span class="dv">1</span>]</span>
-<span id="cb69-77"><a href="#cb69-77" aria-hidden="true" tabindex="-1"></a>c</span>
-<span id="cb69-78"><a href="#cb69-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-79"><a href="#cb69-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-80"><a href="#cb69-80" aria-hidden="true" tabindex="-1"></a>Caso tivéssemos somente uma linha, teríamos um **vetor linha**. Veja o exemplo abaixo.</span>
-<span id="cb69-81"><a href="#cb69-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-82"><a href="#cb69-82" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-83"><a href="#cb69-83" aria-hidden="true" tabindex="-1"></a>\mathbf{r} = \begin{bmatrix}</span>
-<span id="cb69-84"><a href="#cb69-84" aria-hidden="true" tabindex="-1"></a>    r_1 &amp; r_2 &amp; \cdots &amp; r_n</span>
-<span id="cb69-85"><a href="#cb69-85" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb69-86"><a href="#cb69-86" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-87"><a href="#cb69-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-90"><a href="#cb69-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-91"><a href="#cb69-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um vetor linha da matriz A</span></span>
-<span id="cb69-92"><a href="#cb69-92" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> A[<span class="dv">1</span>,]</span>
-<span id="cb69-93"><a href="#cb69-93" aria-hidden="true" tabindex="-1"></a>r</span>
-<span id="cb69-94"><a href="#cb69-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-95"><a href="#cb69-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-96"><a href="#cb69-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escalar</span></span>
-<span id="cb69-97"><a href="#cb69-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-98"><a href="#cb69-98" aria-hidden="true" tabindex="-1"></a>Em álgebra matricial um *escalar* pode ser definido como um único número $k = a_{11}$</span>
-<span id="cb69-101"><a href="#cb69-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-102"><a href="#cb69-102" aria-hidden="true" tabindex="-1"></a><span class="co"># escalar</span></span>
-<span id="cb69-103"><a href="#cb69-103" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> A[<span class="dv">3</span>,<span class="dv">3</span>]</span>
-<span id="cb69-104"><a href="#cb69-104" aria-hidden="true" tabindex="-1"></a>k</span>
-<span id="cb69-105"><a href="#cb69-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-106"><a href="#cb69-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-107"><a href="#cb69-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-108"><a href="#cb69-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tipos de Matrizes</span></span>
+<span id="cb69-57"><a href="#cb69-57" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-58"><a href="#cb69-58" aria-hidden="true" tabindex="-1"></a>A=</span>
+<span id="cb69-59"><a href="#cb69-59" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb69-60"><a href="#cb69-60" aria-hidden="true" tabindex="-1"></a>    a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} <span class="sc">\\</span></span>
+<span id="cb69-61"><a href="#cb69-61" aria-hidden="true" tabindex="-1"></a>    a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} <span class="sc">\\</span></span>
+<span id="cb69-62"><a href="#cb69-62" aria-hidden="true" tabindex="-1"></a>    \vdots &amp; \vdots &amp; \ddots &amp; \vdots <span class="sc">\\</span></span>
+<span id="cb69-63"><a href="#cb69-63" aria-hidden="true" tabindex="-1"></a>    a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}</span>
+<span id="cb69-64"><a href="#cb69-64" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb69-65"><a href="#cb69-65" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-66"><a href="#cb69-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-67"><a href="#cb69-67" aria-hidden="true" tabindex="-1"></a>Veja o exemplo de uma matriz criada no R abaixo.</span>
+<span id="cb69-68"><a href="#cb69-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-69"><a href="#cb69-69" aria-hidden="true" tabindex="-1"></a>Para criarmos uma matriz **A** com 5 linhas x 5 colunas no R usamos os seguintes comandos.</span>
+<span id="cb69-70"><a href="#cb69-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-73"><a href="#cb69-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-74"><a href="#cb69-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando uma matriz 5 x 5</span></span>
+<span id="cb69-75"><a href="#cb69-75" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-76"><a href="#cb69-76" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb69-77"><a href="#cb69-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-78"><a href="#cb69-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-79"><a href="#cb69-79" aria-hidden="true" tabindex="-1"></a>A matriz acima é uma matriz quadrada, pois o número de linhas é igual ao número de colunas.</span>
+<span id="cb69-80"><a href="#cb69-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-81"><a href="#cb69-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vetor</span></span>
+<span id="cb69-82"><a href="#cb69-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-83"><a href="#cb69-83" aria-hidden="true" tabindex="-1"></a>Caso tivéssemos uma matriz com uma única coluna, teríamos um vetor coluna. Veja o exemplo abaixo.</span>
+<span id="cb69-84"><a href="#cb69-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-85"><a href="#cb69-85" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-86"><a href="#cb69-86" aria-hidden="true" tabindex="-1"></a>\mathbf{c} = \begin{bmatrix}</span>
+<span id="cb69-87"><a href="#cb69-87" aria-hidden="true" tabindex="-1"></a>    c_1 <span class="sc">\\</span></span>
+<span id="cb69-88"><a href="#cb69-88" aria-hidden="true" tabindex="-1"></a>    c_2 <span class="sc">\\</span></span>
+<span id="cb69-89"><a href="#cb69-89" aria-hidden="true" tabindex="-1"></a>    \vdots <span class="sc">\\</span></span>
+<span id="cb69-90"><a href="#cb69-90" aria-hidden="true" tabindex="-1"></a>    c_m</span>
+<span id="cb69-91"><a href="#cb69-91" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb69-92"><a href="#cb69-92" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-93"><a href="#cb69-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-96"><a href="#cb69-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-97"><a href="#cb69-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um vetor coluna da matriz A</span></span>
+<span id="cb69-98"><a href="#cb69-98" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> A[,<span class="dv">1</span>]</span>
+<span id="cb69-99"><a href="#cb69-99" aria-hidden="true" tabindex="-1"></a>c</span>
+<span id="cb69-100"><a href="#cb69-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-101"><a href="#cb69-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-102"><a href="#cb69-102" aria-hidden="true" tabindex="-1"></a>Caso tivéssemos somente uma linha, teríamos um **vetor linha**. Veja o exemplo abaixo.</span>
+<span id="cb69-103"><a href="#cb69-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-104"><a href="#cb69-104" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-105"><a href="#cb69-105" aria-hidden="true" tabindex="-1"></a>\mathbf{r} = \begin{bmatrix}</span>
+<span id="cb69-106"><a href="#cb69-106" aria-hidden="true" tabindex="-1"></a>    r_1 &amp; r_2 &amp; \cdots &amp; r_n</span>
+<span id="cb69-107"><a href="#cb69-107" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb69-108"><a href="#cb69-108" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb69-109"><a href="#cb69-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-110"><a href="#cb69-110" aria-hidden="true" tabindex="-1"></a>Há diversos tipos de matrizes, dentre elas podemos citar:</span>
-<span id="cb69-111"><a href="#cb69-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-112"><a href="#cb69-112" aria-hidden="true" tabindex="-1"></a>**Matriz zero:** matriz onde todos os elementos são iguais a zero.</span>
-<span id="cb69-115"><a href="#cb69-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-116"><a href="#cb69-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz zero</span></span>
-<span id="cb69-117"><a href="#cb69-117" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-118"><a href="#cb69-118" aria-hidden="true" tabindex="-1"></a>Z</span>
-<span id="cb69-119"><a href="#cb69-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-120"><a href="#cb69-120" aria-hidden="true" tabindex="-1"></a>**Matriz diagonal:** matriz onde todos os elementos fora da diagonal principal são iguais a zero.</span>
-<span id="cb69-123"><a href="#cb69-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-124"><a href="#cb69-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz diagonal</span></span>
-<span id="cb69-125"><a href="#cb69-125" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb69-126"><a href="#cb69-126" aria-hidden="true" tabindex="-1"></a>D</span>
-<span id="cb69-127"><a href="#cb69-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-128"><a href="#cb69-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-129"><a href="#cb69-129" aria-hidden="true" tabindex="-1"></a>**Matriz simétrica:** matriz onde a transposta é igual a matriz original.</span>
-<span id="cb69-132"><a href="#cb69-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-133"><a href="#cb69-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz simétrica</span></span>
-<span id="cb69-134"><a href="#cb69-134" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">4</span></span>
-<span id="cb69-135"><a href="#cb69-135" aria-hidden="true" tabindex="-1"></a>l <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span>(n<span class="sc">:</span><span class="dv">4</span>), <span class="at">nrow =</span> n, <span class="at">ncol =</span> n)</span>
-<span id="cb69-136"><a href="#cb69-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-137"><a href="#cb69-137" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> l <span class="sc">+</span> <span class="fu">t</span>(l)</span>
-<span id="cb69-138"><a href="#cb69-138" aria-hidden="true" tabindex="-1"></a>S</span>
-<span id="cb69-139"><a href="#cb69-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-142"><a href="#cb69-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-143"><a href="#cb69-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando se a matriz é simétrica</span></span>
-<span id="cb69-144"><a href="#cb69-144" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(S)</span>
-<span id="cb69-145"><a href="#cb69-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-146"><a href="#cb69-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-147"><a href="#cb69-147" aria-hidden="true" tabindex="-1"></a>**Matriz identidade:** matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.</span>
-<span id="cb69-150"><a href="#cb69-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-151"><a href="#cb69-151" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz identidade</span></span>
-<span id="cb69-152"><a href="#cb69-152" aria-hidden="true" tabindex="-1"></a>I <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-153"><a href="#cb69-153" aria-hidden="true" tabindex="-1"></a>I</span>
-<span id="cb69-154"><a href="#cb69-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-112"><a href="#cb69-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-113"><a href="#cb69-113" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um vetor linha da matriz A</span></span>
+<span id="cb69-114"><a href="#cb69-114" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> A[<span class="dv">1</span>,]</span>
+<span id="cb69-115"><a href="#cb69-115" aria-hidden="true" tabindex="-1"></a>r</span>
+<span id="cb69-116"><a href="#cb69-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-117"><a href="#cb69-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-118"><a href="#cb69-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escalar</span></span>
+<span id="cb69-119"><a href="#cb69-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-120"><a href="#cb69-120" aria-hidden="true" tabindex="-1"></a>Em álgebra matricial um *escalar* pode ser definido como um único número $k = a_{11}$</span>
+<span id="cb69-121"><a href="#cb69-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-124"><a href="#cb69-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-125"><a href="#cb69-125" aria-hidden="true" tabindex="-1"></a><span class="co"># escalar</span></span>
+<span id="cb69-126"><a href="#cb69-126" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> A[<span class="dv">3</span>,<span class="dv">3</span>]</span>
+<span id="cb69-127"><a href="#cb69-127" aria-hidden="true" tabindex="-1"></a>k</span>
+<span id="cb69-128"><a href="#cb69-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-129"><a href="#cb69-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-130"><a href="#cb69-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tipos de Matrizes</span></span>
+<span id="cb69-131"><a href="#cb69-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-132"><a href="#cb69-132" aria-hidden="true" tabindex="-1"></a>Há diversos tipos de matrizes, dentre elas podemos citar:</span>
+<span id="cb69-133"><a href="#cb69-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-134"><a href="#cb69-134" aria-hidden="true" tabindex="-1"></a>**Matriz zero:** matriz onde todos os elementos são iguais a zero.</span>
+<span id="cb69-135"><a href="#cb69-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-138"><a href="#cb69-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-139"><a href="#cb69-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz zero</span></span>
+<span id="cb69-140"><a href="#cb69-140" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-141"><a href="#cb69-141" aria-hidden="true" tabindex="-1"></a>Z</span>
+<span id="cb69-142"><a href="#cb69-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-143"><a href="#cb69-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-144"><a href="#cb69-144" aria-hidden="true" tabindex="-1"></a>**Matriz diagonal:** matriz onde todos os elementos fora da diagonal principal são iguais a zero.</span>
+<span id="cb69-145"><a href="#cb69-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-148"><a href="#cb69-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-149"><a href="#cb69-149" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz diagonal</span></span>
+<span id="cb69-150"><a href="#cb69-150" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb69-151"><a href="#cb69-151" aria-hidden="true" tabindex="-1"></a>D</span>
+<span id="cb69-152"><a href="#cb69-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-153"><a href="#cb69-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-154"><a href="#cb69-154" aria-hidden="true" tabindex="-1"></a>**Matriz simétrica:** matriz onde a transposta é igual a matriz original.</span>
 <span id="cb69-155"><a href="#cb69-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-156"><a href="#cb69-156" aria-hidden="true" tabindex="-1"></a>Duas **matrizes são iguais** se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.</span>
-<span id="cb69-157"><a href="#cb69-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-160"><a href="#cb69-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-161"><a href="#cb69-161" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-162"><a href="#cb69-162" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-163"><a href="#cb69-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando se duas matrizes são iguais</span></span>
-<span id="cb69-164"><a href="#cb69-164" aria-hidden="true" tabindex="-1"></a>X <span class="sc">==</span> Y</span>
+<span id="cb69-158"><a href="#cb69-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-159"><a href="#cb69-159" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz simétrica</span></span>
+<span id="cb69-160"><a href="#cb69-160" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb69-161"><a href="#cb69-161" aria-hidden="true" tabindex="-1"></a>l <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span>(n<span class="sc">:</span><span class="dv">4</span>), <span class="at">nrow =</span> n, <span class="at">ncol =</span> n)</span>
+<span id="cb69-162"><a href="#cb69-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-163"><a href="#cb69-163" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> l <span class="sc">+</span> <span class="fu">t</span>(l)</span>
+<span id="cb69-164"><a href="#cb69-164" aria-hidden="true" tabindex="-1"></a>S</span>
 <span id="cb69-165"><a href="#cb69-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb69-166"><a href="#cb69-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-167"><a href="#cb69-167" aria-hidden="true" tabindex="-1"></a>O **traço** de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir $X$ criada anteriormente.</span>
-<span id="cb69-170"><a href="#cb69-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-171"><a href="#cb69-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Traço de uma matriz</span></span>
-<span id="cb69-172"><a href="#cb69-172" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(X))</span>
-<span id="cb69-173"><a href="#cb69-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-174"><a href="#cb69-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-175"><a href="#cb69-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com Matrizes</span></span>
-<span id="cb69-176"><a href="#cb69-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-177"><a href="#cb69-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Soma e subtração de matrizes</span></span>
-<span id="cb69-178"><a href="#cb69-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-179"><a href="#cb69-179" aria-hidden="true" tabindex="-1"></a>**Soma:** a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes.</span>
-<span id="cb69-180"><a href="#cb69-180" aria-hidden="true" tabindex="-1"></a>Por exemplo, sejam as matrizes $A$ e $B$ abaixo.</span>
-<span id="cb69-181"><a href="#cb69-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-184"><a href="#cb69-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-185"><a href="#cb69-185" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-186"><a href="#cb69-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-187"><a href="#cb69-187" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-188"><a href="#cb69-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-189"><a href="#cb69-189" aria-hidden="true" tabindex="-1"></a><span class="co"># Soma de matrizes</span></span>
-<span id="cb69-190"><a href="#cb69-190" aria-hidden="true" tabindex="-1"></a>A <span class="sc">+</span> B</span>
-<span id="cb69-191"><a href="#cb69-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-192"><a href="#cb69-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-193"><a href="#cb69-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-194"><a href="#cb69-194" aria-hidden="true" tabindex="-1"></a>**Subtração:** a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes **A** e **B** criadas anteriormente, temos:</span>
-<span id="cb69-195"><a href="#cb69-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-198"><a href="#cb69-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-199"><a href="#cb69-199" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtração de matrizes</span></span>
-<span id="cb69-200"><a href="#cb69-200" aria-hidden="true" tabindex="-1"></a>A <span class="sc">-</span> B</span>
-<span id="cb69-201"><a href="#cb69-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-202"><a href="#cb69-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-203"><a href="#cb69-203" aria-hidden="true" tabindex="-1"></a><span class="fu">### Multiplicação</span></span>
-<span id="cb69-204"><a href="#cb69-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-205"><a href="#cb69-205" aria-hidden="true" tabindex="-1"></a>Multiplicação de uma matriz com um escalar</span>
-<span id="cb69-206"><a href="#cb69-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-207"><a href="#cb69-207" aria-hidden="true" tabindex="-1"></a>A multiplicação de um escalar com uma matriz é defina por: a multiplicação de cada elemento de **A** por **k**. Observe o exemplo a seguir aplicado ao R.</span>
-<span id="cb69-208"><a href="#cb69-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-209"><a href="#cb69-209" aria-hidden="true" tabindex="-1"></a>Escalar K</span>
+<span id="cb69-169"><a href="#cb69-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-170"><a href="#cb69-170" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando se a matriz é simétrica</span></span>
+<span id="cb69-171"><a href="#cb69-171" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(S)</span>
+<span id="cb69-172"><a href="#cb69-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-173"><a href="#cb69-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-174"><a href="#cb69-174" aria-hidden="true" tabindex="-1"></a>**Matriz identidade:** matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.</span>
+<span id="cb69-175"><a href="#cb69-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-178"><a href="#cb69-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-179"><a href="#cb69-179" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz identidade</span></span>
+<span id="cb69-180"><a href="#cb69-180" aria-hidden="true" tabindex="-1"></a>I <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-181"><a href="#cb69-181" aria-hidden="true" tabindex="-1"></a>I</span>
+<span id="cb69-182"><a href="#cb69-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-183"><a href="#cb69-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-184"><a href="#cb69-184" aria-hidden="true" tabindex="-1"></a>Duas **matrizes são iguais** se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.</span>
+<span id="cb69-185"><a href="#cb69-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-188"><a href="#cb69-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-189"><a href="#cb69-189" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-190"><a href="#cb69-190" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-191"><a href="#cb69-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando se duas matrizes são iguais</span></span>
+<span id="cb69-192"><a href="#cb69-192" aria-hidden="true" tabindex="-1"></a>X <span class="sc">==</span> Y</span>
+<span id="cb69-193"><a href="#cb69-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-194"><a href="#cb69-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-195"><a href="#cb69-195" aria-hidden="true" tabindex="-1"></a>O **traço** de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir $X$ criada anteriormente.</span>
+<span id="cb69-196"><a href="#cb69-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-199"><a href="#cb69-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-200"><a href="#cb69-200" aria-hidden="true" tabindex="-1"></a><span class="co"># Traço de uma matriz</span></span>
+<span id="cb69-201"><a href="#cb69-201" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(X))</span>
+<span id="cb69-202"><a href="#cb69-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-203"><a href="#cb69-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-204"><a href="#cb69-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com Matrizes</span></span>
+<span id="cb69-205"><a href="#cb69-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-206"><a href="#cb69-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Soma e subtração de matrizes</span></span>
+<span id="cb69-207"><a href="#cb69-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-208"><a href="#cb69-208" aria-hidden="true" tabindex="-1"></a>**Soma:** a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes. Por exemplo, sejam as matrizes $A$ e $B$ abaixo.</span>
+<span id="cb69-209"><a href="#cb69-209" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-212"><a href="#cb69-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-213"><a href="#cb69-213" aria-hidden="true" tabindex="-1"></a>k</span>
-<span id="cb69-214"><a href="#cb69-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-215"><a href="#cb69-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-216"><a href="#cb69-216" aria-hidden="true" tabindex="-1"></a>Matriz A</span>
-<span id="cb69-219"><a href="#cb69-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-220"><a href="#cb69-220" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb69-221"><a href="#cb69-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-222"><a href="#cb69-222" aria-hidden="true" tabindex="-1"></a>Escalar k multiplicado pela matriz A:</span>
+<span id="cb69-213"><a href="#cb69-213" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-214"><a href="#cb69-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-215"><a href="#cb69-215" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-216"><a href="#cb69-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-217"><a href="#cb69-217" aria-hidden="true" tabindex="-1"></a><span class="co"># Soma de matrizes</span></span>
+<span id="cb69-218"><a href="#cb69-218" aria-hidden="true" tabindex="-1"></a>A <span class="sc">+</span> B</span>
+<span id="cb69-219"><a href="#cb69-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-220"><a href="#cb69-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-221"><a href="#cb69-221" aria-hidden="true" tabindex="-1"></a>**Subtração:** a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes **A** e **B** criadas anteriormente, temos:</span>
+<span id="cb69-222"><a href="#cb69-222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-225"><a href="#cb69-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-226"><a href="#cb69-226" aria-hidden="true" tabindex="-1"></a><span class="co"># escalar k multiplicado pela matriz A.</span></span>
-<span id="cb69-227"><a href="#cb69-227" aria-hidden="true" tabindex="-1"></a>k <span class="sc">*</span> A</span>
+<span id="cb69-226"><a href="#cb69-226" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtração de matrizes</span></span>
+<span id="cb69-227"><a href="#cb69-227" aria-hidden="true" tabindex="-1"></a>A <span class="sc">-</span> B</span>
 <span id="cb69-228"><a href="#cb69-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb69-229"><a href="#cb69-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-230"><a href="#cb69-230" aria-hidden="true" tabindex="-1"></a>Já a multilicação de duas matrizes definidas como **A**x**B** não é tão simples. AxB é definida somente se, o número de colunas de **A** é igual ao número de linhas de **B**. Veja o exemplo a seguir, aqui assumimos que **A** é de tamanho mxn e **B** nxc, então a multiplicação é definida para reproduzir o resultado **A**x**B**.</span>
+<span id="cb69-230"><a href="#cb69-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Multiplicação</span></span>
 <span id="cb69-231"><a href="#cb69-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-232"><a href="#cb69-232" aria-hidden="true" tabindex="-1"></a>Veja o exemplo aplicado ao R:</span>
+<span id="cb69-232"><a href="#cb69-232" aria-hidden="true" tabindex="-1"></a>Multiplicação de uma matriz com um escalar</span>
 <span id="cb69-233"><a href="#cb69-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-234"><a href="#cb69-234" aria-hidden="true" tabindex="-1"></a>Matriz **A**</span>
-<span id="cb69-237"><a href="#cb69-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-238"><a href="#cb69-238" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb69-239"><a href="#cb69-239" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb69-240"><a href="#cb69-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-241"><a href="#cb69-241" aria-hidden="true" tabindex="-1"></a>Matriz **B**</span>
-<span id="cb69-244"><a href="#cb69-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-245"><a href="#cb69-245" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">6</span>)</span>
-<span id="cb69-246"><a href="#cb69-246" aria-hidden="true" tabindex="-1"></a>B</span>
-<span id="cb69-247"><a href="#cb69-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-248"><a href="#cb69-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-249"><a href="#cb69-249" aria-hidden="true" tabindex="-1"></a>A matriz A multiplicado pela matriz **B** usando o R, observe que o código <span class="in">`A%*%B`</span> produz uma multiplicação de matrizes compatíveis, de acordo com a definição enterior, não é uma multiplicação padrão. </span>
-<span id="cb69-250"><a href="#cb69-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-253"><a href="#cb69-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-254"><a href="#cb69-254" aria-hidden="true" tabindex="-1"></a>A<span class="sc">%*%</span>B</span>
-<span id="cb69-255"><a href="#cb69-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-256"><a href="#cb69-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-257"><a href="#cb69-257" aria-hidden="true" tabindex="-1"></a>Assim, o elemento da i-ésima linha e k-ésima coluna de **A**x**B** é:</span>
-<span id="cb69-258"><a href="#cb69-258" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-259"><a href="#cb69-259" aria-hidden="true" tabindex="-1"></a>\sum{a_{ij}*b_{jk} = a_{i1}*b_{1k} + a_{i2}*b_{2k} + ...+a_{in}*b_{nk}}</span>
-<span id="cb69-260"><a href="#cb69-260" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-261"><a href="#cb69-261" aria-hidden="true" tabindex="-1"></a>Nesse caso o elemento $a_{11} = 135$ na multiplicação anteior foi definido por: </span>
-<span id="cb69-264"><a href="#cb69-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-265"><a href="#cb69-265" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((A[<span class="dv">1</span>,]<span class="sc">*</span>B[,<span class="dv">1</span>]))</span>
-<span id="cb69-266"><a href="#cb69-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-267"><a href="#cb69-267" aria-hidden="true" tabindex="-1"></a>O elemento $a_{12} = 310$</span>
-<span id="cb69-270"><a href="#cb69-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-271"><a href="#cb69-271" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((A[<span class="dv">1</span>,]<span class="sc">*</span>B[,<span class="dv">2</span>]))</span>
+<span id="cb69-234"><a href="#cb69-234" aria-hidden="true" tabindex="-1"></a>A multiplicação de um escalar com uma matriz é defina por: a multiplicação de cada elemento de **A** por **k**. Observe o exemplo a seguir aplicado ao R.</span>
+<span id="cb69-235"><a href="#cb69-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-236"><a href="#cb69-236" aria-hidden="true" tabindex="-1"></a>Escalar K</span>
+<span id="cb69-237"><a href="#cb69-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-240"><a href="#cb69-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-241"><a href="#cb69-241" aria-hidden="true" tabindex="-1"></a>k</span>
+<span id="cb69-242"><a href="#cb69-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-243"><a href="#cb69-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-244"><a href="#cb69-244" aria-hidden="true" tabindex="-1"></a>Matriz A</span>
+<span id="cb69-245"><a href="#cb69-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-248"><a href="#cb69-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-249"><a href="#cb69-249" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb69-250"><a href="#cb69-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-251"><a href="#cb69-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-252"><a href="#cb69-252" aria-hidden="true" tabindex="-1"></a>Escalar k multiplicado pela matriz A:</span>
+<span id="cb69-253"><a href="#cb69-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-256"><a href="#cb69-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-257"><a href="#cb69-257" aria-hidden="true" tabindex="-1"></a><span class="co"># escalar k multiplicado pela matriz A.</span></span>
+<span id="cb69-258"><a href="#cb69-258" aria-hidden="true" tabindex="-1"></a>k <span class="sc">*</span> A</span>
+<span id="cb69-259"><a href="#cb69-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-260"><a href="#cb69-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-261"><a href="#cb69-261" aria-hidden="true" tabindex="-1"></a>Já a multilicação de duas matrizes definidas como **A**x**B** não é tão simples. AxB é definida somente se, o número de colunas de **A** é igual ao número de linhas de **B**. Veja o exemplo a seguir, aqui assumimos que **A** é de tamanho mxn e **B** nxc, então a multiplicação é definida para reproduzir o resultado **A**x**B**.</span>
+<span id="cb69-262"><a href="#cb69-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-263"><a href="#cb69-263" aria-hidden="true" tabindex="-1"></a>Veja o exemplo aplicado ao R:</span>
+<span id="cb69-264"><a href="#cb69-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-265"><a href="#cb69-265" aria-hidden="true" tabindex="-1"></a>Matriz **A**</span>
+<span id="cb69-266"><a href="#cb69-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-269"><a href="#cb69-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-270"><a href="#cb69-270" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb69-271"><a href="#cb69-271" aria-hidden="true" tabindex="-1"></a>A</span>
 <span id="cb69-272"><a href="#cb69-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-273"><a href="#cb69-273" aria-hidden="true" tabindex="-1"></a>Quando as matrizes **A** e **B** são matrizes quadradas **A**x**B** está definida. Entretanto AxB é diferente de **B**x**A**. Veja o exemplo abaixo:</span>
-<span id="cb69-274"><a href="#cb69-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-275"><a href="#cb69-275" aria-hidden="true" tabindex="-1"></a>Matriz quadrada **A**</span>
+<span id="cb69-273"><a href="#cb69-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-274"><a href="#cb69-274" aria-hidden="true" tabindex="-1"></a>Matriz **B**</span>
+<span id="cb69-275"><a href="#cb69-275" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-278"><a href="#cb69-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-279"><a href="#cb69-279" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb69-280"><a href="#cb69-280" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb69-279"><a href="#cb69-279" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">6</span>)</span>
+<span id="cb69-280"><a href="#cb69-280" aria-hidden="true" tabindex="-1"></a>B</span>
 <span id="cb69-281"><a href="#cb69-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-282"><a href="#cb69-282" aria-hidden="true" tabindex="-1"></a>Matriz quadrada **B**</span>
-<span id="cb69-285"><a href="#cb69-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-286"><a href="#cb69-286" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb69-287"><a href="#cb69-287" aria-hidden="true" tabindex="-1"></a>B</span>
-<span id="cb69-288"><a href="#cb69-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-289"><a href="#cb69-289" aria-hidden="true" tabindex="-1"></a>Então **A**x**B**:</span>
-<span id="cb69-292"><a href="#cb69-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-293"><a href="#cb69-293" aria-hidden="true" tabindex="-1"></a>A<span class="sc">%*%</span>B</span>
-<span id="cb69-294"><a href="#cb69-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-295"><a href="#cb69-295" aria-hidden="true" tabindex="-1"></a>e **B**x**A**:</span>
-<span id="cb69-298"><a href="#cb69-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-299"><a href="#cb69-299" aria-hidden="true" tabindex="-1"></a>B<span class="sc">%*%</span>A</span>
-<span id="cb69-300"><a href="#cb69-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-301"><a href="#cb69-301" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inversão matricial</span></span>
+<span id="cb69-282"><a href="#cb69-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-283"><a href="#cb69-283" aria-hidden="true" tabindex="-1"></a>A matriz A multiplicado pela matriz **B** usando o R, observe que o código <span class="in">`A%*%B`</span> produz uma multiplicação de matrizes compatíveis, de acordo com a definição enterior, não é uma multiplicação padrão.</span>
+<span id="cb69-284"><a href="#cb69-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-287"><a href="#cb69-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-288"><a href="#cb69-288" aria-hidden="true" tabindex="-1"></a>A<span class="sc">%*%</span>B</span>
+<span id="cb69-289"><a href="#cb69-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-290"><a href="#cb69-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-291"><a href="#cb69-291" aria-hidden="true" tabindex="-1"></a>Assim, o elemento da i-ésima linha e k-ésima coluna de **A**x**B** é: $$</span>
+<span id="cb69-292"><a href="#cb69-292" aria-hidden="true" tabindex="-1"></a>\sum{a_{ij}*b_{jk} = a_{i1}*b_{1k} + a_{i2}*b_{2k} + ...+a_{in}*b_{nk}}</span>
+<span id="cb69-293"><a href="#cb69-293" aria-hidden="true" tabindex="-1"></a>$$ Nesse caso o elemento $a_{11} = 135$ na multiplicação anteior foi definido por:</span>
+<span id="cb69-294"><a href="#cb69-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-297"><a href="#cb69-297" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-298"><a href="#cb69-298" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((A[<span class="dv">1</span>,]<span class="sc">*</span>B[,<span class="dv">1</span>]))</span>
+<span id="cb69-299"><a href="#cb69-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-300"><a href="#cb69-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-301"><a href="#cb69-301" aria-hidden="true" tabindex="-1"></a>O elemento $a_{12} = 310$</span>
 <span id="cb69-302"><a href="#cb69-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-303"><a href="#cb69-303" aria-hidden="true" tabindex="-1"></a>A inversão matricial é análogo ao processo comum aritmético de divisão. Onde, para um escalar **k**, é certamente verdadeiro que $k*k^{-1}=1$. Veja o exemplo abaixo apicado no R, onde temos o escalar $k = 978$.</span>
-<span id="cb69-306"><a href="#cb69-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-307"><a href="#cb69-307" aria-hidden="true" tabindex="-1"></a>k <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">978</span>)</span>
-<span id="cb69-308"><a href="#cb69-308" aria-hidden="true" tabindex="-1"></a>k</span>
-<span id="cb69-309"><a href="#cb69-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-310"><a href="#cb69-310" aria-hidden="true" tabindex="-1"></a>A matriz inversa $k^{-1}$ é:</span>
-<span id="cb69-313"><a href="#cb69-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-314"><a href="#cb69-314" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(k)</span>
-<span id="cb69-315"><a href="#cb69-315" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-316"><a href="#cb69-316" aria-hidden="true" tabindex="-1"></a>Então $k*k^{-1}$ é dado por:</span>
-<span id="cb69-319"><a href="#cb69-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-320"><a href="#cb69-320" aria-hidden="true" tabindex="-1"></a>k<span class="sc">*</span><span class="fu">solve</span>(k)</span>
-<span id="cb69-321"><a href="#cb69-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-322"><a href="#cb69-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-323"><a href="#cb69-323" aria-hidden="true" tabindex="-1"></a>De maneira similar se **A** é uma matriz quadrada e $A*A^{-1} = I$, em que $I$ é a matriz identidade, então a matriz $A^{-1}$ é a inversa de **A**. Veja o exemplo abaixo:</span>
-<span id="cb69-326"><a href="#cb69-326" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-327"><a href="#cb69-327" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb69-328"><a href="#cb69-328" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb69-329"><a href="#cb69-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-330"><a href="#cb69-330" aria-hidden="true" tabindex="-1"></a>Inversa da matriz **A**</span>
+<span id="cb69-305"><a href="#cb69-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-306"><a href="#cb69-306" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((A[<span class="dv">1</span>,]<span class="sc">*</span>B[,<span class="dv">2</span>]))</span>
+<span id="cb69-307"><a href="#cb69-307" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-308"><a href="#cb69-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-309"><a href="#cb69-309" aria-hidden="true" tabindex="-1"></a>Quando as matrizes **A** e **B** são matrizes quadradas **A**x**B** está definida. Entretanto AxB é diferente de **B**x**A**. Veja o exemplo abaixo:</span>
+<span id="cb69-310"><a href="#cb69-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-311"><a href="#cb69-311" aria-hidden="true" tabindex="-1"></a>Matriz quadrada **A**</span>
+<span id="cb69-312"><a href="#cb69-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-315"><a href="#cb69-315" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-316"><a href="#cb69-316" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb69-317"><a href="#cb69-317" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb69-318"><a href="#cb69-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-319"><a href="#cb69-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-320"><a href="#cb69-320" aria-hidden="true" tabindex="-1"></a>Matriz quadrada **B**</span>
+<span id="cb69-321"><a href="#cb69-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-324"><a href="#cb69-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-325"><a href="#cb69-325" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb69-326"><a href="#cb69-326" aria-hidden="true" tabindex="-1"></a>B</span>
+<span id="cb69-327"><a href="#cb69-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-328"><a href="#cb69-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-329"><a href="#cb69-329" aria-hidden="true" tabindex="-1"></a>Então **A**x**B**:</span>
+<span id="cb69-330"><a href="#cb69-330" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-333"><a href="#cb69-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-334"><a href="#cb69-334" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(A)</span>
+<span id="cb69-334"><a href="#cb69-334" aria-hidden="true" tabindex="-1"></a>A<span class="sc">%*%</span>B</span>
 <span id="cb69-335"><a href="#cb69-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-336"><a href="#cb69-336" aria-hidden="true" tabindex="-1"></a>então, $A*A^{-1}$ é:</span>
-<span id="cb69-339"><a href="#cb69-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-340"><a href="#cb69-340" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(A<span class="sc">*</span><span class="fu">solve</span>(A))</span>
-<span id="cb69-341"><a href="#cb69-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-342"><a href="#cb69-342" aria-hidden="true" tabindex="-1"></a>Lembre-se que, as inversas só exestem para matrizes quadradas, mas nem toda matriz quadrada possui inversa. A matriz inversa de uma matriz 2 x 2, se existe, pode ser facilmente calculada. A equação é:</span>
-<span id="cb69-343"><a href="#cb69-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-344"><a href="#cb69-344" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-345"><a href="#cb69-345" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb69-346"><a href="#cb69-346" aria-hidden="true" tabindex="-1"></a>a &amp; b <span class="sc">\\</span></span>
-<span id="cb69-347"><a href="#cb69-347" aria-hidden="true" tabindex="-1"></a>c &amp; d</span>
-<span id="cb69-348"><a href="#cb69-348" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}^{-1} = </span>
-<span id="cb69-349"><a href="#cb69-349" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb69-350"><a href="#cb69-350" aria-hidden="true" tabindex="-1"></a>a/\Delta &amp; b/\Delta <span class="sc">\\</span></span>
-<span id="cb69-351"><a href="#cb69-351" aria-hidden="true" tabindex="-1"></a>c/\Delta &amp; d/\Delta</span>
-<span id="cb69-352"><a href="#cb69-352" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb69-353"><a href="#cb69-353" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-354"><a href="#cb69-354" aria-hidden="true" tabindex="-1"></a>onde $\Delta = (a*d)-(b*c)$. Aqui o escalar $\Delta$ é chamado de *determinante* da matriz que está sendo invertida. Portanto, se $\Delta = 0$ a matriz inversa não é definida. </span>
+<span id="cb69-336"><a href="#cb69-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-337"><a href="#cb69-337" aria-hidden="true" tabindex="-1"></a>e **B**x**A**:</span>
+<span id="cb69-338"><a href="#cb69-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-341"><a href="#cb69-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-342"><a href="#cb69-342" aria-hidden="true" tabindex="-1"></a>B<span class="sc">%*%</span>A</span>
+<span id="cb69-343"><a href="#cb69-343" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-344"><a href="#cb69-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-345"><a href="#cb69-345" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inversão matricial</span></span>
+<span id="cb69-346"><a href="#cb69-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-347"><a href="#cb69-347" aria-hidden="true" tabindex="-1"></a>A inversão matricial é análogo ao processo comum aritmético de divisão. Onde, para um escalar **k**, é certamente verdadeiro que $k*k^{-1}=1$. Veja o exemplo abaixo apicado no R, onde temos o escalar $k = 978$.</span>
+<span id="cb69-348"><a href="#cb69-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-351"><a href="#cb69-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-352"><a href="#cb69-352" aria-hidden="true" tabindex="-1"></a>k <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">978</span>)</span>
+<span id="cb69-353"><a href="#cb69-353" aria-hidden="true" tabindex="-1"></a>k</span>
+<span id="cb69-354"><a href="#cb69-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb69-355"><a href="#cb69-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-356"><a href="#cb69-356" aria-hidden="true" tabindex="-1"></a>Por isso, se o determinante é 0, então a inversa não existe, e vice-versa. Uma matriz com determinate 0 é chamada de **singular**.</span>
+<span id="cb69-356"><a href="#cb69-356" aria-hidden="true" tabindex="-1"></a>A matriz inversa $k^{-1}$ é:</span>
 <span id="cb69-357"><a href="#cb69-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-358"><a href="#cb69-358" aria-hidden="true" tabindex="-1"></a>Uma matriz com a *inversa* igual à *transposta* é dita **ortogonais**. Portanto, **A** é ortogonal se $A^{-1} = **A**'$.</span>
-<span id="cb69-359"><a href="#cb69-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-360"><a href="#cb69-360" aria-hidden="true" tabindex="-1"></a><span class="fu"># Formas quadráticas</span></span>
-<span id="cb69-361"><a href="#cb69-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-362"><a href="#cb69-362" aria-hidden="true" tabindex="-1"></a>Supomos que **A** é uma mariz quadrada axa e x é um vetor coluna de comprimento a. Então a quantidade</span>
-<span id="cb69-363"><a href="#cb69-363" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-364"><a href="#cb69-364" aria-hidden="true" tabindex="-1"></a>Q=x'Ax</span>
-<span id="cb69-365"><a href="#cb69-365" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-366"><a href="#cb69-366" aria-hidden="true" tabindex="-1"></a>Veja o exemplo no R:</span>
-<span id="cb69-367"><a href="#cb69-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-368"><a href="#cb69-368" aria-hidden="true" tabindex="-1"></a>Matriz **A**</span>
-<span id="cb69-371"><a href="#cb69-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-372"><a href="#cb69-372" aria-hidden="true" tabindex="-1"></a><span class="co"># matriz A</span></span>
-<span id="cb69-373"><a href="#cb69-373" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb69-374"><a href="#cb69-374" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb69-375"><a href="#cb69-375" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-376"><a href="#cb69-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-377"><a href="#cb69-377" aria-hidden="true" tabindex="-1"></a>Vetor coluna **x**</span>
-<span id="cb69-380"><a href="#cb69-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-381"><a href="#cb69-381" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">11</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb69-382"><a href="#cb69-382" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb69-383"><a href="#cb69-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-384"><a href="#cb69-384" aria-hidden="true" tabindex="-1"></a>Assim, Q é igual a:</span>
-<span id="cb69-387"><a href="#cb69-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb69-388"><a href="#cb69-388" aria-hidden="true" tabindex="-1"></a>Q<span class="ot">=</span><span class="fu">t</span>(x)<span class="sc">%*%</span>A<span class="sc">%*%</span>x</span>
-<span id="cb69-389"><a href="#cb69-389" aria-hidden="true" tabindex="-1"></a>Q</span>
-<span id="cb69-390"><a href="#cb69-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb69-391"><a href="#cb69-391" aria-hidden="true" tabindex="-1"></a>Esse escalar chamado de _forma quadrática_. Pode também ser expresso como:</span>
-<span id="cb69-392"><a href="#cb69-392" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-393"><a href="#cb69-393" aria-hidden="true" tabindex="-1"></a>Q=\sum^n_{i=1}\sum^n_{j=1}{x_ia{ij}x_j}</span>
-<span id="cb69-394"><a href="#cb69-394" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb69-395"><a href="#cb69-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-360"><a href="#cb69-360" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-361"><a href="#cb69-361" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(k)</span>
+<span id="cb69-362"><a href="#cb69-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-363"><a href="#cb69-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-364"><a href="#cb69-364" aria-hidden="true" tabindex="-1"></a>Então $k*k^{-1}$ é dado por:</span>
+<span id="cb69-365"><a href="#cb69-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-368"><a href="#cb69-368" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-369"><a href="#cb69-369" aria-hidden="true" tabindex="-1"></a>k<span class="sc">*</span><span class="fu">solve</span>(k)</span>
+<span id="cb69-370"><a href="#cb69-370" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-371"><a href="#cb69-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-372"><a href="#cb69-372" aria-hidden="true" tabindex="-1"></a>De maneira similar se **A** é uma matriz quadrada e $A*A^{-1} = I$, em que $I$ é a matriz identidade, então a matriz $A^{-1}$ é a inversa de **A**. Veja o exemplo abaixo:</span>
+<span id="cb69-373"><a href="#cb69-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-376"><a href="#cb69-376" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-377"><a href="#cb69-377" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb69-378"><a href="#cb69-378" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb69-379"><a href="#cb69-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-380"><a href="#cb69-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-381"><a href="#cb69-381" aria-hidden="true" tabindex="-1"></a>Inversa da matriz **A**</span>
+<span id="cb69-382"><a href="#cb69-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-385"><a href="#cb69-385" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-386"><a href="#cb69-386" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(A)</span>
+<span id="cb69-387"><a href="#cb69-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-388"><a href="#cb69-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-389"><a href="#cb69-389" aria-hidden="true" tabindex="-1"></a>então, $A*A^{-1}$ é:</span>
+<span id="cb69-390"><a href="#cb69-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-393"><a href="#cb69-393" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-394"><a href="#cb69-394" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(A<span class="sc">*</span><span class="fu">solve</span>(A))</span>
+<span id="cb69-395"><a href="#cb69-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb69-396"><a href="#cb69-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-397"><a href="#cb69-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-397"><a href="#cb69-397" aria-hidden="true" tabindex="-1"></a>Lembre-se que, as inversas só exestem para matrizes quadradas, mas nem toda matriz quadrada possui inversa. A matriz inversa de uma matriz 2 x 2, se existe, pode ser facilmente calculada. A equação é:</span>
 <span id="cb69-398"><a href="#cb69-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-399"><a href="#cb69-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-400"><a href="#cb69-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-401"><a href="#cb69-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-402"><a href="#cb69-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-403"><a href="#cb69-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-404"><a href="#cb69-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-405"><a href="#cb69-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-406"><a href="#cb69-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-407"><a href="#cb69-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-408"><a href="#cb69-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-399"><a href="#cb69-399" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-400"><a href="#cb69-400" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb69-401"><a href="#cb69-401" aria-hidden="true" tabindex="-1"></a>a &amp; b <span class="sc">\\</span></span>
+<span id="cb69-402"><a href="#cb69-402" aria-hidden="true" tabindex="-1"></a>c &amp; d</span>
+<span id="cb69-403"><a href="#cb69-403" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}^{-1} = </span>
+<span id="cb69-404"><a href="#cb69-404" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb69-405"><a href="#cb69-405" aria-hidden="true" tabindex="-1"></a>a/\Delta &amp; b/\Delta <span class="sc">\\</span></span>
+<span id="cb69-406"><a href="#cb69-406" aria-hidden="true" tabindex="-1"></a>c/\Delta &amp; d/\Delta</span>
+<span id="cb69-407"><a href="#cb69-407" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb69-408"><a href="#cb69-408" aria-hidden="true" tabindex="-1"></a>$$ onde $\Delta = (a*d)-(b*c)$. Aqui o escalar $\Delta$ é chamado de *determinante* da matriz que está sendo invertida. Portanto, se $\Delta = 0$ a matriz inversa não é definida.</span>
 <span id="cb69-409"><a href="#cb69-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-410"><a href="#cb69-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-410"><a href="#cb69-410" aria-hidden="true" tabindex="-1"></a>Por isso, se o determinante é 0, então a inversa não existe, e vice-versa. Uma matriz com determinate 0 é chamada de **singular**.</span>
 <span id="cb69-411"><a href="#cb69-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-412"><a href="#cb69-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-412"><a href="#cb69-412" aria-hidden="true" tabindex="-1"></a>Uma matriz com a *inversa* igual à *transposta* é dita **ortogonais**. Portanto, **A** é ortogonal se $A^{-1} = **A**'$.</span>
+<span id="cb69-413"><a href="#cb69-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-414"><a href="#cb69-414" aria-hidden="true" tabindex="-1"></a><span class="fu"># Formas quadráticas</span></span>
+<span id="cb69-415"><a href="#cb69-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-416"><a href="#cb69-416" aria-hidden="true" tabindex="-1"></a>Supomos que **A** é uma mariz quadrada axa e x é um vetor coluna de comprimento a. Então a quantidade Q é: $$</span>
+<span id="cb69-417"><a href="#cb69-417" aria-hidden="true" tabindex="-1"></a>Q=x'Ax</span>
+<span id="cb69-418"><a href="#cb69-418" aria-hidden="true" tabindex="-1"></a>$$ Veja o exemplo no R:</span>
+<span id="cb69-419"><a href="#cb69-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-420"><a href="#cb69-420" aria-hidden="true" tabindex="-1"></a>Matriz **A**</span>
+<span id="cb69-421"><a href="#cb69-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-424"><a href="#cb69-424" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-425"><a href="#cb69-425" aria-hidden="true" tabindex="-1"></a><span class="co"># matriz A</span></span>
+<span id="cb69-426"><a href="#cb69-426" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb69-427"><a href="#cb69-427" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb69-428"><a href="#cb69-428" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-429"><a href="#cb69-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-430"><a href="#cb69-430" aria-hidden="true" tabindex="-1"></a>Vetor coluna **x**</span>
+<span id="cb69-431"><a href="#cb69-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-434"><a href="#cb69-434" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-435"><a href="#cb69-435" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">11</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb69-436"><a href="#cb69-436" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb69-437"><a href="#cb69-437" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-438"><a href="#cb69-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-439"><a href="#cb69-439" aria-hidden="true" tabindex="-1"></a>Assim, Q é igual a:</span>
+<span id="cb69-440"><a href="#cb69-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-443"><a href="#cb69-443" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-444"><a href="#cb69-444" aria-hidden="true" tabindex="-1"></a>Q<span class="ot">=</span><span class="fu">t</span>(x)<span class="sc">%*%</span>A<span class="sc">%*%</span>x</span>
+<span id="cb69-445"><a href="#cb69-445" aria-hidden="true" tabindex="-1"></a>Q</span>
+<span id="cb69-446"><a href="#cb69-446" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-447"><a href="#cb69-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-448"><a href="#cb69-448" aria-hidden="true" tabindex="-1"></a>Esse escalar chamado de *forma quadrática*. Pode também ser expresso como: $$</span>
+<span id="cb69-449"><a href="#cb69-449" aria-hidden="true" tabindex="-1"></a>Q=\sum^n_{i=1}\sum^n_{j=1}{x_ia{ij}x_j}</span>
+<span id="cb69-450"><a href="#cb69-450" aria-hidden="true" tabindex="-1"></a>$$ Onde,</span>
+<span id="cb69-451"><a href="#cb69-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-452"><a href="#cb69-452" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$x_i$: elemento da $i-ésima$ linha de x</span>
+<span id="cb69-453"><a href="#cb69-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-454"><a href="#cb69-454" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$a_{ij}$: é o elemento na $i-ésima$ linha e $j-ésima$ coluna de uma matiz **A**.</span>
+<span id="cb69-455"><a href="#cb69-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-456"><a href="#cb69-456" aria-hidden="true" tabindex="-1"></a><span class="fu"># Autovalores e autovetores</span></span>
+<span id="cb69-457"><a href="#cb69-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-458"><a href="#cb69-458" aria-hidden="true" tabindex="-1"></a><span class="fu"># Referências</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

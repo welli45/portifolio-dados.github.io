@@ -1,5 +1,5 @@
 ---
-title: "Álgebra Matricial"
+title: "Introdução Álgebra Matricial"
 subtitle: "Aplicação em R"
 description: "Esse documento foi desenvolvido para organizar meus estudos em álgebra matricial aplicada em R. Aqui você encontrará conceitos, definições, propriedades e aplicações de matrizes e vetores em R."
 author: "Wellington Santos Souza"
@@ -16,6 +16,7 @@ open-graph:
 twitter-card:
   description: "Martriz"
   image: ../images/06.matriz/OIP.jpg
+bibliography: references.bib
 ---
 
 *Este artigo foi escrito em Segunda, 22 de Julho de 2024.*
@@ -24,7 +25,28 @@ twitter-card:
 
 # Porque devemos estudar álgebra matricial?
 
-A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial.
+A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial [@métodos2021].
+
+### Notações
+
+|                                         |                                                                                |
+|-----------------------------------------|--------------------------------------------------------------------------------|
+| $A, B, C$                               | $\text{letras maiúsculas representam matrizes}$                                |
+| $u, v, w$                               | $\text{letras minúsculas representam vetores}$                                 |
+| $\text{A de tamanho m x n ou (m x n)}$  | $\text{a matriz A tem linhas m e colunas n }$                                  |
+| $A^T$                                   | $\text{a transposição da matriz A}$                                            |
+| $v^T$                                   | $\text{a transposição do vetor v}$                                             |
+| $A^{-1}$                                | $\text{o inverso da matriz A}$                                                 |
+| $\text{det (A)}$                        | $\text{o determinate da matriz A}$                                             |
+| $AB$                                    | $\text{multilicação das matrizes A e B}$                                       |
+| $u ⋅ v; ⟨u,v⟩$                          | $\text{produto escalar de vetores u e v}$                                      |
+| $\mathbb{R}$                            | $\text{conjunto de vetores bidimensionais, por exempo 0, -0.3, 2,3.4}$         |
+| $\mathbb{R}^2$                          | conjunto de vetores bidimensionais, por exemplo$v = [1- 3]^T$                  |
+| $\mathbb{R}^n$                          | $\text{conjunto devetores n-dimensionais}$                                     |
+| $v \in \mathbb{R}^2$                    | o vetor $v$ é um elemento de $\mathbb{R}^2$                                    |
+| $|v|_1$                                 | $\text{Normal L1 de um vetor}$                                                 |
+| $|v|_2;|v|;||v||$                       | $\text{Norma L2 de um vetor}$                                                  |
+| $T:\mathbb{R}2\to\mathbb{R}^3;T(v) = w$ | transformação $T$ de um vetor $v \in \mathbb{R}$ no vetor $w \in \mathbb{R}^3$ |
 
 # Matrizes, Vetores e escalares
 
@@ -359,12 +381,10 @@ Esse escalar chamado de *forma quadrática*. Pode também ser expresso como: $$
 Q=\sum^n_{i=1}\sum^n_{j=1}{x_ia{ij}x_j}
 $$ Onde,
 
--    $x_i$: elemento da $i-ésima$ linha de x
+-   $x_i$: elemento da $i-ésima$ linha de x
 
 -   $a_{ij}$: é o elemento na $i-ésima$ linha e $j-ésima$ coluna de uma matiz **A**.
 
 # Autovalores e autovetores
 
 # Referências
-
-

@@ -17,7 +17,7 @@
 <generator>quarto-1.4.551</generator>
 <lastBuildDate>Mon, 22 Jul 2024 03:00:00 GMT</lastBuildDate>
 <item>
-  <title>Álgebra Matricial</title>
+  <title>Introdução Álgebra Matricial</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
   <link>https://github.com/welli45/portifolio/projetos-R/posts/algebra-matricial.html</link>
   <description><![CDATA[ 
@@ -29,7 +29,82 @@
 <p><img src="https://github.com/welli45/portifolio/projetos-R/images/06.matriz/OIP.jpg" class="img-fluid" data-fig-title="Matriz" alt="Matriz"></p>
 <section id="porque-devemos-estudar-álgebra-matricial" class="level1">
 <h1>Porque devemos estudar álgebra matricial?</h1>
-<p>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial.</p>
+<p>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial <span class="citation" data-cites="métodos2021">(<em>Métodos estatísticos multivariados: uma introdução</em> 2021)</span>.</p>
+<section id="notações" class="level3">
+<h3 class="anchored" data-anchor-id="notações">Notações</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 66%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?A,%20B,%20C"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bletras%20mai%C3%BAsculas%20representam%20matrizes%7D"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?u,%20v,%20w"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bletras%20min%C3%BAsculas%20representam%20vetores%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BA%20de%20tamanho%20m%20x%20n%20ou%20(m%20x%20n)%7D"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Ba%20matriz%20A%20tem%20linhas%20m%20e%20colunas%20n%20%7D"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?A%5ET"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Ba%20transposi%C3%A7%C3%A3o%20da%20matriz%20A%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?v%5ET"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Ba%20transposi%C3%A7%C3%A3o%20do%20vetor%20v%7D"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?A%5E%7B-1%7D"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bo%20inverso%20da%20matriz%20A%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bdet%20(A)%7D"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bo%20determinate%20da%20matriz%20A%7D"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?AB"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bmultilica%C3%A7%C3%A3o%20das%20matrizes%20A%20e%20B%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?u%20%E2%8B%85%20v;%20%E2%9F%A8u,v%E2%9F%A9"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bproduto%20escalar%20de%20vetores%20u%20e%20v%7D"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bconjunto%20de%20vetores%20bidimensionais,%20por%20exempo%200,%20-0.3,%202,3.4%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5E2"></td>
+<td>conjunto de vetores bidimensionais, por exemplo<img src="https://latex.codecogs.com/png.latex?v%20=%20%5B1-%203%5D%5ET"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5En"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bconjunto%20devetores%20n-dimensionais%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?v%20%5Cin%20%5Cmathbb%7BR%7D%5E2"></td>
+<td>o vetor <img src="https://latex.codecogs.com/png.latex?v"> é um elemento de <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5E2"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?%7Cv%7C_1"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BNormal%20L1%20de%20um%20vetor%7D"></td>
+</tr>
+<tr class="odd">
+<td><img src="https://latex.codecogs.com/png.latex?%7Cv%7C_2;%7Cv%7C;%7C%7Cv%7C%7C"></td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BNorma%20L2%20de%20um%20vetor%7D"></td>
+</tr>
+<tr class="even">
+<td><img src="https://latex.codecogs.com/png.latex?T:%5Cmathbb%7BR%7D2%5Cto%5Cmathbb%7BR%7D%5E3;T(v)%20=%20w"></td>
+<td>transformação <img src="https://latex.codecogs.com/png.latex?T"> de um vetor <img src="https://latex.codecogs.com/png.latex?v%20%5Cin%20%5Cmathbb%7BR%7D"> no vetor <img src="https://latex.codecogs.com/png.latex?w%20%5Cin%20%5Cmathbb%7BR%7D%5E3"></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="matrizes-vetores-e-escalares" class="level1">
 <h1>Matrizes, Vetores e escalares</h1>
@@ -38,7 +113,7 @@
 <p>Uma <em>matriz</em> m x n é um arranjo de número de com m linhas e n colunas, considerado como uma única entidade.</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0AA=%0A%5Cbegin%7Bbmatrix%7D%0A%20%20%20%20a_%7B11%7D%20&amp;%20a_%7B12%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B1n%7D%20%5C%5C%0A%20%20%20%20a_%7B21%7D%20&amp;%20a_%7B22%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B2n%7D%20%5C%5C%0A%20%20%20%20%5Cvdots%20&amp;%20%5Cvdots%20&amp;%20%5Cddots%20&amp;%20%5Cvdots%20%5C%5C%0A%20%20%20%20a_%7Bm1%7D%20&amp;%20a_%7Bm2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7Bmn%7D%0A%5Cend%7Bbmatrix%7D%0A"></p>
 <p>Veja o exemplo de uma matriz criada no R abaixo.</p>
-<p>Para criarmos uma matriz A com 5 linhas x 5 colunas no R usamos os seguintes comandos.</p>
+<p>Para criarmos uma matriz <strong>A</strong> com 5 linhas x 5 colunas no R usamos os seguintes comandos.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -98,7 +173,7 @@ font-style: inherit;">1</span>]</span>
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
-<p>Caso tivéssemos somente uma linha, teríamos um vetor linha. Veja o exemplo abaixo.</p>
+<p>Caso tivéssemos somente uma linha, teríamos um <strong>vetor linha</strong>. Veja o exemplo abaixo.</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Br%7D%20=%20%5Cbegin%7Bbmatrix%7D%0A%20%20%20%20r_1%20&amp;%20r_2%20&amp;%20%5Ccdots%20&amp;%20r_n%0A%5Cend%7Bbmatrix%7D%0A"></p>
 <div class="cell">
 <details class="code-fold">
@@ -120,7 +195,7 @@ font-style: inherit;">1</span>,]</span>
 </section>
 <section id="escalar" class="level2">
 <h2 class="anchored" data-anchor-id="escalar">Escalar</h2>
-<p>Em álgebra matricial um escalar pode ser definido como um único número <img src="https://latex.codecogs.com/png.latex?k%20=%20a_%7B11%7D"></p>
+<p>Em álgebra matricial um <em>escalar</em> pode ser definido como um único número <img src="https://latex.codecogs.com/png.latex?k%20=%20a_%7B11%7D"></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -144,7 +219,7 @@ font-style: inherit;">3</span>]</span>
 <section id="tipos-de-matrizes" class="level2">
 <h2 class="anchored" data-anchor-id="tipos-de-matrizes">Tipos de Matrizes</h2>
 <p>Há diversos tipos de matrizes, dentre elas podemos citar:</p>
-<p>Matriz zero: matriz onde todos os elementos são iguais a zero.</p>
+<p><strong>Matriz zero:</strong> matriz onde todos os elementos são iguais a zero.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -177,7 +252,7 @@ font-style: inherit;">5</span>)</span>
 [5,]    0    0    0    0    0</code></pre>
 </div>
 </div>
-<p>Matriz diagonal: matriz onde todos os elementos fora da diagonal principal são iguais a zero.</p>
+<p><strong>Matriz diagonal:</strong> matriz onde todos os elementos fora da diagonal principal são iguais a zero.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -206,7 +281,7 @@ font-style: inherit;">5</span>)</span>
 [5,]    0    0    0    0    5</code></pre>
 </div>
 </div>
-<p>Matriz simétrica: matriz onde a transposta é igual a matriz original.</p>
+<p><strong>Matriz simétrica:</strong> matriz onde a transposta é igual a matriz original.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -271,7 +346,7 @@ font-style: inherit;">t</span>(S)</span></code></pre></div>
 [4,]    5    6    7    8</code></pre>
 </div>
 </div>
-<p>Matriz identidade: matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.</p>
+<p><strong>Matriz identidade:</strong> matriz diagonal onde todos os elementos da diagonal principal são iguais a 1.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -304,7 +379,7 @@ font-style: inherit;">5</span>)</span>
 [5,]    0    0    0    0    1</code></pre>
 </div>
 </div>
-<p>Duas <em>matrizes são iguais</em> se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.</p>
+<p>Duas <strong>matrizes são iguais</strong> se tiverem o mesmo número de linhas e colunas e se os elementos correspondentes forem iguais.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -362,7 +437,7 @@ font-style: inherit;">==</span> Y</span></code></pre></div>
 [5,] TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
 </div>
-<p>O <em>traço</em> de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir <img src="https://latex.codecogs.com/png.latex?X"> criada anteriormente.</p>
+<p>O <strong>traço</strong> de uma matriz quadrada é a soma dos elementos da diagonal principal. Veja o exemplo abaixo aplicado a matrir <img src="https://latex.codecogs.com/png.latex?X"> criada anteriormente.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -384,7 +459,7 @@ font-style: inherit;">diag</span>(X))</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="operações-com-matrizes">Operações com Matrizes</h2>
 <section id="soma-e-subtração-de-matrizes" class="level3">
 <h3 class="anchored" data-anchor-id="soma-e-subtração-de-matrizes">Soma e subtração de matrizes</h3>
-<p>Soma: a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes. Por exemplo, sejam as matrizes <img src="https://latex.codecogs.com/png.latex?A"> e <img src="https://latex.codecogs.com/png.latex?B"> abaixo.</p>
+<p><strong>Soma:</strong> a soma em duas matrizes de mesmo tamanho é feita somando os elementos correspondentes. Por exemplo, sejam as matrizes <img src="https://latex.codecogs.com/png.latex?A"> e <img src="https://latex.codecogs.com/png.latex?B"> abaixo.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -444,7 +519,7 @@ font-style: inherit;">+</span> B</span></code></pre></div>
 [5,]   35   45   55   65   75</code></pre>
 </div>
 </div>
-<p>Subtração: a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes <img src="https://latex.codecogs.com/png.latex?A"> e <img src="https://latex.codecogs.com/png.latex?B"> criadas anteriormente, temos:</p>
+<p><strong>Subtração:</strong> a subtração em duas matrizes de mesmo tamanho é feita subtraindo os elementos correspondentes. Por exemplo, sejam as matrizes <strong>A</strong> e <strong>B</strong> criadas anteriormente, temos:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -468,7 +543,7 @@ font-style: inherit;">-</span> B</span></code></pre></div>
 <section id="multiplicação" class="level3">
 <h3 class="anchored" data-anchor-id="multiplicação">Multiplicação</h3>
 <p>Multiplicação de uma matriz com um escalar</p>
-<p>A multiplicação de um escalar com uma matriz é defina por: a multiplicação de cada elemento de A por k. Observe o exemplo a seguir aplicado ao R.</p>
+<p>A multiplicação de um escalar com uma matriz é defina por: a multiplicação de cada elemento de <strong>A</strong> por <strong>k</strong>. Observe o exemplo a seguir aplicado ao R.</p>
 <p>Escalar K</p>
 <div class="cell">
 <details class="code-fold">
@@ -514,9 +589,9 @@ font-style: inherit;">*</span> A</span></code></pre></div>
 [5,]   65  130  195  260  325</code></pre>
 </div>
 </div>
-<p>Já a multilicação de duas matrizes definidas como AxB não é tão simples. AxB é definida somente se, o número de colunas de A é igual ao número de linhas de B. Veja o exemplo a seguir, aqui assumimos que A é de tamanho mxn e B nxc, então a multiplicação é definida para reproduzir o resultado AxB.</p>
+<p>Já a multilicação de duas matrizes definidas como <strong>A</strong>x<strong>B</strong> não é tão simples. AxB é definida somente se, o número de colunas de <strong>A</strong> é igual ao número de linhas de <strong>B</strong>. Veja o exemplo a seguir, aqui assumimos que <strong>A</strong> é de tamanho mxn e <strong>B</strong> nxc, então a multiplicação é definida para reproduzir o resultado <strong>A</strong>x<strong>B</strong>.</p>
 <p>Veja o exemplo aplicado ao R:</p>
-<p>Matriz A</p>
+<p>Matriz <strong>A</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -548,7 +623,7 @@ font-style: inherit;">5</span>)</span>
 [3,]    3    6    9   12   15</code></pre>
 </div>
 </div>
-<p>Matriz B</p>
+<p>Matriz <strong>B</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -582,7 +657,7 @@ font-style: inherit;">6</span>)</span>
 [5,]    5   10   15   20   25   30</code></pre>
 </div>
 </div>
-<p>A matriz A multiplicado pela matriz B usando o R, observe que o código <code>A%*%B</code> produz uma multiplicação de matrizes compatíveis, não é uma multiplicação padrão.</p>
+<p>A matriz A multiplicado pela matriz <strong>B</strong> usando o R, observe que o código <code>A%*%B</code> produz uma multiplicação de matrizes compatíveis, de acordo com a definição enterior, não é uma multiplicação padrão.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -597,15 +672,365 @@ font-style: inherit;">%*%</span>B</span></code></pre></div>
 [3,]  165  390  615  840 1065 1290</code></pre>
 </div>
 </div>
+<p>Assim, o elemento da i-ésima linha e k-ésima coluna de <strong>A</strong>x<strong>B</strong> é: <img src="https://latex.codecogs.com/png.latex?%0A%5Csum%7Ba_%7Bij%7D*b_%7Bjk%7D%20=%20a_%7Bi1%7D*b_%7B1k%7D%20+%20a_%7Bi2%7D*b_%7B2k%7D%20+%20...+a_%7Bin%7D*b_%7Bnk%7D%7D%0A"> Nesse caso o elemento <img src="https://latex.codecogs.com/png.latex?a_%7B11%7D%20=%20135"> na multiplicação anteior foi definido por:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>((A[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>B[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 135</code></pre>
+</div>
+</div>
+<p>O elemento <img src="https://latex.codecogs.com/png.latex?a_%7B12%7D%20=%20310"></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>((A[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>B[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 310</code></pre>
+</div>
+</div>
+<p>Quando as matrizes <strong>A</strong> e <strong>B</strong> são matrizes quadradas <strong>A</strong>x<strong>B</strong> está definida. Entretanto AxB é diferente de <strong>B</strong>x<strong>A</strong>. Veja o exemplo abaixo:</p>
+<p>Matriz quadrada <strong>A</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">A <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nrow =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ncol =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb43-2">A</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2   -1
+[2,]    1    1</code></pre>
+</div>
+</div>
+<p>Matriz quadrada <strong>B</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1">B <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nrow =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ncol =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb45-2">B</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    1
+[2,]    0    1</code></pre>
+</div>
+</div>
+<p>Então <strong>A</strong>x<strong>B</strong>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">A<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span>B</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2    1
+[2,]    1    2</code></pre>
+</div>
+</div>
+<p>e <strong>B</strong>x<strong>A</strong>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1">B<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span>A</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    3    0
+[2,]    1    1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="inversão-matricial" class="level2">
+<h2 class="anchored" data-anchor-id="inversão-matricial">Inversão matricial</h2>
+<p>A inversão matricial é análogo ao processo comum aritmético de divisão. Onde, para um escalar <strong>k</strong>, é certamente verdadeiro que <img src="https://latex.codecogs.com/png.latex?k*k%5E%7B-1%7D=1">. Veja o exemplo abaixo apicado no R, onde temos o escalar <img src="https://latex.codecogs.com/png.latex?k%20=%20978">.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">k <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">978</span>)</span>
+<span id="cb51-2">k</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]  978</code></pre>
+</div>
+</div>
+<p>A matriz inversa <img src="https://latex.codecogs.com/png.latex?k%5E%7B-1%7D"> é:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">solve</span>(k)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            [,1]
+[1,] 0.001022495</code></pre>
+</div>
+</div>
+<p>Então <img src="https://latex.codecogs.com/png.latex?k*k%5E%7B-1%7D"> é dado por:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1">k<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">solve</span>(k)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]    1</code></pre>
+</div>
+</div>
+<p>De maneira similar se <strong>A</strong> é uma matriz quadrada e <img src="https://latex.codecogs.com/png.latex?A*A%5E%7B-1%7D%20=%20I">, em que <img src="https://latex.codecogs.com/png.latex?I"> é a matriz identidade, então a matriz <img src="https://latex.codecogs.com/png.latex?A%5E%7B-1%7D"> é a inversa de <strong>A</strong>. Veja o exemplo abaixo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1">A <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb57-2">A</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2    1
+[2,]    1    2</code></pre>
+</div>
+</div>
+<p>Inversa da matriz <strong>A</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">solve</span>(A)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           [,1]       [,2]
+[1,]  0.6666667 -0.3333333
+[2,] -0.3333333  0.6666667</code></pre>
+</div>
+</div>
+<p>então, <img src="https://latex.codecogs.com/png.latex?A*A%5E%7B-1%7D"> é:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(A<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">solve</span>(A))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    0
+[2,]    0    1</code></pre>
+</div>
+</div>
+<p>Lembre-se que, as inversas só exestem para matrizes quadradas, mas nem toda matriz quadrada possui inversa. A matriz inversa de uma matriz 2 x 2, se existe, pode ser facilmente calculada. A equação é:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bbmatrix%7D%0Aa%20&amp;%20b%20%5C%5C%0Ac%20&amp;%20d%0A%5Cend%7Bbmatrix%7D%5E%7B-1%7D%20=%0A%5Cbegin%7Bbmatrix%7D%0Aa/%5CDelta%20&amp;%20b/%5CDelta%20%5C%5C%0Ac/%5CDelta%20&amp;%20d/%5CDelta%0A%5Cend%7Bbmatrix%7D%0A"> onde <img src="https://latex.codecogs.com/png.latex?%5CDelta%20=%20(a*d)-(b*c)">. Aqui o escalar <img src="https://latex.codecogs.com/png.latex?%5CDelta"> é chamado de <em>determinante</em> da matriz que está sendo invertida. Portanto, se <img src="https://latex.codecogs.com/png.latex?%5CDelta%20=%200"> a matriz inversa não é definida.</p>
+<p>Por isso, se o determinante é 0, então a inversa não existe, e vice-versa. Uma matriz com determinate 0 é chamada de <strong>singular</strong>.</p>
+<p>Uma matriz com a <em>inversa</em> igual à <em>transposta</em> é dita <strong>ortogonais</strong>. Portanto, <strong>A</strong> é ortogonal se <img src="https://latex.codecogs.com/png.latex?A%5E%7B-1%7D%20=%20**A**'">.</p>
+</section>
+</section>
+<section id="formas-quadráticas" class="level1">
+<h1>Formas quadráticas</h1>
+<p>Supomos que <strong>A</strong> é uma mariz quadrada axa e x é um vetor coluna de comprimento a. Então a quantidade Q é: <img src="https://latex.codecogs.com/png.latex?%0AQ=x'Ax%0A"> Veja o exemplo no R:</p>
+<p>Matriz <strong>A</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># matriz A</span></span>
+<span id="cb63-2">A <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb63-3">A</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    3
+[2,]    2    4</code></pre>
+</div>
+</div>
+<p>Vetor coluna <strong>x</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb65-2">x</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]   10
+[2,]   11</code></pre>
+</div>
+</div>
+<p>Assim, Q é igual a:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1">Q<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t</span>(x)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span>A<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span>x</span>
+<span id="cb67-2">Q</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,] 1134</code></pre>
+</div>
+</div>
+<p>Esse escalar chamado de <em>forma quadrática</em>. Pode também ser expresso como: <img src="https://latex.codecogs.com/png.latex?%0AQ=%5Csum%5En_%7Bi=1%7D%5Csum%5En_%7Bj=1%7D%7Bx_ia%7Bij%7Dx_j%7D%0A"> Onde,</p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?x_i">: elemento da <img src="https://latex.codecogs.com/png.latex?i-%C3%A9sima"> linha de x</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?a_%7Bij%7D">: é o elemento na <img src="https://latex.codecogs.com/png.latex?i-%C3%A9sima"> linha e <img src="https://latex.codecogs.com/png.latex?j-%C3%A9sima"> coluna de uma matiz <strong>A</strong>.</p></li>
+</ul>
+</section>
+<section id="autovalores-e-autovetores" class="level1">
+<h1>Autovalores e autovetores</h1>
+</section>
+<section id="referências" class="level1">
+
 
 
 <!-- -->
 
-</section>
-</section>
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-métodos2021" class="csl-entry">
+<em>Métodos estatísticos multivariados: uma introdução</em>. 2021. Bookman.
+</div>
+</div></section></div> ]]></description>
   <category>Matemática</category>
   <category>R</category>
   <category>matrizes</category>
