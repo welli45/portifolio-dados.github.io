@@ -1,0 +1,19 @@
+---
+title: "Teste de significância com dados multivariados"
+subtitle: "Aplicação em R"
+description: "Esse documento foi desenvolvido para organizar meus estudos em testes de significância com dados multivariados. Aqui, você encontrará informações sobre a aplicação de testes de significância em R, com exemplos práticos e códigos para auxiliar no aprendizado."
+author: "Wellington Santos Souza"
+date: "2024-08-03"
+format: 
+  html:
+    code-fold: true
+    code-copy: true
+    code-tools: true
+categories: ["Teste de significância", "Multivariados"]
+open-graph:
+  description: "Curva-Normal"
+  image: ../images/05.test-t/OIP.jpg
+twitter-card:
+  description: "Curva-Normal"
+  image: ../images/05.test-t/OIP.jpg
+---

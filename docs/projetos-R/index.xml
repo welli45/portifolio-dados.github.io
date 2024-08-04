@@ -14,7 +14,7 @@
 <title>Portifólio de Dados</title>
 <link>https://github.com/welli45/portifolio/projetos-R/</link>
 </image>
-<generator>quarto-1.4.551</generator>
+<generator>quarto-1.5.56</generator>
 <lastBuildDate>Sat, 03 Aug 2024 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Introdução Álgebra Matricial</title>
@@ -32,10 +32,10 @@
 <p>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial <span class="citation" data-cites="métodos2021">(<em>Métodos estatísticos multivariados: uma introdução</em> 2021)</span>.</p>
 <section id="notações" class="level3">
 <h3 class="anchored" data-anchor-id="notações">Notações</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1039,6 +1039,26 @@ font-style: inherit;">%*%</span>x</span>
   <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Teste de significância com dados multivariados</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://github.com/welli45/portifolio/projetos-R/posts/teste-sig-multivariados.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Teste de significância</category>
+  <category>Multivariados</category>
+  <guid>https://github.com/welli45/portifolio/projetos-R/posts/teste-sig-multivariados.html</guid>
+  <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Teste T para amostras independentes e amostras pareadas</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
   <link>https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T.html</link>
@@ -1078,6 +1098,7 @@ background-color: null;
 font-style: inherit;"># Instalando e carregando o pacote</span></span>
 <span id="cb1-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -1091,6 +1112,7 @@ background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb1-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -1104,6 +1126,7 @@ background-color: null;
 font-style: inherit;">library</span>(readr)</span>
 <span id="cb1-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -1117,6 +1140,7 @@ background-color: null;
 font-style: inherit;">library</span>(rstatix)</span>
 <span id="cb1-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -1130,6 +1154,7 @@ background-color: null;
 font-style: inherit;">library</span>(kableExtra)</span>
 <span id="cb1-6"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -3348,6 +3373,7 @@ font-style: inherit;">TRUE</span>)))</span></code></pre></div>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -3361,6 +3387,7 @@ background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb1-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -3374,6 +3401,7 @@ background-color: null;
 font-style: inherit;">library</span>(readxl)</span>
 <span id="cb1-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -4291,6 +4319,7 @@ font-style: inherit;">"Set1"</span>)</span></code></pre></div>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -5476,8 +5505,10 @@ background-color: null;
 font-style: inherit;">0</span>)</span>
 <span id="cb5-38"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -7449,6 +7480,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -7465,6 +7497,7 @@ font-style: inherit;">library</span>(PNADcIBGE)</span></code></pre></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -7483,6 +7516,7 @@ font-style: inherit;">library</span>(survey)</span></code></pre></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -7501,6 +7535,7 @@ font-style: inherit;">library</span>(convey)</span></code></pre></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -7519,6 +7554,7 @@ font-style: inherit;">library</span>(srvyr)</span></code></pre></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -8682,6 +8718,7 @@ Number of Fisher Scoring iterations: 2</code></pre>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -8698,6 +8735,7 @@ background-color: null;
 font-style: inherit;"># pacote utilizado para manipular os dados</span></span>
 <span id="cb1-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9131,6 +9169,7 @@ $geo
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9142,6 +9181,7 @@ background-color: null;
 font-style: inherit;">"igraph"</span>)</span>
 <span id="cb1-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9153,6 +9193,7 @@ background-color: null;
 font-style: inherit;">"sand"</span>)</span>
 <span id="cb1-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9164,6 +9205,7 @@ background-color: null;
 font-style: inherit;">"ggraph"</span>)</span>
 <span id="cb1-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9175,6 +9217,7 @@ background-color: null;
 font-style: inherit;">"tidyverse"</span>)</span>
 <span id="cb1-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9186,6 +9229,7 @@ background-color: null;
 font-style: inherit;">"tidygraph"</span>)</span>
 <span id="cb1-6"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9197,6 +9241,7 @@ background-color: null;
 font-style: inherit;">"viridis"</span>)</span>
 <span id="cb1-7"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9208,6 +9253,7 @@ background-color: null;
 font-style: inherit;">"patchwork"</span>)</span>
 <span id="cb1-8"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9219,6 +9265,7 @@ background-color: null;
 font-style: inherit;">"hrbrthemes"</span>)</span>
 <span id="cb1-9"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9230,6 +9277,7 @@ background-color: null;
 font-style: inherit;">"networkD3"</span>)</span>
 <span id="cb1-10"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -9241,6 +9289,7 @@ background-color: null;
 font-style: inherit;">"kableExtra"</span>)</span>
 <span id="cb1-11"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;

@@ -27,7 +27,7 @@ website:
           text: Projetos em Python
           href: projetos-Python/index.qmd
       - icon: mortarboard-fill
-        text: Vida Acadêmica
+        text: Estudos e Projetos Acadêmicos
         href: Vida-Academica/index.qmd
     tools:
       - icon: code-slash

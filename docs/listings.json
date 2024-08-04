@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/projetos-R/posts/algebra-matricial.html",
+      "/projetos-R/posts/teste-sig-multivariados.html",
       "/projetos-R/posts/Script-Teste-T.html",
       "/projetos-R/posts/analise-PROUNI.html",
       "/projetos-R/posts/analise-DataSenado.html",
@@ -20,6 +21,7 @@
     "listing": "/projetos-R/index.html",
     "items": [
       "/projetos-R/posts/algebra-matricial.html",
+      "/projetos-R/posts/teste-sig-multivariados.html",
       "/projetos-R/posts/Script-Teste-T.html",
       "/projetos-R/posts/analise-PROUNI.html",
       "/projetos-R/posts/analise-DataSenado.html",

@@ -30,7 +30,7 @@ A teoria é métodos estatísticos multivariados é baseada em álgebra matricia
 ### Notações
 
 |                                         |                                                                                |
-|-------------------------|-----------------------------------------------|
+|-----------------------------------------|--------------------------------------------------------------------------------|
 | $A, B, C$                               | $\text{letras maiúsculas representam matrizes}$                                |
 | $u, v, w$                               | $\text{letras minúsculas representam vetores}$                                 |
 | $\text{A de tamanho m x n ou (m x n)}$  | $\text{a matriz A tem linhas m e colunas n }$                                  |
