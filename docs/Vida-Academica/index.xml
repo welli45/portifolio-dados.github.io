@@ -15,12 +15,220 @@
 <link>https://github.com/welli45/portifolio/Vida-Academica/</link>
 </image>
 <generator>quarto-1.5.56</generator>
-<lastBuildDate>Wed, 07 Feb 2024 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 04 Aug 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Anotações do cursos feitos na plataforma Coursera</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://github.com/welli45/portifolio/Vida-Academica/posts/Cursera.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://github.com/welli45/portifolio/Vida-Academica/images/cursera.svg" class="img-fluid" data-fig-title="Capa" alt="Capa"></p>
+<section id="anotações-dos-cursos-feitos-na-plataforma-coursera" class="level1">
+<h1>Anotações dos cursos feitos na plataforma Coursera</h1>
+<p>Neste arquivo estão as anotações dos cursos feitos na plataforma Coursera.</p>
+<section id="álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados">Álgebra linear para aprendizado de máquina e ciência de dados</h2>
+<p>Clique <a href="../../Vida-Academica/posts/Algebra.html">aqui</a> para acessar as anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>curso</category>
+  <category>coursera</category>
+  <category>Machining Learning</category>
+  <category>Data Science</category>
+  <category>Deep Learning</category>
+  <category>Python</category>
+  <category>R</category>
+  <category>SQL</category>
+  <category>Tableau</category>
+  <category>Excel</category>
+  <category>Power BI</category>
+  <category>Machine Learning</category>
+  <category>Data Science</category>
+  <category>Deep Learning</category>
+  <category>Python</category>
+  <category>R</category>
+  <category>SQL</category>
+  <category>Tableau</category>
+  <category>Excel</category>
+  <category>Power BI</category>
+  <guid>https://github.com/welli45/portifolio/Vida-Academica/posts/Cursera.html</guid>
+  <pubDate>Sun, 04 Aug 2024 03:00:00 GMT</pubDate>
+  <media:content url="https://github.com/welli45/portifolio/Vida-Academica/images/redes.png" medium="image" type="image/png" height="73" width="144"/>
+</item>
+<item>
+  <title>Módulo 1: Sistema de equações lineares</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://github.com/welli45/portifolio/Vida-Academica/posts/01-mod-algebra.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="módulo-1-sistema-de-equações-lineares" class="level1">
+<h1>Módulo 1: Sistema de equações lineares</h1>
+<ul>
+<li><p>Sistema de sentenças</p>
+<ul>
+<li>Um sistema de sentenças pode ser <strong><em>Completo; Redundante e Contraditório</em></strong></li>
+<li>Os sistemas completos são <strong>não singulares</strong>
+<ul>
+<li>Exemplo: {the dog is black; the bird is red; the cat is white}</li>
+</ul></li>
+<li>Os sistemas Redundantes e Contraditórios são <strong>singulares</strong>
+<ul>
+<li>Exemplo → redundante: {the dog is black; the dog is black;the dog is black} ou {the dog is black; the dog is black; the bird is red}</li>
+<li>Exemplo → contraditório: {the dog is black; the dog is white; the bird is red}</li>
+</ul></li>
+</ul></li>
+<li><p>Sistema de equações</p>
+<ul>
+<li>Os sistemas de equações se comportam de forma similar aos sistemas de frase.</li>
+<li>Podem ser singulares e não singulares.</li>
+<li>Exemplo de um sistema de equações:
+<ul>
+<li>apple + banana + cherry = $10</li>
+<li>apple + 2banana + cherry = $15</li>
+<li>apple + banana + 2cherry = $12</li>
+<li>Com essas informações podemos determinar os preços das frutas</li>
+<li>O sistema de equações resultante é:
+<ul>
+<li>a + b + c = 10</li>
+<li>a + 2b + c = 15</li>
+<li>a + b + 2c = 12</li>
+</ul></li>
+</ul></li>
+<li>Sistema Completo - não singular → existe uma única solução.</li>
+<li>Sistema Contraditório - singular → não existe solução.</li>
+<li>Sistema Redundante - singular → infinitas soluções</li>
+<li>Linear ⇒ a + b = 10 / 2a + 3b = 15</li>
+<li>Não linear ⇒ <img src="https://latex.codecogs.com/png.latex?a%5E2%20+%20b%5E3%20+%20c%20=%2023"></li>
+<li>Num sistema linear, uma <strong><em>única solução</em></strong>, se encontra quando colocado em um gráfico, seguindo o sistema de coordenadas a solução se encontra nos pontos em comum nas duas retas.</li>
+</ul></li>
+<li><p>Noção geométrica de sigularidade</p>
+<ul>
+<li>As constantes não importam quando estamos definindo sistemas sigulares e não sigulares. Isto é, quando pegamos um sitema de equações e usamos o 0 como constante, o sistema de nenhuma soolução passa a ter infinita soluções.</li>
+</ul></li>
+<li><p>Matrizes singulares e não singulares</p>
+<ul>
+<li>Sistema 1 → matriz</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bmatrix%7D%20a%20+%20b%20=%200%20%5C%5C%20a%20+%202b%20=%200%5Cend%7Bmatrix%7D"> → <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bmatrix%7D%201%20&amp;%201%20%5C%5C%201%20&amp;%202%20%5Cend%7Bmatrix%7D"></p>
+<ul>
+<li>Sitema 2 → matriz</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bmatrix%7D%20a%20+%20b%20=%200%20%5C%5C%202a+2b=0%20%5Cend%7Bmatrix%7D"> → <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bmatrix%7D%201%20&amp;%201%20%5C%5C%202%20&amp;%202%20%5Cend%7Bmatrix%7D"></p>
+<ul>
+<li>As matrizes, assim como os sitemas de equações lineares podem ser singulares e não singulares.</li>
+<li>Matrizes não singulares possuem uma única solução</li>
+<li>Matrizes singulares possuem infinitas soluções.</li>
+<li>Podemos descobrir se um sistema de equações é singular ou não singular, basta simplificarmos as equações ingualando as soluções a 0.</li>
+</ul></li>
+<li><p>Dependência e independência lineares</p>
+<ul>
+<li>Se uma equação (linhas das matrizes) forem dependentes (podemos determinar uma linha aplicando uma operação com outras linhas) da outra ou vice-versa, temos que as equações (matrizes) são dependentes e lineares. Já o inverso indica não linearidade e independencia.</li>
+<li>Se a matriz for singular, as linhas são dependentes. Do contrário são independentes.</li>
+</ul></li>
+<li><p>Determinantes</p>
+<ul>
+<li>O determinante é a forma mais fácil de determinar a singularidade das matrizes.</li>
+<li>Se o determinante for igual a 0 a matriz é <strong><em>singular (dependente)</em></strong>, caso contrário ela é <strong><em>não singular (independente)</em></strong>.</li>
+</ul>
+<p>A matriz <img src="https://latex.codecogs.com/png.latex?A%20=%7B%5Cbegin%7Bmatrix%7D%20a%20&amp;%20b%20%5C%5C%20c%20&amp;%20d%20%5Cend%7Bmatrix%7D%7D"> é singular se, <img src="https://latex.codecogs.com/png.latex?a~b*k%20=%20c~d"></p>
+<p><img src="https://latex.codecogs.com/png.latex?a*k%20=%20c"> &amp; <img src="https://latex.codecogs.com/png.latex?b*k%20=%20d"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bc%7D%7Bd%7D%20=%20%5Cfrac%7Bd%7D%7Bb%7D%20=%20k"></p>
+<p><img src="https://latex.codecogs.com/png.latex?a*d%20=%20b*c"></p>
+<p>assim, o determinante é definido como: <img src="https://latex.codecogs.com/png.latex?a*d%20-%20b*c%20=%200"> e a matriz é singular.</p>
+<p>Agora consedere a matriz B = <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bmatrix%7D%201%20&amp;%201%20&amp;%201%20%5C%5C%200%20&amp;%20%202%20&amp;%202%20%5C%5C%200%20&amp;%200%20&amp;%203%20%5Cend%7Bmatrix%7D"> o determinante é definido como:</p></li>
+</ul>
+<p><img src="https://github.com/welli45/portifolio/Vida-Academica/images/02-det.png" class="img-fluid"></p>
+<pre><code>Se todos os elementos abaixo da diagonal principal for 0 o determinante é definido como a multiplicação dos elementos da diagonal principal.</code></pre>
+<p><a href="../../Vida-Academica/posts/02-mod-vetores-matrizes.html">Módulo 2: Vetores e matrizes</a></p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>curso</category>
+  <category>coursera</category>
+  <category>Algebra Linear</category>
+  <category>Machine Learning</category>
+  <category>Data Science</category>
+  <category>Deep Learning</category>
+  <category>Python</category>
+  <category>R</category>
+  <category>Algebra Linear</category>
+  <guid>https://github.com/welli45/portifolio/Vida-Academica/posts/01-mod-algebra.html</guid>
+  <pubDate>Sun, 04 Aug 2024 03:00:00 GMT</pubDate>
+  <media:content url="https://github.com/welli45/portifolio/Vida-Academica/images/01-sem.png" medium="image" type="image/png" height="80" width="144"/>
+</item>
+<item>
+  <title>Álgebra linear para aprendizado de máquina e ciência de dados</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://github.com/welli45/portifolio/Vida-Academica/posts/Algebra.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><em>Este artigo foi escrito em Sábado, 25 de Maio de 2024.</em></p>
+<p><img src="https://github.com/welli45/portifolio/Vida-Academica/images/capa-04.png" class="img-fluid" data-fig-title="Capa" alt="Capa"></p>
+<section id="álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados">Álgebra linear para aprendizado de máquina e ciência de dados</h2>
+<p>Link do curso: <a href="https://www.coursera.org/learn/machine-learning-linear-algebra">Álgebra linear para aprendizado de máquina e ciência de dados</a></p>
+<p>O que Aprendi:</p>
+<ul>
+<li><p>Representar dados como vetores e matrizes e identificar suas propriedades usando conceitos de singularidade, classificação e independência linear</p></li>
+<li><p>Aplicar operações comuns de álgebra de vetores e matrizes, como produto escalar, inverso e determinantes</p></li>
+<li><p>Expressar certos tipos de operações de matriz como transformação linear e aplicar conceitos de valores próprios e vetores próprios a problemas de aprendizado de máquina</p></li>
+</ul>
+</section>
+<section id="módulo-1-sistema-de-equações-lineares" class="level2">
+<h2 class="anchored" data-anchor-id="módulo-1-sistema-de-equações-lineares">Módulo 1: Sistema de equações lineares</h2>
+<p>As matrizes são comumente usadas no aprendizado de máquina e na ciência de dados para representar dados e suas transformações. Nesta semana, aprendi como as matrizes surgem dos sistemas de equações e como certas propriedades da matriz podem ser pensadas em termos de operações no sistema de equações.</p>
+<p>Clique <a href="../../Vida-Academica/posts/01-mod-algebra.html">aqui</a> para acessar o material de leitura desta semana.</p>
+</section>
+<section id="módulo-2-vetores-e-matrizes" class="level2">
+<h2 class="anchored" data-anchor-id="módulo-2-vetores-e-matrizes">Módulo 2: Vetores e matrizes</h2>
+<p>Clique <a href="../../Vida-Academica/posts/02-mod-vetores-matrizes.html">aqui</a> para acessar o material de leitura desta semana.</p>
+</section>
+<section id="módulo-3-transformações-lineares" class="level2">
+<h2 class="anchored" data-anchor-id="módulo-3-transformações-lineares">Módulo 3: Transformações lineares</h2>
+<p>Clique <a href="../../Vida-Academica/posts/03-mod-transformacoes-lineares.html">aqui</a> para acessar o material de leitura desta semana.</p>
+</section>
+<section id="módulo-4-espaços-vetoriais" class="level2">
+<h2 class="anchored" data-anchor-id="módulo-4-espaços-vetoriais">Módulo 4: Espaços vetoriais</h2>
+<p>Clique <a href="../../Vida-Academica/posts/04-mod-espacos-vetoriais.html">aqui</a> para acessar o material de leitura desta semana.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>curso</category>
+  <category>coursera</category>
+  <category>Algebra Linear</category>
+  <category>Machine Learning</category>
+  <category>Data Science</category>
+  <category>Deep Learning</category>
+  <category>Python</category>
+  <category>R</category>
+  <category>Algebra Linear</category>
+  <guid>https://github.com/welli45/portifolio/Vida-Academica/posts/Algebra.html</guid>
+  <pubDate>Sun, 04 Aug 2024 03:00:00 GMT</pubDate>
+  <media:content url="https://github.com/welli45/portifolio/Vida-Academica/images/redes.png" medium="image" type="image/png" height="73" width="144"/>
+</item>
 <item>
   <title>Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
   <link>https://github.com/welli45/portifolio/Vida-Academica/posts/redes_completas.html</link>
   <description><![CDATA[ 
+
 
 
 

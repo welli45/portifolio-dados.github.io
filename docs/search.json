@@ -200,7 +200,7 @@
     "href": "Vida-Academica/index.html",
     "title": "Vida Acadêmica",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nEntre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave\n\n\n\n\n\nArtigo Publicado!\n\n\n\n\n\n07 February 2024\n\n\nWellington Santos Souza\n\n\n2 min\n\n\n\n\n\n\nNo matching items\n\n\n\nLoading…\n\n\n\n\n\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnotações do cursos feitos na plataforma Coursera\n\n\n\n\n\nAnotações dos cursos feitos na plataforma Coursera\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\nMódulo 1: Sistema de equações lineares\n\n\n\n\n\nAnotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nÁlgebra linear para aprendizado de máquina e ciência de dados\n\n\n\n\n\nAnotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\nEntre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave\n\n\n\n\n\nArtigo Publicado!\n\n\n\n\n\n07 February 2024\n\n\nWellington Santos Souza\n\n\n2 min\n\n\n\n\n\n\nNo matching items\n\n\n\nLoading…\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "Vida-Academica/posts/projeto-dax.html",
@@ -465,6 +465,97 @@
     "objectID": "projetos-R/posts/teste-sig-multivariados.html",
     "href": "projetos-R/posts/teste-sig-multivariados.html",
     "title": "Teste de significância com dados multivariados",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "Vida-Academica/posts/01mod-sistema-equa-lineares.html",
+    "href": "Vida-Academica/posts/01mod-sistema-equa-lineares.html",
+    "title": "Módulo 1: Sistema de equações lineares",
+    "section": "",
+    "text": "Módulo 1: Sistema de equações lineares\n\nSistema de sentenças\n\nUm sistema de sentenças pode ser Completo; Redundante e Contraditório\nOs sistemas completos são não singulares\n\nExemplo: {the dog is black; the bird is red; the cat is white}\n\nOs sistemas Redundantes e Contraditórios são singulares\n\nExemplo → redundante: {the dog is black; the dog is black;the dog is black} ou {the dog is black; the dog is black; the bird is red}\nExemplo → contraditório: {the dog is black; the dog is white; the bird is red}\n\n\nSistema de equações\n\nOs sistemas de equações se comportam de forma similar aos sistemas de frase.\nPodem ser singulares e não singulares.\nExemplo de um sistema de equações:\n\napple + banana + cherry = $10\napple + 2banana + cherry = $15\napple + banana + 2cherry = $12\nCom essas informações podemos determinar os preços das frutas\nO sistema de equações resultante é:\n\na + b + c = 10\na + 2b + c = 15\na + b + 2c = 12\n\n\nSistema Completo - não singular → existe uma única solução.\nSistema Contraditório - singular → não existe solução.\nSistema Redundante - singular → infinitas soluções\nLinear ⇒ a + b = 10 / 2a + 3b = 15\nNão linear ⇒ \\(a^2 + b^3 + c = 23\\)\nNum sistema linear, uma única solução, se encontra quando colocado em um gráfico, seguindo o sistema de coordenadas a solução se encontra nos pontos em comum nas duas retas.\n\nNoção geométrica de sigularidade\n\nAs constantes não importam quando estamos definindo sistemas sigulares e não sigulares. Isto é, quando pegamos um sitema de equações e usamos o 0 como constante, o sistema de nenhuma soolução passa a ter infinita soluções.\n\nMatrizes singulares e não singulares\n\nSistema 1 → matriz\n\n\\(\\begin{matrix} a + b = 0 \\\\ a + 2b = 0\\end{matrix}\\) → \\(\\begin{matrix} 1 & 1 \\\\ 1 & 2 \\end{matrix}\\)\n\nSitema 2 → matriz\n\n\\(\\begin{matrix} a + b = 0 \\\\ 2a+2b=0 \\end{matrix}\\) → \\(\\begin{matrix} 1 & 1 \\\\ 2 & 2 \\end{matrix}\\)\n\nAs matrizes, assim como os sitemas de equações lineares podem ser singulares e não singulares.\nMatrizes não singulares possuem uma única solução\nMatrizes singulares possuem infinitas soluções.\nPodemos descobrir se um sistema de equações é singular ou não singular, basta simplificarmos as equações ingualando as soluções a 0.\n\nDependência e independência lineares\n\nSe uma equação (linhas das matrizes) forem dependentes (podemos determinar uma linha aplicando uma operação com outras linhas) da outra ou vice-versa, temos que as equações (matrizes) são dependentes e lineares. Já o inverso indica não linearidade e independencia.\nSe a matriz for singular, as linhas são dependentes. Do contrário são independentes.\n\nDeterminantes\n\nO determinante é a forma mais fácil de determinar a singularidade das matrizes.\nSe o determinante for igual a 0 a matriz é singular (dependente), caso contrário ela é não singular (independente).\n\nA matriz \\(A ={\\begin{matrix} a & b \\\\ c & d \\end{matrix}}\\) é singular se, \\(a~b*k = c~d\\)\n\\(a*k = c\\) & \\(b*k = d\\)\n\\(\\frac{c}{d} = \\frac{d}{b} = k\\)\n\\(a*d = b*c\\)\nassim, o determinante é definido como: \\(a*d - b*c = 0\\) e a matriz é singular.\nAgora consedere a matriz B = \\(\\begin{matrix} 1 & 1 & 1 \\\\ 0 &  2 & 2 \\\\ 0 & 0 & 3 \\end{matrix}\\) o determinante é definido como:\n\n\n\nUntitled\n\n\nSe todos os elementos abaixo da diagonal principal for 0 o determinante é definido como a multiplicação dos elementos da diagonal principal.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Vida-Academica/posts/Algebra.html",
+    "href": "Vida-Academica/posts/Algebra.html",
+    "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "section": "",
+    "text": "Este artigo foi escrito em Sábado, 25 de Maio de 2024."
+  },
+  {
+    "objectID": "Vida-Academica/posts/Cursera.html",
+    "href": "Vida-Academica/posts/Cursera.html",
+    "title": "Anotações do cursos feitos na plataforma Coursera",
+    "section": "",
+    "text": "Anotações dos cursos feitos na plataforma Coursera\nNeste arquivo estão as anotações dos cursos feitos na plataforma Coursera.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Vida-Academica/posts/Algebra.html#álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados",
+    "href": "Vida-Academica/posts/Algebra.html#álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados",
+    "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "section": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "text": "Álgebra linear para aprendizado de máquina e ciência de dados\nLink do curso: Álgebra linear para aprendizado de máquina e ciência de dados\nO que Aprendi:\n\nRepresentar dados como vetores e matrizes e identificar suas propriedades usando conceitos de singularidade, classificação e independência linear\nAplicar operações comuns de álgebra de vetores e matrizes, como produto escalar, inverso e determinantes\nExpressar certos tipos de operações de matriz como transformação linear e aplicar conceitos de valores próprios e vetores próprios a problemas de aprendizado de máquina"
+  },
+  {
+    "objectID": "Vida-Academica/posts/Algebra.html#módulo-1-sistema-de-equações-lineares",
+    "href": "Vida-Academica/posts/Algebra.html#módulo-1-sistema-de-equações-lineares",
+    "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "section": "Módulo 1: Sistema de equações lineares",
+    "text": "Módulo 1: Sistema de equações lineares\nAs matrizes são comumente usadas no aprendizado de máquina e na ciência de dados para representar dados e suas transformações. Nesta semana, aprendi como as matrizes surgem dos sistemas de equações e como certas propriedades da matriz podem ser pensadas em termos de operações no sistema de equações.\nClique aqui para acessar o material de leitura desta semana."
+  },
+  {
+    "objectID": "Vida-Academica/posts/Algebra.html#módulo-2-vetores-e-matrizes",
+    "href": "Vida-Academica/posts/Algebra.html#módulo-2-vetores-e-matrizes",
+    "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "section": "Módulo 2: Vetores e matrizes",
+    "text": "Módulo 2: Vetores e matrizes\nClique aqui para acessar o material de leitura desta semana."
+  },
+  {
+    "objectID": "Vida-Academica/posts/Algebra.html#módulo-3-transformações-lineares",
+    "href": "Vida-Academica/posts/Algebra.html#módulo-3-transformações-lineares",
+    "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "section": "Módulo 3: Transformações lineares",
+    "text": "Módulo 3: Transformações lineares\nClique aqui para acessar o material de leitura desta semana."
+  },
+  {
+    "objectID": "Vida-Academica/posts/Algebra.html#módulo-4-espaços-vetoriais",
+    "href": "Vida-Academica/posts/Algebra.html#módulo-4-espaços-vetoriais",
+    "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "section": "Módulo 4: Espaços vetoriais",
+    "text": "Módulo 4: Espaços vetoriais\nClique aqui para acessar o material de leitura desta semana."
+  },
+  {
+    "objectID": "Vida-Academica/posts/01-mod-algebra.html",
+    "href": "Vida-Academica/posts/01-mod-algebra.html",
+    "title": "Módulo 1: Sistema de equações lineares",
+    "section": "",
+    "text": "Módulo 1: Sistema de equações lineares\n\nSistema de sentenças\n\nUm sistema de sentenças pode ser Completo; Redundante e Contraditório\nOs sistemas completos são não singulares\n\nExemplo: {the dog is black; the bird is red; the cat is white}\n\nOs sistemas Redundantes e Contraditórios são singulares\n\nExemplo → redundante: {the dog is black; the dog is black;the dog is black} ou {the dog is black; the dog is black; the bird is red}\nExemplo → contraditório: {the dog is black; the dog is white; the bird is red}\n\n\nSistema de equações\n\nOs sistemas de equações se comportam de forma similar aos sistemas de frase.\nPodem ser singulares e não singulares.\nExemplo de um sistema de equações:\n\napple + banana + cherry = $10\napple + 2banana + cherry = $15\napple + banana + 2cherry = $12\nCom essas informações podemos determinar os preços das frutas\nO sistema de equações resultante é:\n\na + b + c = 10\na + 2b + c = 15\na + b + 2c = 12\n\n\nSistema Completo - não singular → existe uma única solução.\nSistema Contraditório - singular → não existe solução.\nSistema Redundante - singular → infinitas soluções\nLinear ⇒ a + b = 10 / 2a + 3b = 15\nNão linear ⇒ \\(a^2 + b^3 + c = 23\\)\nNum sistema linear, uma única solução, se encontra quando colocado em um gráfico, seguindo o sistema de coordenadas a solução se encontra nos pontos em comum nas duas retas.\n\nNoção geométrica de sigularidade\n\nAs constantes não importam quando estamos definindo sistemas sigulares e não sigulares. Isto é, quando pegamos um sitema de equações e usamos o 0 como constante, o sistema de nenhuma soolução passa a ter infinita soluções.\n\nMatrizes singulares e não singulares\n\nSistema 1 → matriz\n\n\\(\\begin{matrix} a + b = 0 \\\\ a + 2b = 0\\end{matrix}\\) → \\(\\begin{matrix} 1 & 1 \\\\ 1 & 2 \\end{matrix}\\)\n\nSitema 2 → matriz\n\n\\(\\begin{matrix} a + b = 0 \\\\ 2a+2b=0 \\end{matrix}\\) → \\(\\begin{matrix} 1 & 1 \\\\ 2 & 2 \\end{matrix}\\)\n\nAs matrizes, assim como os sitemas de equações lineares podem ser singulares e não singulares.\nMatrizes não singulares possuem uma única solução\nMatrizes singulares possuem infinitas soluções.\nPodemos descobrir se um sistema de equações é singular ou não singular, basta simplificarmos as equações ingualando as soluções a 0.\n\nDependência e independência lineares\n\nSe uma equação (linhas das matrizes) forem dependentes (podemos determinar uma linha aplicando uma operação com outras linhas) da outra ou vice-versa, temos que as equações (matrizes) são dependentes e lineares. Já o inverso indica não linearidade e independencia.\nSe a matriz for singular, as linhas são dependentes. Do contrário são independentes.\n\nDeterminantes\n\nO determinante é a forma mais fácil de determinar a singularidade das matrizes.\nSe o determinante for igual a 0 a matriz é singular (dependente), caso contrário ela é não singular (independente).\n\nA matriz \\(A ={\\begin{matrix} a & b \\\\ c & d \\end{matrix}}\\) é singular se, \\(a~b*k = c~d\\)\n\\(a*k = c\\) & \\(b*k = d\\)\n\\(\\frac{c}{d} = \\frac{d}{b} = k\\)\n\\(a*d = b*c\\)\nassim, o determinante é definido como: \\(a*d - b*c = 0\\) e a matriz é singular.\nAgora consedere a matriz B = \\(\\begin{matrix} 1 & 1 & 1 \\\\ 0 &  2 & 2 \\\\ 0 & 0 & 3 \\end{matrix}\\) o determinante é definido como:\n\n\nSe todos os elementos abaixo da diagonal principal for 0 o determinante é definido como a multiplicação dos elementos da diagonal principal.\nMódulo 2: Vetores e matrizes\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Vida-Academica/posts/Cursera.html#álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados",
+    "href": "Vida-Academica/posts/Cursera.html#álgebra-linear-para-aprendizado-de-máquina-e-ciência-de-dados",
+    "title": "Anotações do cursos feitos na plataforma Coursera",
+    "section": "Álgebra linear para aprendizado de máquina e ciência de dados",
+    "text": "Álgebra linear para aprendizado de máquina e ciência de dados\nClique aqui para acessar as anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados."
+  },
+  {
+    "objectID": "Vida-Academica/posts/04-mod-espacos-vetoriais.html",
+    "href": "Vida-Academica/posts/04-mod-espacos-vetoriais.html",
+    "title": "Portifólio de Dados",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "Vida-Academica/posts/02-mod-vetores-matrizes.html",
+    "href": "Vida-Academica/posts/02-mod-vetores-matrizes.html",
+    "title": "Portifólio de Dados",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "Vida-Academica/posts/03-mod-transformacoes-lineares.html",
+    "href": "Vida-Academica/posts/03-mod-transformacoes-lineares.html",
+    "title": "Portifólio de Dados",
     "section": "",
     "text": "Back to top"
   }

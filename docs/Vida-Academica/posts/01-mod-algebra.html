@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Mestrado em Sociologia - UFMG 2024-2025">
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados">
 
-<title>Vida Acadêmica – Portifólio de Dados</title>
+<title>Módulo 1: Sistema de equações lineares – Portifólio de Dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-author','listing-description','listing-date','listing-image','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-date","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -132,17 +102,21 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Portifólio de Dados" href="index.xml" data-external="1"><meta property="og:title" content="Vida Acadêmica – Portifólio de Dados">
-<meta property="og:description" content="Aqui você pode encontrar meus Projetos e Aprendizados.">
-<meta property="og:image" content="https://github.com/welli45/portifolio/Vida-Academica/images/profile.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Módulo 1: Sistema de equações lineares – Portifólio de Dados">
+<meta property="og:description" content="Portifólio // Wellington S. Souza">
+<meta property="og:image" content="https://github.com/welli45/portifolio/Vida-Academica/images/01-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
+<meta property="og:image:height" content="822">
+<meta property="og:image:width" content="1480">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
-<meta name="twitter:description" content="Aqui você pode encontrar meus Projetos e Aprendizados.">
-<meta name="twitter:image" content="https://github.com/welli45/portifolio/Vida-Academica/cover.png">
+<meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
+<meta name="twitter:image" content="https://github.com/welli45/portifolio/Vida-Academica/images/01-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="822">
+<meta name="twitter:image-width" content="1480">
 </head>
 
 <body class="nav-fixed">
@@ -152,7 +126,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Portifólio de Dados</span>
     </a>
   </div>
@@ -163,12 +137,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door" role="img">
 </i> 
 <span class="menu-text">Página Inicial</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> <i class="bi bi-file-person" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-file-person" role="img">
 </i> 
 <span class="menu-text">Sobre</span></a>
   </li>  
@@ -180,24 +154,24 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projetos">    
         <li>
-    <a class="dropdown-item" href="../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Power BI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
+    <a class="dropdown-item" href="../../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Python</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="../Vida-Academica/index.html" aria-current="page"> <i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="../../Vida-Academica/index.html"> <i class="bi bi-mortarboard-fill" role="img">
 </i> 
 <span class="menu-text">Estudos e Projetos Acadêmicos</span></a>
   </li>  
@@ -205,39 +179,66 @@ window.Quarto = {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://github.com/welli45/portifolio" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
-    <a href="../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><a href="https://github.com/welli45">Welli45</a> © 2024 by <a href="https://github.com/welli45">Wellington S.</a></p>
-</div></div>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Algebra Linear">Algebra Linear <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Data Science">Data Science <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Deep Learning">Deep Learning <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Excel">Excel <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Machining Learning">Machining Learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="PESCARTE">PESCARTE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Power BI">Power BI <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SQL">SQL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Tableau">Tableau <span class="quarto-category-count">(2)</span></div><div class="category" data-category="análisis de redes sociales">análisis de redes sociales <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cognitive networks">cognitive networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="communitarian leaders">communitarian leaders <span class="quarto-category-count">(1)</span></div><div class="category" data-category="coursera">coursera <span class="quarto-category-count">(3)</span></div><div class="category" data-category="curso">curso <span class="quarto-category-count">(3)</span></div><div class="category" data-category="líderes comunitarios">líderes comunitarios <span class="quarto-category-count">(1)</span></div><div class="category" data-category="redes cognitivas">redes cognitivas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="relational sociology">relational sociology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social network analysis">social network analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sociología relacional">sociología relacional <span class="quarto-category-count">(1)</span></div></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#módulo-1-sistema-de-equações-lineares" id="toc-módulo-1-sistema-de-equações-lineares" class="nav-link active" data-scroll-target="#módulo-1-sistema-de-equações-lineares">Módulo 1: Sistema de equações lineares</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Vida Acadêmica</h1>
-<p class="subtitle lead">Nessa página você pode acompanhar meus trabalhos acadêmicos na área de sociologia, bem como divulgações de palestras, cursos e demais informações sobre minha trajetória acadêmica como estudante de Sociologia na UFMG.</p>
-</div>
+<h1 class="title">Módulo 1: Sistema de equações lineares</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">curso</div>
+    <div class="quarto-category">coursera</div>
+    <div class="quarto-category">Algebra Linear</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Algebra Linear</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Mestrado em Sociologia - UFMG 2024-2025
+    Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados
   </div>
 </div>
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Sunday, 04 August 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,243 +248,88 @@ window.Quarto = {
 </header>
 
 
-<hr>
-<p><img src="Logo_UFMG.png" class="img-fluid" style="width:50.0%" alt="R"></p>
-<hr>
-<!-- ### Featured Posts
-:::{#featured}
-:::
-
-<br></br>
---- -->
-<p><br><br></p>
-<!-- ### All Posts -->
-<div id="listing-posts" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-posts-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-posts'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-listing-file-modified-sort="1722811727321">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a></p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a></p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1" data-listing-file-modified-sort="1722811742175">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a></p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a></p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="2" data-listing-file-modified-sort="1722811755623">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a></p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a></p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="3" data-categories="curso,coursera,Machining Learning,Data Science,Deep Learning,Python,R,SQL,Tableau,Excel,Power BI,Machine Learning,Data Science,Deep Learning,Python,R,SQL,Tableau,Excel,Power BI" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1722812003731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="40">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a></p><a href="../Vida-Academica/posts/Cursera.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">Anotações do cursos feitos na plataforma Coursera</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">Anotações dos cursos feitos na plataforma Coursera</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">
-<div class="listing-date">
-04 August 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="4" data-categories="curso,coursera,Algebra Linear,Machine Learning,Data Science,Deep Learning,Python,R,Algebra Linear" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1722812416477" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="871">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external"></a></p><a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/01-sem.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">Módulo 1: Sistema de equações lineares</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">
-<div class="listing-date">
-04 August 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-5 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="5" data-categories="curso,coursera,Algebra Linear,Machine Learning,Data Science,Deep Learning,Python,R,Algebra Linear" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1722812088068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/Algebra.html" class="no-external"></a></p><a href="../Vida-Academica/posts/Algebra.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/Algebra.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external">Álgebra linear para aprendizado de máquina e ciência de dados</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external">Anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external">
-<div class="listing-date">
-04 August 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="6" data-categories="análisis de redes sociales,sociología relacional,redes cognitivas,líderes comunitarios,PESCARTE,social network analysis,relational sociology,cognitive networks,communitarian leaders" data-listing-date-sort="1707274800000" data-listing-file-modified-sort="1716659418397" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="212">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a></p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">Artigo Publicado!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">
-<div class="listing-date">
-07 February 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-2 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfCHyLH-0_gMkChpaTJdrpaBt9kE7LXxpOgG2U4mnVNEPOEKw/viewform?usp=sf_link" width="100%" height="600vh" frameborder="0" marginheight="0" marginwidth="0">
-Loading…
-</iframe>
-<p><br><br></p>
+<section id="módulo-1-sistema-de-equações-lineares" class="level1">
+<h1>Módulo 1: Sistema de equações lineares</h1>
+<ul>
+<li><p>Sistema de sentenças</p>
+<ul>
+<li>Um sistema de sentenças pode ser <strong><em>Completo; Redundante e Contraditório</em></strong></li>
+<li>Os sistemas completos são <strong>não singulares</strong>
+<ul>
+<li>Exemplo: {the dog is black; the bird is red; the cat is white}</li>
+</ul></li>
+<li>Os sistemas Redundantes e Contraditórios são <strong>singulares</strong>
+<ul>
+<li>Exemplo → redundante: {the dog is black; the dog is black;the dog is black} ou {the dog is black; the dog is black; the bird is red}</li>
+<li>Exemplo → contraditório: {the dog is black; the dog is white; the bird is red}</li>
+</ul></li>
+</ul></li>
+<li><p>Sistema de equações</p>
+<ul>
+<li>Os sistemas de equações se comportam de forma similar aos sistemas de frase.</li>
+<li>Podem ser singulares e não singulares.</li>
+<li>Exemplo de um sistema de equações:
+<ul>
+<li>apple + banana + cherry = $10</li>
+<li>apple + 2banana + cherry = $15</li>
+<li>apple + banana + 2cherry = $12</li>
+<li>Com essas informações podemos determinar os preços das frutas</li>
+<li>O sistema de equações resultante é:
+<ul>
+<li>a + b + c = 10</li>
+<li>a + 2b + c = 15</li>
+<li>a + b + 2c = 12</li>
+</ul></li>
+</ul></li>
+<li>Sistema Completo - não singular → existe uma única solução.</li>
+<li>Sistema Contraditório - singular → não existe solução.</li>
+<li>Sistema Redundante - singular → infinitas soluções</li>
+<li>Linear ⇒ a + b = 10 / 2a + 3b = 15</li>
+<li>Não linear ⇒ <span class="math inline">\(a^2 + b^3 + c = 23\)</span></li>
+<li>Num sistema linear, uma <strong><em>única solução</em></strong>, se encontra quando colocado em um gráfico, seguindo o sistema de coordenadas a solução se encontra nos pontos em comum nas duas retas.</li>
+</ul></li>
+<li><p>Noção geométrica de sigularidade</p>
+<ul>
+<li>As constantes não importam quando estamos definindo sistemas sigulares e não sigulares. Isto é, quando pegamos um sitema de equações e usamos o 0 como constante, o sistema de nenhuma soolução passa a ter infinita soluções.</li>
+</ul></li>
+<li><p>Matrizes singulares e não singulares</p>
+<ul>
+<li>Sistema 1 → matriz</li>
+</ul>
+<p><span class="math inline">\(\begin{matrix} a + b = 0 \\ a + 2b = 0\end{matrix}\)</span> → <span class="math inline">\(\begin{matrix} 1 &amp; 1 \\ 1 &amp; 2 \end{matrix}\)</span></p>
+<ul>
+<li>Sitema 2 → matriz</li>
+</ul>
+<p><span class="math inline">\(\begin{matrix} a + b = 0 \\ 2a+2b=0 \end{matrix}\)</span> → <span class="math inline">\(\begin{matrix} 1 &amp; 1 \\ 2 &amp; 2 \end{matrix}\)</span></p>
+<ul>
+<li>As matrizes, assim como os sitemas de equações lineares podem ser singulares e não singulares.</li>
+<li>Matrizes não singulares possuem uma única solução</li>
+<li>Matrizes singulares possuem infinitas soluções.</li>
+<li>Podemos descobrir se um sistema de equações é singular ou não singular, basta simplificarmos as equações ingualando as soluções a 0.</li>
+</ul></li>
+<li><p>Dependência e independência lineares</p>
+<ul>
+<li>Se uma equação (linhas das matrizes) forem dependentes (podemos determinar uma linha aplicando uma operação com outras linhas) da outra ou vice-versa, temos que as equações (matrizes) são dependentes e lineares. Já o inverso indica não linearidade e independencia.</li>
+<li>Se a matriz for singular, as linhas são dependentes. Do contrário são independentes.</li>
+</ul></li>
+<li><p>Determinantes</p>
+<ul>
+<li>O determinante é a forma mais fácil de determinar a singularidade das matrizes.</li>
+<li>Se o determinante for igual a 0 a matriz é <strong><em>singular (dependente)</em></strong>, caso contrário ela é <strong><em>não singular (independente)</em></strong>.</li>
+</ul>
+<p>A matriz <span class="math inline">\(A ={\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}}\)</span> é singular se, <span class="math inline">\(a~b*k = c~d\)</span></p>
+<p><span class="math inline">\(a*k = c\)</span> &amp; <span class="math inline">\(b*k = d\)</span></p>
+<p><span class="math inline">\(\frac{c}{d} = \frac{d}{b} = k\)</span></p>
+<p><span class="math inline">\(a*d = b*c\)</span></p>
+<p>assim, o determinante é definido como: <span class="math inline">\(a*d - b*c = 0\)</span> e a matriz é singular.</p>
+<p>Agora consedere a matriz B = <span class="math inline">\(\begin{matrix} 1 &amp; 1 &amp; 1 \\ 0 &amp;  2 &amp; 2 \\ 0 &amp; 0 &amp; 3 \end{matrix}\)</span> o determinante é definido como:</p></li>
+</ul>
+<p><img src="../images/02-det.png" class="img-fluid"></p>
+<pre><code>Se todos os elementos abaixo da diagonal principal for 0 o determinante é definido como a multiplicação dos elementos da diagonal principal.</code></pre>
+<p><a href="../../Vida-Academica/posts/02-mod-vetores-matrizes.html">Módulo 2: Vetores e matrizes</a></p>
 
 
-
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1099,5 +945,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

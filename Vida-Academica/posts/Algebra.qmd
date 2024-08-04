@@ -1,0 +1,47 @@
+---
+title: "Álgebra linear para aprendizado de máquina e ciência de dados"
+image: ../../Vida-Academica/images/redes.png
+description: "Anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
+author: "Wellington Santos Souza"
+date: "2024-08-04"
+categories: ["curso", "coursera", "Algebra Linear", "Machine Learning", "Data Science", "Deep Learning", "Python", "R", "Algebra Linear"]
+---
+
+*Este artigo foi escrito em Sábado, 25 de Maio de 2024.*
+
+![](../images/capa-04.png){fig-alt="Capa" fig-title="Capa"}
+
+## Álgebra linear para aprendizado de máquina e ciência de dados
+
+Link do curso: [Álgebra linear para aprendizado de máquina e ciência de dados](https://www.coursera.org/learn/machine-learning-linear-algebra)
+
+O que Aprendi:
+
+- Representar dados como vetores e matrizes e identificar suas propriedades usando conceitos de singularidade, classificação e independência linear
+
+- Aplicar operações comuns de álgebra de vetores e matrizes, como produto escalar, inverso e determinantes
+
+- Expressar certos tipos de operações de matriz como transformação linear e aplicar conceitos de valores próprios e vetores próprios a problemas de aprendizado de máquina
+
+## Módulo 1: Sistema de equações lineares
+
+As matrizes são comumente usadas no aprendizado de máquina e na ciência de dados para representar dados e suas transformações. Nesta semana, aprendi como as matrizes surgem dos sistemas de equações e como certas propriedades da matriz podem ser pensadas em termos de operações no sistema de equações. 
+
+
+Clique [aqui](01-mod-algebra.qmd) para acessar o material de leitura desta semana.
+
+## Módulo 2: Vetores e matrizes
+
+
+Clique [aqui](02-mod-vetores-matrizes.qmd) para acessar o material de leitura desta semana.
+
+## Módulo 3: Transformações lineares
+
+Clique [aqui](03-mod-transformacoes-lineares.qmd) para acessar o material de leitura desta semana.
+
+## Módulo 4: Espaços vetoriais
+
+Clique [aqui](04-mod-espacos-vetoriais.qmd) para acessar o material de leitura desta semana.
+
+
+

@@ -49,6 +49,12 @@
   {
     "listing": "/Vida-Academica/index.html",
     "items": [
+      "/Vida-Academica/posts/02-mod-vetores-matrizes.html",
+      "/Vida-Academica/posts/03-mod-transformacoes-lineares.html",
+      "/Vida-Academica/posts/04-mod-espacos-vetoriais.html",
+      "/Vida-Academica/posts/Cursera.html",
+      "/Vida-Academica/posts/01-mod-algebra.html",
+      "/Vida-Academica/posts/Algebra.html",
       "/Vida-Academica/posts/redes_completas.html"
     ]
   },

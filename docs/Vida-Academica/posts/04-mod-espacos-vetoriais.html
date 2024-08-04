@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Mestrado em Sociologia - UFMG 2024-2025">
 
-<title>Vida Acadêmica – Portifólio de Dados</title>
+<title>mod-espacos-vetoriais – Portifólio de Dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,26 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,75 +68,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-author','listing-description','listing-date','listing-image','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-date","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Portifólio de Dados" href="index.xml" data-external="1"><meta property="og:title" content="Vida Acadêmica – Portifólio de Dados">
-<meta property="og:description" content="Aqui você pode encontrar meus Projetos e Aprendizados.">
-<meta property="og:image" content="https://github.com/welli45/portifolio/Vida-Academica/images/profile.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Portifólio de Dados">
+<meta property="og:description" content="Portifólio // Wellington S. Souza">
+<meta property="og:image" content="https://github.com/welli45/portifolio/Vida-Academica/posts/images/profile.png">
 <meta property="og:site_name" content="Portifólio de Dados">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
-<meta name="twitter:description" content="Aqui você pode encontrar meus Projetos e Aprendizados.">
-<meta name="twitter:image" content="https://github.com/welli45/portifolio/Vida-Academica/cover.png">
+<meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
+<meta name="twitter:image" content="https://github.com/welli45/portifolio/Vida-Academica/posts/cover.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
@@ -152,7 +91,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Portifólio de Dados</span>
     </a>
   </div>
@@ -163,12 +102,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door" role="img">
 </i> 
 <span class="menu-text">Página Inicial</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> <i class="bi bi-file-person" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-file-person" role="img">
 </i> 
 <span class="menu-text">Sobre</span></a>
   </li>  
@@ -180,24 +119,24 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projetos">    
         <li>
-    <a class="dropdown-item" href="../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Power BI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
+    <a class="dropdown-item" href="../../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Python</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="../Vida-Academica/index.html" aria-current="page"> <i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="../../Vida-Academica/index.html"> <i class="bi bi-mortarboard-fill" role="img">
 </i> 
 <span class="menu-text">Estudos e Projetos Acadêmicos</span></a>
   </li>  
@@ -205,282 +144,24 @@ window.Quarto = {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://github.com/welli45/portifolio" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
-    <a href="../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><a href="https://github.com/welli45">Welli45</a> © 2024 by <a href="https://github.com/welli45">Wellington S.</a></p>
-</div></div>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Algebra Linear">Algebra Linear <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Data Science">Data Science <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Deep Learning">Deep Learning <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Excel">Excel <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Machining Learning">Machining Learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="PESCARTE">PESCARTE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Power BI">Power BI <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SQL">SQL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Tableau">Tableau <span class="quarto-category-count">(2)</span></div><div class="category" data-category="análisis de redes sociales">análisis de redes sociales <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cognitive networks">cognitive networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="communitarian leaders">communitarian leaders <span class="quarto-category-count">(1)</span></div><div class="category" data-category="coursera">coursera <span class="quarto-category-count">(3)</span></div><div class="category" data-category="curso">curso <span class="quarto-category-count">(3)</span></div><div class="category" data-category="líderes comunitarios">líderes comunitarios <span class="quarto-category-count">(1)</span></div><div class="category" data-category="redes cognitivas">redes cognitivas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="relational sociology">relational sociology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social network analysis">social network analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sociología relacional">sociología relacional <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Vida Acadêmica</h1>
-<p class="subtitle lead">Nessa página você pode acompanhar meus trabalhos acadêmicos na área de sociologia, bem como divulgações de palestras, cursos e demais informações sobre minha trajetória acadêmica como estudante de Sociologia na UFMG.</p>
-</div>
-
-<div>
-  <div class="description">
-    Mestrado em Sociologia - UFMG 2024-2025
-  </div>
-</div>
-
-
-<div class="quarto-title-meta column-page-left">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<hr>
-<p><img src="Logo_UFMG.png" class="img-fluid" style="width:50.0%" alt="R"></p>
-<hr>
-<!-- ### Featured Posts
-:::{#featured}
-:::
-
-<br></br>
---- -->
-<p><br><br></p>
-<!-- ### All Posts -->
-<div id="listing-posts" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-posts-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-posts'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-listing-file-modified-sort="1722811727321">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a></p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external"></a></p><a href="../Vida-Academica/posts/02-mod-vetores-matrizes.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1" data-listing-file-modified-sort="1722811742175">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a></p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external"></a></p><a href="../Vida-Academica/posts/03-mod-transformacoes-lineares.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="2" data-listing-file-modified-sort="1722811755623">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a></p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external"></a></p><a href="../Vida-Academica/posts/04-mod-espacos-vetoriais.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="3" data-categories="curso,coursera,Machining Learning,Data Science,Deep Learning,Python,R,SQL,Tableau,Excel,Power BI,Machine Learning,Data Science,Deep Learning,Python,R,SQL,Tableau,Excel,Power BI" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1722812003731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="40">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a></p><a href="../Vida-Academica/posts/Cursera.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">Anotações do cursos feitos na plataforma Coursera</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">Anotações dos cursos feitos na plataforma Coursera</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">
-<div class="listing-date">
-04 August 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="4" data-categories="curso,coursera,Algebra Linear,Machine Learning,Data Science,Deep Learning,Python,R,Algebra Linear" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1722812416477" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="871">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external"></a></p><a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/01-sem.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">Módulo 1: Sistema de equações lineares</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/01-mod-algebra.html" class="no-external">
-<div class="listing-date">
-04 August 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-5 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="5" data-categories="curso,coursera,Algebra Linear,Machine Learning,Data Science,Deep Learning,Python,R,Algebra Linear" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1722812088068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/Algebra.html" class="no-external"></a></p><a href="../Vida-Academica/posts/Algebra.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/Algebra.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external">Álgebra linear para aprendizado de máquina e ciência de dados</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external">Anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/Algebra.html" class="no-external">
-<div class="listing-date">
-04 August 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="6" data-categories="análisis de redes sociales,sociología relacional,redes cognitivas,líderes comunitarios,PESCARTE,social network analysis,relational sociology,cognitive networks,communitarian leaders" data-listing-date-sort="1707274800000" data-listing-file-modified-sort="1716659418397" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="212">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a></p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">Artigo Publicado!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">
-<div class="listing-date">
-07 February 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-2 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfCHyLH-0_gMkChpaTJdrpaBt9kE7LXxpOgG2U4mnVNEPOEKw/viewform?usp=sf_link" width="100%" height="600vh" frameborder="0" marginheight="0" marginwidth="0">
-Loading…
-</iframe>
-<p><br><br></p>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
 
 
 
@@ -1099,5 +780,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
