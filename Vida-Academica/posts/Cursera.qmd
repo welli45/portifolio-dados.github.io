@@ -1,6 +1,6 @@
 ---
 title: "Anotações do cursos feitos na plataforma Coursera"
-image: ../../Vida-Academica/images/redes.png
+image: ../../Vida-Academica/images/cursera.svg
 description: "Anotações dos cursos feitos na plataforma Coursera"
 author: "Wellington Santos Souza"
 date: "2024-08-04"

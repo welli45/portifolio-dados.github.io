@@ -34,6 +34,7 @@ twitter-card:
 ***
 ![](Logo_UFMG.png){fig-alt="R" width=50%}
 
+# Publicações
 ---
 
 <!-- ### Featured Posts
