@@ -1,7 +1,7 @@
 ---
 title: 'Vida Acadêmica'
-subtitle: "Nessa página você pode acompanhar meus trabalhos acadêmicos na área de sociologia, bem como divulgações de palestras, cursos e demais informações sobre minha trajetória acadêmica como estudante de Sociologia na UFMG."
-description: "Mestrado em Sociologia - UFMG 2024-2025"
+subtitle: "Nessa página você pode acompanhar meus trabalhos acadêmicos na área de sociologia, bem como anotações sobre cursos que venho fazendo, demais informações sobre minha trajetória profissional e acadêmica como estudante de Sociologia na UFMG."
+description: "Estudos"
 comments: false
 margin-header: "[Welli45](https://github.com/welli45) © 2024 by [Wellington S.](https://github.com/welli45)"
 toc: false
@@ -32,7 +32,7 @@ twitter-card:
 ---
 
 ***
-![](Logo_UFMG.png){fig-alt="R" width=50%}
+![](trajetoria.webp){fig-alt="R" width=50%}
 
 # Publicações
 ---
