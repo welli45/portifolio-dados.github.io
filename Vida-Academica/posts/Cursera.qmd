@@ -15,7 +15,7 @@ Neste arquivo estão as anotações dos cursos feitos na plataforma Coursera.
 
 ## Álgebra linear para aprendizado de máquina e ciência de dados
 
-Clique [aqui](Algebra.qmd) para acessar as anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados.
+Clique [aqui](../Cursera/Algebra.qmd) para acessar as anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados.
 
 
 
