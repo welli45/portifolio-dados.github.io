@@ -10,13 +10,14 @@ format:
 categories: [IBGE, r, PNADc, dados]
 open-graph:
   description: "PNADC - IBGE"
-  image: ../images/01.sidrar/sidra.png
+  image: ../images/07.pnadc/pnadc.webp
 twitter-card:
   description: "PNADC - IBGE"
-  image: ../images/01.sidrar/sidra.png
+  image: ../images/07.pnadc/pnadc.webp
 ---
 
 *Este artigo foi reescrito em Domingo, 12 de Abril de 2024.*
+![](../images/07.pnadc/pnadc.webp){fig-alt="pnadc" fig-title="pnadc"}
 
 # Tutorial PNADcIBGE
 

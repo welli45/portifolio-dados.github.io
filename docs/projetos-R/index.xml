@@ -7463,7 +7463,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 
 
 
-<p><em>Este artigo foi reescrito em Domingo, 12 de Abril de 2024.</em></p>
+<p><em>Este artigo foi reescrito em Domingo, 12 de Abril de 2024.</em> <img src="https://github.com/welli45/portifolio/projetos-R/images/07.pnadc/pnadc.webp" class="img-fluid" data-fig-title="pnadc" alt="pnadc"></p>
 <section id="tutorial-pnadcibge" class="level1">
 <h1>Tutorial PNADcIBGE</h1>
 <p>Este tutorial destina-se a auxiliar pesquisadores, analistas de dados e outros interessados em acessar os dados da PNAD Contínua utilizando a linguagem de programação estatística R.</p>
@@ -7881,7 +7881,7 @@ font-style: inherit;">"N"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Erro Amostral"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Sexo</th>
@@ -8208,7 +8208,7 @@ font-style: inherit;">"N"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Erro Amostral"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Cor/Raça</th>
