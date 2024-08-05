@@ -1047,10 +1047,13 @@ font-style: inherit;">%*%</span>x</span>
 
 
 
+<section id="projeto-em-construção" class="level1">
+
 
 
 <!-- -->
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Teste de significância</category>
@@ -3435,7 +3438,7 @@ font-style: inherit;">list.files</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">path =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"~/portifolio/projetos-R/dados_prouni/"</span>, <span class="at" style="color: #657422;
+font-style: inherit;">"C:/Users/welli/OneDrive/portifolio-dados.github.io/projetos-R/dados_prouni/"</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">full.names =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
@@ -4302,13 +4305,13 @@ font-style: inherit;">"Set1"</span>)</span></code></pre></div>
 <p><em>Este artigo foi reescrito em Sexta-Feira, 03 de maio de 2024.</em></p>
 <section id="análise-descritiva-dos-dados-do-datasenado" class="level1">
 <h1>Análise descritiva dos dados do DataSenado</h1>
+<p><img src="https://github.com/welli45/portifolio/projetos-R/images/03.dataSenado/Logo_Senado_Federal_Brasil.png" class="img-fluid" data-fig-title="DataSenado" alt="DataSenado"></p>
 <section id="resumo" class="level2">
 <h2 class="anchored" data-anchor-id="resumo">Resumo</h2>
 <p>O código começa carregando os dados necessários para a análise do site do Data Senado. Em seguida, são realizadas algumas transformações nos dados, como mudança de nomenclatura e agrupamento por região, sexo, idade, entre outros, para facilitar a compreensão e análise futura.</p>
 <p>Em seguida, o código realiza uma ponderação dos dados, utilizando o pacote <code>survey</code>, ajustando os pesos das observações para que reflitam a distribuição da população.</p>
 <p>Após a ponderação, são realizadas análises descritivas e multivariadas dos dados. São apresentadas visualizações sobre as principais preocupações da população brasileira, opiniões sobre temas como redução da maioridade penal e criação de impostos sobre grandes fortunas, bem como análises estratificadas por sexo, idade, voto nas últimas eleições e religião.</p>
 <p>Essas análises visam fornecer insights sobre as opiniões e preocupações da população brasileira em relação a diversos temas.</p>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/03.dataSenado/Logo_Senado_Federal_Brasil.png" class="img-fluid" data-fig-title="DataSenado" alt="DataSenado"></p>
 </section>
 <section id="carregando-dados" class="level2">
 <h2 class="anchored" data-anchor-id="carregando-dados">Carregando dados</h2>
@@ -4358,7 +4361,7 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">read_excel</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"~/portifolio/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DICIONARIO DE DADOS.xlsx"</span>)</span></code></pre></div>
+font-style: inherit;">"C:/Users/welli/OneDrive/portifolio-dados.github.io/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DICIONARIO DE DADOS.xlsx"</span>)</span></code></pre></div>
 </details>
 </div>
 <p>Carregando Microdado</p>
@@ -4371,7 +4374,7 @@ font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">read.csv2</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"~/portifolio/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DADOS.csv"</span>,  <span class="at" style="color: #657422;
+font-style: inherit;">"C:/Users/welli/OneDrive/portifolio-dados.github.io/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DADOS.csv"</span>,  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
 background-color: null;

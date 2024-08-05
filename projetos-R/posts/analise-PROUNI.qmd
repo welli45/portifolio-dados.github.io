@@ -1,6 +1,6 @@
 ---
 title: "Análise de dados do Programa Universidade para Todos (ProUni)"
-subtitle: "Análise dos dados com o R"
+subtitle: "Análise dos dados com o R - EM CONSTRUÇÃO..."
 description: "O relatório traz algumas análises dos dados disponíveis no portal Dados Abertos"
 author: "Wellington Santos Souza"
 date: "2024-05-09"
@@ -64,7 +64,7 @@ Carregando a base de dados
 
 rm(list = ls())
 dados <-
-    list.files(path = "~/portifolio/projetos-R/dados_prouni/", full.names = TRUE, pattern = ".csv" ) |> 
+    list.files(path = "C:/Users/welli/OneDrive/portifolio-dados.github.io/projetos-R/dados_prouni/", full.names = TRUE, pattern = ".csv" ) |> 
     purrr::map(readr::read_csv2, locale = locale(encoding = "ISO-8859-1"))  |> 
     dplyr::bind_rows()
 ```

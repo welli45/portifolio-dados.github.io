@@ -1,6 +1,6 @@
 ---
 title: "Análise de dados da pesquisa DataSenado"
-subtitle: "Análise dos dados com o R"
+subtitle: "Análise dos dados com o R - EM CONSTRUÇÃO..."
 description: "Estimativas pontuais considerando o delineamento amostral"
 author: "Wellington Santos Souza"
 date: "2024-05-03"
@@ -53,12 +53,12 @@ Carregando o dicionário de dados.
 #| warning: false
 #| message: false
 rm(list = ls())
-DICIONARIO_DE_DADOS <- read_excel("~/portifolio/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DICIONARIO DE DADOS.xlsx")
+DICIONARIO_DE_DADOS <- read_excel("C:/Users/welli/OneDrive/portifolio-dados.github.io/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DICIONARIO DE DADOS.xlsx")
 ```
 
 Carregando Microdado
 ```{r}
-df = read.csv2("~/portifolio/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DADOS.csv",  sep = ";")
+df = read.csv2("C:/Users/welli/OneDrive/portifolio-dados.github.io/projetos-R/dados/DATASEN BR 2022 NOV BAROMETRO - DADOS.csv",  sep = ";")
 ```
 
 Mudanca de nomenclatura das variaveis para facilitar entendimento do codigo
