@@ -1,5 +1,5 @@
 ---
-title: "Projetos de Power BI"
+title: "Projetos - Power BI"
 subtitle: "Aqui você pode acessar e interagir com alguns Dashboards que criei em Power BI"
 description: "O Power BI é uma ferramenta de avaliação e visualização de dados desenvolvida pela Microsoft. Com ela, dados são transformados em informação.Com o Power BI é possível gerar relatórios e dashboards que mostram números, estatísticas, valores, listas e gráficos de maneira simples e intuitiva. Isso porque a ferramenta tem o propósito de facilitar a visualização de dados e promover um maior envolvimento do espectador em relação à maneira como essas informações são apresentadas. [Fonte](https://ebaconline.com.br/blog/o-que-e-power-bi#:~:text=O%20Power%20BI%20%C3%A9%20uma%20ferramenta%20de%20avalia%C3%A7%C3%A3o,listas%20e%20gr%C3%A1ficos%20de%20maneira%20simples%20e%20intuitiva.)"
 comments: false
