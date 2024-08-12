@@ -29,12 +29,15 @@
 <p><img src="https://github.com/welli45/portifolio/projetos-PBI/images/06.dax/dax.png" class="img-fluid" style="width:30.0%" alt="DAX - POWER BI"></p>
 <p>Com o objetivo de aprimorar meus conhecimentos em Linguagem DAX, decidi realizar o curso oferecido pelo instrutor Felipe Mafra na plataforma Udemy. Durante o curso, tive a oportunidade de significativamente aprimorar minha compreensão em DAX, por meio da execução de um projeto abrangente com foco na aplicação prática. Nesse projeto, assumi o papel de analista de Power BI na empresa Majestic, uma exportadora de materiais escolares. Ao longo desse cenário fictício, desenvolvemos relatórios que abrangem áreas como vendas, classificação de gerentes, margem de lucro por continente e país. Além disso, também exploramos a criação de elementos visuais dinâmicos, os quais se adaptam de acordo com as métricas selecionadas. Essa experiência proporcionou um ambiente de aprendizado altamente envolvente, no qual pude não apenas aprimorar minha habilidade com a Linguagem DAX, mas também entender como aplicá-la de maneira eficaz em situações do mundo real.</p>
 <p>Ao compartilhar este projeto, desejo ressaltar a importância da Linguagem DAX como uma ferramenta poderosa para a análise de dados. A capacidade de criar cálculos personalizados e métricas específicas é fundamental para a compreensão aprofundada dos dados e a geração de insights valiosos. Além disso, a utilização do Power BI como ferramenta de visualização ressalta a importância da proficiência em tecnologias contemporâneas para impulsionar a eficácia das análises de vendas.</p>
+<section id="dashboard-interativo" class="level1">
+<h1>Dashboard Interativo</h1>
 <p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
 <iframe title="ProjetoMajestic" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiZGI3NWQ0YjItNDNiMS00NmFlLTk2ZTMtNjg3MTQ4ZTNhZGVhIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
 </iframe>
 <p><a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3NWQ0YjItNDNiMS00NmFlLTk2ZTMtNjg3MTQ4ZTNhZGVhIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Download Dashboard - Projeto Majestic</a></p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Vendas</category>
@@ -62,8 +65,10 @@
 <p>A segunda página do Dashboard se concentra na avaliação de desempenho individual de cada funcionário e supervisor, mantendo o mesmo intervalo de datas para uma análise comparativa consistente. Nessa seção, é possível examinar de perto a desempenho de cada membro da equipe em relação às métricas de qualidade definidas. Isso permite uma compreensão mais detalhada de como diferentes indivíduos estão contribuindo para os resultados gerais de qualidade.</p>
 <p>É importante destacar que esse Dashboard foi desenvolvido com o propósito de servir como um exercício prático para consolidar minhas habilidades no uso do Power BI, assim como aplicar os princípios de qualidade aprendidos durante o curso no COTIL-UNICAMP. Embora os dados e cenários sejam fictícios, a abordagem e as técnicas empregadas são reflexos da minha busca por um contínuo aprendizado e aprimoramento.</p>
 <p>Ao compartilhar este projeto, desejo ressaltar a relevância da integração entre a gestão da qualidade e a visualização de dados. A capacidade de extrair insights valiosos a partir de informações aparentemente complexas é fundamental para a tomada de decisões informadas e o aprimoramento contínuo dos processos. Além disso, a utilização do Power BI como ferramenta de análise e visualização ressalta a importância da proficiência em tecnologias contemporâneas para impulsionar a eficácia das análises de qualidade.</p>
-<p><strong>Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX</strong></p>
-<p><a href="..\arquivos-pbix\Quality Dashboard.pbix">Download Dashboard de Qualidade</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
+<iframe title="Quality Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
+</iframe>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard de Qualidade</a></p>
 
 
 </section>
@@ -88,8 +93,10 @@
 <p><img src="https://github.com/welli45/portifolio/projetos-PBI/images/05.sim/sim.png" class="img-fluid"></p>
 <p>O Dashboard de hoje foi elaborado utilizando informações provenientes do Sistema de Informações sobre Mortalidade (SIM), obtidas a partir da https://basedosdados.org/ (Base dos Dados). O SIM foi desenvolvido pelo DATASUS com o propósito de adquirir regularmente dados acerca da mortalidade em todo o país. A instauração do SIM possibilitou a coleta abrangente de dados referentes a óbitos, fornecendo um embasamento substancial para as diversas instâncias envolvidas na administração da saúde pública. Com base nisso, foi concebido este Dashboard, estruturando as informações acerca do volume de óbitos por região, Unidade da Federação e município. Adicionalmente, essas informações são segmentadas por gênero e identificação étnico-racial, permitindo uma análise mais detalhada dos dados.</p>
 <p>O Dashboard é composto por quatro páginas distintas, cada uma fornecendo uma perspectiva única dos dados coletados. A primeira página apresenta uma visão geral dos óbitos registrados, permitindo a visualização de tendências ao longo do tempo. Além disso, é possível identificar padrões relevantes relacionados à distribuição dos óbitos por região e Unidade da Federação. A segunda página do Dashboard se concentra na análise dos óbitos por UF e Capitais do Brasil. A terceira se concentra nos dados por UF e Municípios´. Já a quarta página você pode explorar os dados com base em critérios específicos, como gênero, identificação étnico-racial, faixa etária e região. Isso permite uma compreensão mais detalhada da distribuição dos óbitos em relação a esses critérios, fornecendo insights valiosos para a formulação de políticas públicas e ações de saúde.</p>
-<p><strong>Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX</strong></p>
-<p><a href="..\arquivos-pbix\Sistema de Informações sobre Mortalidade.pbix">Download do Dashboard Sistema de Informações sobre Mortalidade</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
+<iframe title="Sistema de Informações sobre Mortalidade" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiODRiYTZiMWEtM2Q1YS00MzkxLTg2OTctYWFhNGI2Yzk0NDg4IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
+</iframe>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiODRiYTZiMWEtM2Q1YS00MzkxLTg2OTctYWFhNGI2Yzk0NDg4IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard Sistema de Informações sobre Mortalidade</a></p>
 
 
 
@@ -161,8 +168,8 @@
 <figcaption>image</figcaption>
 </figure>
 </div>
-<p><strong>Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX</strong></p>
-<p><a href="..\arquivos-pbix\Projeto Final G. Analytics.pbix">Download do Dashboard Projeto Final G. Analytics</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo</strong> <iframe title="Projeto Final G. Analytics" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNjc3NDA0ZGQtYWQ1Ny00MGM1LWIwNmMtZDFkNDA5YzAyZWYxIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true"></iframe></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNjc3NDA0ZGQtYWQ1Ny00MGM1LWIwNmMtZDFkNDA5YzAyZWYxIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard Projeto Final G. Analytics</a></p>
 <p>Além disso, você pode acessar o script R que usei para limpar os dados e criar a tabela de dados.</p>
 <p><a href="https://github.com/welli45/Projeto-final-de-Data-Analytics-do-Google">Link do repositório do GitHub</a></p>
 
@@ -196,8 +203,10 @@
 <p>A pontuação de um país pode mudar de um ano para o outro, mas as mudanças são geralmente pequenas. As mudanças significativas são raras, mas podem acontecer.</p>
 <p>Fonte: https://www.transparency.org/en/news/how-cpi-scores-are-calculated</p>
 <p><strong>Aqui está um dashboard interativo que mostra o IPC de 2012 a 2021:</strong></p>
-<p><strong>Você pode explorar o Dashboard interativo abaixo baixando o arquivo .PBIX</strong></p>
-<p><a href="..\arquivos-pbix\Corruption Perceptions Index (CPI).pbix">Download do dashboard Corruption Perceptions Index (CPI)</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo baixando</strong></p>
+<iframe title="Corruption Perceptions Index (CPI)" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMTk4NzE1ZDMtNDRlOC00OGYzLWJkZWMtNjI4NzljN2Q1MGI1IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9&amp;pageName=a10698ecc860e9722a36" frameborder="0" allowfullscreen="true">
+</iframe>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiMTk4NzE1ZDMtNDRlOC00OGYzLWJkZWMtNjI4NzljN2Q1MGI1IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9&amp;pageName=a10698ecc860e9722a36">Dashboard Corruption Perceptions Index (CPI)</a></p>
 
 
 

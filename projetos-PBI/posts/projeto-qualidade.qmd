@@ -28,9 +28,11 @@ A segunda página do Dashboard se concentra na avaliação de desempenho individ
 
 Ao compartilhar este projeto, desejo ressaltar a relevância da integração entre a gestão da qualidade e a visualização de dados. A capacidade de extrair insights valiosos a partir de informações aparentemente complexas é fundamental para a tomada de decisões informadas e o aprimoramento contínuo dos processos. Além disso, a utilização do Power BI como ferramenta de análise e visualização ressalta a importância da proficiência em tecnologias contemporâneas para impulsionar a eficácia das análises de qualidade.
 
+# Dashboard Interativo
+
 **Você pode explorar o Dashboard interativo abaixo**
 
-<iframe title="Quality Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowFullScreen="true"></iframe>
+<iframe title="Quality Dashboard" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowFullScreen="true"></iframe>
 
 [Dashboard de Qualidade](https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9)
 

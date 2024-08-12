@@ -31,9 +31,9 @@ A pontuação de um país pode mudar de um ano para o outro, mas as mudanças s�
 
 Fonte: https://www.transparency.org/en/news/how-cpi-scores-are-calculated
 
-**Aqui está um dashboard interativo que mostra o IPC de 2012 a 2021:**
+# Dashboard Interativo
 
-**Você pode explorar o Dashboard interativo abaixo baixando**
+**Você pode explorar o Dashboard interativo abaixo**
 
 <iframe title="Corruption Perceptions Index (CPI)" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMTk4NzE1ZDMtNDRlOC00OGYzLWJkZWMtNjI4NzljN2Q1MGI1IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9&pageName=a10698ecc860e9722a36" frameborder="0" allowFullScreen="true"></iframe>
 
