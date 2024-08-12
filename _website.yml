@@ -1,6 +1,6 @@
 website:
   title: "Portifólio de Dados"
-  site-url: https://github.com/welli45/portifolio
+  site-url: https://welli45.github.io/portifolio-dados.github.io/
   description: "Portifólio de Wellington S. Souza!"
   image: images/profile.png
   back-to-top-navigation: true
@@ -31,11 +31,11 @@ website:
         href: Vida-Academica/index.qmd
     tools:
       - icon: code-slash
-        href: https://github.com/welli45/portifolio
+        href: https://welli45.github.io/portifolio-dados.github.io/
       - icon: rss
         href: projetos-PBI/index.xml
   page-footer:
-    left: "[Portifólio de Wellington S. Souza](https://welli45.github.io/portifolio/)"
+    left: "[Portifólio de Wellington S. Souza](https://welli45.github.io/portifolio-dados.github.io/)"
     center:
     - icon: twitter
       text: "Twitter"
