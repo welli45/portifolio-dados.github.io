@@ -1,0 +1,536 @@
+---
+title: "Módulo 3: Vetores e transformações lineares"
+image: ../../Vida-Academica/images/01-sem.png
+description: "Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
+author: "Wellington Santos Souza"
+date: "2024-08-15"
+categories: ["curso", "coursera", "Algebra Linear", "Machine Learning", "Data Science", "Deep Learning", "Python", "R", "Algebra Linear"]
+---
+# Vetores e transformações lineares
+
+# Álgebra Vetorial
+
+## Vetores e suas propriedades
+
+### Notação
+
+vetor linha: $x = (x_1,x_2~...~x_n)$
+
+vetor coluna: $x= \begin{pmatrix}x_1\\x_2\\...\\x_n\end{pmatrix}$
+
+Outras notações: $[x_1,x_2...x_n]$ e $\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix}$
+
+Definição geral: normas L1 e L2
+
+Dado o vetor: $x = (x_1, x_2, ...,x_n)$
+
+L1 ⇒ $||x||_1=|x_1|+|x_2|+...+|x_n|$
+
+L2 ⇒ $||x||_2=\sqrt{x^2_1+x^2_2+...+x^2_n}$
+
+## Operações vetoriais
+
+### Soma de vetores
+
+Para obter a soma de dois vetores é bem simples.
+
+Imagine que temos os vetores $u=(4,1)$ e $v = (1,3)$;
+
+A soma dos vetores $u+v = (4+1,1+3)=(5,4)$
+
+### Subtração de vetores
+
+Imagine que temos os mesmos vetores $u=(4,1)$ e $v = (1,3)$;
+
+A subtração dos vetores $u-v = (4-1,1-3)=(3,-2)$
+
+### Definição geral: soma e subtração de vetores
+
+Imagine que temos os vetores
+
+$x = (x_1, x_2, ...,x_n)$ e $y = (y_1, y_2, ...,y_n)$
+
+A soma será feita de componente por componente $x + y = (x_1 + y_1, x_2+y2,...x_n+y_n)$
+
+A subtração também será feita de componente por componente $x - y = (x_1 - y_1, x_2-y2,...x_n-y_n)$
+
+A diferença entre dois vetores é muito importante para dizer a que distância dois vetores estão um do outro.
+
+No exemplo anterior tínhamos os vetores $u=(4,1)$ e $v = (1,3)$;
+
+A distância entre eles pode ser definida (Distância L1) como: $|u-v|=|5|+|-3| = 8$. Podemos usar L2 também.
+
+### Multiplicação de um vetor por um escalar
+
+Imagine que temos o vetor $u = (1,2)$ e o escalar $\lambda = 3$ a multiplicação será $\lambda u = (3,6)$
+
+### Definição geral: multiplicação por um escalar
+
+Imagine o escalar a seguir: $x = (x_1, x_2, ...,x_n)$ e o escalar $\lambda$, a multiplicação será; $\lambda x = ( \lambda  x_1,\lambda  x_2, ..., \lambda  x_n)$
+
+## O produto escalar
+
+A norma L2 será sempre a raiz quadrada do produto escalar de um vetor. 
+
+Imagine um vetor, $(4,3)$. O produto escalar será: $[4~~3] \begin{bmatrix}4\\3\end{bmatrix}$ = 25. Nesse caso, a distância entre os vetores é o mesmo que usar a norma $L2$.
+
+$\text{Norma L2} =\sqrt{4^2+3^2} = \sqrt{25}= 5$
+
+Notação: $|u|_2 = \sqrt{\langle u,u \rangle}$
+
+Além disso, a distância com relação a norma euclidiana, definida por:
+
+$d(u,v) = \left\| u-v \right\|_2 =
+\sqrt{(u_1 - v_1)^2 + (u_2 - v_2)^2 + ... + (u_n -
+v_n)^2}$
+
+### Transposta de um vetor:
+
+$$
+\begin{bmatrix}2\\4\\1\end{bmatrix}^T = [2~~4~~1]
+$$
+
+$$
+[2~~4~~1]^T=\begin{bmatrix}2\\4\\1\end{bmatrix}
+$$
+
+### Transposta de uma matriz:
+
+$$
+\begin{bmatrix}2&5\\4&7\\1&3\end{bmatrix}^T = \begin{bmatrix}2&4&1\\5&7&3\end{bmatrix}
+$$
+
+### Produto escalar: definição geral
+
+Imagine os vetores $x = (x_1, x_2, ...,x_n)$ e $y = (y_1, y_2, ...,y_n)$
+
+O produto escalar será: 
+
+$$
+x\cdot y = (x_1 \cdot y_1) + (x_2 \cdot y_2) + ... + (x_n \cdot y_n) 
+$$
+
+Outras definições: $\langle x,y \rangle$
+
+$$
+x \cdot y^T = (x_1~~x_2~~...~~x_n) \cdot \begin{pmatrix}y_1\\y_2\\\vdots\\y_n \end{pmatrix}
+$$
+
+## Produto de pontos geométricos
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/547cc893-aeac-4c16-8c45-00f466801484/image.png)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/5b690588-2130-4bb3-93b4-3ba46182ffde/image.png)
+
+## Multiplicação de uma matriz por um vetor
+
+### Equações lineares em forma de produto escalar
+
+Observe as equações:
+
+$a+b+c=10~~(1)$; $a+2b+c=15~~(2)$; $a+b+2c=12~~(3)$
+
+Elas podem ser representadas como 
+
+$[1~~1~~1]\cdot \begin{bmatrix}a\\b\\c\end{bmatrix}=10~~(1);$ $[1~~2~~1]\cdot \begin{bmatrix}a\\b\\c\end{bmatrix}=15~~(2);$ $[1~~1~~2]\cdot \begin{bmatrix}a\\b\\c\end{bmatrix}=12~~(3)$
+
+Podemos pegar esses três produtos escalares e transformá-los em uma matriz, pois o vetor coluna é o mesmo nos três produtos escalares, assim, teríamos: 
+
+$$
+\begin{bmatrix}1&1&1\\1&2&1\\1&1&2\end{bmatrix}\cdot \begin{bmatrix} a\\b\\c\end{bmatrix}=\begin{bmatrix} 10\\15\\12\end{bmatrix}
+$$
+
+## **Operações vetoriais: Multiplicação escalar, soma e produto escalar de vetores usando Python**
+
+```python
+# vamos carregar o numpy
+import numpy as np
+
+```
+
+### Multiplicação escalar e soma de vetores
+
+Como sabemos, podemos representar os vetores em formato de setas
+
+```python
+# Visualizando o vetor em seta
+import matplotlib.pyplot as plt
+
+def plot_vectors(list_v, list_label, list_color):
+    _, ax = plt.subplots(figsize=(10, 10))
+    ax.tick_params(axis='x', labelsize=14)
+    ax.tick_params(axis='y', labelsize=14)
+    ax.set_xticks(np.arange(-10, 10))
+    ax.set_yticks(np.arange(-10, 10))
+    
+    
+    plt.axis([-10, 10, -10, 10])
+    for i, v in enumerate(list_v):
+        sgn = 0.4 * np.array([[1] if i==0 else [i] for i in np.sign(v)])
+        plt.quiver(v[0], v[1], color=list_color[i], angles='xy', scale_units='xy', scale=1)
+        ax.text(v[0]-0.2+sgn[0], v[1]-0.2+sgn[1], list_label[i], fontsize=14, color=list_color[i])
+
+    plt.grid()
+    plt.gca().set_aspect("equal")
+    plt.show()
+
+v = np.array([[1],[3]])
+# Arguments: list of vectors as NumPy arrays, labels, colors.
+plot_vectors([v], [f"$v$"], ["black"])
+```
+
+O vetor é definido por sua norma (comprimento, magnitude) e direção, e não por sua posição real.
+
+### Multiplicação por um escalar
+
+Se o escalar for positivo ao multiplicar pelo vetor ele terá a mesma direção, caso contrário será na posição oposta. 
+
+```python
+plot_vectors([v, 2*v, -2*v], [f"$v$", f"$2v$", f"$-2v$"], ["black", "green", "blue"])
+```
+
+### Soma de vetores
+
+A soma de dois vetores corresponde a diagonal partindo do mesmo ponto, segundo a chamada lei do paralelogramo. 
+
+```python
+v = np.array([[1],[3]])
+w = np.array([[4],[-1]])
+
+plot_vectors([v, w, v + w], [f"$v$", f"$w$", f"$v + w$"], ["black", "black", "red"])
+# plot_vectors([v, w, np.add(v, w)], [f"$v$", f"$w$", f"$v + w$"], ["black", "black", "red"])
+```
+
+### Normas de um vetor
+
+A norma de um vetor pode ser definida como um número não negativo que descreve a extensão do vetor no espaço. 
+
+```python
+print("Norm of a vector v is", np.linalg.norm(v))
+```
+
+### Produto escalar
+
+O produto escalar é a operação algébrica entre dois vetores $\vec x=[x_1~~x_2~~...~~x_n]^T \in R^n$ e $\vec x=[y_1~~y_2~~...~~y_n]^T \in R^n$ em que retorna um único valor. O produto escalar pode ser representado por $x \cdot y$ e é definido como:
+
+$$
+x \cdot y = \sum^n_{i=1} = x_1y_1+x_2y_2+...+x_ny_n
+$$
+
+### Produto escalar usando Python
+
+```python
+# basta definir os vetore
+x = [1, -2, -5]
+y = [4, 3, -1]
+
+# define a função que calcula o produto escalar
+def dot(x, y):
+		s=0
+		for xi, yi in zip(x, y):
+				s += xi * yi
+		return s
+
+print("O produto escalar entre x e y é", dot(x, y))
+
+print("np.dot(x,y) pode ser usada para calcular o produto escalar entre x e y:", np.dot(x, y)) 
+```
+
+# Transformações lineares
+
+## Definição de transformação linear
+
+Sejam $V$ e $W$ **espaços vetoriais. A função $T: V \to W$ 
+
+é a transformação linear de $V$  em $W$ quando as duas propriedades abaixo são verdadeiras  para quaisquer  **u** e **v**  em $V$ e para qualquer escalar *c.*
+
+1. $T(u + v) = T(u) + (v)$
+2. $T(cu)=cT(u)$
+
+## Propriedades das transformações lineares
+
+Seja *T* uma transformação linear de *V* em *W* e sejam **u** e **v** em *V*. Então as propriedades listadas abaixo são verdadeiras.
+
+1. $T(0)=0$
+2. $T(-v) = -T(v)$
+3. $T(u-v)=T(u)-T(v)$
+4. Se $v = c_1v_1+c_2v_2+...+c_nv_n$ então $T(v) = T(c_1v_1+c_2v_2+...+c_nv_n)=c_1T(v_1)+c_2T(v_2)+...+c_nT(v_n)$
+
+## Matrizes dada por transformações lineares
+
+Seja a matriz $\begin{bmatrix}3&1\\1&2\end{bmatrix}$ a transformação da matriz linear no ponto (0, 0) será definida por $\begin{bmatrix}3*0 + 1*0\\1*0+2*0\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix}$
+
+No ponto $(1, 1) = \begin{bmatrix}3*1 + 1*1\\1*1+2*1\end{bmatrix} = \begin{bmatrix}4\\3\end{bmatrix}$
+
+## Transformação linear dada por uma matriz
+
+## Multiplicação de matrizes
+
+### Definição
+
+Se $A = [a{ij}]$ é uma matriz $\text{m x n}$  e $B = [b_{ij}]$ é uma matriz $\text{ n x p}$, então o **produto $AB$** é uma matriz $\text{m x p}$ 
+
+$AB = [c_{ij}]$
+
+onde 
+
+$c_{ij} = \sum\limits^n_{k=1} a_{ik}b_{kj} = a_{i1}b_{1j}+a_{i2}b_{2j}+a_{i3}b_{3j}+...+a_{in}b_{nj}$
+
+Esta definição significa que, para encontrar o elemento na $i-ésima$ linha e na $j-ésima$ coluna do produto $AB$, basta multiplicar os elementos na $i-ésima$ linha de $A$ pelos elementos correspondentes na $j-ésima$ coluna de $B$ e em seguida somar os resultados.
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/a243d628-22e0-41b1-ace3-83c58bbe747c/image.png)
+
+## Matriz identidade
+
+A matriz identidade é a matriz que, quando multiplicada por qualquer outra matriz, dá a mesma matriz, e sua transformação linear correspondente é muito simples.
+
+## Inversa de uma matriz
+
+### Definição da inversa de uma matriz
+
+Uma matriz quadrada $A$ de ordem $n$ é invertível (ou não singular) quando existe uma matriz $B$ de tamanho $\text{n x n}$
+ tal que
+
+$AB = BA = I_n$,
+
+onde  $I_n$ é a matriz identidade de ordem $n$. A matriz $B$ é a inversa  multiplicativa) de $A$. Uma matriz que não possui uma inversa é não invertível (ou singular).
+
+As matrizes não quadradas não têm inversas.
+
+Exemplo:
+
+Encontre a inversa da matriz  $A=\begin{bmatrix}1&4\\-1&-3\end{bmatrix}$
+
+**SOLUÇÃO:**
+
+Para encontrar a inversa de  $A$, resolva a equação matricial  $AX = I$ para determinar $X$.
+
+$\begin{bmatrix}1&4\\-1&-3\end{bmatrix} \begin{bmatrix}x_{11}&x_{12}\\x_{21}&x_{22}\end{bmatrix} =\begin{bmatrix}1&0\\0&1\end{bmatrix}$
+
+$\begin{bmatrix}x_{11}+4x_{21}&x_{12}+4x_{22}\\-x_{11}-3x_{21}&-x_{12}-3x_{22}\end{bmatrix} = \begin{bmatrix}1&0\\0&1\end{bmatrix}$
+
+Igualando os elementos correspondentes, você obtém dois sistemas de equações lineares.
+
+$\begin{cases}x_{11} + 4x_{21} = 1 \\ -x_{11}-3x_{21}=0 \end{cases}$
+
+$\begin{cases}x_{12} + 4x_{22} = 0 \\ -x_{12}-3x_{22}=1 \end{cases}$
+
+Resolvendo o primeiro sistema, você encontra que $x_{11}=-3$ e $x_{21}  = 1$. De forma semelhante, resolvendo o segundo sistema, encontra que $x_{12} = 4$ e $x_{22}=  1$.
+Então, a inversa de $A$ é
+
+$A = A^{-1}=\begin{bmatrix}-3&-4\\1&1\end{bmatrix}$
+
+## Quais matrizes têm uma inversa?
+
+### Propriedades de matrizes inversas
+
+Se $A$ é uma matriz invertível,  $k$  é um número inteiro positivo e  $c$  é um escalar diferente de zero, então $A^{-1}$, $A^k$, $cA$ e $AT$ são invertíveis e as afirmações abaixo são verdadeiras.
+
+1. $(A^{-1})^{-1} = A$
+2. $(A^k)^{-1}=\underbrace{A^{-1}A^{-1}…A^{-1}}_{\text{k fatores}}=(A^{-1})^k$
+3. $(cA)^{-1}=\frac{1}{c}A^{-1}$
+4. $(A^T)^{-1}=(A^{-1})^T$
+
+Matriz singular não tem inversa. Determinante = 0
+
+## Multiplicação de matrizes usando `Numpy`
+
+```python
+import numpy as np
+```
+
+Definição:
+
+Se $A$ é uma matriz $\text{m x n }$ e $B$  é uma matriz $\text{n x p}$ a matriz $C$ será o produto $C = AB$. É definida sendo uma matriz $\text{m x p}$ em que: 
+
+$c_{ij} = a_{ij}b_{ij}+a_{i2}b_{2j}+…+a_{in}b_{nj} = \sum\limits^n_{k=1}a_{ik}b_{kj}$
+
+Onde $a_{ik}$ são os elemento da matriz $A$, $b_{kj}$ são os elementos da matriz $B$, e $i = 1$, $\ldots, m, k=1, \ldots, n, j = 1, \ldots, p$. Em outras palavras, $c_{ij}$ é o produto escalar $i-th$ linha de A e o $j-th$ é a coluna de $B$.
+
+A multiplicação de matrizes usando `numpy` é mais eficiente quando usamos a forma vetorizada. 
+
+1. Agora vamos definir duas mabtrizes
+
+```python
+A = np.array([[4, 9, 9], [9, 1, 6], [9, 2, 3]])
+print("Matrix A (3 by 3):\n", A)
+
+B = np.array([[2, 2], [5, 7], [4, 4]])
+print("Matrix B (3 by 2):\n", B)
+```
+
+1. Para multiplicar as duas matrizes usamos
+
+```python
+np.matmul(A, B)
+```
+
+1. podemos obter o mesmo resultado utilizando a seguinte operação no `python` base.
+
+```python
+A @ B
+```
+
+Matematicamente, a multiplicação de matrizes é possível somente se;
+
+O número de colunas da matriz A for igual o número de linhas de B.
+
+Podemos checar essas informações com:
+
+```python
+try:
+    np.matmul(B, A)
+except ValueError as err:
+    print(err)
+```
+
+Também usando:
+
+```python
+try:
+    B @ A
+except ValueError as err:
+    print(err)
+```
+
+Podemos checar as dimensões das matrizes assim, veja o exemplo abaixo:
+
+```python
+x = np.array([1, -2, -5])
+y = np.array([4, 3, -1])
+
+print("Shape of vector x:", x.shape)
+print("Number of dimensions of vector x:", x.ndim)
+print("Shape of vector x, reshaped to a matrix:", x.reshape((3, 1)).shape)
+print("Number of dimensions of vector x, reshaped to a matrix:", x.reshape((3, 1)).ndim)
+
+np.matmul(x,y)
+```
+
+## Transformações lineares usando `Python`
+
+Vamos precisar dos pacotes
+
+```python
+import numpy as np
+# OpenCV library for image transformations.
+import cv2
+```
+
+Uma **transformação** é uma função que vai de um espaço vetorial a outro, respeitando a estrutura (linear) subjacente de cada espaço vetorial. Ao se referir a uma transformação específica, você pode usar um símbolo, como $T$. Especificando os espaços que contêm os vetores de entrada e saída, por exemplo, $\mathbb{R}^2$ e $\mathbb{R}^3$, você pode escrever $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$. Ao transformar o vetor $v \in \mathbb{R}^2$ no vetor $w\in\mathbb{R}^3$ pela transformação $T$, você pode usar a notação $T(v)=w$ e lê-la como "*T de v é igual a w*" ou "*o vetor w é uma **imagem** do vetor v pela transformação T*".
+
+A seguinte função em Python corresponde à transformação $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ com a fórmula simbólica abaixo:
+
+$$
+T\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}
+\tag{1}
+$$
+
+```python
+def T(v):
+    w = np.zeros((3,1))
+    w[0,0] = 3*v[0,0]
+    w[2,0] = -2*v[1,0]
+    
+    return w
+
+v = np.array([[3], [5]])
+w = T(v)
+
+print("Original vector:\n", v, "\n\n Result of the transformation:\n", w)
+```
+
+## Transformações Lineares
+
+Uma transformação $T$ é dita **linear** se as seguintes duas propriedades forem verdadeiras para qualquer escalar $k$ e quaisquer vetores de entrada $u$ e $v$:
+
+1. $T(kv)=kT(v)$,
+2. $T(u+v)=T(u)+T(v)$.
+
+No exemplo acima, $T$ é uma transformação linear:
+
+$$
+T(kv) =
+T \begin{pmatrix}\begin{bmatrix}
+kv_1 \\
+kv_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3kv_1 \\
+0 \\
+-2kv_2
+\end{bmatrix} =
+k\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+kT(v),\tag{2}
+$$
+
+$$
+T (u+v) =
+T \begin{pmatrix}\begin{bmatrix}
+u_1 + v_1 \\
+u_2 + v_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3(u_1+v_1) \\
+0 \\
+-2(u_2+v_2)
+\end{bmatrix} =
+\begin{bmatrix}
+3u_1 \\
+0 \\
+-2u_2
+\end{bmatrix} +
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+T(u)+T(v).\tag{3}
+$$
+
+Você pode alterar os valores de $k$ ou dos vetores $u$ e $v$ na célula abaixo para verificar que isso é verdadeiro para alguns valores específicos.
+
+```python
+u = np.array([[1], [-2]])
+v = np.array([[2], [4]])
+
+k = 7
+
+print("T(k*v):\n", T(k*v), "\n k*T(v):\n", k*T(v), "\n\n")
+print("T(u+v):\n", T(u+v), "\n T(u)+T(v):\n", T(u)+T(v))
+```
+
+### A multiplicação de matrizes geralmente **não é comutativa**
+
+Os exemplos a seguir ilustram que a multiplicação de matrizes geralmente **não é comutativa**.
+
+Por exemplo, o produto $AB$ de uma matriz $2 \times 3$ com uma matriz $3 \times 4$ resulta em uma matriz $2 \times 4$, mas o produto $BA$ de uma matriz $3 \times 4$ com uma matriz $2 \times 3$ não é definido.
+
+Mesmo para duas matrizes quadradas $M$ e $N$, ambas de tamanho $n \times n$, a multiplicação de matrizes não é necessariamente comutativa: os produtos $MN$ e $NM$ podem ser diferentes.
+
+Por exemplo, seja
+
+ $M = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}, \quad
+N = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix},$
+
+de modo que
+
+ $MN = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ -1 & 0 \end{bmatrix},$
+
+e
+
+ $NM = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}.$
+
+Assim, as matrizes quadradas $M$ e $N$ não comutam: $MN \neq NM.$

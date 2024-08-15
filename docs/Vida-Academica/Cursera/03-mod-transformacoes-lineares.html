@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados">
 
-<title>mod-transformacoes-lineares – Portifólio de Dados</title>
+<title>Módulo 3: Vetores e transformações lineares – Portifólio de Dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,18 +106,51 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Portifólio de Dados">
+<meta property="og:title" content="Módulo 3: Vetores e transformações lineares – Portifólio de Dados">
 <meta property="og:description" content="Portifólio // Wellington S. Souza">
-<meta property="og:image" content="https://github.com/welli45/portifolio/Vida-Academica/Cursera/images/profile.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
+<meta property="og:image:height" content="822">
+<meta property="og:image:width" content="1480">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
-<meta name="twitter:image" content="https://github.com/welli45/portifolio/Vida-Academica/Cursera/cover.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="822">
+<meta name="twitter:image-width" content="1480">
 </head>
 
 <body class="nav-fixed">
@@ -143,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/welli45/portifolio" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
+    <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
     <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -154,17 +223,560 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#vetores-e-transformações-lineares" id="toc-vetores-e-transformações-lineares" class="nav-link active" data-scroll-target="#vetores-e-transformações-lineares">Vetores e transformações lineares</a></li>
+  <li><a href="#álgebra-vetorial" id="toc-álgebra-vetorial" class="nav-link" data-scroll-target="#álgebra-vetorial">Álgebra Vetorial</a>
+  <ul>
+  <li><a href="#vetores-e-suas-propriedades" id="toc-vetores-e-suas-propriedades" class="nav-link" data-scroll-target="#vetores-e-suas-propriedades">Vetores e suas propriedades</a>
+  <ul class="collapse">
+  <li><a href="#notação" id="toc-notação" class="nav-link" data-scroll-target="#notação">Notação</a></li>
+  </ul></li>
+  <li><a href="#operações-vetoriais" id="toc-operações-vetoriais" class="nav-link" data-scroll-target="#operações-vetoriais">Operações vetoriais</a>
+  <ul class="collapse">
+  <li><a href="#soma-de-vetores" id="toc-soma-de-vetores" class="nav-link" data-scroll-target="#soma-de-vetores">Soma de vetores</a></li>
+  <li><a href="#subtração-de-vetores" id="toc-subtração-de-vetores" class="nav-link" data-scroll-target="#subtração-de-vetores">Subtração de vetores</a></li>
+  <li><a href="#definição-geral-soma-e-subtração-de-vetores" id="toc-definição-geral-soma-e-subtração-de-vetores" class="nav-link" data-scroll-target="#definição-geral-soma-e-subtração-de-vetores">Definição geral: soma e subtração de vetores</a></li>
+  <li><a href="#multiplicação-de-um-vetor-por-um-escalar" id="toc-multiplicação-de-um-vetor-por-um-escalar" class="nav-link" data-scroll-target="#multiplicação-de-um-vetor-por-um-escalar">Multiplicação de um vetor por um escalar</a></li>
+  <li><a href="#definição-geral-multiplicação-por-um-escalar" id="toc-definição-geral-multiplicação-por-um-escalar" class="nav-link" data-scroll-target="#definição-geral-multiplicação-por-um-escalar">Definição geral: multiplicação por um escalar</a></li>
+  </ul></li>
+  <li><a href="#o-produto-escalar" id="toc-o-produto-escalar" class="nav-link" data-scroll-target="#o-produto-escalar">O produto escalar</a>
+  <ul class="collapse">
+  <li><a href="#transposta-de-um-vetor" id="toc-transposta-de-um-vetor" class="nav-link" data-scroll-target="#transposta-de-um-vetor">Transposta de um vetor:</a></li>
+  <li><a href="#transposta-de-uma-matriz" id="toc-transposta-de-uma-matriz" class="nav-link" data-scroll-target="#transposta-de-uma-matriz">Transposta de uma matriz:</a></li>
+  <li><a href="#produto-escalar-definição-geral" id="toc-produto-escalar-definição-geral" class="nav-link" data-scroll-target="#produto-escalar-definição-geral">Produto escalar: definição geral</a></li>
+  </ul></li>
+  <li><a href="#produto-de-pontos-geométricos" id="toc-produto-de-pontos-geométricos" class="nav-link" data-scroll-target="#produto-de-pontos-geométricos">Produto de pontos geométricos</a></li>
+  <li><a href="#multiplicação-de-uma-matriz-por-um-vetor" id="toc-multiplicação-de-uma-matriz-por-um-vetor" class="nav-link" data-scroll-target="#multiplicação-de-uma-matriz-por-um-vetor">Multiplicação de uma matriz por um vetor</a>
+  <ul class="collapse">
+  <li><a href="#equações-lineares-em-forma-de-produto-escalar" id="toc-equações-lineares-em-forma-de-produto-escalar" class="nav-link" data-scroll-target="#equações-lineares-em-forma-de-produto-escalar">Equações lineares em forma de produto escalar</a></li>
+  </ul></li>
+  <li><a href="#operações-vetoriais-multiplicação-escalar-soma-e-produto-escalar-de-vetores-usando-python" id="toc-operações-vetoriais-multiplicação-escalar-soma-e-produto-escalar-de-vetores-usando-python" class="nav-link" data-scroll-target="#operações-vetoriais-multiplicação-escalar-soma-e-produto-escalar-de-vetores-usando-python"><strong>Operações vetoriais: Multiplicação escalar, soma e produto escalar de vetores usando Python</strong></a>
+  <ul class="collapse">
+  <li><a href="#multiplicação-escalar-e-soma-de-vetores" id="toc-multiplicação-escalar-e-soma-de-vetores" class="nav-link" data-scroll-target="#multiplicação-escalar-e-soma-de-vetores">Multiplicação escalar e soma de vetores</a></li>
+  <li><a href="#multiplicação-por-um-escalar" id="toc-multiplicação-por-um-escalar" class="nav-link" data-scroll-target="#multiplicação-por-um-escalar">Multiplicação por um escalar</a></li>
+  <li><a href="#soma-de-vetores-1" id="toc-soma-de-vetores-1" class="nav-link" data-scroll-target="#soma-de-vetores-1">Soma de vetores</a></li>
+  <li><a href="#normas-de-um-vetor" id="toc-normas-de-um-vetor" class="nav-link" data-scroll-target="#normas-de-um-vetor">Normas de um vetor</a></li>
+  <li><a href="#produto-escalar" id="toc-produto-escalar" class="nav-link" data-scroll-target="#produto-escalar">Produto escalar</a></li>
+  <li><a href="#produto-escalar-usando-python" id="toc-produto-escalar-usando-python" class="nav-link" data-scroll-target="#produto-escalar-usando-python">Produto escalar usando Python</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#transformações-lineares" id="toc-transformações-lineares" class="nav-link" data-scroll-target="#transformações-lineares">Transformações lineares</a>
+  <ul>
+  <li><a href="#definição-de-transformação-linear" id="toc-definição-de-transformação-linear" class="nav-link" data-scroll-target="#definição-de-transformação-linear">Definição de transformação linear</a></li>
+  <li><a href="#propriedades-das-transformações-lineares" id="toc-propriedades-das-transformações-lineares" class="nav-link" data-scroll-target="#propriedades-das-transformações-lineares">Propriedades das transformações lineares</a></li>
+  <li><a href="#matrizes-dada-por-transformações-lineares" id="toc-matrizes-dada-por-transformações-lineares" class="nav-link" data-scroll-target="#matrizes-dada-por-transformações-lineares">Matrizes dada por transformações lineares</a></li>
+  <li><a href="#transformação-linear-dada-por-uma-matriz" id="toc-transformação-linear-dada-por-uma-matriz" class="nav-link" data-scroll-target="#transformação-linear-dada-por-uma-matriz">Transformação linear dada por uma matriz</a></li>
+  <li><a href="#multiplicação-de-matrizes" id="toc-multiplicação-de-matrizes" class="nav-link" data-scroll-target="#multiplicação-de-matrizes">Multiplicação de matrizes</a>
+  <ul class="collapse">
+  <li><a href="#definição" id="toc-definição" class="nav-link" data-scroll-target="#definição">Definição</a></li>
+  </ul></li>
+  <li><a href="#matriz-identidade" id="toc-matriz-identidade" class="nav-link" data-scroll-target="#matriz-identidade">Matriz identidade</a></li>
+  <li><a href="#inversa-de-uma-matriz" id="toc-inversa-de-uma-matriz" class="nav-link" data-scroll-target="#inversa-de-uma-matriz">Inversa de uma matriz</a>
+  <ul class="collapse">
+  <li><a href="#definição-da-inversa-de-uma-matriz" id="toc-definição-da-inversa-de-uma-matriz" class="nav-link" data-scroll-target="#definição-da-inversa-de-uma-matriz">Definição da inversa de uma matriz</a></li>
+  </ul></li>
+  <li><a href="#quais-matrizes-têm-uma-inversa" id="toc-quais-matrizes-têm-uma-inversa" class="nav-link" data-scroll-target="#quais-matrizes-têm-uma-inversa">Quais matrizes têm uma inversa?</a>
+  <ul class="collapse">
+  <li><a href="#propriedades-de-matrizes-inversas" id="toc-propriedades-de-matrizes-inversas" class="nav-link" data-scroll-target="#propriedades-de-matrizes-inversas">Propriedades de matrizes inversas</a></li>
+  </ul></li>
+  <li><a href="#multiplicação-de-matrizes-usando-numpy" id="toc-multiplicação-de-matrizes-usando-numpy" class="nav-link" data-scroll-target="#multiplicação-de-matrizes-usando-numpy">Multiplicação de matrizes usando <code>Numpy</code></a></li>
+  <li><a href="#transformações-lineares-usando-python" id="toc-transformações-lineares-usando-python" class="nav-link" data-scroll-target="#transformações-lineares-usando-python">Transformações lineares usando <code>Python</code></a></li>
+  <li><a href="#transformações-lineares-1" id="toc-transformações-lineares-1" class="nav-link" data-scroll-target="#transformações-lineares-1">Transformações Lineares</a>
+  <ul class="collapse">
+  <li><a href="#a-multiplicação-de-matrizes-geralmente-não-é-comutativa" id="toc-a-multiplicação-de-matrizes-geralmente-não-é-comutativa" class="nav-link" data-scroll-target="#a-multiplicação-de-matrizes-geralmente-não-é-comutativa">A multiplicação de matrizes geralmente <strong>não é comutativa</strong></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Módulo 3: Vetores e transformações lineares</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">curso</div>
+    <div class="quarto-category">coursera</div>
+    <div class="quarto-category">Algebra Linear</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Algebra Linear</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Thursday, 15 August 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="vetores-e-transformações-lineares" class="level1">
+<h1>Vetores e transformações lineares</h1>
+</section>
+<section id="álgebra-vetorial" class="level1">
+<h1>Álgebra Vetorial</h1>
+<section id="vetores-e-suas-propriedades" class="level2">
+<h2 class="anchored" data-anchor-id="vetores-e-suas-propriedades">Vetores e suas propriedades</h2>
+<section id="notação" class="level3">
+<h3 class="anchored" data-anchor-id="notação">Notação</h3>
+<p>vetor linha: <span class="math inline">\(x = (x_1,x_2~...~x_n)\)</span></p>
+<p>vetor coluna: <span class="math inline">\(x= \begin{pmatrix}x_1\\x_2\\...\\x_n\end{pmatrix}\)</span></p>
+<p>Outras notações: <span class="math inline">\([x_1,x_2...x_n]\)</span> e <span class="math inline">\(\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix}\)</span></p>
+<p>Definição geral: normas L1 e L2</p>
+<p>Dado o vetor: <span class="math inline">\(x = (x_1, x_2, ...,x_n)\)</span></p>
+<p>L1 ⇒ <span class="math inline">\(||x||_1=|x_1|+|x_2|+...+|x_n|\)</span></p>
+<p>L2 ⇒ <span class="math inline">\(||x||_2=\sqrt{x^2_1+x^2_2+...+x^2_n}\)</span></p>
+</section>
+</section>
+<section id="operações-vetoriais" class="level2">
+<h2 class="anchored" data-anchor-id="operações-vetoriais">Operações vetoriais</h2>
+<section id="soma-de-vetores" class="level3">
+<h3 class="anchored" data-anchor-id="soma-de-vetores">Soma de vetores</h3>
+<p>Para obter a soma de dois vetores é bem simples.</p>
+<p>Imagine que temos os vetores <span class="math inline">\(u=(4,1)\)</span> e <span class="math inline">\(v = (1,3)\)</span>;</p>
+<p>A soma dos vetores <span class="math inline">\(u+v = (4+1,1+3)=(5,4)\)</span></p>
+</section>
+<section id="subtração-de-vetores" class="level3">
+<h3 class="anchored" data-anchor-id="subtração-de-vetores">Subtração de vetores</h3>
+<p>Imagine que temos os mesmos vetores <span class="math inline">\(u=(4,1)\)</span> e <span class="math inline">\(v = (1,3)\)</span>;</p>
+<p>A subtração dos vetores <span class="math inline">\(u-v = (4-1,1-3)=(3,-2)\)</span></p>
+</section>
+<section id="definição-geral-soma-e-subtração-de-vetores" class="level3">
+<h3 class="anchored" data-anchor-id="definição-geral-soma-e-subtração-de-vetores">Definição geral: soma e subtração de vetores</h3>
+<p>Imagine que temos os vetores</p>
+<p><span class="math inline">\(x = (x_1, x_2, ...,x_n)\)</span> e <span class="math inline">\(y = (y_1, y_2, ...,y_n)\)</span></p>
+<p>A soma será feita de componente por componente <span class="math inline">\(x + y = (x_1 + y_1, x_2+y2,...x_n+y_n)\)</span></p>
+<p>A subtração também será feita de componente por componente <span class="math inline">\(x - y = (x_1 - y_1, x_2-y2,...x_n-y_n)\)</span></p>
+<p>A diferença entre dois vetores é muito importante para dizer a que distância dois vetores estão um do outro.</p>
+<p>No exemplo anterior tínhamos os vetores <span class="math inline">\(u=(4,1)\)</span> e <span class="math inline">\(v = (1,3)\)</span>;</p>
+<p>A distância entre eles pode ser definida (Distância L1) como: <span class="math inline">\(|u-v|=|5|+|-3| = 8\)</span>. Podemos usar L2 também.</p>
+</section>
+<section id="multiplicação-de-um-vetor-por-um-escalar" class="level3">
+<h3 class="anchored" data-anchor-id="multiplicação-de-um-vetor-por-um-escalar">Multiplicação de um vetor por um escalar</h3>
+<p>Imagine que temos o vetor <span class="math inline">\(u = (1,2)\)</span> e o escalar <span class="math inline">\(\lambda = 3\)</span> a multiplicação será <span class="math inline">\(\lambda u = (3,6)\)</span></p>
+</section>
+<section id="definição-geral-multiplicação-por-um-escalar" class="level3">
+<h3 class="anchored" data-anchor-id="definição-geral-multiplicação-por-um-escalar">Definição geral: multiplicação por um escalar</h3>
+<p>Imagine o escalar a seguir: <span class="math inline">\(x = (x_1, x_2, ...,x_n)\)</span> e o escalar <span class="math inline">\(\lambda\)</span>, a multiplicação será; <span class="math inline">\(\lambda x = ( \lambda  x_1,\lambda  x_2, ..., \lambda  x_n)\)</span></p>
+</section>
+</section>
+<section id="o-produto-escalar" class="level2">
+<h2 class="anchored" data-anchor-id="o-produto-escalar">O produto escalar</h2>
+<p>A norma L2 será sempre a raiz quadrada do produto escalar de um vetor.</p>
+<p>Imagine um vetor, <span class="math inline">\((4,3)\)</span>. O produto escalar será: <span class="math inline">\([4~~3] \begin{bmatrix}4\\3\end{bmatrix}\)</span> = 25. Nesse caso, a distância entre os vetores é o mesmo que usar a norma <span class="math inline">\(L2\)</span>.</p>
+<p><span class="math inline">\(\text{Norma L2} =\sqrt{4^2+3^2} = \sqrt{25}= 5\)</span></p>
+<p>Notação: <span class="math inline">\(|u|_2 = \sqrt{\langle u,u \rangle}\)</span></p>
+<p>Além disso, a distância com relação a norma euclidiana, definida por:</p>
+<p><span class="math inline">\(d(u,v) = \left\| u-v \right\|_2 =
+\sqrt{(u_1 - v_1)^2 + (u_2 - v_2)^2 + ... + (u_n -
+v_n)^2}\)</span></p>
+<section id="transposta-de-um-vetor" class="level3">
+<h3 class="anchored" data-anchor-id="transposta-de-um-vetor">Transposta de um vetor:</h3>
+<p><span class="math display">\[
+\begin{bmatrix}2\\4\\1\end{bmatrix}^T = [2~~4~~1]
+\]</span></p>
+<p><span class="math display">\[
+[2~~4~~1]^T=\begin{bmatrix}2\\4\\1\end{bmatrix}
+\]</span></p>
+</section>
+<section id="transposta-de-uma-matriz" class="level3">
+<h3 class="anchored" data-anchor-id="transposta-de-uma-matriz">Transposta de uma matriz:</h3>
+<p><span class="math display">\[
+\begin{bmatrix}2&amp;5\\4&amp;7\\1&amp;3\end{bmatrix}^T = \begin{bmatrix}2&amp;4&amp;1\\5&amp;7&amp;3\end{bmatrix}
+\]</span></p>
+</section>
+<section id="produto-escalar-definição-geral" class="level3">
+<h3 class="anchored" data-anchor-id="produto-escalar-definição-geral">Produto escalar: definição geral</h3>
+<p>Imagine os vetores <span class="math inline">\(x = (x_1, x_2, ...,x_n)\)</span> e <span class="math inline">\(y = (y_1, y_2, ...,y_n)\)</span></p>
+<p>O produto escalar será:</p>
+<p><span class="math display">\[
+x\cdot y = (x_1 \cdot y_1) + (x_2 \cdot y_2) + ... + (x_n \cdot y_n)
+\]</span></p>
+<p>Outras definições: <span class="math inline">\(\langle x,y \rangle\)</span></p>
+<p><span class="math display">\[
+x \cdot y^T = (x_1~~x_2~~...~~x_n) \cdot \begin{pmatrix}y_1\\y_2\\\vdots\\y_n \end{pmatrix}
+\]</span></p>
+</section>
+</section>
+<section id="produto-de-pontos-geométricos" class="level2">
+<h2 class="anchored" data-anchor-id="produto-de-pontos-geométricos">Produto de pontos geométricos</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/547cc893-aeac-4c16-8c45-00f466801484/image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/5b690588-2130-4bb3-93b4-3ba46182ffde/image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="multiplicação-de-uma-matriz-por-um-vetor" class="level2">
+<h2 class="anchored" data-anchor-id="multiplicação-de-uma-matriz-por-um-vetor">Multiplicação de uma matriz por um vetor</h2>
+<section id="equações-lineares-em-forma-de-produto-escalar" class="level3">
+<h3 class="anchored" data-anchor-id="equações-lineares-em-forma-de-produto-escalar">Equações lineares em forma de produto escalar</h3>
+<p>Observe as equações:</p>
+<p><span class="math inline">\(a+b+c=10~~(1)\)</span>; <span class="math inline">\(a+2b+c=15~~(2)\)</span>; <span class="math inline">\(a+b+2c=12~~(3)\)</span></p>
+<p>Elas podem ser representadas como</p>
+<p><span class="math inline">\([1~~1~~1]\cdot \begin{bmatrix}a\\b\\c\end{bmatrix}=10~~(1);\)</span> <span class="math inline">\([1~~2~~1]\cdot \begin{bmatrix}a\\b\\c\end{bmatrix}=15~~(2);\)</span> <span class="math inline">\([1~~1~~2]\cdot \begin{bmatrix}a\\b\\c\end{bmatrix}=12~~(3)\)</span></p>
+<p>Podemos pegar esses três produtos escalares e transformá-los em uma matriz, pois o vetor coluna é o mesmo nos três produtos escalares, assim, teríamos:</p>
+<p><span class="math display">\[
+\begin{bmatrix}1&amp;1&amp;1\\1&amp;2&amp;1\\1&amp;1&amp;2\end{bmatrix}\cdot \begin{bmatrix} a\\b\\c\end{bmatrix}=\begin{bmatrix} 10\\15\\12\end{bmatrix}
+\]</span></p>
+</section>
+</section>
+<section id="operações-vetoriais-multiplicação-escalar-soma-e-produto-escalar-de-vetores-usando-python" class="level2">
+<h2 class="anchored" data-anchor-id="operações-vetoriais-multiplicação-escalar-soma-e-produto-escalar-de-vetores-usando-python"><strong>Operações vetoriais: Multiplicação escalar, soma e produto escalar de vetores usando Python</strong></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos carregar o numpy</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="multiplicação-escalar-e-soma-de-vetores" class="level3">
+<h3 class="anchored" data-anchor-id="multiplicação-escalar-e-soma-de-vetores">Multiplicação escalar e soma de vetores</h3>
+<p>Como sabemos, podemos representar os vetores em formato de setas</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o vetor em seta</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_vectors(list_v, list_label, list_color):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    _, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, labelsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ax.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(np.arange(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks(np.arange(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    plt.axis([<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(list_v):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        sgn <span class="op">=</span> <span class="fl">0.4</span> <span class="op">*</span> np.array([[<span class="dv">1</span>] <span class="cf">if</span> i<span class="op">==</span><span class="dv">0</span> <span class="cf">else</span> [i] <span class="cf">for</span> i <span class="kw">in</span> np.sign(v)])</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        plt.quiver(v[<span class="dv">0</span>], v[<span class="dv">1</span>], color<span class="op">=</span>list_color[i], angles<span class="op">=</span><span class="st">'xy'</span>, scale_units<span class="op">=</span><span class="st">'xy'</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        ax.text(v[<span class="dv">0</span>]<span class="op">-</span><span class="fl">0.2</span><span class="op">+</span>sgn[<span class="dv">0</span>], v[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.2</span><span class="op">+</span>sgn[<span class="dv">1</span>], list_label[i], fontsize<span class="op">=</span><span class="dv">14</span>, color<span class="op">=</span>list_color[i])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    plt.grid()</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    plt.gca().set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">1</span>],[<span class="dv">3</span>]])</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Arguments: list of vectors as NumPy arrays, labels, colors.</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plot_vectors([v], [<span class="ss">f"$v$"</span>], [<span class="st">"black"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O vetor é definido por sua norma (comprimento, magnitude) e direção, e não por sua posição real.</p>
+</section>
+<section id="multiplicação-por-um-escalar" class="level3">
+<h3 class="anchored" data-anchor-id="multiplicação-por-um-escalar">Multiplicação por um escalar</h3>
+<p>Se o escalar for positivo ao multiplicar pelo vetor ele terá a mesma direção, caso contrário será na posição oposta.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_vectors([v, <span class="dv">2</span><span class="op">*</span>v, <span class="op">-</span><span class="dv">2</span><span class="op">*</span>v], [<span class="ss">f"$v$"</span>, <span class="ss">f"$2v$"</span>, <span class="ss">f"$-2v$"</span>], [<span class="st">"black"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="soma-de-vetores-1" class="level3">
+<h3 class="anchored" data-anchor-id="soma-de-vetores-1">Soma de vetores</h3>
+<p>A soma de dois vetores corresponde a diagonal partindo do mesmo ponto, segundo a chamada lei do paralelogramo.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">1</span>],[<span class="dv">3</span>]])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.array([[<span class="dv">4</span>],[<span class="op">-</span><span class="dv">1</span>]])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plot_vectors([v, w, v <span class="op">+</span> w], [<span class="ss">f"$v$"</span>, <span class="ss">f"$w$"</span>, <span class="ss">f"$v + w$"</span>], [<span class="st">"black"</span>, <span class="st">"black"</span>, <span class="st">"red"</span>])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_vectors([v, w, np.add(v, w)], [f"$v$", f"$w$", f"$v + w$"], ["black", "black", "red"])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="normas-de-um-vetor" class="level3">
+<h3 class="anchored" data-anchor-id="normas-de-um-vetor">Normas de um vetor</h3>
+<p>A norma de um vetor pode ser definida como um número não negativo que descreve a extensão do vetor no espaço.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Norm of a vector v is"</span>, np.linalg.norm(v))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="produto-escalar" class="level3">
+<h3 class="anchored" data-anchor-id="produto-escalar">Produto escalar</h3>
+<p>O produto escalar é a operação algébrica entre dois vetores <span class="math inline">\(\vec x=[x_1~~x_2~~...~~x_n]^T \in \R^n\)</span> e <span class="math inline">\(\vec x=[y_1~~y_2~~...~~y_n]^T \in \R^n\)</span> em que retorna um único valor. O produto escalar pode ser representado por <span class="math inline">\(x \cdot y\)</span> e é definido como:</p>
+<p><span class="math display">\[
+x \cdot y = \sum^n_{i=1} = x_1y_1+x_2y_2+...+x_ny_n
+\]</span></p>
+</section>
+<section id="produto-escalar-usando-python" class="level3">
+<h3 class="anchored" data-anchor-id="produto-escalar-usando-python">Produto escalar usando Python</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># basta definir os vetore</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">5</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># define a função que calcula o produto escalar</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dot(x, y):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> xi, yi <span class="kw">in</span> <span class="bu">zip</span>(x, y):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                s <span class="op">+=</span> xi <span class="op">*</span> yi</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> s</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"O produto escalar entre x e y é"</span>, dot(x, y))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.dot(x,y) pode ser usada para calcular o produto escalar entre x e y:"</span>, np.dot(x, y)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="transformações-lineares" class="level1">
+<h1>Transformações lineares</h1>
+<section id="definição-de-transformação-linear" class="level2">
+<h2 class="anchored" data-anchor-id="definição-de-transformação-linear">Definição de transformação linear</h2>
+<p>Sejam <span class="math inline">\(V\)</span> e <span class="math inline">\(W\)</span> **espaços vetoriais. A função <span class="math inline">\(T: V \to W\)</span></p>
+<p>é a transformação linear de <span class="math inline">\(V\)</span> em <span class="math inline">\(W\)</span> quando as duas propriedades abaixo são verdadeiras para quaisquer <strong>u</strong> e <strong>v</strong> em <span class="math inline">\(V\)</span> e para qualquer escalar <em>c.</em></p>
+<ol type="1">
+<li><span class="math inline">\(T(u + v) = T(u) + (v)\)</span></li>
+<li><span class="math inline">\(T(cu)=cT(u)\)</span></li>
+</ol>
+</section>
+<section id="propriedades-das-transformações-lineares" class="level2">
+<h2 class="anchored" data-anchor-id="propriedades-das-transformações-lineares">Propriedades das transformações lineares</h2>
+<p>Seja <em>T</em> uma transformação linear de <em>V</em> em <em>W</em> e sejam <strong>u</strong> e <strong>v</strong> em <em>V</em>. Então as propriedades listadas abaixo são verdadeiras.</p>
+<ol type="1">
+<li><span class="math inline">\(T(0)=0\)</span></li>
+<li><span class="math inline">\(T(-v) = -T(v)\)</span></li>
+<li><span class="math inline">\(T(u-v)=T(u)-T(v)\)</span></li>
+<li>Se <span class="math inline">\(v = c_1v_1+c_2v_2+...+c_nv_n\)</span> então <span class="math inline">\(T(v) = T(c_1v_1+c_2v_2+...+c_nv_n)=c_1T(v_1)+c_2T(v_2)+...+c_nT(v_n)\)</span></li>
+</ol>
+</section>
+<section id="matrizes-dada-por-transformações-lineares" class="level2">
+<h2 class="anchored" data-anchor-id="matrizes-dada-por-transformações-lineares">Matrizes dada por transformações lineares</h2>
+<p>Seja a matriz <span class="math inline">\(\begin{bmatrix}3&amp;1\\1&amp;2\end{bmatrix}\)</span> a transformação da matriz linear no ponto (0, 0) será definida por <span class="math inline">\(\begin{bmatrix}3*0 + 1*0\\1*0+2*0\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix}\)</span></p>
+<p>No ponto <span class="math inline">\((1, 1) = \begin{bmatrix}3*1 + 1*1\\1*1+2*1\end{bmatrix} = \begin{bmatrix}4\\3\end{bmatrix}\)</span></p>
+</section>
+<section id="transformação-linear-dada-por-uma-matriz" class="level2">
+<h2 class="anchored" data-anchor-id="transformação-linear-dada-por-uma-matriz">Transformação linear dada por uma matriz</h2>
+</section>
+<section id="multiplicação-de-matrizes" class="level2">
+<h2 class="anchored" data-anchor-id="multiplicação-de-matrizes">Multiplicação de matrizes</h2>
+<section id="definição" class="level3">
+<h3 class="anchored" data-anchor-id="definição">Definição</h3>
+<p>Se <span class="math inline">\(A = [a{ij}]\)</span> é uma matriz <span class="math inline">\(\text{m x n}\)</span> e <span class="math inline">\(B = [b_{ij}]\)</span> é uma matriz <span class="math inline">\(\text{ n x p}\)</span>, então o <strong>produto <span class="math inline">\(AB\)</span></strong> é uma matriz <span class="math inline">\(\text{m x p}\)</span></p>
+<p><span class="math inline">\(AB = [c_{ij}]\)</span></p>
+<p>onde</p>
+<p><span class="math inline">\(c_{ij} = \sum\limits^n_{k=1} a_{ik}b_{kj} = a_{i1}b_{1j}+a_{i2}b_{2j}+a_{i3}b_{3j}+...+a_{in}b_{nj}\)</span></p>
+<p>Esta definição significa que, para encontrar o elemento na <span class="math inline">\(i-ésima\)</span> linha e na <span class="math inline">\(j-ésima\)</span> coluna do produto <span class="math inline">\(AB\)</span>, basta multiplicar os elementos na <span class="math inline">\(i-ésima\)</span> linha de <span class="math inline">\(A\)</span> pelos elementos correspondentes na <span class="math inline">\(j-ésima\)</span> coluna de <span class="math inline">\(B\)</span> e em seguida somar os resultados.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/a243d628-22e0-41b1-ace3-83c58bbe747c/image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="matriz-identidade" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-identidade">Matriz identidade</h2>
+<p>A matriz identidade é a matriz que, quando multiplicada por qualquer outra matriz, dá a mesma matriz, e sua transformação linear correspondente é muito simples.</p>
+</section>
+<section id="inversa-de-uma-matriz" class="level2">
+<h2 class="anchored" data-anchor-id="inversa-de-uma-matriz">Inversa de uma matriz</h2>
+<section id="definição-da-inversa-de-uma-matriz" class="level3">
+<h3 class="anchored" data-anchor-id="definição-da-inversa-de-uma-matriz">Definição da inversa de uma matriz</h3>
+<p>Uma matriz quadrada <span class="math inline">\(A\)</span> de ordem <span class="math inline">\(n\)</span> é invertível (ou não singular) quando existe uma matriz <span class="math inline">\(B\)</span> de tamanho <span class="math inline">\(\text{n x n}\)</span> tal que</p>
+<p><span class="math inline">\(AB = BA = I_n\)</span>,</p>
+<p>onde <span class="math inline">\(I_n\)</span> é a matriz identidade de ordem <span class="math inline">\(n\)</span>. A matriz <span class="math inline">\(B\)</span> é a inversa multiplicativa) de <span class="math inline">\(A\)</span>. Uma matriz que não possui uma inversa é não invertível (ou singular).</p>
+<p>As matrizes não quadradas não têm inversas.</p>
+<p>Exemplo:</p>
+<p>Encontre a inversa da matriz <span class="math inline">\(A=\begin{bmatrix}1&amp;4\\-1&amp;-3\end{bmatrix}\)</span></p>
+<p><strong>SOLUÇÃO:</strong></p>
+<p>Para encontrar a inversa de <span class="math inline">\(A\)</span>, resolva a equação matricial <span class="math inline">\(AX = I\)</span> para determinar <span class="math inline">\(X\)</span>.</p>
+<p><span class="math inline">\(\begin{bmatrix}1&amp;4\\-1&amp;-3\end{bmatrix} \begin{bmatrix}x_{11}&amp;x_{12}\\x_{21}&amp;x_{22}\end{bmatrix} =\begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix}\)</span></p>
+<p><span class="math inline">\(\begin{bmatrix}x_{11}+4x_{21}&amp;x_{12}+4x_{22}\\-x_{11}-3x_{21}&amp;-x_{12}-3x_{22}\end{bmatrix} = \begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix}\)</span></p>
+<p>Igualando os elementos correspondentes, você obtém dois sistemas de equações lineares.</p>
+<p><span class="math inline">\(\begin{cases}x_{11} + 4x_{21} = 1 \\ -x_{11}-3x_{21}=0 \end{cases}\)</span></p>
+<p><span class="math inline">\(\begin{cases}x_{12} + 4x_{22} = 0 \\ -x_{12}-3x_{22}=1 \end{cases}\)</span></p>
+<p>Resolvendo o primeiro sistema, você encontra que <span class="math inline">\(x_{11}=-3\)</span> e <span class="math inline">\(x_{21}  = 1\)</span>. De forma semelhante, resolvendo o segundo sistema, encontra que <span class="math inline">\(x_{12} = 4\)</span> e <span class="math inline">\(x_{22}=  1\)</span>. Então, a inversa de <span class="math inline">\(A\)</span> é</p>
+<p><span class="math inline">\(A = A^{-1}=\begin{bmatrix}-3&amp;-4\\1&amp;1\end{bmatrix}\)</span></p>
+</section>
+</section>
+<section id="quais-matrizes-têm-uma-inversa" class="level2">
+<h2 class="anchored" data-anchor-id="quais-matrizes-têm-uma-inversa">Quais matrizes têm uma inversa?</h2>
+<section id="propriedades-de-matrizes-inversas" class="level3">
+<h3 class="anchored" data-anchor-id="propriedades-de-matrizes-inversas">Propriedades de matrizes inversas</h3>
+<p>Se <span class="math inline">\(A\)</span> é uma matriz invertível, <span class="math inline">\(k\)</span> é um número inteiro positivo e <span class="math inline">\(c\)</span> é um escalar diferente de zero, então <span class="math inline">\(A^{-1}\)</span>, <span class="math inline">\(A^k\)</span>, <span class="math inline">\(cA\)</span> e <span class="math inline">\(AT\)</span> são invertíveis e as afirmações abaixo são verdadeiras.</p>
+<ol type="1">
+<li><span class="math inline">\((A^{-1})^{-1} = A\)</span></li>
+<li><span class="math inline">\((A^k)^{-1}=\underbrace{A^{-1}A^{-1}…A^{-1}}_{\text{k fatores}}=(A^{-1})^k\)</span></li>
+<li><span class="math inline">\((cA)^{-1}=\frac{1}{c}A^{-1}\)</span></li>
+<li><span class="math inline">\((A^T)^{-1}=(A^{-1})^T\)</span></li>
+</ol>
+<p>Matriz singular não tem inversa. Determinante = 0</p>
+</section>
+</section>
+<section id="multiplicação-de-matrizes-usando-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="multiplicação-de-matrizes-usando-numpy">Multiplicação de matrizes usando <code>Numpy</code></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Definição:</p>
+<p>Se <span class="math inline">\(A\)</span> é uma matriz <span class="math inline">\(\text{m x n }\)</span> e <span class="math inline">\(B\)</span> é uma matriz <span class="math inline">\(\text{n x p}\)</span> a matriz <span class="math inline">\(C\)</span> será o produto <span class="math inline">\(C = AB\)</span>. É definida sendo uma matriz <span class="math inline">\(\text{m x p}\)</span> em que:</p>
+<p><span class="math inline">\(c_{ij} = a_{ij}b_{ij}+a_{i2}b_{2j}+…+a_{in}b_{nj} = \sum\limits^n_{k=1}a_{ik}b_{kj}\)</span></p>
+<p>Onde <span class="math inline">\(a_{ik}\)</span> são os elemento da matriz <span class="math inline">\(A\)</span>, <span class="math inline">\(b_{kj}\)</span> são os elementos da matriz <span class="math inline">\(B\)</span>, e <span class="math inline">\(i = 1\)</span>, <span class="math inline">\(\ldots, m, k=1, \ldots, n, j = 1, \ldots, p\)</span>. Em outras palavras, <span class="math inline">\(c_{ij}\)</span> é o produto escalar <span class="math inline">\(i-th\)</span> linha de A e o <span class="math inline">\(j-th\)</span> é a coluna de <span class="math inline">\(B\)</span>.</p>
+<p>A multiplicação de matrizes usando <code>numpy</code> é mais eficiente quando usamos a forma vetorizada.</p>
+<ol type="1">
+<li>Agora vamos definir duas mabtrizes</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">9</span>], [<span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">6</span>], [<span class="dv">9</span>, <span class="dv">2</span>, <span class="dv">3</span>]])</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matrix A (3 by 3):</span><span class="ch">\n</span><span class="st">"</span>, A)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">2</span>], [<span class="dv">5</span>, <span class="dv">7</span>], [<span class="dv">4</span>, <span class="dv">4</span>]])</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matrix B (3 by 2):</span><span class="ch">\n</span><span class="st">"</span>, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Para multiplicar as duas matrizes usamos</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.matmul(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>podemos obter o mesmo resultado utilizando a seguinte operação no <code>python</code> base.</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">@</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Matematicamente, a multiplicação de matrizes é possível somente se;</p>
+<p>O número de colunas da matriz A for igual o número de linhas de B.</p>
+<p>Podemos checar essas informações com:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    np.matmul(B, A)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> err:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(err)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Também usando:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    B <span class="op">@</span> A</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> err:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(err)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podemos checar as dimensões das matrizes assim, veja o exemplo abaixo:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shape of vector x:"</span>, x.shape)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of dimensions of vector x:"</span>, x.ndim)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shape of vector x, reshaped to a matrix:"</span>, x.reshape((<span class="dv">3</span>, <span class="dv">1</span>)).shape)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of dimensions of vector x, reshaped to a matrix:"</span>, x.reshape((<span class="dv">3</span>, <span class="dv">1</span>)).ndim)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>np.matmul(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="transformações-lineares-usando-python" class="level2">
+<h2 class="anchored" data-anchor-id="transformações-lineares-usando-python">Transformações lineares usando <code>Python</code></h2>
+<p>Vamos precisar dos pacotes</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenCV library for image transformations.</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Uma <strong>transformação</strong> é uma função que vai de um espaço vetorial a outro, respeitando a estrutura (linear) subjacente de cada espaço vetorial. Ao se referir a uma transformação específica, você pode usar um símbolo, como <span class="math inline">\(T\)</span>. Especificando os espaços que contêm os vetores de entrada e saída, por exemplo, <span class="math inline">\(\mathbb{R}^2\)</span> e <span class="math inline">\(\mathbb{R}^3\)</span>, você pode escrever <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^3\)</span>. Ao transformar o vetor <span class="math inline">\(v \in \mathbb{R}^2\)</span> no vetor <span class="math inline">\(w\in\mathbb{R}^3\)</span> pela transformação <span class="math inline">\(T\)</span>, você pode usar a notação <span class="math inline">\(T(v)=w\)</span> e lê-la como “<em>T de v é igual a w</em>” ou “<em>o vetor w é uma <strong>imagem</strong> do vetor v pela transformação T</em>”.</p>
+<p>A seguinte função em Python corresponde à transformação <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^3\)</span> com a fórmula simbólica abaixo:</p>
+<p><span class="math display">\[
+T\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}
+\tag{1}
+\]</span></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> T(v):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> np.zeros((<span class="dv">3</span>,<span class="dv">1</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    w[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>v[<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    w[<span class="dv">2</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span>v[<span class="dv">1</span>,<span class="dv">0</span>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">3</span>], [<span class="dv">5</span>]])</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> T(v)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original vector:</span><span class="ch">\n</span><span class="st">"</span>, v, <span class="st">"</span><span class="ch">\n\n</span><span class="st"> Result of the transformation:</span><span class="ch">\n</span><span class="st">"</span>, w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="transformações-lineares-1" class="level2">
+<h2 class="anchored" data-anchor-id="transformações-lineares-1">Transformações Lineares</h2>
+<p>Uma transformação <span class="math inline">\(T\)</span> é dita <strong>linear</strong> se as seguintes duas propriedades forem verdadeiras para qualquer escalar <span class="math inline">\(k\)</span> e quaisquer vetores de entrada <span class="math inline">\(u\)</span> e <span class="math inline">\(v\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(T(kv)=kT(v)\)</span>,</li>
+<li><span class="math inline">\(T(u+v)=T(u)+T(v)\)</span>.</li>
+</ol>
+<p>No exemplo acima, <span class="math inline">\(T\)</span> é uma transformação linear:</p>
+<p><span class="math display">\[
+T(kv) =
+T \begin{pmatrix}\begin{bmatrix}
+kv_1 \\
+kv_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3kv_1 \\
+0 \\
+-2kv_2
+\end{bmatrix} =
+k\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+kT(v),\tag{2}
+\]</span></p>
+<p><span class="math display">\[
+T (u+v) =
+T \begin{pmatrix}\begin{bmatrix}
+u_1 + v_1 \\
+u_2 + v_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3(u_1+v_1) \\
+0 \\
+-2(u_2+v_2)
+\end{bmatrix} =
+\begin{bmatrix}
+3u_1 \\
+0 \\
+-2u_2
+\end{bmatrix} +
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+T(u)+T(v).\tag{3}
+\]</span></p>
+<p>Você pode alterar os valores de <span class="math inline">\(k\)</span> ou dos vetores <span class="math inline">\(u\)</span> e <span class="math inline">\(v\)</span> na célula abaixo para verificar que isso é verdadeiro para alguns valores específicos.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.array([[<span class="dv">1</span>], [<span class="op">-</span><span class="dv">2</span>]])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">2</span>], [<span class="dv">4</span>]])</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T(k*v):</span><span class="ch">\n</span><span class="st">"</span>, T(k<span class="op">*</span>v), <span class="st">"</span><span class="ch">\n</span><span class="st"> k*T(v):</span><span class="ch">\n</span><span class="st">"</span>, k<span class="op">*</span>T(v), <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T(u+v):</span><span class="ch">\n</span><span class="st">"</span>, T(u<span class="op">+</span>v), <span class="st">"</span><span class="ch">\n</span><span class="st"> T(u)+T(v):</span><span class="ch">\n</span><span class="st">"</span>, T(u)<span class="op">+</span>T(v))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-multiplicação-de-matrizes-geralmente-não-é-comutativa" class="level3">
+<h3 class="anchored" data-anchor-id="a-multiplicação-de-matrizes-geralmente-não-é-comutativa">A multiplicação de matrizes geralmente <strong>não é comutativa</strong></h3>
+<p>Os exemplos a seguir ilustram que a multiplicação de matrizes geralmente <strong>não é comutativa</strong>.</p>
+<p>Por exemplo, o produto <span class="math inline">\(AB\)</span> de uma matriz <span class="math inline">\(2 \times 3\)</span> com uma matriz <span class="math inline">\(3 \times 4\)</span> resulta em uma matriz <span class="math inline">\(2 \times 4\)</span>, mas o produto <span class="math inline">\(BA\)</span> de uma matriz <span class="math inline">\(3 \times 4\)</span> com uma matriz <span class="math inline">\(2 \times 3\)</span> não é definido.</p>
+<p>Mesmo para duas matrizes quadradas <span class="math inline">\(M\)</span> e <span class="math inline">\(N\)</span>, ambas de tamanho <span class="math inline">\(n \times n\)</span>, a multiplicação de matrizes não é necessariamente comutativa: os produtos <span class="math inline">\(MN\)</span> e <span class="math inline">\(NM\)</span> podem ser diferentes.</p>
+<p>Por exemplo, seja</p>
+<p><span class="math inline">\(M = \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}, \quad
+N = \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{bmatrix},\)</span></p>
+<p>de modo que</p>
+<p><span class="math inline">\(MN = \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{bmatrix} = \begin{bmatrix} 1 &amp; 1 \\ -1 &amp; 0 \end{bmatrix},\)</span></p>
+<p>e</p>
+<p><span class="math inline">\(NM = \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; -1 \end{bmatrix}.\)</span></p>
+<p>Assim, as matrizes quadradas <span class="math inline">\(M\)</span> e <span class="math inline">\(N\)</span> não comutam: <span class="math inline">\(MN \neq NM.\)</span></p>
+
+
+</section>
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -403,7 +1015,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/welli45\/portifolio");
+      var filterRegex = new RegExp("https:\/\/welli45\.github\.io\/portifolio-dados\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -735,7 +1347,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://welli45.github.io/portifolio/">Portifólio de Wellington S. Souza</a></p>
+<p><a href="https://welli45.github.io/portifolio-dados.github.io/">Portifólio de Wellington S. Souza</a></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
