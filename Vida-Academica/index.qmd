@@ -1,5 +1,5 @@
 ---
-title: 'Vida Acadêmica'
+title: 'Estuos e Projetos Acadêmicos'
 subtitle: "Nessa página você pode acompanhar meus trabalhos acadêmicos na área de sociologia, bem como anotações sobre cursos que venho fazendo, demais informações sobre minha trajetória profissional e acadêmica como estudante de Sociologia na UFMG."
 description: "Estudos"
 comments: false
