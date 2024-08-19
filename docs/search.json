@@ -578,28 +578,28 @@
     "href": "Vida-Academica/Cursera/Algebra.html#módulo-1-sistema-de-equações-lineares",
     "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
     "section": "Módulo 1: Sistema de equações lineares",
-    "text": "Módulo 1: Sistema de equações lineares\nNesse módulo eu aprendi:\n\nFormar e interpretar graficamente sistemas de equações lineares.\nDeterminar o número de soluções para um sistema de equações lineares 2x2 e 3x3\nDistinguir entre sistemas de equações singulares e não-singulares\nDeterminar a singularidade de um sistema de equações 2x2 e 3x3 calculando o determinante\n\nClique aqui para acessar o material de leitura desta semana."
+    "text": "Módulo 1: Sistema de equações lineares\nNesse módulo eu aprendi:\n\nFormar e interpretar graficamente sistemas de equações lineares.\nDeterminar o número de soluções para um sistema de equações lineares 2x2 e 3x3\nDistinguir entre sistemas de equações singulares e não-singulares\nDeterminar a singularidade de um sistema de equações 2x2 e 3x3 calculando o determinante\n\nClique aqui para acessar as anotações do módulo 1."
   },
   {
     "objectID": "Vida-Academica/Cursera/Algebra.html#módulo-2-vetores-e-matrizes",
     "href": "Vida-Academica/Cursera/Algebra.html#módulo-2-vetores-e-matrizes",
     "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
     "section": "Módulo 2: Vetores e matrizes",
-    "text": "Módulo 2: Vetores e matrizes\nNesse módulo eu aprendi:\n\nResolver um sistema de equações lineares usando o método de eliminação.\nUsar uma matriz para representar um sistema de equações lineares e resolvê-lo usando a redução da linha da matriz.\nResolver um sistema de equações lineares calculando a matriz na forma de linha escalonada.\nCalcular a classificação de um sistema de equações lineares e usar a classificação para determinar o número de soluções do sistema.\n\nClique aqui para acessar o material de leitura desta semana."
+    "text": "Módulo 2: Vetores e matrizes\nNesse módulo eu aprendi:\n\nResolver um sistema de equações lineares usando o método de eliminação.\nUsar uma matriz para representar um sistema de equações lineares e resolvê-lo usando a redução da linha da matriz.\nResolver um sistema de equações lineares calculando a matriz na forma de linha escalonada.\nCalcular a classificação de um sistema de equações lineares e usar a classificação para determinar o número de soluções do sistema.\n\nClique aqui para acessar as anotações do módulo 2."
   },
   {
     "objectID": "Vida-Academica/Cursera/Algebra.html#módulo-3-transformações-lineares",
     "href": "Vida-Academica/Cursera/Algebra.html#módulo-3-transformações-lineares",
     "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
     "section": "Módulo 3: Transformações lineares",
-    "text": "Módulo 3: Transformações lineares\n\nRealizar operações comuns em vetores, como soma, diferença e produto escalar.\nMultiplicar matrizes e vetores.\nRepresentar um sistema de equações lineares como uma transformação linear em um vetor.\nCalcular a inversa de uma matriz, se ela existir.\n\nClique aqui para acessar o material de leitura desta semana."
+    "text": "Módulo 3: Transformações lineares\n\nRealizar operações comuns em vetores, como soma, diferença e produto escalar.\nMultiplicar matrizes e vetores.\nRepresentar um sistema de equações lineares como uma transformação linear em um vetor.\nCalcular a inversa de uma matriz, se ela existir.\n\nClique aqui para acessar as anotações do módulo 3."
   },
   {
     "objectID": "Vida-Academica/Cursera/Algebra.html#módulo-4-espaços-vetoriais",
     "href": "Vida-Academica/Cursera/Algebra.html#módulo-4-espaços-vetoriais",
     "title": "Álgebra linear para aprendizado de máquina e ciência de dados",
     "section": "Módulo 4: Espaços vetoriais",
-    "text": "Módulo 4: Espaços vetoriais\n\nInterpretar o determinante de uma matriz como uma área e calcular o determinante de uma inversa de uma matriz e um produto de matrizes.\nDeterminar as bases e a amplitude dos vetores.\nEncontrar bases próprias para um tipo especial de transformações lineares comumente usadas no aprendizado de máquina.\nCalcular os valores próprios e os vetores próprios de uma transformação linear (matriz).\n\nClique aqui para acessar o material de leitura desta semana."
+    "text": "Módulo 4: Espaços vetoriais\n\nInterpretar o determinante de uma matriz como uma área e calcular o determinante de uma inversa de uma matriz e um produto de matrizes.\nDeterminar as bases e a amplitude dos vetores.\nEncontrar bases próprias para um tipo especial de transformações lineares comumente usadas no aprendizado de máquina.\nCalcular os valores próprios e os vetores próprios de uma transformação linear (matriz).\n\nClique aqui para acessar as anotações do módulo 4."
   },
   {
     "objectID": "Vida-Academica/Cursera/03-mod-transformacoes-lineares.html",

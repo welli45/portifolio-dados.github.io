@@ -35,7 +35,7 @@ Nesse módulo eu aprendi:
 
 + Determinar a singularidade de um sistema de equações 2x2 e 3x3 calculando o determinante
 
-Clique [aqui](01-mod-algebra.qmd) para acessar o material de leitura desta semana.
+Clique [**aqui**](01-mod-algebra.qmd) para acessar as anotações do módulo 1.
 
 ## Módulo 2: Vetores e matrizes
 
@@ -49,8 +49,7 @@ Nesse módulo eu aprendi:
 
 + Calcular a classificação de um sistema de equações lineares e usar a classificação para determinar o número de soluções do sistema.
 
-Clique [aqui](02-mod-vetores-matrizes.qmd) para acessar o material de leitura desta semana.
-
+Clique [**aqui**](02-mod-vetores-matrizes.qmd) para acessar as anotações do módulo 2.
 
 ## Módulo 3: Transformações lineares
 
@@ -62,7 +61,7 @@ Clique [aqui](02-mod-vetores-matrizes.qmd) para acessar o material de leitura de
 
 - Calcular a inversa de uma matriz, se ela existir.
 
-Clique [aqui](03-mod-transformacoes-lineares.qmd) para acessar o material de leitura desta semana.
+Clique [**aqui**](03-mod-transformacoes-lineares.qmd) para acessar as anotações do módulo 3.
 
 ## Módulo 4: Espaços vetoriais
 
@@ -74,7 +73,7 @@ Clique [aqui](03-mod-transformacoes-lineares.qmd) para acessar o material de lei
 
 - Calcular os valores próprios e os vetores próprios de uma transformação linear (matriz).
 
-Clique [aqui](04-mod-espacos-vetoriais.qmd) para acessar o material de leitura desta semana.
+Clique [**aqui**](04-mod-espacos-vetoriais.qmd) para acessar as anotações do módulo 4.
 
 
 
