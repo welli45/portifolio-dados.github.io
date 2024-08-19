@@ -25,21 +25,54 @@ O que Aprendi:
 
 ## Módulo 1: Sistema de equações lineares
 
-As matrizes são comumente usadas no aprendizado de máquina e na ciência de dados para representar dados e suas transformações. Nesta semana, aprendi como as matrizes surgem dos sistemas de equações e como certas propriedades da matriz podem ser pensadas em termos de operações no sistema de equações. 
+Nesse módulo eu aprendi: 
 
++ Formar e interpretar graficamente sistemas de equações lineares.
+
++ Determinar o número de soluções para um sistema de equações lineares 2x2 e 3x3
+
++ Distinguir entre sistemas de equações singulares e não-singulares 
+
++ Determinar a singularidade de um sistema de equações 2x2 e 3x3 calculando o determinante
 
 Clique [aqui](01-mod-algebra.qmd) para acessar o material de leitura desta semana.
 
 ## Módulo 2: Vetores e matrizes
 
+Nesse módulo eu aprendi:
+
++ Resolver um sistema de equações lineares usando o método de eliminação.
+
++ Usar uma matriz para representar um sistema de equações lineares e resolvê-lo usando a redução da linha da matriz.
+
++ Resolver um sistema de equações lineares calculando a matriz na forma de linha escalonada.
+
++ Calcular a classificação de um sistema de equações lineares e usar a classificação para determinar o número de soluções do sistema.
 
 Clique [aqui](02-mod-vetores-matrizes.qmd) para acessar o material de leitura desta semana.
 
+
 ## Módulo 3: Transformações lineares
+
+- Realizar operações comuns em vetores, como soma, diferença e produto escalar.
+
+- Multiplicar matrizes e vetores. 
+
+- Representar um sistema de equações lineares como uma transformação linear em um vetor. 
+
+- Calcular a inversa de uma matriz, se ela existir.
 
 Clique [aqui](03-mod-transformacoes-lineares.qmd) para acessar o material de leitura desta semana.
 
 ## Módulo 4: Espaços vetoriais
+
+- Interpretar o determinante de uma matriz como uma área e calcular o determinante de uma inversa de uma matriz e um produto de matrizes.
+
+- Determinar as bases e a amplitude dos vetores.
+
+- Encontrar bases próprias para um tipo especial de transformações lineares comumente usadas no aprendizado de máquina.
+
+- Calcular os valores próprios e os vetores próprios de uma transformação linear (matriz).
 
 Clique [aqui](04-mod-espacos-vetoriais.qmd) para acessar o material de leitura desta semana.
 

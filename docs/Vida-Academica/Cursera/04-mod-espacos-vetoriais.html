@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados">
 
-<title>mod-espacos-vetoriais – Portifólio de Dados</title>
+<title>Módulo 4: Determinantes e Autovetores – Portifólio de Dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,15 +106,44 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Portifólio de Dados">
+<meta property="og:title" content="Módulo 4: Determinantes e Autovetores – Portifólio de Dados">
 <meta property="og:description" content="Portifólio // Wellington S. Souza">
-<meta property="og:image" content="https://github.com/welli45/portifolio/Vida-Academica/Cursera/images/profile.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/04-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
-<meta name="twitter:image" content="https://github.com/welli45/portifolio/Vida-Academica/Cursera/cover.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/04-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
@@ -143,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/welli45/portifolio" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
+    <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
     <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -154,17 +219,423 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#determinantes-e-vetores-próprios" id="toc-determinantes-e-vetores-próprios" class="nav-link active" data-scroll-target="#determinantes-e-vetores-próprios">Determinantes e vetores próprios</a>
+  <ul>
+  <li><a href="#singularidade-e-classificação-de-transformações-lineares" id="toc-singularidade-e-classificação-de-transformações-lineares" class="nav-link" data-scroll-target="#singularidade-e-classificação-de-transformações-lineares">Singularidade e classificação de transformações lineares</a></li>
+  <li><a href="#determinante-de-uma-matriz-como-área" id="toc-determinante-de-uma-matriz-como-área" class="nav-link" data-scroll-target="#determinante-de-uma-matriz-como-área">Determinante de uma matriz como área</a></li>
+  <li><a href="#determinante-de-um-produto" id="toc-determinante-de-um-produto" class="nav-link" data-scroll-target="#determinante-de-um-produto">Determinante de um produto</a></li>
+  <li><a href="#determinantes-de-inversos" id="toc-determinantes-de-inversos" class="nav-link" data-scroll-target="#determinantes-de-inversos">Determinantes de inversos</a>
+  <ul class="collapse">
+  <li><a href="#questionário" id="toc-questionário" class="nav-link" data-scroll-target="#questionário">Questionário</a></li>
+  <li><a href="#passos-manuais-para-cálculo-do-determinante" id="toc-passos-manuais-para-cálculo-do-determinante" class="nav-link" data-scroll-target="#passos-manuais-para-cálculo-do-determinante">Passos Manuais para Cálculo do Determinante</a></li>
+  <li><a href="#classificação" id="toc-classificação" class="nav-link" data-scroll-target="#classificação">Classificação</a></li>
+  <li><a href="#usando-python-com-numpy" id="toc-usando-python-com-numpy" class="nav-link" data-scroll-target="#usando-python-com-numpy">Usando Python com NumPy</a></li>
+  <li><a href="#usando-r" id="toc-usando-r" class="nav-link" data-scroll-target="#usando-r">Usando R</a></li>
+  <li><a href="#passos-manuais" id="toc-passos-manuais" class="nav-link" data-scroll-target="#passos-manuais">Passos Manuais</a></li>
+  <li><a href="#usando-python-com-numpy-1" id="toc-usando-python-com-numpy-1" class="nav-link" data-scroll-target="#usando-python-com-numpy-1">Usando Python com NumPy</a></li>
+  <li><a href="#usando-r-1" id="toc-usando-r-1" class="nav-link" data-scroll-target="#usando-r-1">Usando R</a></li>
+  </ul></li>
+  <li><a href="#base" id="toc-base" class="nav-link" data-scroll-target="#base">Base</a></li>
+  <li><a href="#verificando-se-um-conjunto-é-linearmente-independente-ou-não" id="toc-verificando-se-um-conjunto-é-linearmente-independente-ou-não" class="nav-link" data-scroll-target="#verificando-se-um-conjunto-é-linearmente-independente-ou-não">Verificando se um conjunto é linearmente independente ou não</a></li>
+  <li><a href="#definição-formal-de-base" id="toc-definição-formal-de-base" class="nav-link" data-scroll-target="#definição-formal-de-base">Definição formal de base</a></li>
+  <li><a href="#autovalores-e-autovetores" id="toc-autovalores-e-autovetores" class="nav-link" data-scroll-target="#autovalores-e-autovetores">Autovalores e Autovetores</a>
+  <ul class="collapse">
+  <li><a href="#verificação-de-autovetores-e-autovalores" id="toc-verificação-de-autovetores-e-autovalores" class="nav-link" data-scroll-target="#verificação-de-autovetores-e-autovalores">Verificação de autovetores e autovalores</a></li>
+  </ul></li>
+  <li><a href="#cálculo" id="toc-cálculo" class="nav-link" data-scroll-target="#cálculo">Cálculo</a>
+  <ul class="collapse">
+  <li><a href="#autovalores" id="toc-autovalores" class="nav-link" data-scroll-target="#autovalores">Autovalores</a></li>
+  <li><a href="#autovetores" id="toc-autovetores" class="nav-link" data-scroll-target="#autovetores">Autovetores</a></li>
+  </ul></li>
+  <li><a href="#redução-de-dimensionalidade-e-projeção" id="toc-redução-de-dimensionalidade-e-projeção" class="nav-link" data-scroll-target="#redução-de-dimensionalidade-e-projeção">Redução de dimensionalidade e projeção</a></li>
+  <li><a href="#motivação-para-pca" id="toc-motivação-para-pca" class="nav-link" data-scroll-target="#motivação-para-pca">Motivação para PCA</a></li>
+  <li><a href="#variância-e-covariância" id="toc-variância-e-covariância" class="nav-link" data-scroll-target="#variância-e-covariância">Variância e covariância</a></li>
+  <li><a href="#matriz-de-covariância" id="toc-matriz-de-covariância" class="nav-link" data-scroll-target="#matriz-de-covariância">Matriz de covariância</a></li>
+  <li><a href="#pca---visão-geral" id="toc-pca---visão-geral" class="nav-link" data-scroll-target="#pca---visão-geral">PCA - visão geral</a></li>
+  <li><a href="#pca---formulação-matemática" id="toc-pca---formulação-matemática" class="nav-link" data-scroll-target="#pca---formulação-matemática">PCA - formulação matemática</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Módulo 4: Determinantes e Autovetores</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">curso</div>
+    <div class="quarto-category">coursera</div>
+    <div class="quarto-category">Algebra Linear</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Algebra Linear</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Sunday, 04 August 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="determinantes-e-vetores-próprios" class="level1">
+<h1>Determinantes e vetores próprios</h1>
+<section id="singularidade-e-classificação-de-transformações-lineares" class="level2">
+<h2 class="anchored" data-anchor-id="singularidade-e-classificação-de-transformações-lineares">Singularidade e classificação de transformações lineares</h2>
+<p>Para uma matriz não singular, a sua transformação linear envia para um paralelogramo que cobre todo o plano.</p>
+<p>Para as singulares, cobre um segmento de reta ou um ponto.</p>
+<p><img src="../images/rank.png" class="img-fluid"></p>
+</section>
+<section id="determinante-de-uma-matriz-como-área" class="level2">
+<h2 class="anchored" data-anchor-id="determinante-de-uma-matriz-como-área">Determinante de uma matriz como área</h2>
+<p>O determinante de uma matriz é a área após a transformação linear.</p>
+<p><img src="../images/determinante.png" class="img-fluid"></p>
+</section>
+<section id="determinante-de-um-produto" class="level2">
+<h2 class="anchored" data-anchor-id="determinante-de-um-produto">Determinante de um produto</h2>
+<p><span class="math inline">\(det(AB) = det(A)det(B)\)</span></p>
+<p><img src="../images/determinante-produto.png" class="img-fluid"></p>
+<p>O produto de uma matriz singular e uma não singular, independente da ordem, será singular.</p>
+<p><img src="../images/determinante-produto-singular.png" class="img-fluid"></p>
+</section>
+<section id="determinantes-de-inversos" class="level2">
+<h2 class="anchored" data-anchor-id="determinantes-de-inversos">Determinantes de inversos</h2>
+<ul>
+<li>O determinante de uma matriz inversa é o inverso do determinante de uma matriz.</li>
+</ul>
+<p><img src="../images/determinante-inverso.png" class="img-fluid"></p>
+<ul>
+<li>E matrizes singulares não possui inversa.</li>
+<li>O determinante de uma matriz identidade será sempre 1.</li>
+</ul>
+<section id="questionário" class="level3">
+<h3 class="anchored" data-anchor-id="questionário">Questionário</h3>
+<p>Q1. Seja T uma transformação linear no plano representada pela seguinte matriz:</p>
+<p><span class="math inline">\(\begin{bmatrix} 1&amp;0\\2&amp;3 \end{bmatrix}\)</span></p>
+<p>A classificação de T é:</p>
+<p>Para classificar uma transformação linear, você geralmente calcula o determinante da matriz associada. O determinante nos ajuda a entender se a transformação é invertível, e a classificação pode ser feita com base no valor do determinante.</p>
+</section>
+<section id="passos-manuais-para-cálculo-do-determinante" class="level3">
+<h3 class="anchored" data-anchor-id="passos-manuais-para-cálculo-do-determinante">Passos Manuais para Cálculo do Determinante</h3>
+<p>Dada a matriz:</p>
+<p><span class="math inline">\(T = \begin{pmatrix} 1 &amp; 0 \\ 2 &amp; 3 \end{pmatrix}\)</span></p>
+<p>O determinante de uma matriz ( 2 ), dada por:</p>
+<p><span class="math inline">\(\text{det}(T) = ad - bc\)</span></p>
+<p>onde a matriz ( T ) tem a forma:</p>
+<p><span class="math inline">\(T = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span></p>
+<p>Para a matriz <span class="math inline">\(T = \begin{pmatrix} 1 &amp; 0 \\ 2 &amp; 3 \end{pmatrix}\)</span>, temos:</p>
+<ul>
+<li>( a = 1 )</li>
+<li>( b = 0)</li>
+<li>( c = 2 )</li>
+<li>( d = 3 )</li>
+</ul>
+<p>O determinante é calculado como: <span class="math inline">\(\text{det}(T) = (1 \times 3) - (0 \times 2) = 3 - 0 = 3\)</span></p>
+<p>Como o determinante é diferente de zero, a transformação <span class="math inline">\(( T )\)</span> é <strong>invertível</strong>.</p>
+</section>
+<section id="classificação" class="level3">
+<h3 class="anchored" data-anchor-id="classificação">Classificação</h3>
+<ul>
+<li><strong>Invertível (ou não singular):</strong> Se o determinante é diferente de zero.</li>
+<li><strong>Não invertível (ou singular):</strong> Se o determinante é zero.</li>
+</ul>
+<p>Neste caso, a transformação ( T ) é <strong>invertível</strong>.</p>
+</section>
+<section id="usando-python-com-numpy" class="level3">
+<h3 class="anchored" data-anchor-id="usando-python-com-numpy">Usando Python com NumPy</h3>
+<p>Aqui está como você pode calcular o determinante em Python usando a biblioteca NumPy:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo a matriz</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">2</span>, <span class="dv">3</span>]])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando o determinante</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>determinante <span class="op">=</span> np.linalg.det(T)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibindo o resultado</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(determinante)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="usando-r" class="level3">
+<h3 class="anchored" data-anchor-id="usando-r">Usando R</h3>
+<p>Aqui está como você pode calcular o determinante em R:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo a matriz</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando o determinante</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>determinante <span class="ot">&lt;-</span> <span class="fu">det</span>(T)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibindo o resultado</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(determinante)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Em ambos os casos, o resultado do determinante será 3, indicando que a matriz é invertível.</p>
+<p>Q2. Considere a transformação linear T que mapeia os vetores (1,0) e (0,1) da seguinte maneira:</p>
+<p><span class="math inline">\(T(0,1)=(2,5)\)</span> <span class="math inline">\(T(1,0)=(3,1)\)</span></p>
+<p>A área do paralelogramo abrangido pela transformação dos vetores (0,1) e (1,0) é:</p>
+<p>A área do paralelogramo formado pelos vetores transformados por uma transformação linear pode ser encontrada calculando o determinante da matriz que representa essa transformação. A matriz de transformação é construída a partir das imagens dos vetores básicos ( (1,0) ) e ( (0,1) ).</p>
+</section>
+<section id="passos-manuais" class="level3">
+<h3 class="anchored" data-anchor-id="passos-manuais">Passos Manuais</h3>
+<p>Dada a transformação:</p>
+<p><span class="math inline">\([
+T(1,0) = (3,1)
+]\)</span> <span class="math inline">\([
+T(0,1) = (2,5)
+]\)</span></p>
+<p>A matriz que representa essa transformação é:</p>
+<p><span class="math inline">\([
+T = \begin{pmatrix} 3 &amp; 2 \\ 1 &amp; 5 \end{pmatrix}
+]\)</span></p>
+<p>A área do paralelogramo é dada pelo valor absoluto do determinante desta matriz.</p>
+<p>O determinante de uma matriz <span class="math inline">\(( 2 \times 2 )\)</span> é calculado como:</p>
+<p><span class="math inline">\([
+\text{det}(T) = ad - bc
+]\)</span></p>
+<p>onde:</p>
+<p><span class="math inline">\([
+T = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}
+]\)</span></p>
+<p>Substituindo os valores da matriz ( T ):</p>
+<p><span class="math inline">\([
+\text{det}(T) = (3 \times 5) - (2 \times 1) = 15 - 2 = 13
+]\)</span></p>
+<p>Portanto, a área do paralelogramo é 13.</p>
+</section>
+<section id="usando-python-com-numpy-1" class="level3">
+<h3 class="anchored" data-anchor-id="usando-python-com-numpy-1">Usando Python com NumPy</h3>
+<p>Aqui está como você pode calcular o determinante em Python usando a biblioteca NumPy:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo a matriz</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="dv">3</span>, <span class="dv">2</span>], [<span class="dv">1</span>, <span class="dv">5</span>]])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando o determinante</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>determinante <span class="op">=</span> np.linalg.det(T)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibindo o valor absoluto do determinante (área do paralelogramo)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> <span class="bu">abs</span>(determinante)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="usando-r-1" class="level3">
+<h3 class="anchored" data-anchor-id="usando-r-1">Usando R</h3>
+<p>Aqui está como você pode calcular o determinante em R:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo a matriz</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando o determinante</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>determinante <span class="ot">&lt;-</span> <span class="fu">det</span>(T)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibindo o valor absoluto do determinante (área do paralelogramo)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="fu">abs</span>(determinante)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Em ambos os casos, o valor do determinante será 13, que é a área do paralelogramo formado pelos vetores transformados.</p>
+</section>
+</section>
+<section id="base" class="level2">
+<h2 class="anchored" data-anchor-id="base">Base</h2>
+<p>Base sãos os vetores que formam o ponto num plano. Não é uma base se os vetores seguirem a mesma direção.</p>
+</section>
+<section id="verificando-se-um-conjunto-é-linearmente-independente-ou-não" class="level2">
+<h2 class="anchored" data-anchor-id="verificando-se-um-conjunto-é-linearmente-independente-ou-não">Verificando se um conjunto é linearmente independente ou não</h2>
+<p>Geometricamente, quando <strong>dois elementos em</strong> <span class="math inline">\(R^2~ \text{ou}~R^3~\)</span>são <strong>Linearmente Dependentes</strong>, eles <strong>estão na mesma reta</strong>, quando colocados na mesma origem.</p>
+<p><img src="https://www.ime.unicamp.br/~marcia/AlgebraLinear/Imagens/ex2_dep.png" class="img-fluid"></p>
+<p>Geometricamente, quando dois elementos em <span class="math inline">\(R^2\)</span> ou <span class="math inline">\(R^3\)</span> são L.I., eles não estão na mesma reta, quando colocados na mesma origem.</p>
+<p><img src="https://www.ime.unicamp.br/~marcia/AlgebraLinear/Imagens/ex3_dep.png" class="img-fluid"></p>
+<p>Geometricamente, se três vetores em <span class="math inline">\(R^3\)</span> são <strong>linearmente dependentes</strong>, ele estão no mesmo plano, quando colocados na mesma origem, caso contrário são <strong>linearmente independentes</strong>.</p>
+<p><img src="https://www.ime.unicamp.br/~marcia/AlgebraLinear/Imagens/ex5_dep.png" class="img-fluid"></p>
+<p><strong>Exemplo 1:</strong> O conjunto <span class="math inline">\({(1, 0), (0, 1)}\)</span> em <span class="math inline">\(R^2\)</span> é Linearmente Independente. De fato, a equação:</p>
+<p><span class="math inline">\(\alpha1(1, 0) + \alpha2(0, 1) = (0, 0)\)</span></p>
+<p>só vale para <span class="math inline">\(\alpha1 = \alpha2 = 0\)</span>. Assim, os vetores <span class="math inline">\((1, 0)\)</span> e <span class="math inline">\((0, 1)\)</span> são L.I.</p>
+<p>https://www.ime.unicamp.br/~marcia/AlgebraLinear/dependencia_linear.html</p>
+<p><img src="../images/dependencia-linear.png" class="img-fluid"></p>
+</section>
+<section id="definição-formal-de-base" class="level2">
+<h2 class="anchored" data-anchor-id="definição-formal-de-base">Definição formal de base</h2>
+<p><img src="../images/base.png" class="img-fluid"></p>
+</section>
+<section id="autovalores-e-autovetores" class="level2">
+<h2 class="anchored" data-anchor-id="autovalores-e-autovetores">Autovalores e Autovetores</h2>
+<p>Seja <span class="math inline">\(A\)</span> uma matriz <span class="math inline">\(\text{n x n}\)</span>. O escalar <span class="math inline">\(\lambda\)</span> é um autovalor de <span class="math inline">\(A\)</span> quando há um vetor <strong><span class="math inline">\(x\)</span></strong> não nulo tal que <span class="math inline">\(Ax=\lambda x\)</span>. O vetor <span class="math inline">\(x\)</span> é um autovetor de <span class="math inline">\(A\)</span> associado a <span class="math inline">\(\lambda\)</span>.</p>
+<section id="verificação-de-autovetores-e-autovalores" class="level3">
+<h3 class="anchored" data-anchor-id="verificação-de-autovetores-e-autovalores">Verificação de autovetores e autovalores</h3>
+<p>Para a matriz</p>
+<p><span class="math display">\[
+A = \begin{bmatrix}2&amp;0\\0&amp;-1\end{bmatrix}
+\]</span></p>
+<p>Verifique que <span class="math inline">\(x_1=(1, 0)\)</span> é um autovetor de <span class="math inline">\(A\)</span> associado ao autovalor <span class="math inline">\(\lambda_1=2\)</span> e que <span class="math inline">\(x_2=(0, 1)\)</span> é um autovetor de <span class="math inline">\(A\)</span> associado ao autovalor <span class="math inline">\(\lambda_2= 1\)</span>.</p>
+<p><strong>Solução:</strong></p>
+<p>Multiplicar <span class="math inline">\(x_1\)</span> à esquerda por <span class="math inline">\(A\)</span> produz</p>
+<p><span class="math display">\[
+A = \begin{bmatrix}2&amp;0\\0&amp;-1\end{bmatrix} \begin{bmatrix}1\\0\end{bmatrix}=\begin{bmatrix}2\\0\end{bmatrix}=2\begin{bmatrix}1\\0\end{bmatrix}
+\]</span></p>
+<p>Então, <span class="math inline">\(x_1 =  (1, 0)\)</span> é um autovetor de <span class="math inline">\(A\)</span> associado ao autovalor <span class="math inline">\(\lambda_1= 2\)</span>. Da mesma forma, multiplicar <span class="math inline">\(x_2\)</span> à esquerda por <span class="math inline">\(A\)</span> produz</p>
+<p><span class="math display">\[
+A = \begin{bmatrix}2&amp;0\\0&amp;-1\end{bmatrix} \begin{bmatrix}0\\1\end{bmatrix}=\begin{bmatrix}0\\-1\end{bmatrix}=-1\begin{bmatrix}0\\1\end{bmatrix}
+\]</span></p>
+<p>Então <span class="math inline">\(x_2 = (0,1)\)</span> é um autovetor de <span class="math inline">\(A\)</span> associado ao autovalor <span class="math inline">\(\lambda_2 = -1\)</span></p>
+<p><img src="../images/autovalor.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="cálculo" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo">Cálculo</h2>
+<section id="autovalores" class="level3">
+<h3 class="anchored" data-anchor-id="autovalores">Autovalores</h3>
+<p><img src="../images/autovalores.png" class="img-fluid"></p>
+</section>
+<section id="autovetores" class="level3">
+<h3 class="anchored" data-anchor-id="autovetores">Autovetores</h3>
+<p><img src="../images/autovetores.png" class="img-fluid"></p>
+<p>Para encontrar os autovalores e os autovetores de uma matriz <span class="math inline">\(A\)</span> de ordem <span class="math inline">\(n\)</span>, seja <span class="math inline">\(I\)</span> a matriz identidade <span class="math inline">\(\text{n x n}\)</span>. Reescrever <span class="math inline">\(Ax = \lambda x\)</span> como <span class="math inline">\(\lambda Ix = Ax\)</span> e reorganizar fornece <span class="math inline">\((\lambda I-A)x=0\)</span>. Este sistema homogêneo de equações possui soluções não nulas se e somente se a matriz dos coeficientes <span class="math inline">\((\lambda I - A)\)</span> for não invertível, ou seja, se e somente se seu determinante for zero. O próximo teorema afirma formalmente isso.</p>
+<p><strong>TEOREMA: Autovalores e autovetores de uma matriz</strong> Seja A uma matriz <span class="math inline">\(\text{n x n}\)</span>.</p>
+<ol type="1">
+<li>Um autovalor de <span class="math inline">\(A\)</span> é um escalar <span class="math inline">\(\lambda\)</span> tal que <span class="math inline">\(det(\lambda-A)=0\)</span>.</li>
+<li>Os autovetores de <span class="math inline">\(A\)</span> associados a <span class="math inline">\(\lambda\)</span> são as soluções não nulas de <span class="math inline">\((\lambda I - A)=0\)</span>.</li>
+</ol>
+<p>Encontre os autovalores e autovetores associados de <span class="math inline">\(A = \begin{bmatrix} 2 &amp; -12 \\ 1 &amp; -5 \end{bmatrix}\)</span></p>
+<p><strong>Solução</strong></p>
+<p>O polinômio característico de <span class="math inline">\(A\)</span> é</p>
+<p><span class="math display">\[
+|\lambda I - A| = \begin{vmatrix} \lambda - 2 &amp; 12 \\ -1 &amp; \lambda + 5 \end{vmatrix} = \lambda^2 + 3\lambda - 10 + 12 = (\lambda + 1)(\lambda + 2).
+\]</span></p>
+<p>Assim, a equação característica é <span class="math inline">\((\lambda + 1)(\lambda + 2) = 0\)</span>, o que dá <span class="math inline">\(\lambda_1 = -1\)</span> e <span class="math inline">\(\lambda_2 = -2\)</span> como autovalores de <span class="math inline">\(A\)</span>. Para encontrar os autovetores associados, resolva o sistema linear homogêneo representado por <span class="math inline">\((\lambda I - A)x = 0\)</span> duas vezes: primeiro para <span class="math inline">\(\lambda = \lambda_1 = -1\)</span> e, então, para <span class="math inline">\(\lambda = \lambda_2 = -2\)</span>. Para <span class="math inline">\(\lambda_1 = -1\)</span>, a matriz dos coeficientes é</p>
+<p><span class="math display">\[
+(-1)I - A = \begin{bmatrix} -1 - 2 &amp; 12 \\ -1 &amp; -1 + 5 \end{bmatrix} = \begin{bmatrix} -3 &amp; 12 \\ -1 &amp; 4 \end{bmatrix},
+\]</span></p>
+<p>que se reduz por linhas a <span class="math inline">\(\begin{bmatrix} 1 &amp; -4 \\ 0 &amp; 0 \end{bmatrix}\)</span>, mostrando que <span class="math inline">\(x_1 - 4x_2 = 0\)</span>. Tomando <span class="math inline">\(x_2 = t\)</span>, você pode concluir que todo autovetor associado a <span class="math inline">\(\lambda_1\)</span> é da forma</p>
+<p><span class="math inline">\(x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 4t \\ t \end{bmatrix} = t \begin{bmatrix} 4 \\ 1 \end{bmatrix}, \quad t \neq 0\)</span>.</p>
+<p>Para <span class="math inline">\(\lambda_2=-2\)</span>, você tem</p>
+<p><span class="math inline">\((-2)I - A = \begin{bmatrix} -2 - 2 &amp; 12 \\ -1 &amp; -2 + 5 \end{bmatrix} = \begin{bmatrix} -4 &amp; 12 \\ -1 &amp; 3 \end{bmatrix} \rightarrow \begin{bmatrix} 1 &amp; -3 \\ 0 &amp; 0 \end{bmatrix}.\)</span></p>
+<p>Tomando <span class="math inline">\(x_2 = t\)</span>, você pode concluir que todo autovetor associado a <span class="math inline">\(\lambda_2\)</span> é da forma</p>
+<p><span class="math inline">\(x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 3t \\ t \end{bmatrix}=t\begin{bmatrix} 3 \\ 1 \end{bmatrix}, \quad t \neq 0.\)</span></p>
+</section>
+</section>
+<section id="redução-de-dimensionalidade-e-projeção" class="level2">
+<h2 class="anchored" data-anchor-id="redução-de-dimensionalidade-e-projeção">Redução de dimensionalidade e projeção</h2>
+<p>A redução de dimensionalidade consiste em reduzir o número de colunas de um dataset</p>
+<p>Preservar o máximo de informação possível</p>
+<p><img src="../images/projecoes.png" class="img-fluid"></p>
+</section>
+<section id="motivação-para-pca" class="level2">
+<h2 class="anchored" data-anchor-id="motivação-para-pca">Motivação para PCA</h2>
+<p>Reduzir dimensionalidade</p>
+<p>Visualização de dados mais eficientes</p>
+</section>
+<section id="variância-e-covariância" class="level2">
+<h2 class="anchored" data-anchor-id="variância-e-covariância">Variância e covariância</h2>
+<p>PCA se baseia em alguns conceitos estatísticos</p>
+<ul>
+<li>média</li>
+</ul>
+<p><img src="../images/media.png" class="img-fluid"></p>
+<ul>
+<li>Variância</li>
+</ul>
+<p><img src="../images/variancia.png" class="img-fluid"></p>
+<ul>
+<li>Covariância</li>
+</ul>
+<p><img src="../images/covariancia.png" class="img-fluid"></p>
+</section>
+<section id="matriz-de-covariância" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-de-covariância">Matriz de covariância</h2>
+<p><img src="../images/matriz-cov.png" class="img-fluid"></p>
+<p>Representação</p>
+<p><img src="../images/representacao.png" class="img-fluid"></p>
+<p><img src="../images/representacao_1.png" class="img-fluid"></p>
+<p>Aplicação:</p>
+<p><img src="../images/aplicacao.png" class="img-fluid"></p>
+</section>
+<section id="pca---visão-geral" class="level2">
+<h2 class="anchored" data-anchor-id="pca---visão-geral">PCA - visão geral</h2>
+<p>PCA ⇒ Projeções, Autovalorese matriz de covariância.</p>
+<p>Toda matriz de covariância é simétrica.</p>
+</section>
+<section id="pca---formulação-matemática" class="level2">
+<h2 class="anchored" data-anchor-id="pca---formulação-matemática">PCA - formulação matemática</h2>
+<p>Imagine que temos <span class="math inline">\(5\)</span> variáveis <span class="math inline">\((x_1, x_2, x_3, x_4, x_5)\)</span> e queremos reduzir a apenas <span class="math inline">\(2\)</span> variáveis.</p>
+<ul>
+<li>criamos uma matriz <span class="math inline">\(X\)</span> com o conjunto de dados.</li>
+</ul>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+\\
+&amp;X=\left[\begin{array}{cccc}
+x_{11} &amp; x_{12} &amp; \ldots &amp; x_{15} \\
+x_{21} &amp; x_{22} &amp; \ldots &amp; x_{25} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n 1} &amp; x_{n 2} &amp; \ldots &amp; x_{n 5}
+\end{array}\right]
+\end{aligned}
+\end{equation}
+\]</span></p>
+<ul>
+<li>centralizamos os dados ⇒ <span class="math inline">\(X - \mu\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{equation}\boldsymbol{X}-\boldsymbol{\mu}=\left[\begin{array}{cccc}x_{11}-\mu_1 &amp; x_{12}-\mu_2 &amp; \ldots &amp; x_{15}-\mu_5 \\x_{21}-\mu_1 &amp; x_{22}-\mu_2 &amp; \ldots &amp; x_{25}-\mu_5 \\\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\x_{n 1}-\mu_1 &amp; x_{n 2}-\mu_2 &amp; \ldots &amp; x_{n 5}-\mu_5\end{array}\right]\end{equation}
+\]</span></p>
+<ul>
+<li>Calculamos a matriz de covarância</li>
+</ul>
+<p><span class="math display">\[
+\begin{equation}C=\frac{1}{n-1}(X-\mu)^T(X-\mu)=\left[\begin{array}{ccccc}\operatorname{Var}\left(X_1\right) &amp; \operatorname{Cov}\left(X_1, X_2\right) &amp; \operatorname{Cov}\left(X_1, X_3\right) &amp; \operatorname{Cov}\left(X_1, X_4\right) &amp; \operatorname{Cov}\left(X_1, X_5\right) \\\operatorname{Cov}\left(X_1, X_2\right) &amp; \operatorname{Var}\left(X_2\right) &amp; \operatorname{Cov}\left(X_2, X_3\right) &amp; \operatorname{Cov}\left(X_2, X_4\right) &amp; \operatorname{Cov}\left(X_2, X_5\right) \\\operatorname{Cov}\left(X_1, X_3\right) &amp; \operatorname{Cov}\left(X_2, X_3\right) &amp; \operatorname{Var}\left(X_3\right) &amp; \operatorname{Cov}\left(X_3, X_4\right) &amp; \operatorname{Cov}\left(X_3, X_5\right) \\\operatorname{Cov}\left(X_1, X_4\right) &amp; \operatorname{Cov}\left(X_2, X_4\right) &amp; \operatorname{Cov}\left(X_3, X_4\right) &amp; \operatorname{Var}\left(X_4\right) &amp; \operatorname{Cov}\left(X_4, X_5\right) \\\operatorname{Cov}\left(X_1, X_5\right) &amp; \operatorname{Cov}\left(X_2, X_5\right) &amp; \operatorname{Cov}\left(X_3, X_5\right) &amp; \operatorname{Cov}\left(X_4, X_5\right) &amp; \operatorname{Var}\left(X_5\right)\end{array}\right]\end{equation}
+\]</span></p>
+<ul>
+<li>Calculamos os autovalores e autovetores da matriz de covariância e classifique-os do menor pro maior.</li>
+</ul>
+<p><span class="math display">\[
+\begin{equation}\left\lvert\, \begin{array}{ll}\lambda_1 &amp; v_1 \\\lambda_2 &amp; v_2 \\\lambda_3 &amp; v_3 \\\lambda_4 &amp; v_4 \\\lambda_5 &amp; v_5\end{array}\right.\end{equation}
+\]</span></p>
+<ul>
+<li>Criar uma matriz para projetar os dados</li>
+</ul>
+<p><span class="math display">\[
+\begin{equation}V = \begin{bmatrix}\frac{v_1}{||v_1||_2} &amp; \frac{v_2} {||v_2||_2}\end{bmatrix} \end{equation}
+\]</span></p>
+<ul>
+<li>Projetar os dados no vetor escolhido</li>
+</ul>
+<p><span class="math display">\[
+\begin{equation}X_{PCA} = (X-\mu)V\end{equation}
+\]</span></p>
+<p><strong><a href="../../Vida-Academica/Cursera/01-mod-algebra.html">Módulo 1: Sistema de equações lineares</a></strong></p>
+
+
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -403,7 +874,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/welli45\/portifolio");
+      var filterRegex = new RegExp("https:\/\/welli45\.github\.io\/portifolio-dados\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -735,7 +1206,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://welli45.github.io/portifolio/">Portifólio de Wellington S. Souza</a></p>
+<p><a href="https://welli45.github.io/portifolio-dados.github.io/">Portifólio de Wellington S. Souza</a></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

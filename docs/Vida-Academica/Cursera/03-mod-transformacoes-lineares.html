@@ -139,18 +139,18 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Módulo 3: Vetores e transformações lineares – Portifólio de Dados">
 <meta property="og:description" content="Portifólio // Wellington S. Souza">
-<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/03-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
-<meta property="og:image:height" content="822">
-<meta property="og:image:width" content="1480">
+<meta property="og:image:height" content="772">
+<meta property="og:image:width" content="1389">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
-<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/03-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="822">
-<meta name="twitter:image-width" content="1480">
+<meta name="twitter:image-height" content="772">
+<meta name="twitter:image-width" content="1389">
 </head>
 
 <body class="nav-fixed">
@@ -288,6 +288,19 @@ window.Quarto = {
   <li><a href="#transformações-lineares-1" id="toc-transformações-lineares-1" class="nav-link" data-scroll-target="#transformações-lineares-1">Transformações Lineares</a>
   <ul class="collapse">
   <li><a href="#a-multiplicação-de-matrizes-geralmente-não-é-comutativa" id="toc-a-multiplicação-de-matrizes-geralmente-não-é-comutativa" class="nav-link" data-scroll-target="#a-multiplicação-de-matrizes-geralmente-não-é-comutativa">A multiplicação de matrizes geralmente <strong>não é comutativa</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#transformações-lineares-e-redes-neurais" id="toc-transformações-lineares-e-redes-neurais" class="nav-link" data-scroll-target="#transformações-lineares-e-redes-neurais">Transformações Lineares e Redes Neurais</a>
+  <ul>
+  <li><a href="#transformações" id="toc-transformações" class="nav-link" data-scroll-target="#transformações">Transformações</a></li>
+  <li><a href="#transformações-lineares-2" id="toc-transformações-lineares-2" class="nav-link" data-scroll-target="#transformações-lineares-2">Transformações Lineares</a></li>
+  <li><a href="#transformações-definidas-como-multiplicação-de-matrizes" id="toc-transformações-definidas-como-multiplicação-de-matrizes" class="nav-link" data-scroll-target="#transformações-definidas-como-multiplicação-de-matrizes">Transformações Definidas como Multiplicação de Matrizes</a></li>
+  <li><a href="#transformações-definidas-como-multiplicação-de-matrizes-1" id="toc-transformações-definidas-como-multiplicação-de-matrizes-1" class="nav-link" data-scroll-target="#transformações-definidas-como-multiplicação-de-matrizes-1">Transformações Definidas como Multiplicação de Matrizes</a></li>
+  <li><a href="#escalonamento-horizontal-dilatação" id="toc-escalonamento-horizontal-dilatação" class="nav-link" data-scroll-target="#escalonamento-horizontal-dilatação">Escalonamento Horizontal (Dilatação)</a></li>
+  <li><a href="#redes-neurais" id="toc-redes-neurais" class="nav-link" data-scroll-target="#redes-neurais">Redes Neurais</a>
+  <ul class="collapse">
+  <li><a href="#regressão-linear" id="toc-regressão-linear" class="nav-link" data-scroll-target="#regressão-linear">Regressão Linear</a></li>
+  <li><a href="#modelo-de-rede-neural-com-um-único-perceptron-e-dois-nós-de-entrada" id="toc-modelo-de-rede-neural-com-um-único-perceptron-e-dois-nós-de-entrada" class="nav-link" data-scroll-target="#modelo-de-rede-neural-com-um-único-perceptron-e-dois-nós-de-entrada">Modelo de Rede Neural com um Único Perceptron e Dois Nós de Entrada</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -433,18 +446,8 @@ x \cdot y^T = (x_1~~x_2~~...~~x_n) \cdot \begin{pmatrix}y_1\\y_2\\\vdots\\y_n \e
 </section>
 <section id="produto-de-pontos-geométricos" class="level2">
 <h2 class="anchored" data-anchor-id="produto-de-pontos-geométricos">Produto de pontos geométricos</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/547cc893-aeac-4c16-8c45-00f466801484/image.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/5b690588-2130-4bb3-93b4-3ba46182ffde/image.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
-</figure>
-</div>
+<p><img src="../images/004.png" class="img-fluid"></p>
+<p><img src="../images/001.png" class="img-fluid"></p>
 </section>
 <section id="multiplicação-de-uma-matriz-por-um-vetor" class="level2">
 <h2 class="anchored" data-anchor-id="multiplicação-de-uma-matriz-por-um-vetor">Multiplicação de uma matriz por um vetor</h2>
@@ -514,7 +517,7 @@ x \cdot y^T = (x_1~~x_2~~...~~x_n) \cdot \begin{pmatrix}y_1\\y_2\\\vdots\\y_n \e
 </section>
 <section id="produto-escalar" class="level3">
 <h3 class="anchored" data-anchor-id="produto-escalar">Produto escalar</h3>
-<p>O produto escalar é a operação algébrica entre dois vetores <span class="math inline">\(\vec x=[x_1~~x_2~~...~~x_n]^T \in \R^n\)</span> e <span class="math inline">\(\vec x=[y_1~~y_2~~...~~y_n]^T \in \R^n\)</span> em que retorna um único valor. O produto escalar pode ser representado por <span class="math inline">\(x \cdot y\)</span> e é definido como:</p>
+<p>O produto escalar é a operação algébrica entre dois vetores <span class="math inline">\(\vec x=[x_1~~x_2~~...~~x_n]^T \in R^n\)</span> e <span class="math inline">\(\vec x=[y_1~~y_2~~...~~y_n]^T \in R^n\)</span> em que retorna um único valor. O produto escalar pode ser representado por <span class="math inline">\(x \cdot y\)</span> e é definido como:</p>
 <p><span class="math display">\[
 x \cdot y = \sum^n_{i=1} = x_1y_1+x_2y_2+...+x_ny_n
 \]</span></p>
@@ -576,12 +579,7 @@ x \cdot y = \sum^n_{i=1} = x_1y_1+x_2y_2+...+x_ny_n
 <p>onde</p>
 <p><span class="math inline">\(c_{ij} = \sum\limits^n_{k=1} a_{ik}b_{kj} = a_{i1}b_{1j}+a_{i2}b_{2j}+a_{i3}b_{3j}+...+a_{in}b_{nj}\)</span></p>
 <p>Esta definição significa que, para encontrar o elemento na <span class="math inline">\(i-ésima\)</span> linha e na <span class="math inline">\(j-ésima\)</span> coluna do produto <span class="math inline">\(AB\)</span>, basta multiplicar os elementos na <span class="math inline">\(i-ésima\)</span> linha de <span class="math inline">\(A\)</span> pelos elementos correspondentes na <span class="math inline">\(j-ésima\)</span> coluna de <span class="math inline">\(B\)</span> e em seguida somar os resultados.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/a243d628-22e0-41b1-ace3-83c58bbe747c/image.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
-</figure>
-</div>
+<p><img src="../images/0005.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="matriz-identidade" class="level2">
@@ -772,6 +770,319 @@ N = \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{bmatrix},\)</span></p>
 <p>e</p>
 <p><span class="math inline">\(NM = \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; -1 \end{bmatrix}.\)</span></p>
 <p>Assim, as matrizes quadradas <span class="math inline">\(M\)</span> e <span class="math inline">\(N\)</span> não comutam: <span class="math inline">\(MN \neq NM.\)</span></p>
+</section>
+</section>
+</section>
+<section id="transformações-lineares-e-redes-neurais" class="level1">
+<h1>Transformações Lineares e Redes Neurais</h1>
+<section id="transformações" class="level3">
+<h3 class="anchored" data-anchor-id="transformações">Transformações</h3>
+<p>Uma <strong>transformação</strong> é uma função de um espaço vetorial para outro que respeita a estrutura subjacente (linear) de cada espaço vetorial. Ao se referir a uma transformação específica, pode-se usar um símbolo, como <span class="math inline">\(T\)</span>. Especificando os espaços que contêm os vetores de entrada e saída, por exemplo, <span class="math inline">\(\mathbb{R}^2\)</span> e <span class="math inline">\(\mathbb{R}^3\)</span>, pode-se escrever <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^3\)</span>. Transformando o vetor <span class="math inline">\(v \in \mathbb{R}^2\)</span> no vetor <span class="math inline">\(w \in \mathbb{R}^3\)</span> por meio da transformação <span class="math inline">\(T\)</span>, você pode usar a notação <span class="math inline">\(T(v)=w\)</span> e ler como “<em>T de v é igual a w</em>” ou “<em>o vetor w é uma <strong>imagem</strong> do vetor v sob a transformação T</em>”.</p>
+<p>A função Python a seguir corresponde à transformação <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^3\)</span> com a seguinte fórmula simbólica:</p>
+<p><span class="math display">\[
+T\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}
+\tag{1}
+\]</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> T(v):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> np.zeros((<span class="dv">3</span>,<span class="dv">1</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    w[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>v[<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    w[<span class="dv">2</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span>v[<span class="dv">1</span>,<span class="dv">0</span>]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">3</span>], [<span class="dv">5</span>]])</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> T(v)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original vector:</span><span class="ch">\n</span><span class="st">"</span>, v, <span class="st">"</span><span class="ch">\n\n</span><span class="st"> Result of the transformation:</span><span class="ch">\n</span><span class="st">"</span>, w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="transformações-lineares-2" class="level3">
+<h3 class="anchored" data-anchor-id="transformações-lineares-2">Transformações Lineares</h3>
+<p>Uma transformação <span class="math inline">\(T\)</span> é dita <strong>linear</strong> se as duas propriedades a seguir forem verdadeiras para qualquer escalar <span class="math inline">\(k\)</span> e quaisquer vetores de entrada <span class="math inline">\(u\)</span> e <span class="math inline">\(v\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(T(kv)=kT(v)\)</span>,</li>
+<li><span class="math inline">\(T(u+v)=T(u)+T(v)\)</span>.</li>
+</ol>
+<p>No exemplo acima, <span class="math inline">\(T\)</span> é uma transformação linear:</p>
+<p><span class="math display">\[
+T (kv) =
+T \begin{pmatrix}\begin{bmatrix}
+kv_1 \\
+kv_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3kv_1 \\
+0 \\
+-2kv_2
+\end{bmatrix} =
+k\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+kT(v),\tag{2}
+\]</span></p>
+<p><span class="math display">\[
+T (u+v) =
+T \begin{pmatrix}\begin{bmatrix}
+u_1 + v_1 \\
+u_2 + v_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3(u_1+v_1) \\
+0 \\
+-2(u_2+v_2)
+\end{bmatrix} =
+\begin{bmatrix}
+3u_1 \\
+0 \\
+-2u_2
+\end{bmatrix} +
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+T(u)+T(v).\tag{3}
+\]</span></p>
+<p>Verificando se essa afirmação é verdadeira:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.array([[<span class="dv">1</span>], [<span class="op">-</span><span class="dv">2</span>]])</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">2</span>], [<span class="dv">4</span>]])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T(k*v):</span><span class="ch">\n</span><span class="st">"</span>, T(k<span class="op">*</span>v), <span class="st">"</span><span class="ch">\n</span><span class="st"> k*T(v):</span><span class="ch">\n</span><span class="st">"</span>, k<span class="op">*</span>T(v), <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T(u+v):</span><span class="ch">\n</span><span class="st">"</span>, T(u<span class="op">+</span>v), <span class="st">"</span><span class="ch">\n\n</span><span class="st"> T(u)+T(v):</span><span class="ch">\n</span><span class="st">"</span>, T(u)<span class="op">+</span>T(v))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="transformações-definidas-como-multiplicação-de-matrizes" class="level3">
+<h3 class="anchored" data-anchor-id="transformações-definidas-como-multiplicação-de-matrizes">Transformações Definidas como Multiplicação de Matrizes</h3>
+<p>Seja <span class="math inline">\(L: \mathbb{R}^m \rightarrow \mathbb{R}^n\)</span> definida por uma matriz <span class="math inline">\(A\)</span>, onde <span class="math inline">\(L(v)=Av\)</span>, a multiplicação da matriz <span class="math inline">\(A\)</span> (<span class="math inline">\(n\times m\)</span>) pelo vetor <span class="math inline">\(v\)</span> (<span class="math inline">\(m\times 1\)</span>) resulta no vetor <span class="math inline">\(w\)</span> (<span class="math inline">\(n\times 1\)</span>).</p>
+<p>Agora tente adivinhar quais devem ser os elementos da matriz <span class="math inline">\(A\)</span> correspondentes à transformação <span class="math inline">\(L: \mathbb{R}^2 \rightarrow \mathbb{R}^3\)</span>:</p>
+<p><span class="math display">\[
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}=
+\begin{bmatrix}
+? &amp; ? \\
+? &amp; ? \\
+? &amp; ?
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+\tag{4}
+\]</span></p>
+<p>Para fazer isso, escreva a transformação <span class="math inline">\(L\)</span> como <span class="math inline">\(Av\)</span> e depois realize a multiplicação matricial:</p>
+<p><span class="math display">\[
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+A\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1} &amp; a_{1,2} \\
+a_{2,1} &amp; a_{2,2} \\
+a_{3,1} &amp; a_{3,2}
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1}v_1+a_{1,2}v_2 \\
+a_{2,1}v_1+a_{2,2}v_2 \\
+a_{3,1}v_1+a_{3,2}v_2 \\
+\end{bmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}\tag{5}
+\]</span></p>
+<p>Consegue ver agora quais devem ser os valores dos elementos <span class="math inline">\(a_{i,j}\)</span> da matriz <span class="math inline">\(A\)</span> para que as igualdades <span class="math inline">\((5)\)</span> sejam corretas? Descubra a resposta na célula de código a seguir:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> L(v):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.array([[<span class="dv">3</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="op">-</span><span class="dv">2</span>]])</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Transformation matrix:</span><span class="ch">\n</span><span class="st">"</span>, A, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> A <span class="op">@</span> v</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">3</span>], [<span class="dv">5</span>]])</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> L(v)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original vector:</span><span class="ch">\n</span><span class="st">"</span>, v, <span class="st">"</span><span class="ch">\n\n</span><span class="st"> Result of the transformation:</span><span class="ch">\n</span><span class="st">"</span>, w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="transformações-definidas-como-multiplicação-de-matrizes-1" class="level3">
+<h3 class="anchored" data-anchor-id="transformações-definidas-como-multiplicação-de-matrizes-1">Transformações Definidas como Multiplicação de Matrizes</h3>
+<p>Seja <span class="math inline">\(L: \mathbb{R}^m \rightarrow \mathbb{R}^n\)</span> definida por uma matriz <span class="math inline">\(A\)</span>, onde <span class="math inline">\(L(v)=Av\)</span>, sendo a multiplicação da matriz <span class="math inline">\(A\)</span> (<span class="math inline">\(n\times m\)</span>) pelo vetor <span class="math inline">\(v\)</span> (<span class="math inline">\(m\times 1\)</span>) resultando no vetor <span class="math inline">\(w\)</span> (<span class="math inline">\(n\times 1\)</span>).</p>
+<p>Agora tente adivinhar quais devem ser os elementos da matriz <span class="math inline">\(A\)</span> correspondentes à transformação <span class="math inline">\(L: \mathbb{R}^2 \rightarrow \mathbb{R}^3\)</span>:</p>
+<p><span class="math display">\[
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}=
+\begin{bmatrix}
+? &amp; ? \\
+? &amp; ? \\
+? &amp; ?
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+\tag{4}
+\]</span></p>
+<p>Para fazer isso, escreva a transformação L como <span class="math inline">\(Av\)</span> e depois realize a multiplicação matricial:</p>
+<p><span class="math display">\[
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+A\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1} &amp; a_{1,2} \\
+a_{2,1} &amp; a_{2,2} \\
+a_{3,1} &amp; a_{3,2}
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1}v_1+a_{1,2}v_2 \\
+a_{2,1}v_1+a_{2,2}v_2 \\
+a_{3,1}v_1+a_{3,2}v_2 \\
+\end{bmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}\tag{5}
+\]</span></p>
+<p>Você consegue ver agora quais devem ser os valores dos elementos <span class="math inline">\(a_{i,j}\)</span> da matriz <span class="math inline">\(A\)</span>para que as igualdades (5) sejam corretas? Descubra a resposta na célula de código a seguir:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> np.loadtxt(<span class="st">'data/image.txt'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Shape: '</span>,img.shape)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A imagem é apenas uma matriz de <span class="math inline">\(2 \times 329076\)</span>, onde cada coluna é um vetor no plano. Portanto, você pode obter todas as coordenadas <span class="math inline">\(x\)</span> chamando <code>img[0]</code> e todas as coordenadas <code>img[1]</code>. Agora vamos plotar a imagem!</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(img[<span class="dv">0</span>], img[<span class="dv">1</span>], s <span class="op">=</span> <span class="fl">0.001</span>, color <span class="op">=</span> <span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="escalonamento-horizontal-dilatação" class="level3">
+<h3 class="anchored" data-anchor-id="escalonamento-horizontal-dilatação">Escalonamento Horizontal (Dilatação)</h3>
+<p>O escalonamento horizontal (fator <span class="math inline">\(2\)</span> neste exemplo) pode ser definido considerando a transformação de um vetor <span class="math inline">\(e_1=\begin{bmatrix}1 \\ 0\end{bmatrix}\)</span> em um vetor <span class="math inline">\(\begin{bmatrix}2 \\ 0\end{bmatrix}\)</span> e mantendo o vetor <span class="math inline">\(e_2=\begin{bmatrix}0 \\ 1\end{bmatrix}\)</span> sem qualquer alteração. A função <code>T_hscaling()</code> a seguir corresponde ao escalonamento horizontal (fator <span class="math inline">\(2\)</span>) de um vetor. A segunda função <code>transform_vectors()</code> aplica a transformação definida a um conjunto de vetores (aqui dois vetores).</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> T_hscaling(v):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.array([[<span class="dv">2</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>]])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> A <span class="op">@</span> v</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_vectors(T, v1, v2):</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    V <span class="op">=</span> np.hstack((v1, v2))</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> T(V)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> W</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>e1 <span class="op">=</span> np.array([[<span class="dv">1</span>], [<span class="dv">0</span>]])</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>e2 <span class="op">=</span> np.array([[<span class="dv">0</span>], [<span class="dv">1</span>]])</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>transformation_result_hscaling <span class="op">=</span> transform_vectors(T_hscaling, e1, e2)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original vectors:</span><span class="ch">\n</span><span class="st"> e1= </span><span class="ch">\n</span><span class="st">"</span>, e1, <span class="st">"</span><span class="ch">\n</span><span class="st"> e2=</span><span class="ch">\n</span><span class="st">"</span>, e2, </span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="ch">\n\n</span><span class="st"> Result of the transformation (matrix form):</span><span class="ch">\n</span><span class="st">"</span>, transformation_result_hscaling)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Visualizando</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>utils.plot_transformation(T_hscaling,e1,e2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(img[<span class="dv">0</span>], img[<span class="dv">1</span>], s <span class="op">=</span> <span class="fl">0.001</span>, color <span class="op">=</span> <span class="st">'black'</span>) </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(T_hscaling(img)[<span class="dv">0</span>], T_hscaling(img)[<span class="dv">1</span>], s <span class="op">=</span> <span class="fl">0.001</span>, color <span class="op">=</span> <span class="st">'grey'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="redes-neurais" class="level2">
+<h2 class="anchored" data-anchor-id="redes-neurais">Redes Neurais</h2>
+<section id="regressão-linear" class="level3">
+<h3 class="anchored" data-anchor-id="regressão-linear">Regressão Linear</h3>
+<p><strong>Regressão linear</strong> é uma abordagem linear para modelar a relação entre uma resposta escalar (<strong>variável dependente</strong>) e uma ou mais variáveis explicativas (<strong>variáveis independentes</strong>).</p>
+<p>O modelo de regressão linear com duas variáveis independentes <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> pode ser escrito como</p>
+<p><span class="math inline">\(\hat{y} = w_1x_1 + w_2x_2 + b = Wx + b\)</span></p>
+<p>onde <span class="math inline">\(Wx\)</span> é o produto escalar do vetor de entrada <span class="math inline">\(x = \begin{bmatrix} x_1 &amp; x_2\end{bmatrix}\)</span> e o vetor de parâmetros <span class="math inline">\(W = \begin{bmatrix} w_1 &amp; w_2\end{bmatrix}\)</span>, e o parâmetro escalar <span class="math inline">\(b\)</span> é o intercepto.</p>
+<p>O objetivo é o mesmo - encontrar os parâmetros “ideais” <span class="math inline">\(w_1\)</span>, <span class="math inline">\(w_2\)</span> e <span class="math inline">\(b\)</span> de modo que as diferenças entre os valores originais <span class="math inline">\(y_i\)</span> e os valores previstos <span class="math inline">\(\hat{y}_i\)</span> sejam mínimas.</p>
+<p>Podemos usar um modelo de rede neural para fazer isso. A multiplicação de matrizes estará no cerne do modelo!</p>
+</section>
+<section id="modelo-de-rede-neural-com-um-único-perceptron-e-dois-nós-de-entrada" class="level3">
+<h3 class="anchored" data-anchor-id="modelo-de-rede-neural-com-um-único-perceptron-e-dois-nós-de-entrada">Modelo de Rede Neural com um Único Perceptron e Dois Nós de Entrada</h3>
+<p>Novamente, usaremos apenas um perceptron, mas com dois nós de entrada, conforme mostrado no esquema a seguir:</p>
+<p><img src="../images/002.png" class="img-fluid"></p>
+<p>O cálculo da saída do perceptron para um exemplo de treinamento <span class="math inline">\(x = \begin{bmatrix} x_1 &amp; x_2\end{bmatrix}\)</span> pode ser escrito com o produto escalar:</p>
+<p><span class="math inline">\(z = w_1x_1 + w_2x_2 + b = Wx + b\)</span></p>
+<p>onde os pesos estão no vetor <span class="math inline">\(W = \begin{bmatrix} w_1 &amp; w_2\end{bmatrix}\)</span> e o viés <span class="math inline">\(b\)</span> é um escalar. A camada de saída terá o mesmo único nó <span class="math inline">\(\hat{y} = z\)</span>.</p>
+<p>Organize todos os exemplos de treinamento em uma matriz <span class="math inline">\(X\)</span> com forma (<span class="math inline">\(2 \times m\)</span>), colocando <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span> em colunas. Então, a multiplicação de matrizes de <span class="math inline">\(W\)</span> (<span class="math inline">\(1 \times 2\)</span>) e <span class="math inline">\(X\)</span> (<span class="math inline">\(2 \times m\)</span>) resultará em um vetor (<span class="math inline">\(1 \times m\)</span>)</p>
+<p><span class="math display">\[
+WX =
+\begin{bmatrix} w_1 &amp; w_2\end{bmatrix}
+\begin{bmatrix}
+x_1^{(1)} &amp; x_1^{(2)} &amp; \dots &amp; x_1^{(m)} \\
+x_2^{(1)} &amp; x_2^{(2)} &amp; \dots &amp; x_2^{(m)} \\ \end{bmatrix}
+= \begin{bmatrix}
+w_1x_1^{(1)} + w_2x_2^{(1)} &amp;
+w_1x_1^{(2)} + w_2x_2^{(2)} &amp; \dots &amp;
+w_1x_1^{(m)} + w_2x_2^{(m)}\end{bmatrix}
+\]</span></p>
+<p>E o modelo pode ser escrito como</p>
+<p><span class="math display">\[
+\begin{align}
+Z &amp;= W X + b,\\
+\hat{Y} &amp;= Z,
+\tag{8}\end{align}
+\]</span></p>
+<p>onde <span class="math inline">\(b\)</span> é transmitido para o vetor de tamanho (<span class="math inline">\(1 \times m\)</span>). Esses são os cálculos a serem realizados na etapa de propagação para frente.</p>
+<p>Agora, você pode comparar o vetor resultante das previsões <span class="math inline">\(\hat{Y}\)</span> (<span class="math inline">\(1 \times m\)</span>) com o vetor original de dados <span class="math inline">\(Y\)</span>. Isso pode ser feito com a chamada <strong>função de custo</strong>, que mede quão próximo seu vetor de previsões está dos dados de treinamento. Ela avalia o quão bem os parâmetros <span class="math inline">\(w\)</span> e <span class="math inline">\(b\)</span> funcionam para resolver o problema. Existem muitas funções de custo diferentes disponíveis, dependendo da natureza do seu problema. Para sua rede neural simples, você pode calculá-la como:</p>
+<p><span class="math display">\[
+\mathcal{L}\left(w, b\right)  = \frac{1}{2m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right)^2.\tag{5}
+\]</span></p>
+<p>O objetivo é minimizar a função de custo durante o treinamento, o que minimizará as diferenças entre os valores originais <span class="math inline">\(y_i\)</span> e os valores previstos <span class="math inline">\(\hat{y}_i\)</span> (a divisão por <span class="math inline">\(2m\)</span> é feita apenas para fins de escala).</p>
+<p>Quando seus pesos foram apenas inicializados com alguns valores aleatórios e nenhum treinamento foi realizado ainda, não se pode esperar bons resultados.</p>
+<p>O próximo passo é ajustar os pesos e o viés para minimizar a função de custo. Este processo é chamado de <strong>propagação para trás</strong> e é feito de forma iterativa: você atualiza os parâmetros com uma pequena mudança e repete o processo.</p>
+<p><em>Nota</em>: A propagação para trás não é abordada neste curso - ela será discutida no próximo curso desta especialização.</p>
+<p>A <strong>metodologia</strong> geral para construir uma rede neural é:</p>
+<ol type="1">
+<li>Definir a estrutura da rede neural (número de unidades de entrada, número de unidades ocultas, etc.).</li>
+<li>Inicializar os parâmetros do modelo.</li>
+<li>Loop:
+<ul>
+<li>Implementar a propagação para frente (calcular a saída do perceptron),</li>
+<li>Implementar a propagação para trás (para obter as correções necessárias nos parâmetros),</li>
+<li>Atualizar os parâmetros.</li>
+</ul></li>
+<li>Fazer previsões.</li>
+</ol>
+<p><strong><a href="../../Vida-Academica/Cursera/04-mod-espacos-vetoriais.html">Módulo 4: Determinantes e Autovetores</a></strong></p>
 
 
 </section>

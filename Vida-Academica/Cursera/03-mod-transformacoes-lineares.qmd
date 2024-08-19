@@ -1,6 +1,6 @@
 ---
 title: "Módulo 3: Vetores e transformações lineares"
-image: ../../Vida-Academica/images/01-sem.png
+image: ../../Vida-Academica/images/03-sem.png
 description: "Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-15"
@@ -118,9 +118,9 @@ $$
 
 ## Produto de pontos geométricos
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/547cc893-aeac-4c16-8c45-00f466801484/image.png)
+![](../images/004.png)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/5b690588-2130-4bb3-93b4-3ba46182ffde/image.png)
+![](../images/001.png)
 
 ## Multiplicação de uma matriz por um vetor
 
@@ -278,7 +278,7 @@ $c_{ij} = \sum\limits^n_{k=1} a_{ik}b_{kj} = a_{i1}b_{1j}+a_{i2}b_{2j}+a_{i3}b_{
 
 Esta definição significa que, para encontrar o elemento na $i-ésima$ linha e na $j-ésima$ coluna do produto $AB$, basta multiplicar os elementos na $i-ésima$ linha de $A$ pelos elementos correspondentes na $j-ésima$ coluna de $B$ e em seguida somar os resultados.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/a243d628-22e0-41b1-ace3-83c58bbe747c/image.png)
+![](../images/0005.png)
 
 ## Matriz identidade
 
@@ -534,3 +534,375 @@ e
  $NM = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}.$
 
 Assim, as matrizes quadradas $M$ e $N$ não comutam: $MN \neq NM.$
+
+# Transformações Lineares e Redes Neurais
+
+### Transformações
+
+Uma **transformação** é uma função de um espaço vetorial para outro que respeita a estrutura subjacente (linear) de cada espaço vetorial. Ao se referir a uma transformação específica, pode-se usar um símbolo, como $T$. Especificando os espaços que contêm os vetores de entrada e saída, por exemplo, $\mathbb{R}^2$ e $\mathbb{R}^3$, pode-se escrever $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$. Transformando o vetor $v \in \mathbb{R}^2$ no vetor $w \in \mathbb{R}^3$ por meio da transformação $T$, você pode usar a notação $T(v)=w$ e ler como "*T de v é igual a w*" ou "*o vetor w é uma **imagem** do vetor v sob a transformação T*".
+
+A função Python a seguir corresponde à transformação  $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ com a seguinte fórmula simbólica:
+
+$$
+T\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}
+\tag{1}
+$$
+
+```python
+def T(v):
+    w = np.zeros((3,1))
+    w[0,0] = 3*v[0,0]
+    w[2,0] = -2*v[1,0]
+    
+    return w
+
+v = np.array([[3], [5]])
+w = T(v)
+
+print("Original vector:\n", v, "\n\n Result of the transformation:\n", w)
+```
+
+### Transformações Lineares
+
+Uma transformação $T$ é dita **linear** se as duas propriedades a seguir forem verdadeiras para qualquer escalar $k$ e quaisquer vetores de entrada $u$ e $v$:
+
+1. $T(kv)=kT(v)$,
+2. $T(u+v)=T(u)+T(v)$.
+
+No exemplo acima, $T$ é uma transformação linear:
+
+$$
+T (kv) =
+T \begin{pmatrix}\begin{bmatrix}
+kv_1 \\
+kv_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3kv_1 \\
+0 \\
+-2kv_2
+\end{bmatrix} =
+k\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+kT(v),\tag{2}
+$$
+
+$$
+T (u+v) =
+T \begin{pmatrix}\begin{bmatrix}
+u_1 + v_1 \\
+u_2 + v_2
+\end{bmatrix}\end{pmatrix} =
+\begin{bmatrix}
+3(u_1+v_1) \\
+0 \\
+-2(u_2+v_2)
+\end{bmatrix} =
+\begin{bmatrix}
+3u_1 \\
+0 \\
+-2u_2
+\end{bmatrix} +
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix} =
+T(u)+T(v).\tag{3}
+$$
+
+Verificando se essa afirmação é verdadeira:
+
+```python
+u = np.array([[1], [-2]])
+v = np.array([[2], [4]])
+
+k = 7
+
+print("T(k*v):\n", T(k*v), "\n k*T(v):\n", k*T(v), "\n\n")
+print("T(u+v):\n", T(u+v), "\n\n T(u)+T(v):\n", T(u)+T(v))
+```
+
+### Transformações Definidas como Multiplicação de Matrizes
+
+Seja $L: \mathbb{R}^m \rightarrow \mathbb{R}^n$ definida por uma matriz $A$, onde $L(v)=Av$, a multiplicação da matriz  $A$ ($n\times m$) pelo vetor $v$ ($m\times 1$) resulta no vetor $w$ ($n\times 1$).
+
+Agora tente adivinhar quais devem ser os elementos da matriz $A$ correspondentes à transformação $L: \mathbb{R}^2 \rightarrow \mathbb{R}^3$:
+
+$$
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}=
+\begin{bmatrix}
+? & ? \\
+? & ? \\
+? & ?
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+\tag{4}
+$$
+
+Para fazer isso, escreva a transformação $L$ como $Av$ e depois realize a multiplicação matricial:
+
+$$
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+A\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2} \\
+a_{3,1} & a_{3,2}
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1}v_1+a_{1,2}v_2 \\
+a_{2,1}v_1+a_{2,2}v_2 \\
+a_{3,1}v_1+a_{3,2}v_2 \\
+\end{bmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}\tag{5}
+$$
+
+Consegue ver agora quais devem ser os valores dos elementos $a_{i,j}$ da matriz $A$ para que as igualdades $(5)$ sejam corretas? Descubra a resposta na célula de código a seguir:
+
+```python
+def L(v):
+    A = np.array([[3,0], [0,0], [0,-2]])
+    print("Transformation matrix:\n", A, "\n")
+    w = A @ v
+    
+    return w
+
+v = np.array([[3], [5]])
+w = L(v)
+
+print("Original vector:\n", v, "\n\n Result of the transformation:\n", w)
+```
+
+### Transformações Definidas como Multiplicação de Matrizes
+
+Seja $L: \mathbb{R}^m \rightarrow \mathbb{R}^n$ definida por uma matriz $A$, onde $L(v)=Av$, sendo a multiplicação da matriz $A$ ($n\times m$) pelo vetor $v$ ($m\times 1$) resultando no vetor $w$ ($n\times 1$).
+
+Agora tente adivinhar quais devem ser os elementos da matriz $A$ correspondentes à transformação $L: \mathbb{R}^2 \rightarrow \mathbb{R}^3$:
+
+$$
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}=
+\begin{bmatrix}
+? & ? \\
+? & ? \\
+? & ?
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+\tag{4}
+$$
+
+Para fazer isso, escreva a transformação L como $Av$ e depois realize a multiplicação matricial:
+
+$$
+L\begin{pmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}\end{pmatrix}=
+A\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2} \\
+a_{3,1} & a_{3,2}
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}=
+\begin{bmatrix}
+a_{1,1}v_1+a_{1,2}v_2 \\
+a_{2,1}v_1+a_{2,2}v_2 \\
+a_{3,1}v_1+a_{3,2}v_2 \\
+\end{bmatrix}=
+\begin{bmatrix}
+3v_1 \\
+0 \\
+-2v_2
+\end{bmatrix}\tag{5}
+$$
+
+Você consegue ver agora quais devem ser os valores dos elementos $a_{i,j}$ da matriz $A$para que as igualdades (5) sejam corretas? Descubra a resposta na célula de código a seguir:
+
+```python
+img = np.loadtxt('data/image.txt')
+print('Shape: ',img.shape)
+print(img)
+```
+
+A imagem é apenas uma matriz de $2 \times 329076$, onde cada coluna é um vetor no plano. Portanto, você pode obter todas as coordenadas $x$ chamando `img[0]` e todas as coordenadas `img[1]`. Agora vamos plotar a imagem!
+
+```python
+plt.scatter(img[0], img[1], s = 0.001, color = 'black')
+```
+
+### Escalonamento Horizontal (Dilatação)
+
+O escalonamento horizontal (fator $2$ neste exemplo) pode ser definido considerando a transformação de um vetor $e_1=\begin{bmatrix}1 \\ 0\end{bmatrix}$ em um vetor $\begin{bmatrix}2 \\ 0\end{bmatrix}$ e mantendo o vetor $e_2=\begin{bmatrix}0 \\ 1\end{bmatrix}$ sem qualquer alteração. A função `T_hscaling()` a seguir corresponde ao escalonamento horizontal (fator $2$) de um vetor. A segunda função `transform_vectors()` aplica a transformação definida a um conjunto de vetores (aqui dois vetores).
+
+```python
+def T_hscaling(v):
+    A = np.array([[2,0], [0,1]])
+    w = A @ v
+    
+    return w
+    
+    
+def transform_vectors(T, v1, v2):
+    V = np.hstack((v1, v2))
+    W = T(V)
+    
+    return W
+    
+e1 = np.array([[1], [0]])
+e2 = np.array([[0], [1]])
+
+transformation_result_hscaling = transform_vectors(T_hscaling, e1, e2)
+
+print("Original vectors:\n e1= \n", e1, "\n e2=\n", e2, 
+      "\n\n Result of the transformation (matrix form):\n", transformation_result_hscaling)
+```
+
+Visualizando
+
+```python
+utils.plot_transformation(T_hscaling,e1,e2)
+```
+
+```python
+plt.scatter(img[0], img[1], s = 0.001, color = 'black') 
+plt.scatter(T_hscaling(img)[0], T_hscaling(img)[1], s = 0.001, color = 'grey')
+```
+
+## Redes Neurais
+
+### Regressão Linear
+
+**Regressão linear** é uma abordagem linear para modelar a relação entre uma resposta escalar (**variável dependente**) e uma ou mais variáveis explicativas (**variáveis independentes**).
+
+O modelo de regressão linear com duas variáveis independentes $x_1$, $x_2$ pode ser escrito como
+
+$\hat{y} = w_1x_1 + w_2x_2 + b = Wx + b$
+
+onde $Wx$ é o produto escalar do vetor de entrada $x = \begin{bmatrix} x_1 & x_2\end{bmatrix}$ e o vetor de parâmetros $W = \begin{bmatrix} w_1 & w_2\end{bmatrix}$, e o parâmetro escalar $b$ é o intercepto.
+
+O objetivo é o mesmo - encontrar os parâmetros "ideais" $w_1$, $w_2$ e $b$ de modo que as diferenças entre os valores originais $y_i$ e os valores previstos $\hat{y}_i$ sejam mínimas.
+
+Podemos usar um modelo de rede neural para fazer isso. A multiplicação de matrizes estará no cerne do modelo!
+
+### Modelo de Rede Neural com um Único Perceptron e Dois Nós de Entrada
+
+Novamente, usaremos apenas um perceptron, mas com dois nós de entrada, conforme mostrado no esquema a seguir:
+
+![](../images/002.png)
+
+O cálculo da saída do perceptron para um exemplo de treinamento $x = \begin{bmatrix} x_1 & x_2\end{bmatrix}$ pode ser escrito com o produto escalar:
+
+$z = w_1x_1 + w_2x_2 + b = Wx + b$
+
+onde os pesos estão no vetor $W = \begin{bmatrix} w_1 & w_2\end{bmatrix}$ e o viés $b$ é um escalar. A camada de saída terá o mesmo único nó $\hat{y} = z$.
+
+Organize todos os exemplos de treinamento em uma matriz $X$ com forma ($2 \times m$), colocando $x_1$ e $x_2$ em colunas. Então, a multiplicação de matrizes de $W$ ($1 \times 2$) e $X$ ($2 \times m$) resultará em um vetor ($1 \times m$)
+
+$$
+WX =
+\begin{bmatrix} w_1 & w_2\end{bmatrix}
+\begin{bmatrix}
+x_1^{(1)} & x_1^{(2)} & \dots & x_1^{(m)} \\
+x_2^{(1)} & x_2^{(2)} & \dots & x_2^{(m)} \\ \end{bmatrix}
+= \begin{bmatrix}
+w_1x_1^{(1)} + w_2x_2^{(1)} &
+w_1x_1^{(2)} + w_2x_2^{(2)} & \dots &
+w_1x_1^{(m)} + w_2x_2^{(m)}\end{bmatrix}
+$$
+
+E o modelo pode ser escrito como
+
+$$
+\begin{align}
+Z &= W X + b,\\
+\hat{Y} &= Z,
+\tag{8}\end{align}
+$$
+
+onde $b$ é transmitido para o vetor de tamanho ($1 \times m$). Esses são os cálculos a serem realizados na etapa de propagação para frente.
+
+Agora, você pode comparar o vetor resultante das previsões $\hat{Y}$ ($1 \times m$) com o vetor original de dados $Y$. Isso pode ser feito com a chamada **função de custo**, que mede quão próximo seu vetor de previsões está dos dados de treinamento. Ela avalia o quão bem os parâmetros $w$ e $b$ funcionam para resolver o problema. Existem muitas funções de custo diferentes disponíveis, dependendo da natureza do seu problema. Para sua rede neural simples, você pode calculá-la como:
+
+$$
+\mathcal{L}\left(w, b\right)  = \frac{1}{2m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right)^2.\tag{5}
+$$
+
+O objetivo é minimizar a função de custo durante o treinamento, o que minimizará as diferenças entre os valores originais $y_i$ e os valores previstos $\hat{y}_i$ (a divisão por $2m$ é feita apenas para fins de escala).
+
+Quando seus pesos foram apenas inicializados com alguns valores aleatórios e nenhum treinamento foi realizado ainda, não se pode esperar bons resultados.
+
+O próximo passo é ajustar os pesos e o viés para minimizar a função de custo. Este processo é chamado de **propagação para trás** e é feito de forma iterativa: você atualiza os parâmetros com uma pequena mudança e repete o processo.
+
+*Nota*: A propagação para trás não é abordada neste curso - ela será discutida no próximo curso desta especialização.
+
+A **metodologia** geral para construir uma rede neural é:
+
+1. Definir a estrutura da rede neural (número de unidades de entrada, número de unidades ocultas, etc.).
+2. Inicializar os parâmetros do modelo.
+3. Loop:
+    - Implementar a propagação para frente (calcular a saída do perceptron),
+    - Implementar a propagação para trás (para obter as correções necessárias nos parâmetros),
+    - Atualizar os parâmetros.
+4. Fazer previsões.
+
+
+**[Módulo 4: Determinantes e Autovetores](04-mod-espacos-vetoriais.qmd)**

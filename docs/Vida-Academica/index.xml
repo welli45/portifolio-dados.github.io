@@ -6,26 +6,26 @@
       version="2.0">
 <channel>
 <title>Portifólio de Dados</title>
-<link>https://github.com/welli45/portifolio/Vida-Academica/</link>
-<atom:link href="https://github.com/welli45/portifolio/Vida-Academica/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/</link>
+<atom:link href="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/index.xml" rel="self" type="application/rss+xml"/>
 <description>Estudos</description>
 <image>
-<url>https://github.com/welli45/portifolio/images/profile.png</url>
+<url>https://welli45.github.io/portifolio-dados.github.io/images/profile.png</url>
 <title>Portifólio de Dados</title>
-<link>https://github.com/welli45/portifolio/Vida-Academica/</link>
+<link>https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/</link>
 </image>
 <generator>quarto-1.5.56</generator>
 <lastBuildDate>Sun, 04 Aug 2024 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Anotações do cursos feitos na plataforma Coursera</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/Vida-Academica/posts/Cursera.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/posts/Cursera.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://github.com/welli45/portifolio/Vida-Academica/images/cursera.svg" class="img-fluid" data-fig-title="Capa" alt="Capa"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/cursera.svg" class="img-fluid" data-fig-title="Capa" alt="Capa"></p>
 <section id="anotações-dos-cursos-feitos-na-plataforma-coursera" class="level1">
 <h1>Anotações dos cursos feitos na plataforma Coursera</h1>
 <p>Neste arquivo estão as anotações dos cursos feitos na plataforma Coursera.</p>
@@ -58,14 +58,14 @@
   <category>Tableau</category>
   <category>Excel</category>
   <category>Power BI</category>
-  <guid>https://github.com/welli45/portifolio/Vida-Academica/posts/Cursera.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/posts/Cursera.html</guid>
   <pubDate>Sun, 04 Aug 2024 03:00:00 GMT</pubDate>
-  <media:content url="https://github.com/welli45/portifolio/Vida-Academica/images/cursera.svg" medium="image" type="image/svg+xml"/>
+  <media:content url="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/cursera.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/Vida-Academica/posts/redes_completas.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/posts/redes_completas.html</link>
   <description><![CDATA[ 
 
 
@@ -100,9 +100,9 @@
   <category>relational sociology</category>
   <category>cognitive networks</category>
   <category>communitarian leaders</category>
-  <guid>https://github.com/welli45/portifolio/Vida-Academica/posts/redes_completas.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/posts/redes_completas.html</guid>
   <pubDate>Wed, 07 Feb 2024 03:00:00 GMT</pubDate>
-  <media:content url="https://github.com/welli45/portifolio/Vida-Academica/images/redes.png" medium="image" type="image/png" height="73" width="144"/>
+  <media:content url="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/redes.png" medium="image" type="image/png" height="73" width="144"/>
 </item>
 </channel>
 </rss>

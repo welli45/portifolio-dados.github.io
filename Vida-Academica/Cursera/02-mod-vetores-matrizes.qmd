@@ -1,6 +1,6 @@
 ---
 title: "Módulo 2: Resolução de sistemas de equações lineares"
-image: ../../Vida-Academica/images/01-sem.png
+image: ../../Vida-Academica/images/02-sem.png
 description: "Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-011"
@@ -260,7 +260,7 @@ categories: ["curso", "coursera", "Algebra Linear", "Machine Learning", "Data Sc
     1.  todos os elementos de linhas abaixo do pivot são 0.
     2.  A classificação (rank) será o número de valores do pivot.
 
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/94ab2048-4b87-489f-9347-3f06eaf02bed/Untitled.png)
+![Classificação (Rank)](../images/101.png)
 
 ### Forma escalonada de linha reduzida
 
@@ -268,11 +268,11 @@ A matriz intermediária é conhecida como matriz escalonada e a matriz resultant
 
 Forma escalonada reduzida:
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/a060a5b5-5f7a-48fe-8892-84b1df71264d/Untitled.png)
+![Forma escalonada Reduzida](../images/100.png)
 
 Forma geral:
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ced53b17-d7c3-4fa8-85b0-333df0de29e6/040d1ae6-1ebe-4e71-adcf-285a2c3b45ae/Untitled.png)
+![Forma Geral](../images/102.png)
 
 ### O algoritmo de eliminação gaussiana
 
@@ -531,3 +531,5 @@ N = np.array([
 )
 print(N)
 ```
+
+**[Módulo 3: Módulo 3: Vetores e transformações lineares](03-mod-transformacoes-lineares.qmd)**
