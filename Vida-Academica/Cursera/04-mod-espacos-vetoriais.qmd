@@ -1,6 +1,6 @@
 ---
 title: "Módulo 4: Determinantes e Autovetores"
-image: ../../Vida-Academica/images/04-sem.png
+image: ../../Vida-Academica/images/algebra/algebra/04-sem.png
 description: "Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-04"
@@ -14,29 +14,29 @@ Para uma matriz não singular, a sua transformação linear envia para um parale
 
 Para as singulares, cobre um segmento de reta ou um ponto.
 
-![](../images/rank.png)
+![](../images/algebra/algebra/rank.png)
 
 ## Determinante de uma matriz como área
 
 O determinante de uma matriz é a área após a transformação linear. 
 
-![](../images/determinante.png)
+![](../images/algebra/algebra/determinante.png)
 
 ## Determinante de um produto
 
 $det(AB) = det(A)det(B)$
 
-![](../images/determinante-produto.png)
+![](../images/algebra/determinante-produto.png)
 
 O produto de uma matriz singular e uma não singular, independente da ordem, será singular.
 
-![](../images/determinante-produto-singular.png)
+![](../images/algebra/determinante-produto-singular.png)
 
 ## Determinantes de inversos
 
 - O determinante de uma matriz inversa é o inverso do determinante de uma matriz.
 
-![](../images/determinante-inverso.png)
+![](../images/algebra/determinante-inverso.png)
 
 - E matrizes singulares não possui inversa.
 - O determinante de uma matriz identidade será sempre 1.
@@ -235,11 +235,11 @@ só vale para $\alpha1 = \alpha2 = 0$. Assim, os vetores $(1, 0)$ e $(0, 1)$ sã
 
 https://www.ime.unicamp.br/~marcia/AlgebraLinear/dependencia_linear.html
 
-![](../images/dependencia-linear.png)
+![](../images/algebra/dependencia-linear.png)
 
 ## Definição formal de base
 
-![](../images/base.png)
+![](../images/algebra/base.png)
 
 ## Autovalores e Autovetores
 
@@ -273,17 +273,17 @@ $$
 
 Então $x_2 = (0,1)$ é um autovetor de $A$ associado ao autovalor $\lambda_2 = -1$
 
-![](../images/autovalor.png)
+![](../images/algebra/autovalor.png)
 
 ## Cálculo
 
 ### Autovalores
 
-![](../images/autovalores.png)
+![](../images/algebra/autovalores.png)
 
 ### Autovetores
 
-![](../images/autovetores.png)
+![](../images/algebra/autovetores.png)
 
 Para encontrar os autovalores e os autovetores de uma matriz $A$ de ordem $n$, seja $I$ a matriz identidade $\text{n x n}$. Reescrever $Ax = \lambda x$ como $\lambda Ix = Ax$ e reorganizar fornece $(\lambda I-A)x=0$. Este sistema homogêneo de equações possui soluções não nulas se e somente se a matriz dos coeficientes $(\lambda I - A)$ for não invertível, ou seja, se e somente se seu determinante for zero. O próximo teorema afirma formalmente isso.
 
@@ -328,7 +328,7 @@ A redução de dimensionalidade consiste em reduzir o número de colunas de um d
 
 Preservar o máximo de informação possível
 
-![](../images/projecoes.png)
+![](../images/algebra/projecoes.png)
 
 ## Motivação para PCA
 
@@ -342,29 +342,29 @@ PCA se baseia em alguns conceitos estatísticos
 
 - média
 
-![](../images/media.png)
+![](../images/algebra/media.png)
 
 - Variância
 
-![](../images/variancia.png)
+![](../images/algebra/variancia.png)
 
 - Covariância
 
-![](../images/covariancia.png)
+![](../images/algebra/covariancia.png)
 
 ## Matriz de covariância
 
-![](../images/matriz-cov.png)
+![](../images/algebra/matriz-cov.png)
 
 Representação
 
-![](../images/representacao.png)
+![](../images/algebra/representacao.png)
 
-![](../images/representacao_1.png)
+![](../images/algebra/representacao_1.png)
 
 Aplicação:
 
-![](../images/aplicacao.png)
+![](../images/algebra/aplicacao.png)
 
 ## PCA - visão geral
 

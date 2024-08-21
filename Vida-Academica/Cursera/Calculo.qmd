@@ -1,0 +1,16 @@
+---
+title: "Cálculo para aprendizado de máquina e ciência de dados - Anotações"
+image: ../../Vida-Academica/images/capa_calculo.png
+description: "Anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
+author: "Wellington Santos Souza"
+date: "2024-08-04"
+categories: ["curso", "coursera", "Cálculo", "Machine Learning", "Data Science", "Deep Learning", "Python"]
+---
+
+*Este artigo foi reescrito em Quarta, 21 de agosto de 2024.*
+
+![](../images/calculo/capa_calculo.png){fig-alt="Capa" fig-title="Capa"}
+
+Link do curso: [Álgebra linear para aprendizado de máquina e ciência de dados](https://www.coursera.org/learn/machine-learning-calculus)
+
+O que Aprendi:

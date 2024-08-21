@@ -1,6 +1,6 @@
 ---
 title: "Módulo 3: Vetores e transformações lineares"
-image: ../../Vida-Academica/images/03-sem.png
+image: ../../Vida-Academica/images/algebra/algebra/03-sem.png
 description: "Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-15"
@@ -118,9 +118,9 @@ $$
 
 ## Produto de pontos geométricos
 
-![](../images/004.png)
+![](../images/algebra/algebra/004.png)
 
-![](../images/001.png)
+![](../images/algebra/001.png)
 
 ## Multiplicação de uma matriz por um vetor
 
@@ -278,7 +278,7 @@ $c_{ij} = \sum\limits^n_{k=1} a_{ik}b_{kj} = a_{i1}b_{1j}+a_{i2}b_{2j}+a_{i3}b_{
 
 Esta definição significa que, para encontrar o elemento na $i-ésima$ linha e na $j-ésima$ coluna do produto $AB$, basta multiplicar os elementos na $i-ésima$ linha de $A$ pelos elementos correspondentes na $j-ésima$ coluna de $B$ e em seguida somar os resultados.
 
-![](../images/0005.png)
+![](../images/algebra/0005.png)
 
 ## Matriz identidade
 
@@ -847,7 +847,7 @@ Podemos usar um modelo de rede neural para fazer isso. A multiplicação de matr
 
 Novamente, usaremos apenas um perceptron, mas com dois nós de entrada, conforme mostrado no esquema a seguir:
 
-![](../images/002.png)
+![](../images/algebra/002.png)
 
 O cálculo da saída do perceptron para um exemplo de treinamento $x = \begin{bmatrix} x_1 & x_2\end{bmatrix}$ pode ser escrito com o produto escalar:
 

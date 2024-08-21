@@ -1,17 +1,15 @@
 ---
 title: "Álgebra linear para aprendizado de máquina e ciência de dados"
-image: ../../Vida-Academica/images/redes.png
+image: ../../Vida-Academica/images/algebra/capa-04.png
 description: "Anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-04"
-categories: ["curso", "coursera", "Algebra Linear", "Machine Learning", "Data Science", "Deep Learning", "Python", "R", "Algebra Linear"]
+categories: ["curso", "coursera", "Algebra Linear", "Machine Learning", "Data Science", "Deep Learning", "Python", "R"]
 ---
 
-*Este artigo foi escrito em Sábado, 25 de Maio de 2024.*
+*Este artigo foi reescrito em Quarta, 21 de agosto de 2024.*
 
-![](../images/capa-04.png){fig-alt="Capa" fig-title="Capa"}
-
-## Álgebra linear para aprendizado de máquina e ciência de dados
+![](../images/algebra/capa-04.png){fig-alt="Capa" fig-title="Capa"}
 
 Link do curso: [Álgebra linear para aprendizado de máquina e ciência de dados](https://www.coursera.org/learn/machine-learning-linear-algebra)
 
@@ -23,9 +21,9 @@ O que Aprendi:
 
 - Expressar certos tipos de operações de matriz como transformação linear e aplicar conceitos de valores próprios e vetores próprios a problemas de aprendizado de máquina
 
-## Módulo 1: Sistema de equações lineares
+**Acesse as anotações clicando nos links contidos no título de cada módulo abaixo:**
 
-Nesse módulo eu aprendi: 
+## [Módulo 1: Sistema de equações lineares](01-mod-algebra.qmd)
 
 + Formar e interpretar graficamente sistemas de equações lineares.
 
@@ -35,11 +33,8 @@ Nesse módulo eu aprendi:
 
 + Determinar a singularidade de um sistema de equações 2x2 e 3x3 calculando o determinante
 
-Clique [**aqui**](01-mod-algebra.qmd) para acessar as anotações do módulo 1.
 
-## Módulo 2: Vetores e matrizes
-
-Nesse módulo eu aprendi:
+## [Módulo 2: Vetores e matrizes](02-mod-vetores-matrizes.qmd)
 
 + Resolver um sistema de equações lineares usando o método de eliminação.
 
@@ -49,9 +44,7 @@ Nesse módulo eu aprendi:
 
 + Calcular a classificação de um sistema de equações lineares e usar a classificação para determinar o número de soluções do sistema.
 
-Clique [**aqui**](02-mod-vetores-matrizes.qmd) para acessar as anotações do módulo 2.
-
-## Módulo 3: Transformações lineares
+## [Módulo 3: Transformações lineares](03-mod-transformacoes-lineares.qmd)
 
 - Realizar operações comuns em vetores, como soma, diferença e produto escalar.
 
@@ -61,9 +54,8 @@ Clique [**aqui**](02-mod-vetores-matrizes.qmd) para acessar as anotações do m�
 
 - Calcular a inversa de uma matriz, se ela existir.
 
-Clique [**aqui**](03-mod-transformacoes-lineares.qmd) para acessar as anotações do módulo 3.
 
-## Módulo 4: Espaços vetoriais
+## [Módulo 4: Espaços vetoriais](04-mod-espacos-vetoriais.qmd)
 
 - Interpretar o determinante de uma matriz como uma área e calcular o determinante de uma inversa de uma matriz e um produto de matrizes.
 
@@ -72,8 +64,3 @@ Clique [**aqui**](03-mod-transformacoes-lineares.qmd) para acessar as anotaçõe
 - Encontrar bases próprias para um tipo especial de transformações lineares comumente usadas no aprendizado de máquina.
 
 - Calcular os valores próprios e os vetores próprios de uma transformação linear (matriz).
-
-Clique [**aqui**](04-mod-espacos-vetoriais.qmd) para acessar as anotações do módulo 4.
-
-
-

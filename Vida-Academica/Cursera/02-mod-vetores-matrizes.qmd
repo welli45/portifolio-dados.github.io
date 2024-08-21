@@ -1,6 +1,6 @@
 ---
 title: "Módulo 2: Resolução de sistemas de equações lineares"
-image: ../../Vida-Academica/images/02-sem.png
+image: ../../Vida-Academica/images/algebra/02-sem.png
 description: "Anotações do módulo 2 do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-011"
@@ -260,7 +260,7 @@ categories: ["curso", "coursera", "Algebra Linear", "Machine Learning", "Data Sc
     1.  todos os elementos de linhas abaixo do pivot são 0.
     2.  A classificação (rank) será o número de valores do pivot.
 
-![Classificação (Rank)](../images/101.png)
+![Classificação (Rank)](../images/algebra/101.png)
 
 ### Forma escalonada de linha reduzida
 
@@ -268,11 +268,11 @@ A matriz intermediária é conhecida como matriz escalonada e a matriz resultant
 
 Forma escalonada reduzida:
 
-![Forma escalonada Reduzida](../images/100.png)
+![Forma escalonada Reduzida](../images/algebra/100.png)
 
 Forma geral:
 
-![Forma Geral](../images/102.png)
+![Forma Geral](../images/algebra/102.png)
 
 ### O algoritmo de eliminação gaussiana
 

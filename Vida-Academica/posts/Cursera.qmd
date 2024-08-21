@@ -13,9 +13,9 @@ categories: ["curso", "coursera", "Machining Learning", "Data Science", "Deep Le
 
 Neste arquivo estão as anotações dos cursos feitos na plataforma Coursera.
 
-## Álgebra linear para aprendizado de máquina e ciência de dados
+## [Álgebra linear para aprendizado de máquina e ciência de dados](../Cursera/Algebra.qmd)
 
-Clique [aqui](../Cursera/Algebra.qmd) para acessar as anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados.
+## [Cálculo para aprendizado de máquina e ciência de dados](../Cursera/Calculo.qmd)
 
 
 
