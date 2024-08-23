@@ -145,7 +145,7 @@ categories: ["curso", "Derivadas", "coursera", "Cálculo", "Machine Learning", "
 
 ![](../images/calculo/regra_cadeia.png)
 
-# [Derivadas usando Sympy, Numpy  e JAX (Python)](derivadas_python.qmd)
+### [Derivadas usando Sympy, Numpy  e JAX (Python)](portifolio-dados.github.io/projetos-Python/posts/derivadas_python.qmd)
 
 
 

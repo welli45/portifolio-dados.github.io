@@ -957,5 +957,12 @@
     "title": "Derivadas usando Sympy e Numpy",
     "section": "Limitações da derivada simbólica",
     "text": "Limitações da derivada simbólica\n\nÀs vezes, as expressões de saída são muito complicadas e até mesmo impossíveis de serem avaliadas. Por exemplo, encontrar a derivada da função.\n\n\\[\\left|x\\right| = \\begin{cases} x, \\ \\text{if}\\ x &gt; 0\\\\  -x, \\ \\text{if}\\ x &lt; 0 \\\\ 0, \\ \\text{if}\\ x = 0\\end{cases}\\] Analiticamente, anderivada é: \\[\\frac{d}{dx}\\left(\\left|x\\right|\\right) = \\begin{cases} 1, \\ \\text{if}\\ x &gt; 0\\\\  -1, \\ \\text{if}\\ x &lt; 0\\\\\\ \\text{does not exist}, \\ \\text{if}\\ x = 0\\end{cases}\\] Podemos calcular a derivada da função \\(f(x) = \\left|x\\right|\\) simbolicamente:\n\n\nCode\ndfdx_abs = diff(abs(x),x)\ndfdx_abs\n\n\n\\(\\displaystyle \\frac{\\left(\\operatorname{re}{\\left(x\\right)} \\frac{d}{d x} \\operatorname{re}{\\left(x\\right)} + \\operatorname{im}{\\left(x\\right)} \\frac{d}{d x} \\operatorname{im}{\\left(x\\right)}\\right) \\operatorname{sign}{\\left(x \\right)}}{x}\\)\n\n\nOutro exemplo \\(x=-2\\):\n\n\nCode\ndfdx_abs.evalf(subs={x:-2})\n\n\n\\(\\displaystyle - \\left. \\frac{d}{d x} \\operatorname{re}{\\left(x\\right)} \\right|_{\\substack{ x=-2 }}\\)\n\n\nDe fato, há problemas com a avaliação das expressões simbólicas sempre que há um “salto” na derivada (por exemplo, as expressões da função são diferentes para diferentes intervalos de \\(x\\)), como acontece com \\(\\frac{d}{dx}(|x|)\\).\nAlém disso, você pode ver neste exemplo que é possível obter uma função muito complicada como resultado da computação simbólica. Isso é chamado de aumento de expressão, que resulta em cálculos não suficientemente lentos."
+  },
+  {
+    "objectID": "Vida-Academica/Cursera/01-mod-derivadas-otimização.html#derivadas-usando-sympy-numpy-e-jax-python",
+    "href": "Vida-Academica/Cursera/01-mod-derivadas-otimização.html#derivadas-usando-sympy-numpy-e-jax-python",
+    "title": "Módulo 1: Derivadas e otimização",
+    "section": "Derivadas usando Sympy, Numpy e JAX (Python)",
+    "text": "Derivadas usando Sympy, Numpy e JAX (Python)"
   }
 ]
