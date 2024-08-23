@@ -1,7 +1,7 @@
 ---
-title: "Cálculo para aprendizado de máquina e ciência de dados - Anotações"
+title: "Cálculo para aprendizado de máquina e ciência de dados"
 image: ../../Vida-Academica/images/capa_calculo.png
-description: "Anotações do curso de Álgebra linear para aprendizado de máquina e ciência de dados"
+description: "Anotações do curso de Cálculo para aprendizado de máquina e ciência de dados"
 author: "Wellington Santos Souza"
 date: "2024-08-04"
 categories: ["curso", "coursera", "Cálculo", "Machine Learning", "Data Science", "Deep Learning", "Python"]
@@ -11,6 +11,22 @@ categories: ["curso", "coursera", "Cálculo", "Machine Learning", "Data Science"
 
 ![](../images/calculo/capa_calculo.png){fig-alt="Capa" fig-title="Capa"}
 
-Link do curso: [Álgebra linear para aprendizado de máquina e ciência de dados](https://www.coursera.org/learn/machine-learning-calculus)
+Link do curso: [Cálculo para aprendizado de máquina e ciência de dados](https://www.coursera.org/learn/machine-learning-calculus)
 
 O que Aprendi:
+
+- Otimizar diferentes tipos de funções comumente usadas no aprendizado de máquina usando propriedades de derivadas e gradientes 
+
+- Otimizar diferentes tipos de funções comumente usadas no aprendizado de máquina
+
+- Interpretar visualmente a diferenciação de diferentes tipos de funções comumente usadas no aprendizado de máquina
+
+- Executar a descida de gradiente em redes neurais com diferentes funções de ativação e custo
+
+**Acesse as anotações clicando nos links contidos no título de cada módulo abaixo:**
+
+## [Módulo 1: Funções e limites](01-mod-derivadas-otimização.qmd)
+
+## [Módulo 2: Derivadas](02-mod-gradientes.qmd)
+
+## [Módulo 3: Integrais](03-mod-otimizacao-redes-neurais.qmd)

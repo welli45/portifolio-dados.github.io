@@ -6,27 +6,912 @@
       version="2.0">
 <channel>
 <title>Portifólio de Dados</title>
-<link>https://github.com/welli45/portifolio/projetos-Python/</link>
-<atom:link href="https://github.com/welli45/portifolio/projetos-Python/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/</link>
+<atom:link href="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/index.xml" rel="self" type="application/rss+xml"/>
 <description>O Python é uma linguagem de programação de alto nível utilizada em diferentes tipos de aplicações, como para o desenvolvimento web, em Machine Learning, no desenvolvimento de jogos e muito mais.[Fonte](https://blog.betrybe.com/python/)</description>
 <image>
-<url>https://github.com/welli45/portifolio/images/profile.png</url>
+<url>https://welli45.github.io/portifolio-dados.github.io/images/profile.png</url>
 <title>Portifólio de Dados</title>
-<link>https://github.com/welli45/portifolio/projetos-Python/</link>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/</link>
 </image>
 <generator>quarto-1.5.56</generator>
-<lastBuildDate>Mon, 12 Feb 2024 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 23 Aug 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Derivadas usando Sympy e Numpy</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><em>Este artigo foi reescrito em Sexta, 23 de Agosto de 2024.</em></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/images/02.calculo_python/derivadas.jpeg" class="img-fluid" data-fig-title="Derivadas Usando Python" alt="Python"></p>
+<section id="funções-usando-python" class="level3">
+<h3 class="anchored" data-anchor-id="funções-usando-python">Funções usando <code>Python</code></h3>
+<p>Para instalar as bibliotecas necessárias, use o comando: <code>!pip install sympy numpy</code></p>
+<p>Usaremos as bibliotecas <code>Sympy</code>, <code>Numpy</code> e <code>JAX</code></p>
+<p><strong>Definição de uma função usando Python</strong></p>
+<ul>
+<li>Se quisermos definir a função <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x%5E2"></li>
+</ul>
+<div id="82a886e3" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> f(x):</span>
+<span id="cb1-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(f(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9</code></pre>
+</div>
+</div>
+<p>Podemos encontrar a derivada dessa função facilmente usando:</p>
+<div id="e1d028b9" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> dfdx(x):</span>
+<span id="cb3-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(dfdx(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6</code></pre>
+</div>
+</div>
+<p>Além disso, podemos aplicar essa função e calcular a derivada para cada elemento de uma array criada com Numpy:</p>
+<div id="68c72bbb" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># primeiro importamos a biblioteca</span></span>
+<span id="cb5-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># criamos o array</span></span>
+<span id="cb5-4">x_array <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>])</span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># calculamos x^2 para cada elemento do array </span></span>
+<span id="cb5-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#e depois calculamos a derivada para cada elemento</span></span>
+<span id="cb5-7"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, x_array)</span>
+<span id="cb5-8"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f(x) = x**2: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, f(x_array))</span>
+<span id="cb5-9"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x) = 2x: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, dfdx(x_array))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x: 
+ [1 2 3]
+f(x) = x**2: 
+ [1 4 9]
+f'(x) = 2x: 
+ [2 4 6]</code></pre>
+</div>
+</div>
+<p>Podemos também aplicar as funções f e dfdx para arrays maiores, além disso podemos plotar os gráficos de f e dfdx</p>
+<div id="7b51fe16" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb7-2"></span>
+<span id="cb7-3"></span>
+<span id="cb7-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> plot_f1_and_f2(f1, f2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>, x_min<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, x_max<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, label1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f(x)"</span>, label2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x)"</span>):</span>
+<span id="cb7-5">    x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(x_min, x_max,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)</span>
+<span id="cb7-6"></span>
+<span id="cb7-7"> </span>
+<span id="cb7-8">    fig <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.figure()</span>
+<span id="cb7-9">    ax <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> fig.add_subplot(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb7-10">    ax.spines[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'left'</span>].set_position(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'center'</span>)</span>
+<span id="cb7-11">    ax.spines[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'bottom'</span>].set_position(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'zero'</span>)</span>
+<span id="cb7-12">    ax.spines[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'right'</span>].set_color(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'none'</span>)</span>
+<span id="cb7-13">    ax.spines[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'top'</span>].set_color(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'none'</span>)</span>
+<span id="cb7-14">    ax.xaxis.set_ticks_position(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'bottom'</span>)</span>
+<span id="cb7-15">    ax.yaxis.set_ticks_position(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'left'</span>)</span>
+<span id="cb7-16"></span>
+<span id="cb7-17">    plt.plot(x, f1(x), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'r'</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>label1)</span>
+<span id="cb7-18">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> f2 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">is</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>:</span>
+<span id="cb7-19">             </span>
+<span id="cb7-20">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(f2, np.ndarray):</span>
+<span id="cb7-21">            plt.plot(x, f2, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'bo'</span>, markersize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>label2,)</span>
+<span id="cb7-22">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb7-23">            plt.plot(x, f2(x), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'b'</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>label2)</span>
+<span id="cb7-24">    plt.legend()</span>
+<span id="cb7-25"></span>
+<span id="cb7-26">    plt.show()</span>
+<span id="cb7-27">    </span>
+<span id="cb7-28">plot_f1_and_f2(f, dfdx)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python_files/figure-html/cell-5-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="derivadas-simbólicas" class="level2">
+<h2 class="anchored" data-anchor-id="derivadas-simbólicas">Derivadas simbólicas</h2>
+<p><strong>Computação simbólica</strong> lida com a computação de objetos matemáticos que são representados na forma exata, e não aproximadamente (por exemplo, <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B2%7D"> será escrito exatamente assim, e não como <img src="https://latex.codecogs.com/png.latex?1.41421356237">. Para a derivada, isso significa que o resultado será de certa forma semelhante ao que seria se você estivesse calculando derivadas manualmente usando regras (analiticamente). Assim, derivadas simbólicas podem produzir resultados exatos.</p>
+<ul>
+<li><p>Derivadas simbólicas em <code>Python</code> usando a biblioteca <code>SymPy</code>.</p></li>
+<li><p>Podemos calcular o valor decimal aproximado de <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B18%7D"></p></li>
+</ul>
+<div id="fc0bb535" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> math</span>
+<span id="cb8-2"></span>
+<span id="cb8-3">math.sqrt(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>4.242640687119285</code></pre>
+</div>
+</div>
+<p><strong>Introdução à Computação Simbólica com <code>SymPy</code></strong></p>
+<ul>
+<li>O valor obtido é: <img src="https://latex.codecogs.com/png.latex?4.242640687119285"></li>
+</ul>
+<p>Agora se quisermos calcular: <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B18%7D%20=%20%5Csqrt%7B9%20%5Ccdot%202%7D%20=%203%5Csqrt%7B2%7D"></p>
+<div id="dce4fe35" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Esse formato de importação de módulo permite</span></span>
+<span id="cb10-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># usar as funções sympy sem o prefixo sympy.</span></span>
+<span id="cb10-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> sympy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb10-4"></span>
+<span id="cb10-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Na verdade, essa é a função sympy.sqrt,</span></span>
+<span id="cb10-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># mas o prefixo sympy. foi omitido.</span></span>
+<span id="cb10-7">sqrt(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="56">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%203%20%5Csqrt%7B2%7D"></p>
+</div>
+</div>
+<p>Para obtermos o valor aproximado fazemos</p>
+<div id="b52ce3f6" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">N(sqrt(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>))</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="57">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%204.24264068711928"></p>
+</div>
+</div>
+<p>No SymPy, as variáveis são definidas usando símbolos. Nesta biblioteca específica, elas precisam ser pré-definidas (uma lista delas deve ser fornecida). Veja na célula abaixo como a expressão simbólica, correspondente à expressão matemática <img src="https://latex.codecogs.com/png.latex?2x%5E2%20-%20xy">, é definida:</p>
+<div id="0579ecf9" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Lista de símboos</span></span>
+<span id="cb12-2">x, y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> symbols(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x y'</span>)</span>
+<span id="cb12-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Definição da expressão.</span></span>
+<span id="cb12-4">expr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> y</span>
+<span id="cb12-5">expr</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="58">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%202%20x%5E%7B2%7D%20-%20x%20y"></p>
+</div>
+</div>
+<p>Pode realizar várias manipulações com essa expressão: adicionar ou subtrair alguns termos, multiplicar por outras expressões, etc., assim como se estivesse fazendo isso manualmente:</p>
+<div id="130f2988" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">expr_manip <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (expr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb13-2">expr_manip</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="59">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20x%20%5Cleft(x%5E%7B3%7D%20+%202%20x%5E%7B2%7D%5Cright)"></p>
+</div>
+</div>
+<p>Agora, vamos calcular a derivada da expressão <img src="https://latex.codecogs.com/png.latex?2x%5E2%20-%20xy"> em relação a <img src="https://latex.codecogs.com/png.latex?x">:</p>
+<div id="682916f8" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Derivada da expressão em relação a x.</span></span>
+<span id="cb14-2">diff(expr, x)</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="60">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%204%20x%20-%20y"></p>
+</div>
+</div>
+<p>Podemos expandir a função expr_manipulada para obter a expressão completa:</p>
+<div id="bd126396" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">expand(expr_manip)</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="61">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20x%5E%7B4%7D%20+%202%20x%5E%7B3%7D"></p>
+</div>
+</div>
+<p>Podemos também simplificar a expressão:</p>
+<div id="26637d3b" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1">simplify(expr_manip)</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="62">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20x%5E%7B3%7D%20%5Cleft(x%20+%202%5Cright)"></p>
+</div>
+</div>
+<p>Também podemos fatorear a expressão:</p>
+<div id="3aa41be2" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">factor(expr_manip)</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="63">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20x%5E%7B3%7D%20%5Cleft(x%20+%202%5Cright)"></p>
+</div>
+</div>
+<p>Podemos também resolver equações simbolicamente:</p>
+<div id="685a84f5" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Resolvendo a equação x^2 - 1 = 0.</span></span>
+<span id="cb18-2">solve(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, x)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>[-1, 1]</code></pre>
+</div>
+</div>
+<p>Podemos substituir valores específicos para as variáveis na expressão</p>
+<div id="37ec48b9" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1">expr.evalf(subs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{x:<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, y:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>})</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="65">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%204.0"></p>
+</div>
+</div>
+<p>Isso pode ser usado para avaliar uma função <img src="https://latex.codecogs.com/png.latex?f%5Cleft(x%5Cright)%20=%20x%5E2">:</p>
+<div id="22c5f492" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1">f_symb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb21-2">f_symb.evalf(subs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{x:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>})</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="66">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%209.0"></p>
+</div>
+</div>
+<p>Podemos avaliar uma função simbólica para cada elemento de uma matriz:</p>
+<div id="c75b6522" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Definindo uma matriz simbólica.</span></span>
+<span id="cb22-2"></span>
+<span id="cb22-3">x_array <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>])</span>
+<span id="cb22-4"></span>
+<span id="cb22-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">try</span>:</span>
+<span id="cb22-6">    f_symb(x_array)</span>
+<span id="cb22-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">TypeError</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> err:</span>
+<span id="cb22-8">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(err)</span>
+<span id="cb22-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Convertendo a função simbólica em uma função numpy.</span></span>
+<span id="cb22-10"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> sympy.utilities.lambdify <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> lambdify</span>
+<span id="cb22-11"></span>
+<span id="cb22-12">f_symb_numpy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> lambdify(x, f_symb, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>)</span>
+<span id="cb22-13"></span>
+<span id="cb22-14"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, x_array)</span>
+<span id="cb22-15"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f(x) = x**2: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, f_symb_numpy(x_array))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'Pow' object is not callable
+x: 
+ [1 2 3]
+f(x) = x**2: 
+ [1 4 9]</code></pre>
+</div>
+</div>
+</section>
+<section id="derivadas-simbólicas-com-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="derivadas-simbólicas-com-sympy">Derivadas Simbólicas com <code>SymPy</code></h2>
+<p>Se quisermos calcular a derivada da função <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x%5E2"> simbolicamente, podemos fazer isso com o <code>SymPy</code>:</p>
+<div id="d6a8ec49" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Definindo a função simbólica.</span></span>
+<span id="cb24-2">f_symb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb24-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculando a derivada da função simbólica.</span></span>
+<span id="cb24-4">dfdx_symb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> diff(f_symb, x)</span>
+<span id="cb24-5">dfdx_symb</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="68">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%202%20x"></p>
+</div>
+</div>
+<p>O Sympy aplica todas as regras de derivação para obter a derivada da função <img src="https://latex.codecogs.com/png.latex?(exp(-2x)%20+%203sin(3x),%20x)">:</p>
+<div id="9627f8fe" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1">f_symb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> exp(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>sin(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x)</span>
+<span id="cb25-2">dfdx_symb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> diff(f_symb, x)</span>
+<span id="cb25-3">f_symb, dfdx_symb</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<pre><code>(3*sin(3*x) + exp(-2*x), 9*cos(3*x) - 2*exp(-2*x))</code></pre>
+</div>
+</div>
+<p>Agora vamos plotar a função e sua derivada:</p>
+<div id="99b4e4db" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1">f_symb_numpy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> lambdify(x, f_symb, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>)</span>
+<span id="cb27-2">dfdx_symb_numpy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> lambdify(x, dfdx_symb, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>)</span>
+<span id="cb27-3"></span>
+<span id="cb27-4">plot_f1_and_f2(f_symb_numpy, dfdx_symb_numpy)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python_files/figure-html/cell-21-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Agora vamos calcular a derivada da função <img src="https://latex.codecogs.com/png.latex?f(x)%20=%202x"> simbolicamente:</p>
+<div id="b1ea848e" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1">f_symb_numpy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> lambdify(x, f_symb, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>)</span>
+<span id="cb28-2"></span>
+<span id="cb28-3">dfdx_symb_numpy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> lambdify(x, dfdx_symb, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>)</span>
+<span id="cb28-4"></span>
+<span id="cb28-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, x_array)</span>
+<span id="cb28-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x) = 2x: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, dfdx_symb_numpy(x_array))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x: 
+ [1 2 3]
+f'(x) = 2x: 
+ [-9.18060304  8.6049013  -8.20512986]</code></pre>
+</div>
+</div>
+<p>Agora vamos plotar a função e sua derivada:</p>
+<div id="627b521f" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plote a função e sua derivada</span></span>
+<span id="cb30-2">plot_f1_and_f2(f_symb_numpy, dfdx_symb_numpy)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python_files/figure-html/cell-23-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="limitações-da-derivada-simbólica" class="level2">
+<h2 class="anchored" data-anchor-id="limitações-da-derivada-simbólica">Limitações da derivada simbólica</h2>
+<ul>
+<li>Às vezes, as expressões de saída são muito complicadas e até mesmo impossíveis de serem avaliadas. Por exemplo, encontrar a derivada da função.</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cleft%7Cx%5Cright%7C%20=%20%5Cbegin%7Bcases%7D%20x,%20%5C%20%5Ctext%7Bif%7D%5C%20x%20%3E%200%5C%5C%20%20-x,%20%5C%20%5Ctext%7Bif%7D%5C%20x%20%3C%200%20%5C%5C%200,%20%5C%20%5Ctext%7Bif%7D%5C%20x%20=%200%5Cend%7Bcases%7D"> Analiticamente, anderivada é: <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(%5Cleft%7Cx%5Cright%7C%5Cright)%20=%20%5Cbegin%7Bcases%7D%201,%20%5C%20%5Ctext%7Bif%7D%5C%20x%20%3E%200%5C%5C%20%20-1,%20%5C%20%5Ctext%7Bif%7D%5C%20x%20%3C%200%5C%5C%5C%20%5Ctext%7Bdoes%20not%20exist%7D,%20%5C%20%5Ctext%7Bif%7D%5C%20x%20=%200%5Cend%7Bcases%7D"> Podemos calcular a derivada da função <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20%5Cleft%7Cx%5Cright%7C"> simbolicamente:</p>
+<div id="68ddc1bf" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1">dfdx_abs <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> diff(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">abs</span>(x),x)</span>
+<span id="cb31-2">dfdx_abs</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="73">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cfrac%7B%5Cleft(%5Coperatorname%7Bre%7D%7B%5Cleft(x%5Cright)%7D%20%5Cfrac%7Bd%7D%7Bd%20x%7D%20%5Coperatorname%7Bre%7D%7B%5Cleft(x%5Cright)%7D%20+%20%5Coperatorname%7Bim%7D%7B%5Cleft(x%5Cright)%7D%20%5Cfrac%7Bd%7D%7Bd%20x%7D%20%5Coperatorname%7Bim%7D%7B%5Cleft(x%5Cright)%7D%5Cright)%20%5Coperatorname%7Bsign%7D%7B%5Cleft(x%20%5Cright)%7D%7D%7Bx%7D"></p>
+</div>
+</div>
+<p>Outro exemplo <img src="https://latex.codecogs.com/png.latex?x=-2">:</p>
+<div id="3db9d8fa" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1">dfdx_abs.evalf(subs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{x:<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>})</span></code></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="74">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20-%20%5Cleft.%20%5Cfrac%7Bd%7D%7Bd%20x%7D%20%5Coperatorname%7Bre%7D%7B%5Cleft(x%5Cright)%7D%20%5Cright%7C_%7B%5Csubstack%7B%20x=-2%20%7D%7D"></p>
+</div>
+</div>
+<p>De fato, há problemas com a avaliação das expressões simbólicas sempre que há um “salto” na derivada (por exemplo, as expressões da função são diferentes para diferentes intervalos de <img src="https://latex.codecogs.com/png.latex?x">), como acontece com <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdx%7D(%7Cx%7C)">.</p>
+<p>Além disso, você pode ver neste exemplo que é possível obter uma função muito complicada como resultado da computação simbólica. Isso é chamado de aumento de expressão, que resulta em cálculos não suficientemente lentos.</p>
+</section>
+<section id="derivadas-numéricas" class="level1">
+<h1>Derivadas Numéricas</h1>
+<p><strong>Derivadas Numéricas</strong> são calculadas numericamente, ou seja, aproximadamente. Isso significa que a derivada é calculada para um valor específico de <img src="https://latex.codecogs.com/png.latex?x"> e é uma aproximação do valor real da derivada. A precisão da derivada numérica depende do valor de <img src="https://latex.codecogs.com/png.latex?h"> (o passo de Derivada). Quanto menor o valor de <img src="https://latex.codecogs.com/png.latex?h">, mais precisa será a derivada, mas também mais lenta será a computação.</p>
+<section id="derivadas-numéricas-em-python-usando-a-biblioteca-numpy." class="level4">
+<h4 class="anchored" data-anchor-id="derivadas-numéricas-em-python-usando-a-biblioteca-numpy.">Derivadas numéricas em <code>Python</code> usando a biblioteca <code>NumPy</code>.</h4>
+<div id="eb1e9e29" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1">x_array_2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)</span>
+<span id="cb33-2">dfdx_numerical <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.gradient(f(x_array_2), x_array_2)</span>
+<span id="cb33-3"></span>
+<span id="cb33-4">plot_f1_and_f2(dfdx_symb_numpy, dfdx_numerical, label1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x) exact"</span>, label2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x) approximate"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python_files/figure-html/cell-26-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="f23294d3" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1">dfdx_composed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> diff(exp(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>sin(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x), x)</span>
+<span id="cb34-2">dfdx_symb_numpy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> lambdify(x, dfdx_symb, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>)</span>
+<span id="cb34-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plote a função e sua derivada</span></span>
+<span id="cb34-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> f_composed(x):</span>
+<span id="cb34-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> np.exp(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.sin(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>x)</span>
+<span id="cb34-6"></span>
+<span id="cb34-7">plot_f1_and_f2(lambdify(x, dfdx_composed, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy'</span>), np.gradient(f_composed(x_array_2), x_array_2),</span>
+<span id="cb34-8">              label1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x) exact"</span>, label2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f'(x) approximate"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python_files/figure-html/cell-27-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Obviamente, a primeira desvantagem da Derivada numérica é que ela não é exata. No entanto, sua precisão normalmente é suficiente para aplicativos de aprendizado de máquina. Nesse estágio, não há necessidade de avaliar os erros da Derivada numérica.</p>
+<p>Outro problema é semelhante ao que apareceu na Derivada simbólica: ela é imprecisa nos pontos em que há “saltos” da derivada. Vamos comparar a derivada exata da função de valor absoluto e a aproximação numérica:</p>
+<div id="3b9a42e3" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> dfdx_abs(x):</span>
+<span id="cb35-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>:</span>
+<span id="cb35-3">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb35-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb35-5">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>:</span>
+<span id="cb35-6">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb35-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb35-8">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb35-9"></span>
+<span id="cb35-10">plot_f1_and_f2(np.vectorize(dfdx_abs), np.gradient(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">abs</span>(x_array_2), x_array_2))</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python_files/figure-html/cell-28-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Derivadas</category>
+  <category>Python</category>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/Derivadas-Python.html</guid>
+  <pubDate>Fri, 23 Aug 2024 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>COLETANDO DADOS DO SIDRA COM O PYTHON</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-Python/posts/projeto-sidrapy.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/projeto-sidrapy.html</link>
   <description><![CDATA[ 
 
 
 
 
 <p><em>Este artigo foi reescrito em Segunda, 25 de Março de 2024.</em></p>
-<p><img src="https://github.com/welli45/portifolio/projetos-Python/images/01.sidrar/sidra.png" class="img-fluid" data-fig-title="Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar" alt="SIDRAr"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/images/01.sidrar/sidra.png" class="img-fluid" data-fig-title="Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar" alt="SIDRAr"></p>
 <p>COLETANDO DADOS DO SIDRA COM O PYTHON</p>
 <p>O primeiro passo será instalar a biblioteca sidrapy, se estiver usando o VSCode pode digitar o código <code>pip install sidrapy</code> no termianl que você irá instalar a biblioteca usada para fazer o download dos dados.</p>
 <p>O segundo passo será importar essa biblioteca para isso faça;</p>
@@ -80,10 +965,9 @@ font-style: inherit;"># Checamos a importação</span></span>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -189,7 +1073,6 @@ font-style: inherit;"># Checamos a importação</span></span>
 </div>
 </div>
 </div>
-</div>
 <div id="7cd37adb" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
@@ -227,10 +1110,9 @@ font-style: inherit;">float</span>)</span>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -336,14 +1218,13 @@ font-style: inherit;">float</span>)</span>
 </div>
 </div>
 </div>
-</div>
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>sidrapy</category>
   <category>Python</category>
-  <guid>https://github.com/welli45/portifolio/projetos-Python/posts/projeto-sidrapy.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/projeto-sidrapy.html</guid>
   <pubDate>Mon, 12 Feb 2024 03:00:00 GMT</pubDate>
 </item>
 </channel>

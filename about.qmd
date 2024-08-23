@@ -98,9 +98,9 @@ Microsoft Power BI, Tableau, Google Data Studio, Microsoft Excel, Google Sheets,
 
 # Idiomas
 
-**Inglês** \| Nível básico a intermediário
+**Inglês** \| (intermediário) – leitura e conversação.
 
-**Espanhol** \| Nível básico a intermediário
+**Espanhol** \| (intermediário) – leitura e conversação.
 
 **Português** \| Fluente
 
@@ -150,25 +150,25 @@ Período: Janeiro de 2021 - Janeiro de 2024
 
 # Certificações/Cursos
 
--   SQL para Análise de Dados - Udemy, jan de 2024
+- 08/2024: Linear Algebra for Machine Learning and Data Science 
+- 07/2024: Regressão Linear – MQ – UFMG
+- 08/2023: Master DAX – Power BI Orientado ao Projeto – Udemy
+- 08/2023: Data Storytelling – Udemy 
+- 06/2023: Certificado Profissional de Análise de Dados do Google – Coursera.
+- 02/2023: Power BI Data Modeling with DAX – LinkedIn.
+- 02/2023: SQL for Data Science – Coursera.
+- 02/2023: Cleaning Bad Data in R – LinkedIn.
+- 01/2023: Introdução às Competências Essenciais para a Análise de Dados – LinkedIn.
+- 01/2023: Master Power BI - De A à Z – Udemy.
+- 03/2022: Microsoft Power BI Para Data Science, Versão 2.0 – Data Science Academy.
+- 03/2022: Dashboards com Google Data Studio – IBPAD.
+- 01/2022: Análise de Redes com R – IBPAD.
+- 01/2022: Análise de Dados em Linguagem R – Enap. 
+- 11/2021: R Intermediário – Meios – Empresa Júnior de Ciências Sociais.
+- 06/2021: Descubra a Linguagem de Programação R – Linkedin Learning. 
+- 10/2020: Metodologia de Survey – Meios – Empresa Júnior de Ciências Sociais – UFMG.
+- 04/2020: Ciência de Dados com R – Udemy.
 
--   Versionamento de Código com Git e GitHub - DIO, jan de 2024
-
--   Certificado Profissional de Análise de Dados do Google - Coursera, jul de 2023
-
--   Programa de cursos integrados: Google Data Analytics - Coursera, jul de 2023
-
--   Master DAX - Power BI orientado a projeto - Udemy, ago de 2023
-
--   Análise de dados com programação em R - Coursera, jul de 2023
-
--   Preparar os dados para exploração – Coursera, abr 2023
-
--   Excel 2019: gestão e análise de dados – LinkedIn, fev 2023
-
--   SQL for data science – Coursera, fev 2023
-
--   Microsoft Power BI Para Data Science, Versão 2.0 – Data Science Academy, mar 2022
 
 
 ::::

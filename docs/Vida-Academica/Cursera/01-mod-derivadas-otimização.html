@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados">
 
-<title>Sobre mim – Portifólio de Dados</title>
+<title>Módulo 1: Derivadas e otimização – Portifólio de Dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,15 +72,44 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Sobre mim – Portifólio de Dados">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Módulo 1: Derivadas e otimização – Portifólio de Dados">
 <meta property="og:description" content="Portifólio // Wellington S. Souza">
-<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/images/profile.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
-<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/cover.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
@@ -90,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Portifólio de Dados</span>
     </a>
   </div>
@@ -101,12 +133,12 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> <i class="bi bi-house-door" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door" role="img">
 </i> 
 <span class="menu-text">Página Inicial</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> <i class="bi bi-file-person" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-file-person" role="img">
 </i> 
 <span class="menu-text">Sobre</span></a>
   </li>  
@@ -118,24 +150,24 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projetos">    
         <li>
-    <a class="dropdown-item" href="./projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Power BI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
+    <a class="dropdown-item" href="../../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Python</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./Vida-Academica/index.html"> <i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="../../Vida-Academica/index.html"> <i class="bi bi-mortarboard-fill" role="img">
 </i> 
 <span class="menu-text">Estudos e Projetos Acadêmicos</span></a>
   </li>  
@@ -143,165 +175,273 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
-    <a href="./projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#derivada" id="toc-derivada" class="nav-link active" data-scroll-target="#derivada">Derivada</a>
+  <ul>
+  <li><a href="#motivação" id="toc-motivação" class="nav-link" data-scroll-target="#motivação">Motivação</a></li>
+  <li><a href="#introdução-à-derivadas" id="toc-introdução-à-derivadas" class="nav-link" data-scroll-target="#introdução-à-derivadas">Introdução à derivadas</a></li>
+  <li><a href="#derivadas-e-tangentes" id="toc-derivadas-e-tangentes" class="nav-link" data-scroll-target="#derivadas-e-tangentes">Derivadas e tangentes</a></li>
+  <li><a href="#inclinações-máximos-e-mínimos" id="toc-inclinações-máximos-e-mínimos" class="nav-link" data-scroll-target="#inclinações-máximos-e-mínimos">Inclinações, máximos e mínimos</a></li>
+  <li><a href="#derivadas---notação" id="toc-derivadas---notação" class="nav-link" data-scroll-target="#derivadas---notação">Derivadas - Notação</a></li>
+  <li><a href="#algumas-derivadas-comuns---linhas" id="toc-algumas-derivadas-comuns---linhas" class="nav-link" data-scroll-target="#algumas-derivadas-comuns---linhas">Algumas derivadas comuns - Linhas</a></li>
+  <li><a href="#algumas-derivadas-comuns---quadráticas" id="toc-algumas-derivadas-comuns---quadráticas" class="nav-link" data-scroll-target="#algumas-derivadas-comuns---quadráticas">Algumas derivadas comuns - quadráticas</a></li>
+  <li><a href="#algumas-derivadas-comuns---polinômios-de-grau-superior" id="toc-algumas-derivadas-comuns---polinômios-de-grau-superior" class="nav-link" data-scroll-target="#algumas-derivadas-comuns---polinômios-de-grau-superior">Algumas derivadas comuns - Polinômios de grau superior</a></li>
+  <li><a href="#algumas-derivadas-comuns---outras-funções-de-potência" id="toc-algumas-derivadas-comuns---outras-funções-de-potência" class="nav-link" data-scroll-target="#algumas-derivadas-comuns---outras-funções-de-potência">Algumas derivadas comuns - Outras funções de potência</a></li>
+  <li><a href="#função-inversa-e-sua-derivada" id="toc-função-inversa-e-sua-derivada" class="nav-link" data-scroll-target="#função-inversa-e-sua-derivada">Função inversa e sua derivada</a></li>
+  <li><a href="#derivada-de-funções-trigonométricas" id="toc-derivada-de-funções-trigonométricas" class="nav-link" data-scroll-target="#derivada-de-funções-trigonométricas">Derivada de funções trigonométricas</a></li>
+  <li><a href="#significado-do-exponencial-e" id="toc-significado-do-exponencial-e" class="nav-link" data-scroll-target="#significado-do-exponencial-e">Significado do exponencial <span class="math inline">\((e)\)</span></a></li>
+  <li><a href="#derivada-de-ex" id="toc-derivada-de-ex" class="nav-link" data-scroll-target="#derivada-de-ex">Derivada de <span class="math inline">\(e^x\)</span></a></li>
+  <li><a href="#derivada-de-logx-logaritmo-natural" id="toc-derivada-de-logx-logaritmo-natural" class="nav-link" data-scroll-target="#derivada-de-logx-logaritmo-natural">Derivada de <span class="math inline">\(log(x)\)</span> ⇒ Logaritmo natural</a></li>
+  <li><a href="#existência-da-derivada-funções-não-diferenciáveis" id="toc-existência-da-derivada-funções-não-diferenciáveis" class="nav-link" data-scroll-target="#existência-da-derivada-funções-não-diferenciáveis">Existência da derivada ⇒ Funções não diferenciáveis</a></li>
+  <li><a href="#propriedade-da-derivada-multiplicação-por-escalares" id="toc-propriedade-da-derivada-multiplicação-por-escalares" class="nav-link" data-scroll-target="#propriedade-da-derivada-multiplicação-por-escalares">Propriedade da derivada: multiplicação por escalares</a></li>
+  <li><a href="#propriedade-da-derivada-regra-da-soma" id="toc-propriedade-da-derivada-regra-da-soma" class="nav-link" data-scroll-target="#propriedade-da-derivada-regra-da-soma">Propriedade da derivada: regra da soma</a></li>
+  <li><a href="#propriedade-da-derivada-regra-do-produto" id="toc-propriedade-da-derivada-regra-do-produto" class="nav-link" data-scroll-target="#propriedade-da-derivada-regra-do-produto">Propriedade da derivada: regra do produto</a></li>
+  <li><a href="#propriedade-da-derivada-regra-da-cadeia" id="toc-propriedade-da-derivada-regra-da-cadeia" class="nav-link" data-scroll-target="#propriedade-da-derivada-regra-da-cadeia">Propriedade da derivada: regra da cadeia</a></li>
+  </ul></li>
+  <li><a href="#derivadas-usando-sympy-numpy-e-jax-python" id="toc-derivadas-usando-sympy-numpy-e-jax-python" class="nav-link" data-scroll-target="#derivadas-usando-sympy-numpy-e-jax-python">Derivadas usando Sympy, Numpy e JAX (Python)</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="imagens/prof_01.jpg" class="about-image
-  rounded " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sobre mim</h1>
-</div>
-<div class="quarto-title-meta column-page">
+<h1 class="title">Módulo 1: Derivadas e otimização</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">curso</div>
+    <div class="quarto-category">Derivadas</div>
+    <div class="quarto-category">coursera</div>
+    <div class="quarto-category">Cálculo</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
   </div>
+  </div>
+
+<div>
+  <div class="description">
+    Anotações do módulo 1 do curso de Álgebra linear para aprendizado de máquina e ciência de dados
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Friday, 23 August 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://twitter.com/Wellington_s_sS" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/wellington-santos-souza/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">Linkedin</span>
-  </a>
-  <a href="https://www.kaggle.com/wellingtonstssza" class="about-link" rel="" target="">
-    <i class="bi bi-clipboard-data"></i>
-     <span class="about-link-text">Kaggle</span>
-  </a>
-  <a href="https://github.com/welli45" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="http://lattes.cnpq.br/6574776498457184" class="about-link" rel="" target="">
-    <i class="bi bi-L"></i>
-     <span class="about-link-text">Lattes</span>
-  </a>
-  <a href="mailto:wellingtonstssza@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<p>Atualmente, estou cursando o mestrado em Sociologia na Universidade Federal de Minas Gerais, na linha de Sociologia Econômica e das Organizações. Sou também Licenciado em Ciências Sociais, com uma Formação Complementar Aberta em Estatística pela mesma universidade. Ao longo da graduação, participei ativamente do projeto Pescarte, onde desenvolvi minha Iniciação Científica, colaborando com uma equipe multidisciplinar composta por sociólogos, antropólogos, estatísticos e educadores ambientais.</p>
-<p>Além disso, faço parte do GIARS - Grupo Interdisciplinar de Pesquisa em Análise de Redes Sociais, vinculado à FAFICH da UFMG. Meu interesse profissional e acadêmico se concentra na análise de dados, pesquisa científica, meio ambiente, políticas públicas para redução das desigualdades sociais, geração de emprego e renda, tecnologia e aplicação de ferramentas como linguagem de programação R, Microsoft Power BI, estatística e suas diversas aplicações.s.</p>
-<p>Minha experiência abrange a condução de análises de dados de saúde, elaboração de relatórios detalhados e a criação de dashboards interativos no Power BI. As certificações recentes, incluindo SQL, Git e Google Data Analytics, demonstram meu comprometimento com a aprendizagem contínua. Possuo habilidades avançadas em R e Power BI.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Experiência</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Skills</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Ferramentas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Idiomas</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Analista de Dados | Governo do Estado de Minas Gerais</strong></p>
-<p>Março de 2023 – Atualmente</p>
-<ul>
-<li><p>Desenvolvimento e construção de relatórios utilizando o Power BI para aprimorar o monitoramento de qualidade.</p></li>
-<li><p>Utilização de R para manipulação e geração de amostras de dados, contribuindo para análises estatísticas mais eficientes.</p></li>
-<li><p>Colaboração no Núcleo de Estatística da Assessoria Estratégica, fornecendo insights valiosos por meio de análises de dados.</p></li>
-<li><p>Aplicação de competências em Rstudio, Limpeza de Dados e outras 8 competências para otimizar processos analíticos.</p></li>
-</ul>
-<p><strong>Estágio em Análise de Dados - Assessoria de Gestão do Fundo Estadual de Assistência Social – AGFEAS | Governo do Estado de Minas Gerais</strong></p>
-<p>Novembro de 2022 – Fevereiro de 2023</p>
-<ul>
-<li><p>Ofereci suporte proativo nas atividades de análise de dados, destacando-me no manejo do Piso Mineiro de Assistência Social e proporcionando insights cruciais para tomadas de decisão informadas.</p></li>
-<li><p>Desempenhei um papel crucial na implementação eficaz de linguagens de programação, notadamente R, na Assessoria de Gestão, promovendo a eficiência e modernização dos processos analíticos.</p></li>
-<li><p>Cooperei de forma integral nas atividades administrativas do Fundo Estadual de Assistência Social, priorizando a organização e integridade dos dados.</p></li>
-</ul>
-<p><strong>Estágio em Pesquisa - Análise de Redes Sociais e Análise de Dados | Instituto Cordial</strong></p>
-<p>Maio de 2022 – Novembro de 2022</p>
-<ul>
-<li><p>Condução da coleta e manipulação de dados públicos de saúde, incluindo fontes como PNS, Vigitel, Sisvan e POF, utilizando a linguagem de programação R. Essa atuação permitiu uma abordagem mais precisa e eficiente na análise de informações relevantes.</p></li>
-<li><p>Elaboração de relatórios de pesquisa detalhados, consolidando os resultados obtidos a partir da análise de dados de saúde. Destaque para a capacidade de apresentar de forma clara e concisa insights valiosos extraídos dos conjuntos de dados.</p></li>
-<li><p>Construção de dashboards interativos no Power BI, proporcionando uma visualização intuitiva e acessível das tendências e padrões identificados nos dados de saúde. Essa ferramenta contribuiu para uma compreensão mais abrangente e rápida das informações, facilitando a tomada de decisões.</p></li>
-<li><p>Colaboração ativa com a equipe de pesquisa, compartilhando conhecimentos sobre análise de redes sociais e análise de dados, contribuindo assim para um ambiente colaborativo e de aprendizado mútuo.</p></li>
-</ul>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>Programação</strong></p>
-<p>Python, Jupyter, R, Quarto, SQL, Git, GitHub, Markdown</p>
-<p><strong>Análise de Dados</strong></p>
-<p>Análise dos dados, Coleta de Dados, Ética em Dados, Limpeza de dados, Metadados, Planilha, Questionamento, Solução de problemas, SQL, Tomada de decisões, Visualização de dados (DataViz)</p>
-<p><strong>Análise de Redes Sociais</strong></p>
-<p>Análise de Redes Sociais, Análise de Redes Sociais com R, Análise de Redes Sociais com Python, Análise de Redes Sociais com Gephi, Análise de Redes Sociais com UCINET, Análise de Redes Sociais com Pajek</p>
-<p><strong>Estatística</strong></p>
-<p>Estatística Descritiva, Estatística para Análise de Dados, Estatística para Pesquisa, Estatística para Redes Sociais, Amostragem, Análise de Regressão, Teste de Hipóteses</p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>Microsoft Power BI, Tableau, Google Data Studio, Microsoft Excel, Google Sheets, Microsoft Word, Google Docs, Microsoft PowerPoint, Google Slides</p>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>Inglês</strong> | (intermediário) – leitura e conversação.</p>
-<p><strong>Espanhol</strong> | (intermediário) – leitura e conversação.</p>
-<p><strong>Português</strong> | Fluente</p>
-</div>
-</div>
-</div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Formação</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Projetos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Certificações/Cursos</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p><strong>Licenciatura em Ciências Sociais</strong></p>
-<p>Universidade Federal de Minas Gerais, fevereiro de 2019 – dezembro de 2023</p>
-<p><strong>Formação Complementar em Estatística</strong></p>
-<p>Universidade Federal de Minas Gerais, março de 2021 – julho de 2023</p>
-<p><strong>Ensino Técnico em Qualidade</strong></p>
-<p>Universidade Estadual de Campinas, 2016 – 2017</p>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p><strong>Iniciação Científica - Fundação IPEAD-UFMG</strong></p>
-<p>Período: Janeiro de 2021 - Janeiro de 2024</p>
-<p><strong>Projeto PESCARTE - Pesquisa-Ação para Melhoria das Condições de Vida de Comunidades de Pescadores Tradicionais na Bacia de Campos</strong></p>
-<ul>
-<li><p>Contribuí ativamente para o Projeto PESCARTE, uma pesquisa-ação destinada a aprimorar as condições de vida das comunidades de pescadores tradicionais na Bacia de Campos, em conformidade com as exigências institucionais para mitigar os impactos socioambientais da indústria petrolífera.</p></li>
-<li><p>Participação integral na Linha de Pesquisa 7: Redes Sociais em Comunidades de Pesca Artesanal, com ênfase especial em dados georreferenciados.</p></li>
-<li><p>Desenvolvimento de revisões bibliográficas abrangentes, consolidando conhecimentos fundamentais para o embasamento teórico da pesquisa.</p></li>
-<li><p>Elaboração de metodologias inovadoras para a coleta de dados cognitivos através de informantes-chave, visando uma compreensão mais profunda das comunidades estudadas.</p></li>
-<li><p>Construção de questionários de pesquisa eficazes, contribuindo para a coleta de dados relevantes e abrangentes.</p></li>
-<li><p>Desenvolvimento de metodologias de coleta de dados georreferenciados, enfatizando a importância da localização geográfica na análise das comunidades.</p></li>
-<li><p>Treinamento da equipe de pesquisa em metodologias avançadas de análise de redes em ciências sociais, promovendo uma abordagem integrada e abrangente.</p></li>
-<li><p>Participação ativa em grupos focais, atuando como redator e facilitador para validar informações e garantir a qualidade dos dados coletados.</p></li>
-<li><p>Elaboração de relatórios de pesquisa detalhados, consolidando os resultados e insights obtidos ao longo do projeto.</p></li>
-</ul>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<ul>
-<li>08/2024: Linear Algebra for Machine Learning and Data Science</li>
-<li>07/2024: Regressão Linear – MQ – UFMG</li>
-<li>08/2023: Master DAX – Power BI Orientado ao Projeto – Udemy</li>
-<li>08/2023: Data Storytelling – Udemy</li>
-<li>06/2023: Certificado Profissional de Análise de Dados do Google – Coursera.</li>
-<li>02/2023: Power BI Data Modeling with DAX – LinkedIn.</li>
-<li>02/2023: SQL for Data Science – Coursera.</li>
-<li>02/2023: Cleaning Bad Data in R – LinkedIn.</li>
-<li>01/2023: Introdução às Competências Essenciais para a Análise de Dados – LinkedIn.</li>
-<li>01/2023: Master Power BI - De A à Z – Udemy.</li>
-<li>03/2022: Microsoft Power BI Para Data Science, Versão 2.0 – Data Science Academy.</li>
-<li>03/2022: Dashboards com Google Data Studio – IBPAD.</li>
-<li>01/2022: Análise de Redes com R – IBPAD.</li>
-<li>01/2022: Análise de Dados em Linguagem R – Enap.</li>
-<li>11/2021: R Intermediário – Meios – Empresa Júnior de Ciências Sociais.</li>
-<li>06/2021: Descubra a Linguagem de Programação R – Linkedin Learning.</li>
-<li>10/2020: Metodologia de Survey – Meios – Empresa Júnior de Ciências Sociais – UFMG.</li>
-<li>04/2020: Ciência de Dados com R – Udemy.</li>
-</ul>
-</div>
-</div>
-</div>
-<p><br><br> <br><br></p>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
-</div>
- <!-- /main -->
+<section id="derivada" class="level2">
+<h2 class="anchored" data-anchor-id="derivada">Derivada</h2>
+<section id="motivação" class="level3">
+<h3 class="anchored" data-anchor-id="motivação">Motivação</h3>
+<ul>
+<li>Otimização de funções ⇒ importante para M.L</li>
+<li>Conceitos matemáticos utilizados para treinar um modelo
+<ul>
+<li>Gradientes</li>
+<li>Derivadas</li>
+<li>Otimização</li>
+<li>Funções de perda e custo</li>
+<li>Gradação descendente</li>
+</ul></li>
+</ul>
+</section>
+<section id="introdução-à-derivadas" class="level3">
+<h3 class="anchored" data-anchor-id="introdução-à-derivadas">Introdução à derivadas</h3>
+<ul>
+<li>Uma derivada é a taxa de variação instantânea de uma função.</li>
+</ul>
+</section>
+<section id="derivadas-e-tangentes" class="level3">
+<h3 class="anchored" data-anchor-id="derivadas-e-tangentes">Derivadas e tangentes</h3>
+<p><img src="../images/calculo/derivadas.png" class="img-fluid"></p>
+</section>
+<section id="inclinações-máximos-e-mínimos" class="level3">
+<h3 class="anchored" data-anchor-id="inclinações-máximos-e-mínimos">Inclinações, máximos e mínimos</h3>
+<ul>
+<li>Propriedades
+<ul>
+<li>Os pontos máximos e mínimos de uma função são as regiões onde a <span class="math inline">\(\dfrac{dy}{dx} =0\)</span>, isto é, onde a inclinação da reta for igual a 0.</li>
+</ul></li>
+</ul>
+</section>
+<section id="derivadas---notação" class="level3">
+<h3 class="anchored" data-anchor-id="derivadas---notação">Derivadas - Notação</h3>
+<p><img src="../images/calculo/derivadas-notacao.png" class="img-fluid"></p>
+<ul>
+<li>Notação de Leibniz
+<ul>
+<li><span class="math inline">\(\dfrac{dy}{dx} = \dfrac{d}{dx}f(x)\)</span></li>
+</ul></li>
+<li>Notação de Lagrange
+<ul>
+<li><span class="math inline">\(f´(x)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="algumas-derivadas-comuns---linhas" class="level3">
+<h3 class="anchored" data-anchor-id="algumas-derivadas-comuns---linhas">Algumas derivadas comuns - Linhas</h3>
+<ul>
+<li><p>Uma linha é uma constante</p>
+<ul>
+<li>Uma constante tem sempre uma derivada igual a 0.</li>
+</ul>
+<p><img src="../images/calculo/constante.png" class="img-fluid"></p>
+<ul>
+<li>Uma reta do tipo <span class="math inline">\(f(x) = ax+b\)</span> ⇒ <span class="math inline">\(f´(x) = a\)</span></li>
+</ul></li>
+</ul>
+<p><img src="../images/calculo/contante_inclinacao.png" class="img-fluid"></p>
+</section>
+<section id="algumas-derivadas-comuns---quadráticas" class="level3">
+<h3 class="anchored" data-anchor-id="algumas-derivadas-comuns---quadráticas">Algumas derivadas comuns - quadráticas</h3>
+<ul>
+<li>Para a função do tipo; <span class="math inline">\(f(x) = x^2\)</span> ⇒ <span class="math inline">\(f(x´) = 2x\)</span></li>
+</ul>
+<p><img src="../images/calculo/funcao_quadratica.png" class="img-fluid"></p>
+</section>
+<section id="algumas-derivadas-comuns---polinômios-de-grau-superior" class="level3">
+<h3 class="anchored" data-anchor-id="algumas-derivadas-comuns---polinômios-de-grau-superior">Algumas derivadas comuns - Polinômios de grau superior</h3>
+<ul>
+<li>Para uma função do tipo; <span class="math inline">\(y=f(x) = x^3\)</span> ⇒ <span class="math inline">\(f´(x) =\)</span> <span class="math inline">\(3x^2\)</span></li>
+</ul>
+<p><img src="../images/calculo/funcao_cubica.png" class="img-fluid"></p>
+</section>
+<section id="algumas-derivadas-comuns---outras-funções-de-potência" class="level3">
+<h3 class="anchored" data-anchor-id="algumas-derivadas-comuns---outras-funções-de-potência">Algumas derivadas comuns - Outras funções de potência</h3>
+<ul>
+<li>Para a função do tipo <span class="math inline">\(y = f(x)=x^{-1}=\frac{1}{x}\)</span> ⇒ f´(x) = <span class="math inline">\(-x^{-2}\)</span></li>
+</ul>
+<p><img src="../images/calculo/funcao_portencia.png" class="img-fluid"></p>
+<ul>
+<li>Para as funções potência derivamos da seguinte forma ⇒ para a <span class="math inline">\(f(x)=x^n\)</span> ⇒ <span class="math inline">\(f´(x) = \frac{d}{dx} f(x)=nx^{(n-1)}\)</span></li>
+</ul>
+<p><img src="../images/calculo/outras_funcoes_potencia.png" class="img-fluid"></p>
+<ul>
+<li>Exemplo</li>
+</ul>
+<p><img src="../images/calculo/seno.png" class="img-fluid"></p>
+</section>
+<section id="função-inversa-e-sua-derivada" class="level3">
+<h3 class="anchored" data-anchor-id="função-inversa-e-sua-derivada">Função inversa e sua derivada</h3>
+<ul>
+<li><span class="math inline">\(g(x)\)</span> e <span class="math inline">\(f(x)\)</span> são inversas
+<ul>
+<li><span class="math inline">\(g(x) = f^{-1}(x)\)</span></li>
+<li><span class="math inline">\(g(f(x)) = x\)</span></li>
+</ul></li>
+</ul>
+<p><img src="../images/calculo/derivada_inversa.png" class="img-fluid"></p>
+</section>
+<section id="derivada-de-funções-trigonométricas" class="level3">
+<h3 class="anchored" data-anchor-id="derivada-de-funções-trigonométricas">Derivada de funções trigonométricas</h3>
+<ul>
+<li><p>Função seno</p>
+<ul>
+<li><span class="math inline">\(f(x) = sin(x) ⇒ f´(x) = cos(x)\)</span></li>
+</ul>
+<p><img src="../images/calculo/seno.png" class="img-fluid"></p>
+<ul>
+<li><span class="math inline">\(f(x) = cos(x)\)</span> ⇒ <span class="math inline">\(f´(x) = - sin(x)\)</span></li>
+</ul></li>
+</ul>
+<p><img src="../images/calculo/coseno.png" class="img-fluid"></p>
+</section>
+<section id="significado-do-exponencial-e" class="level3">
+<h3 class="anchored" data-anchor-id="significado-do-exponencial-e">Significado do exponencial <span class="math inline">\((e)\)</span></h3>
+<ul>
+<li>número de Euler ⇒ <span class="math inline">\(e = 2,71828182...\)</span>
+<ul>
+<li><p>propriedades</p>
+<p><span class="math inline">\(\begin{bmatrix}n&amp;1&amp;10&amp;100&amp;1000&amp; \infty \\(1+\frac{1}{n}^n) &amp;2&amp;2,594&amp;2,705&amp;2,717&amp;e \end{bmatrix}\)</span></p>
+<p><span class="math inline">\(f(x) = e^x\)</span> ⇒ <span class="math inline">\(f’(x)=e^x\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="derivada-de-ex" class="level3">
+<h3 class="anchored" data-anchor-id="derivada-de-ex">Derivada de <span class="math inline">\(e^x\)</span></h3>
+<p><img src="../images/calculo/euler.png" class="img-fluid"></p>
+</section>
+<section id="derivada-de-logx-logaritmo-natural" class="level3">
+<h3 class="anchored" data-anchor-id="derivada-de-logx-logaritmo-natural">Derivada de <span class="math inline">\(log(x)\)</span> ⇒ Logaritmo natural</h3>
+<p><img src="../images/calculo/derivada_log.png" class="img-fluid"></p>
+</section>
+<section id="existência-da-derivada-funções-não-diferenciáveis" class="level3">
+<h3 class="anchored" data-anchor-id="existência-da-derivada-funções-não-diferenciáveis">Existência da derivada ⇒ Funções não diferenciáveis</h3>
+<p><img src="../images/calculo/funcoes_n_diff.png" class="img-fluid"></p>
+</section>
+<section id="propriedade-da-derivada-multiplicação-por-escalares" class="level3">
+<h3 class="anchored" data-anchor-id="propriedade-da-derivada-multiplicação-por-escalares">Propriedade da derivada: multiplicação por escalares</h3>
+<ul>
+<li>Dada a função <span class="math inline">\(f=4g\)</span> ⇒ <span class="math inline">\(f’=4g’\)</span></li>
+</ul>
+<p><img src="../images/calculo/regra_escalar.png" class="img-fluid"></p>
+</section>
+<section id="propriedade-da-derivada-regra-da-soma" class="level3">
+<h3 class="anchored" data-anchor-id="propriedade-da-derivada-regra-da-soma">Propriedade da derivada: regra da soma</h3>
+<ul>
+<li>Dada a função <span class="math inline">\(f = g + h\)</span> ⇒ <span class="math inline">\(f’=g’+h’\)</span></li>
+</ul>
+<p><img src="../images/calculo/regra_soma.png" class="img-fluid"></p>
+</section>
+<section id="propriedade-da-derivada-regra-do-produto" class="level3">
+<h3 class="anchored" data-anchor-id="propriedade-da-derivada-regra-do-produto">Propriedade da derivada: regra do produto</h3>
+<ul>
+<li>Dada a função <span class="math inline">\(f = gh\)</span> ⇒ <span class="math inline">\(f’ = f’h+gh’\)</span></li>
+</ul>
+<p><img src="../images/calculo/regra_produto.png" class="img-fluid"></p>
+</section>
+<section id="propriedade-da-derivada-regra-da-cadeia" class="level3">
+<h3 class="anchored" data-anchor-id="propriedade-da-derivada-regra-da-cadeia">Propriedade da derivada: regra da cadeia</h3>
+<ul>
+<li>Data a função <span class="math inline">\(f(g(h(t)))\)</span> ⇒ <span class="math inline">\(f’(g(h(t)))*g’(h(t))*h’(t)\)</span></li>
+</ul>
+<p><img src="../images/calculo/regra_cadeia.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="derivadas-usando-sympy-numpy-e-jax-python" class="level1">
+<h1><a href="derivadas_python.qmd">Derivadas usando Sympy, Numpy e JAX (Python)</a></h1>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -466,6 +606,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -908,5 +1055,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
