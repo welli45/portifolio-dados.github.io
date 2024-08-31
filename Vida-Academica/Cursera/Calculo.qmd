@@ -25,8 +25,8 @@ O que Aprendi:
 
 **Acesse as anotações clicando nos links contidos no título de cada módulo abaixo:**
 
-## [Módulo 1: ](01-mod-derivadas-otimização.qmd)
+## [Módulo 1: Derivadas e otimização](01-mod-derivadas-otimização.qmd)
 
-## [Módulo 2: ](02-mod-gradientes.qmd)
+## [Módulo 2: Gradientes e Gradient Descent](02-mod-gradientes.qmd)
 
-## [Módulo 3: ](03-mod-otimizacao-redes-neurais.qmd)
+## [Módulo 3: Otimização em redes neurais e método de Newton](03-mod-otimizacao-redes-neurais.qmd)

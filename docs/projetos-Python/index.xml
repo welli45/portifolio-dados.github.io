@@ -973,7 +973,7 @@ font-style: inherit;">abs</span>(x_array_2), x_array_2))</span></code></pre></di
 
 <p>Método de <strong>Gradient Descent</strong> otimizando algumas funções em duas variáveis.</p>
 <p>Vamos carregar os pacotes que utilizaremos aqui:</p>
-<div id="a43c0147" class="cell" data-execution_count="1">
+<div id="53d0f962" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -1010,7 +1010,7 @@ $$
 
 em que $\alpha&gt;0$ é uma taxa de aprendizado. O número de iterações também é um parâmetro. O método é implementado com o seguinte código:
 
-::: {#14233b9f .cell execution_count=2}
+::: {#a3dfca74 .cell execution_count=2}
 ``` {.python .cell-code}
 def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100):
     for iteration in range(num_iterations):
@@ -1018,7 +1018,7 @@ def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100
     return x, y</code></pre>
 <p>:::</p>
 <p>Agora, para otimizar a função, configuramos os parâmetros <code>num_iterations</code>, <code>learning_rate</code>, <code>x_initial</code>, <code>y_initial</code> e executar o <strong>gradient descent</strong>:</p>
-<div id="d1df5351" class="cell" data-execution_count="3">
+<div id="3f0a93da" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">num_iterations <span class="op" style="color: #5E5E5E;
@@ -1056,7 +1056,7 @@ font-style: inherit;">"Gradient descent result: x_min, y_min ="</span>, </span>
 </div>
 </div>
 <p>Pode ver a visualização executando o código a seguir. Observe que a descida de gradiente em duas variáveis executa etapas no plano, em uma direção oposta ao vetor de gradiente <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bbmatrix%7D%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20x%7D(x_0,%20y_0)%20%5C%5C%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20y%7D(x_0,%20y_0)%5Cend%7Bbmatrix%7D"> com a taxa de aprendizado <img src="https://latex.codecogs.com/png.latex?%5Calpha"> como um fator de escala.</p>
-<div id="69d96197" class="cell" data-execution_count="4">
+<div id="36963654" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">num_iterations <span class="op" style="color: #5E5E5E;
@@ -1212,7 +1212,7 @@ font-style: inherit;">28</span>})</span></code></pre></div>
 </div>
 </div>
 <p>Vamos dar uma olhada nessa outra função</p>
-<div id="7ecbd0c9" class="cell" data-execution_count="5">
+<div id="ed42c509" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">plot_f_cont_and_surf([<span class="dv" style="color: #AD0000;
@@ -1259,7 +1259,7 @@ font-style: inherit;">21</span>})</span></code></pre></div>
 </div>
 </div>
 <p>Podemos encontrar o mínimo global com:</p>
-<div id="d9f6a8fb" class="cell" data-execution_count="6">
+<div id="14e4784f" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">num_iterations <span class="op" style="color: #5E5E5E;
@@ -1298,7 +1298,7 @@ font-style: inherit;">"Gradient descent result: x_min, y_min ="</span>, </span>
 </div>
 </div>
 <p>Visualizando</p>
-<div id="21630239" class="cell" data-execution_count="7">
+<div id="eb3cec13" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
