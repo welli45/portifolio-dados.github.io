@@ -80,7 +80,7 @@ $E(m=\frac{1}{2},b= \frac{7}{3} \approx 4.167)$
 
 ## Otimização usando Gradient Descent em uma variável Usando Python
 
-[Clique aqui para acessar o código](../projetos-Python/posts/gradiente-descent.qmd)
+[Clique aqui para acessar o código](https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradiente-descent.html)
 
 # Otimização usando Gradient Descent em duas variáveis
 
@@ -88,6 +88,6 @@ Algortimo de Gradient Descent em duas variáveis
 
 ![](../images/calculo/10-gradiente-algoritimo.png)
 
-[Clique aqui para acessar o código](../projetos-Python/posts/gradiente-descent-2-variables.qmd)
+[Clique aqui para acessar o código](https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables.html)
 
 

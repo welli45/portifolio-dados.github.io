@@ -279,7 +279,7 @@ window.Quarto = {
 
 <p>Método de <strong>Gradient Descent</strong> otimizando algumas funções em duas variáveis.</p>
 <p>Vamos carregar os pacotes que utilizaremos aqui:</p>
-<div id="53d0f962" class="cell" data-execution_count="1">
+<div id="a96c951d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -304,7 +304,7 @@ $$
 
 em que $\alpha&gt;0$ é uma taxa de aprendizado. O número de iterações também é um parâmetro. O método é implementado com o seguinte código:
 
-::: {#a3dfca74 .cell execution_count=2}
+::: {#1b50eba1 .cell execution_count=2}
 ``` {.python .cell-code}
 def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100):
     for iteration in range(num_iterations):
@@ -312,7 +312,7 @@ def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100
     return x, y</code></pre>
 <p>:::</p>
 <p>Agora, para otimizar a função, configuramos os parâmetros <code>num_iterations</code>, <code>learning_rate</code>, <code>x_initial</code>, <code>y_initial</code> e executar o <strong>gradient descent</strong>:</p>
-<div id="3f0a93da" class="cell" data-execution_count="3">
+<div id="04870755" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num_iterations <span class="op">=</span> <span class="dv">30</span><span class="op">;</span> learning_rate <span class="op">=</span> <span class="fl">0.25</span><span class="op">;</span> x_initial <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span> y_initial <span class="op">=</span> <span class="fl">0.6</span></span>
@@ -324,7 +324,7 @@ def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100
 </div>
 </div>
 <p>Pode ver a visualização executando o código a seguir. Observe que a descida de gradiente em duas variáveis executa etapas no plano, em uma direção oposta ao vetor de gradiente <span class="math inline">\(\begin{bmatrix}\frac{\partial f}{\partial x}(x_0, y_0) \\ \frac{\partial f}{\partial y}(x_0, y_0)\end{bmatrix}\)</span> com a taxa de aprendizado <span class="math inline">\(\alpha\)</span> como um fator de escala.</p>
-<div id="36963654" class="cell" data-execution_count="4">
+<div id="f2c158d5" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>num_iterations <span class="op">=</span> <span class="dv">20</span><span class="op">;</span> learning_rate <span class="op">=</span> <span class="fl">0.25</span><span class="op">;</span> x_initial <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span> y_initial <span class="op">=</span> <span class="fl">0.6</span></span>
@@ -348,12 +348,12 @@ def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100
 </div>
 </div>
 <p>Vamos dar uma olhada nessa outra função</p>
-<div id="ed42c509" class="cell" data-execution_count="5">
+<div id="334d7ab3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_f_cont_and_surf([<span class="dv">0</span>, <span class="dv">5</span>], [<span class="dv">0</span>, <span class="dv">5</span>], [<span class="dv">6</span>, <span class="fl">9.5</span>], f_example_4, cmap<span class="op">=</span><span class="st">'terrain'</span>, view<span class="op">=</span>{<span class="st">'azim'</span>:<span class="op">-</span><span class="dv">63</span>,<span class="st">'elev'</span>:<span class="dv">21</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>(&lt;Figure size 960x480 with 2 Axes&gt;,
  &lt;Axes: xlabel='$x$', ylabel='$y$'&gt;,
  &lt;Axes3D: xlabel='$x$', ylabel='$y$', zlabel='$f$'&gt;)</code></pre>
@@ -367,7 +367,7 @@ def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100
 </div>
 </div>
 <p>Podemos encontrar o mínimo global com:</p>
-<div id="14e4784f" class="cell" data-execution_count="6">
+<div id="7b4c6648" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>num_iterations <span class="op">=</span> <span class="dv">100</span><span class="op">;</span> learning_rate <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span> x_initial <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span> y_initial <span class="op">=</span> <span class="dv">3</span></span>
@@ -380,7 +380,7 @@ def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100
 </div>
 </div>
 <p>Visualizando</p>
-<div id="eb3cec13" class="cell" data-execution_count="7">
+<div id="672abe3f" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converges to the global minimum point.</span></span>
