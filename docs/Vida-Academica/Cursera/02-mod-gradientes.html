@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Anotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados">
 
-<title>mod-gradientes – Portifólio de Dados</title>
+<title>Portifólio de Dados - Módulo 2: Gradientes e Gradient Descent</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,15 +72,44 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Portifólio de Dados">
+<meta property="og:title" content="Portifólio de Dados - Módulo 2: Gradientes e Gradient Descent">
 <meta property="og:description" content="Portifólio // Wellington S. Souza">
-<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/Cursera/images/profile.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
-<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/Cursera/cover.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
@@ -96,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -112,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Sobre</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projetos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projetos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-clipboard-data-fill" role="img">
 </i> 
  <span class="menu-text">Projetos</span>
@@ -142,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+          <div class="quarto-navbar-tools tools-wide">
     <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
     <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -154,17 +185,175 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gradientes" id="toc-gradientes" class="nav-link active" data-scroll-target="#gradientes">Gradientes</a>
+  <ul>
+  <li><a href="#derivadas-parciais" id="toc-derivadas-parciais" class="nav-link" data-scroll-target="#derivadas-parciais">Derivadas parciais</a></li>
+  <li><a href="#gradientes-1" id="toc-gradientes-1" class="nav-link" data-scroll-target="#gradientes-1">Gradientes</a></li>
+  <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos">Exemplos</a></li>
+  </ul></li>
+  <li><a href="#gradiente-descendente" id="toc-gradiente-descendente" class="nav-link" data-scroll-target="#gradiente-descendente">Gradiente Descendente</a></li>
+  <li><a href="#otimização-usando-gradient-descent-em-uma-variável-usando-python" id="toc-otimização-usando-gradient-descent-em-uma-variável-usando-python" class="nav-link" data-scroll-target="#otimização-usando-gradient-descent-em-uma-variável-usando-python">Otimização usando Gradient Descent em uma variável Usando Python</a></li>
+  <li><a href="#otimização-usando-gradient-descent-em-duas-variáveis" id="toc-otimização-usando-gradient-descent-em-duas-variáveis" class="nav-link" data-scroll-target="#otimização-usando-gradient-descent-em-duas-variáveis">Otimização usando Gradient Descent em duas variáveis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Módulo 2: Gradientes e Gradient Descent</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">curso</div>
+    <div class="quarto-category">coursera</div>
+    <div class="quarto-category">Algebra Linear</div>
+    <div class="quarto-category">calculo</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Algebra Linear</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Anotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Sunday, 04 August 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="gradientes" class="level2">
+<h2 class="anchored" data-anchor-id="gradientes">Gradientes</h2>
+<section id="derivadas-parciais" class="level3">
+<h3 class="anchored" data-anchor-id="derivadas-parciais">Derivadas parciais</h3>
+<ul>
+<li>Como podemos calcular uma derivada parcial
+<ul>
+<li><p>Imagine a função: <span class="math inline">\(f(x,y) = x^2 + y^2\)</span></p></li>
+<li><p>Vamos considerar <span class="math inline">\(y^2\)</span> como uma constante,</p>
+<ul>
+<li>então: <span class="math inline">\(\dfrac{\partial f}{\partial x} = 2x + 0\)</span> ⇒ <span class="math inline">\(\dfrac{\partial f}{\partial y} = 2y + 0\)</span></li>
+</ul>
+<p><img src="../images/calculo/02-derivas_parciais.png" class="img-fluid"></p>
+<ul>
+<li>Outro exemplo ⇒ <span class="math inline">\(f(x,y) = 3x^2y^3\)</span>
+<ul>
+<li><span class="math inline">\(\dfrac{\partial f}{\partial x} = 3(2x)y^3\)</span> ⇒ <span class="math inline">\(6xy^3\)</span></li>
+</ul></li>
+<li><span class="math inline">\(f(x) = 3x^2y^3\)</span>
+<ul>
+<li><span class="math inline">\(\dfrac{\partial f}{\partial y} = 3(x^2)(3y^2)\)</span> ⇒ <span class="math inline">\(9x^2y^2\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="gradientes-1" class="level3">
+<h3 class="anchored" data-anchor-id="gradientes-1">Gradientes</h3>
+<ul>
+<li>dada a função <span class="math inline">\(f(x,y) = x^2 + y^2\)</span></li>
+<li>o gradiente de f(x, y) é: <span class="math inline">\(\nabla f = \begin{bmatrix}2x\\2y\end{bmatrix}\)</span></li>
+<li>Encontre o gradiente da função <span class="math inline">\(f(x,y) = x^2 + y^2\)</span> no ponto <span class="math inline">\((2,3)\)</span>:
+<ul>
+<li><span class="math inline">\(\nabla f = \begin{bmatrix} 2*2\\2*3 \end{bmatrix} = \begin{bmatrix} 4\\6\end{bmatrix}\)</span></li>
+</ul></li>
+<li>Gradiente é importante para minimizarmos funções com duas variáveis:</li>
+<li>Pra encontrarmos os pontos mínimos e máximos de uma função com mais de uma variável, basta calcularmos a derivada parcial, igualando as duas funções a 0 e resolvendo o sistema de equações lineares.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/calculo//03-minimo-maximo-parciais.png" class="img-fluid figure-img"></p>
+<figcaption>03-minimo-maximo-parciais.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="exemplos" class="level3">
+<h3 class="anchored" data-anchor-id="exemplos">Exemplos</h3>
+<ul>
+<li>Imagine que você está numa sauna e a temperatura na sala segue essa função <span class="math inline">\(T = f(x,y) = 85-\frac{1}{90}x^2(x-6)y^2(y-6)\)</span> em relação a área da sauna. Encontre o ponto onde a temperatura é a mínima.</li>
+</ul>
+<p>Usando a forma expandida da função ff escrita como: <span class="math inline">\(T = f(x,y) = 85-\frac{1}{90}x^2(x-6)y^2(y-6)\)</span></p>
+<p><span class="math inline">\(=85−\frac{1}{90}x^3y^3+\frac{1}{15}x^3y^2+\frac{1}{15}x^2y^3−\frac{2}{5}x2y2\)</span></p>
+<p>Encontre <span class="math inline">\(\dfrac{\partial f}{\partial x}\)</span> e <span class="math inline">\(\dfrac{\partial f}{\partial y}\)</span></p>
+<p><span class="math inline">\(\dfrac{\partial f}{\partial x} = -\dfrac{1}{90}x(3x-12)y^2(y-6) =0\)</span></p>
+<p><span class="math inline">\(\dfrac{\partial f}{\partial y} = -\dfrac{1}{90}x^2(x-6)y(3y-12)=0\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/calculo//04-sauna-minimo.png" class="img-fluid figure-img"></p>
+<figcaption>04-sauna-minimo.png</figcaption>
+</figure>
+</div>
+<p>Num modelo de regressão linear, caso queira encontrar a melhor reta que se ajuste aos dados, o procedimento pode ser feita calculando as derivadas parciais da função que descreve os dados. Veja o exemplo a seguir:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/calculo/05-energia-minimo.png" class="img-fluid figure-img"></p>
+<figcaption>05-energia-minimo.png</figcaption>
+</figure>
+</div>
+<p><img src="../images/calculo/06-energia-minimo.png" class="img-fluid"></p>
+<p>Os pontos que igualam essa derivada a 0 são dados a seguir:</p>
+<p><span class="math inline">\(m = \frac{1}{2}\)</span></p>
+<p><span class="math inline">\(b = \frac{7}{3}\)</span></p>
+<p>Substituindo <span class="math inline">\(m\)</span> e <span class="math inline">\(b\)</span> temos que</p>
+<p><span class="math inline">\(E(m=\frac{1}{2},b= \frac{7}{3} \approx 4.167)\)</span></p>
+</section>
+</section>
+<section id="gradiente-descendente" class="level2">
+<h2 class="anchored" data-anchor-id="gradiente-descendente">Gradiente Descendente</h2>
+<ul>
+<li>Dado que temos a função <span class="math inline">\(f(x) = e^x - log(x)\)</span></li>
+</ul>
+<p><img src="../images/calculo/07-gradiente-descida.png" class="img-fluid"></p>
+<ul>
+<li>Escolhemos um valor aleatório e o movemos nas duas direções do eixo <span class="math inline">\(x\)</span> e verificamos a direção até chegarmos no ponto onde a derivada sobe de uma lado e desce do outro, assim, encontramos um ponto que aproximadamente pode ser o mínimo.</li>
+<li>Se você quiser encontrar o ponto mais próximo do mínimo menos a inclinação.</li>
+</ul>
+<p><img src="../images/calculo/08-gradiente-algoritimo.png" class="img-fluid"></p>
+<p><img src="../images/calculo/09-gradiente-exemplo.png" class="img-fluid"></p>
+</section>
+<section id="otimização-usando-gradient-descent-em-uma-variável-usando-python" class="level2">
+<h2 class="anchored" data-anchor-id="otimização-usando-gradient-descent-em-uma-variável-usando-python">Otimização usando Gradient Descent em uma variável Usando Python</h2>
+<p><a href="../projetos-Python/posts/gradiente-descent.qmd">Clique aqui para acessar o código</a></p>
+</section>
+<section id="otimização-usando-gradient-descent-em-duas-variáveis" class="level1">
+<h1>Otimização usando Gradient Descent em duas variáveis</h1>
+<p>Algortimo de Gradient Descent em duas variáveis</p>
+<p><img src="../images/calculo/10-gradiente-algoritimo.png" class="img-fluid"></p>
+<p><a href="../projetos-Python/posts/gradiente-descent-2-variables.qmd">Clique aqui para acessar o código</a></p>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -346,7 +535,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -378,29 +578,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/welli45\.github\.io\/portifolio-dados\.github\.io\/");
@@ -408,7 +586,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

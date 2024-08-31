@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Anotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados">
 
-<title>mod-otimizacao-redes-neurais – Portifólio de Dados</title>
+<title>Portifólio de Dados - Módulo 3: Otimização em redes neurais e método de Newton</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,15 +106,44 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Portifólio de Dados">
+<meta property="og:title" content="Portifólio de Dados - Módulo 3: Otimização em redes neurais e método de Newton">
 <meta property="og:description" content="Portifólio // Wellington S. Souza">
-<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/Cursera/images/profile.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta property="og:site_name" content="Portifólio de Dados">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Bem vindo (a) ao meu portifólio!">
-<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/Cursera/cover.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/images/01-sem.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
@@ -96,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -112,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Sobre</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projetos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projetos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-clipboard-data-fill" role="img">
 </i> 
  <span class="menu-text">Projetos</span>
@@ -142,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+          <div class="quarto-navbar-tools tools-wide">
     <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
     <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -154,17 +219,456 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#otimização-em-redes-neurais" id="toc-otimização-em-redes-neurais" class="nav-link active" data-scroll-target="#otimização-em-redes-neurais">Otimização em redes neurais</a>
+  <ul>
+  <li><a href="#regressão-com-um-único-perceptron" id="toc-regressão-com-um-único-perceptron" class="nav-link" data-scroll-target="#regressão-com-um-único-perceptron">Regressão com um único perceptron</a></li>
+  </ul></li>
+  <li><a href="#regressão-com-perceptron" id="toc-regressão-com-perceptron" class="nav-link" data-scroll-target="#regressão-com-perceptron">Regressão com Perceptron</a>
+  <ul>
+  <li><a href="#modelo-de-regressão-linear-simples" id="toc-modelo-de-regressão-linear-simples" class="nav-link" data-scroll-target="#modelo-de-regressão-linear-simples">Modelo de regressão linear simples</a></li>
+  <li><a href="#modelo-de-rede-neural-com-um-único-perceptron-e-um-nó-de-entrada" id="toc-modelo-de-rede-neural-com-um-único-perceptron-e-um-nó-de-entrada" class="nav-link" data-scroll-target="#modelo-de-rede-neural-com-um-único-perceptron-e-um-nó-de-entrada"><strong>Modelo de rede neural com um único Perceptron e um nó de entrada</strong></a>
+  <ul class="collapse">
+  <li><a href="#conjunto-de-dados" id="toc-conjunto-de-dados" class="nav-link" data-scroll-target="#conjunto-de-dados">1.3 - Conjunto de dados</a></li>
+  </ul></li>
+  <li><a href="#implementação-do-modelo-de-rede-neural-para-regressão-linear" id="toc-implementação-do-modelo-de-rede-neural-para-regressão-linear" class="nav-link" data-scroll-target="#implementação-do-modelo-de-rede-neural-para-regressão-linear">Implementação do modelo de rede neural para regressão linear</a>
+  <ul class="collapse">
+  <li><a href="#inicializar-os-parâmetros-do-modelo" id="toc-inicializar-os-parâmetros-do-modelo" class="nav-link" data-scroll-target="#inicializar-os-parâmetros-do-modelo"><strong>Inicializar os parâmetros do modelo</strong></a></li>
+  </ul></li>
+  <li><a href="#método-de-newton" id="toc-método-de-newton" class="nav-link" data-scroll-target="#método-de-newton">Método de Newton</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Módulo 3: Otimização em redes neurais e método de Newton</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">curso</div>
+    <div class="quarto-category">coursera</div>
+    <div class="quarto-category">Algebra Linear</div>
+    <div class="quarto-category">calculo</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Algebra Linear</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Anotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Sunday, 04 August 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="otimização-em-redes-neurais" class="level2">
+<h2 class="anchored" data-anchor-id="otimização-em-redes-neurais">Otimização em redes neurais</h2>
+<section id="regressão-com-um-único-perceptron" class="level3">
+<h3 class="anchored" data-anchor-id="regressão-com-um-único-perceptron">Regressão com um único perceptron</h3>
+<p><img src="../images/calculo/01-image.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/calculo/02-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="regressão-com-perceptron" class="level1">
+<h1>Regressão com Perceptron</h1>
+<p>Primeiro vamos importar os pacotes necessários.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode jsx code-with-copy"><code class="sourceCode javascriptreact"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib<span class="op">.</span><span class="at">pyplot</span> <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a># Uma biblioteca para manipulação e análise de dados<span class="op">.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a># A saída dos comandos de plotagem é exibida em linha no notebook Jupyter<span class="op">.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a># Defina uma semente para que os resultados sejam consistentes<span class="op">.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>np<span class="op">.</span><span class="at">random</span><span class="op">.</span><span class="fu">seed</span>(<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="modelo-de-regressão-linear-simples" class="level3">
+<h3 class="anchored" data-anchor-id="modelo-de-regressão-linear-simples">Modelo de regressão linear simples</h3>
+<p>Você pode descrever um modelo de regressão linear simples como</p>
+<p><span class="math display">\[
+\hat{y} = wx + b,\tag{1}
+\]</span></p>
+<p>em que <span class="math inline">\(\hat{y}\)</span> é uma previsão da variável dependente <span class="math inline">\(y\)</span> com base na variável independente <span class="math inline">\(x\)</span> usando uma equação de linha com a inclinação <span class="math inline">\(w\)</span> e a interceptação <span class="math inline">\(b\)</span>.</p>
+<p>Dado um conjunto de pontos de dados de treinamento <span class="math inline">\((x_1, y_1)\)</span>, …, <span class="math inline">\((x_m, y_m)\)</span>, você encontrará a “melhor” linha de ajuste - parâmetros <span class="math inline">\(w\)</span> e <span class="math inline">\(b\)</span> que as diferenças entre os valores originais <span class="math inline">\(y_i\)</span> e os valores previstos <span class="math inline">\(\hat{y}_i = wx_i + b\)</span> sejam mínimas.</p>
+</section>
+<section id="modelo-de-rede-neural-com-um-único-perceptron-e-um-nó-de-entrada" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-de-rede-neural-com-um-único-perceptron-e-um-nó-de-entrada"><strong>Modelo de rede neural com um único Perceptron e um nó de entrada</strong></h2>
+<p>O modelo de rede neural mais simples que descreve o problema acima pode ser realizado com o uso de um <strong>perceptron</strong>. As camadas de <strong>entrada</strong> e <strong>saída</strong> terão um <strong>nó</strong> cada (<span class="math inline">\(x\)</span> para entrada e <span class="math inline">\(\hat{y} = z\)</span> para saída):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/calculo/03-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p><strong>Weight</strong> (<span class="math inline">\(w\)</span>) e <strong>bias</strong> (<span class="math inline">\(b\)</span>) são os parâmetros que serão atualizados quando você <strong>treinar</strong> o modelo. Eles são inicializados com alguns valores aleatórios ou definidos como 0 e atualizados à medida que o treinamento avança.</p>
+<p>Para cada exemplo de treinamento <span class="math inline">\(x^{(i)}\)</span>, a previsão <span class="math inline">\(\hat{y}^{(i)}\)</span> pode ser calculada como:</p>
+<p><span class="math display">\[
+\begin{align} z^{(i)} &amp;= w x^{(i)} + b,\\ \hat{y}^{(i)} &amp;= z^{(i)}, \tag{2} \end{align}
+\]</span></p>
+<p>onde <span class="math inline">\(i = 1, \dots, m\)</span>.</p>
+<p>Você pode organizar todos os exemplos de treinamento como um vetor <span class="math inline">\(X\)</span> de tamanho (<span class="math inline">\(1 \times m\)</span>) e realizar a multiplicação escalar de <span class="math inline">\(X\)</span> (<span class="math inline">\(1 \times m\)</span>) por um escalar <span class="math inline">\(w\)</span>, adicionando <span class="math inline">\(b\)</span>, que será transmitido para um vetor de tamanho (<span class="math inline">\(1 \times m\)</span>):</p>
+<p><span class="math display">\[
+\begin{align} Z &amp;= w X + b,\\\ \hat{Y} &amp;= Z, \tag{3}\end{align}
+\]</span></p>
+<p>Esse conjunto de cálculos é chamado de <strong>propagação direta</strong>.</p>
+<p>Para cada exemplo de treinamento, você pode medir a diferença entre os valores originais <span class="math inline">\(y^{(i)}\)</span> e os valores previstos <span class="math inline">\(\hat{y}^{(i)}\)</span> com a função <strong>loss</strong> <span class="math inline">\(L\left(w, b\right) = \frac{1}{2}\left(\hat{y}^{(i)} - y^{(i)}\right)^2\)</span>. A divisão por <span class="math inline">\(2\)</span> é feita apenas para fins de escala; você verá o motivo abaixo, calculando as derivadas parciais. Para comparar o vetor resultante das previsões <span class="math inline">\(\hat{Y}\)</span> (<span class="math inline">\(1 \times m\)</span>) com o vetor <span class="math inline">\(Y\)</span> dos valores originais <span class="math inline">\(y^{(i)}\)</span>, você pode obter uma média dos valores da função de perda para cada um dos exemplos de treinamento:</p>
+<p><span class="math display">\[
+\mathcal{L}\left(w, b\right) = \frac{1}{2m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right)^2.\tag{4}
+\]</span></p>
+<p>Essa função é chamada de soma de quadrados <strong>função de custo</strong>. O objetivo é otimizar a função de custo durante o treinamento, o que minimizará as diferenças entre os valores originais <span class="math inline">\(y^{(i)}\)</span> e os valores previstos <span class="math inline">\(\hat{y}^{(i)}\)</span>.</p>
+<p>Quando os pesos foram inicializados apenas com alguns valores aleatórios e nenhum treinamento foi feito, não é possível esperar bons resultados. Você precisa calcular os ajustes para o peso e a polarização, minimizando a função de custo. Esse processo é chamado de <strong>propagação para trás</strong>.</p>
+<p>De acordo com o algoritmo de descida de gradiente, você pode calcular as derivadas parciais como:</p>
+<p><span class="math display">\[
+\begin{align} \frac{\partial \mathcal{L} }{ \partial w } &amp;= \frac{1}{m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right)x^{(i)},\\ \frac{\partial \mathcal{L} }{ \partial b } &amp;= \frac{1}{m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right). \tag{5}\end{align}
+\]</span></p>
+<p>Você pode ver como a divisão adicional por <span class="math inline">\(2\)</span> na equação <span class="math inline">\((4)\)</span> ajudou a simplificar os resultados das derivadas parciais. Em seguida, atualize os parâmetros iterativamente usando as expressões</p>
+<p><span class="math display">\[
+\begin{align} w &amp;= w - \alpha \frac{\partial \mathcal{L} }{ \partial w },\\ b &amp;= b - \alpha \frac{\partial \mathcal{L} }{ \partial b }, \tag{6}\end{align}
+\]</span></p>
+<p>em que <span class="math inline">\(\alpha\)</span> é a taxa de aprendizado. Em seguida, repita o processo até que a função de custo pare de diminuir.</p>
+<p>A <strong>metodologia</strong> geral para construir uma rede neural é:</p>
+<ol type="1">
+<li><p>Definir a estrutura da rede neural (número de unidades de entrada, número de unidades ocultas, etc.).</p></li>
+<li><p>Inicializar os parâmetros do modelo</p></li>
+<li><p>Fazer um loop: - Implementar a propagação para frente (calcular a saída do perceptron), - Implementar a propagação para trás (para obter as correções necessárias para os parâmetros), - Atualizar os parâmetros.</p></li>
+<li><p>Fazer previsões.</p></li>
+</ol>
+<p>Geralmente, você cria funções auxiliares para calcular as etapas de 1 a 3 e depois as mescla em uma função <code>nn_model()</code>. Depois de criar <code>nn_model()</code> e aprender os parâmetros corretos, você pode fazer previsões com novos dados.</p>
+<section id="conjunto-de-dados" class="level3">
+<h3 class="anchored" data-anchor-id="conjunto-de-dados">1.3 - Conjunto de dados</h3>
+<p>Carregue (<a href="https://www.kaggle.com/code/devzohaib/simple-linear-regression/notebook">Conjunto de dados</a>), salvo em um arquivo <code>data/tvmarketing.csv</code>. Ele tem dois campos: Despesas de marketing de TV (<code>TV</code>) e valor das vendas (<code>Sales</code>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"data/tvmarketing.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>adv <span class="op">=</span> pd.read_csv(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Criando gráfico</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>adv.plot(x<span class="op">=</span><span class="st">'TV'</span>, y<span class="op">=</span><span class="st">'Sales'</span>, kind<span class="op">=</span><span class="st">'scatter'</span>, c<span class="op">=</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Os campos <code>TV</code> e <code>Sales</code> têm unidades diferentes. Para tornar o algoritmo de descida de gradiente eficiente, precisamos normalizar cada um deles: subtrair o valor médio da matriz de cada um dos elementos da matriz e dividi-los pelo desvio padrão.</p>
+<p>A normalização do conjunto de dados por coluna pode ser feita para todos os campos de uma só vez e é implementada no código a seguir:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>adv_norm <span class="op">=</span> (adv <span class="op">-</span> np.mean(adv))<span class="op">/</span>np.std(adv)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>adv_norm.plot(x<span class="op">=</span><span class="st">'TV'</span>, y<span class="op">=</span><span class="st">'Sales'</span>, kind<span class="op">=</span><span class="st">'scatter'</span>, c<span class="op">=</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Renomeando as variáveis</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_norm <span class="op">=</span> adv_norm[<span class="st">'TV'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Y_norm <span class="op">=</span> adv_norm[<span class="st">'Sales'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>X_norm <span class="op">=</span> np.array(X_norm).reshape((<span class="dv">1</span>, <span class="bu">len</span>(X_norm)))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Y_norm <span class="op">=</span> np.array(Y_norm).reshape((<span class="dv">1</span>, <span class="bu">len</span>(Y_norm)))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'The shape of X_norm: '</span> <span class="op">+</span> <span class="bu">str</span>(X_norm.shape))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'The shape of Y_norm: '</span> <span class="op">+</span> <span class="bu">str</span>(Y_norm.shape))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'I have m = </span><span class="sc">%d</span><span class="st"> training examples!'</span> <span class="op">%</span> (X_norm.shape[<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="implementação-do-modelo-de-rede-neural-para-regressão-linear" class="level2">
+<h2 class="anchored" data-anchor-id="implementação-do-modelo-de-rede-neural-para-regressão-linear">Implementação do modelo de rede neural para regressão linear</h2>
+<p>Configure a rede neural de forma que seja possível estender esse caso simples de um modelo com um único perceptron e um nó de entrada para estruturas mais complicadas posteriormente.</p>
+<p>Definição da estrutura da rede neural</p>
+<p>Defina duas variáveis:</p>
+<ul>
+<li><code>n_x</code>: o tamanho da camada de entrada</li>
+<li><code>n_y</code>: o tamanho da camada de saída</li>
+</ul>
+<p>usando formas de matrizes <code>X</code> e <code>Y</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> layer_sizes(X, Y):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    X -- input dataset of shape (input size, number of examples)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Y -- labels of shape (output size, number of examples)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    n_x -- the size of the input layer</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    n_y -- the size of the output layer</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    n_x <span class="op">=</span> X.shape[<span class="dv">0</span>]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    n_y <span class="op">=</span> Y.shape[<span class="dv">0</span>]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (n_x, n_y)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>(n_x, n_y) <span class="op">=</span> layer_sizes(X_norm, Y_norm)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The size of the input layer is: n_x = "</span> <span class="op">+</span> <span class="bu">str</span>(n_x))</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The size of the output layer is: n_y = "</span> <span class="op">+</span> <span class="bu">str</span>(n_y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="inicializar-os-parâmetros-do-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="inicializar-os-parâmetros-do-modelo"><strong>Inicializar os parâmetros do modelo</strong></h3>
+<p>Implemente a função <code>initialize_parameters()</code>, inicializando o vetor de pesos de forma <span class="math inline">\((n_y \times n_x) = (1 \times 1)\)</span> com valores aleatórios e o vetor de polarização de forma <span class="math inline">\((n_y \times 1) = (1 \times 1)\)</span> com zeros</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_parameters(n_x, n_y):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    params -- python dictionary containing your parameters:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">                    W -- weight matrix of shape (n_y, n_x)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">                    b -- bias value set as a vector of shape (n_y, 1)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> np.random.randn(n_y, n_x) <span class="op">*</span> <span class="fl">0.01</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.zeros((n_y, <span class="dv">1</span>))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    parameters <span class="op">=</span> {<span class="st">"W"</span>: W,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"b"</span>: b}</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> parameters</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> initialize_parameters(n_x, n_y)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"W = "</span> <span class="op">+</span> <span class="bu">str</span>(parameters[<span class="st">"W"</span>]))</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"b = "</span> <span class="op">+</span> <span class="bu">str</span>(parameters[<span class="st">"b"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Loop</p>
+<p>Implemente <code>forward_propagation()</code> seguindo a equação <span class="math inline">\((3)\)</span> na seção <a href="https://www.notion.so/C-lculo-para-aprendizado-de-m-quina-e-ci-ncia-de-dados-Anota-es-025c8b6cce8748c695a7399963122a92?pvs=21">1.2</a>:</p>
+<p><span class="math display">\[
+\begin{align}
+Z &amp;=  w X + b\\
+\hat{Y} &amp;= Z,
+\end{align}
+\]</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward_propagation(X, parameters):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Argument:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    X -- input data of size (n_x, m)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    parameters -- python dictionary containing your parameters (output of initialization function)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Y_hat -- The output</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> parameters[<span class="st">"W"</span>]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> parameters[<span class="st">"b"</span>]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Forward Propagation to calculate Z.</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    Z <span class="op">=</span> np.matmul(W, X) <span class="op">+</span> b</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    Y_hat <span class="op">=</span> Z</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Y_hat</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>Y_hat <span class="op">=</span> forward_propagation(X_norm, parameters)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Some elements of output vector Y_hat:"</span>, Y_hat[<span class="dv">0</span>, <span class="dv">0</span>:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Seus pesos acabaram de ser inicializados com alguns valores aleatórios, portanto, o modelo ainda não foi treinado.</p>
+<p>Defina uma função de custo <span class="math inline">\((4)\)</span> que será usada para treinar o modelo:</p>
+<p><span class="math display">\[
+\mathcal{L}\left(w, b\right)  = \frac{1}{2m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right)^2
+\]</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_cost(Y_hat, Y):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the cost function as a sum of squares</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Y_hat -- The output of the neural network of shape (n_y, number of examples)</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Y -- "true" labels vector of shape (n_y, number of examples)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">    cost -- sum of squares scaled by 1/(2*number of examples)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of examples.</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> Y_hat.shape[<span class="dv">1</span>]</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the cost function.</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    cost <span class="op">=</span> np.<span class="bu">sum</span>((Y_hat <span class="op">-</span> Y)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>m)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cost</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"cost = "</span> <span class="op">+</span> <span class="bu">str</span>(compute_cost(Y_hat, Y_norm)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Calcule as derivadas parciais conforme mostrado em <span class="math inline">\((5)\)</span>:</p>
+<p><span class="math display">\[
+\begin{align} \frac{\partial \mathcal{L} }{ \partial w } &amp;= \frac{1}{m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right)x^{(i)},\\ \frac{\partial \mathcal{L} }{ \partial b } &amp;= \frac{1}{m}\sum_{i=1}^{m} \left(\hat{y}^{(i)} - y^{(i)}\right). \end{align}
+\]</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> backward_propagation(Y_hat, X, Y):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Implements the backward propagation, calculating gradients</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments:</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Y_hat -- the output of the neural network of shape (n_y, number of examples)</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">    X -- input data of shape (n_x, number of examples)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Y -- "true" labels vector of shape (n_y, number of examples)</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">    grads -- python dictionary containing gradients with respect to different parameters</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> X.shape[<span class="dv">1</span>]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Backward propagation: calculate partial derivatives denoted as dW, db for simplicity. </span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    dZ <span class="op">=</span> Y_hat <span class="op">-</span> Y</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    dW <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>m <span class="op">*</span> np.dot(dZ, X.T)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    db <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>m <span class="op">*</span> np.<span class="bu">sum</span>(dZ, axis <span class="op">=</span> <span class="dv">1</span>, keepdims <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    grads <span class="op">=</span> {<span class="st">"dW"</span>: dW,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>             <span class="st">"db"</span>: db}</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> grads</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>grads <span class="op">=</span> backward_propagation(Y_hat, X_norm, Y_norm)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"dW = "</span> <span class="op">+</span> <span class="bu">str</span>(grads[<span class="st">"dW"</span>]))</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"db = "</span> <span class="op">+</span> <span class="bu">str</span>(grads[<span class="st">"db"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Atualize os parâmetros conforme mostrado em <span class="math inline">\((6)\)</span>:</p>
+<p><span class="math display">\[
+\begin{align} w &amp;= w - \alpha \frac{\partial \mathcal{L} }{ \partial w },\\ b &amp;= b - \alpha \frac{\partial \mathcal{L} }{ \partial b }. \end{align}
+\]</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_parameters(parameters, grads, learning_rate<span class="op">=</span><span class="fl">1.2</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Updates parameters using the gradient descent update rule</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments:</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">    parameters -- python dictionary containing parameters </span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">    grads -- python dictionary containing gradients </span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">    learning_rate -- learning rate parameter for gradient descent</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">    parameters -- python dictionary containing updated parameters </span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Retrieve each parameter from the dictionary "parameters".</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> parameters[<span class="st">"W"</span>]</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> parameters[<span class="st">"b"</span>]</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Retrieve each gradient from the dictionary "grads".</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    dW <span class="op">=</span> grads[<span class="st">"dW"</span>]</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    db <span class="op">=</span> grads[<span class="st">"db"</span>]</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update rule for each parameter.</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> W <span class="op">-</span> learning_rate <span class="op">*</span> dW</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> b <span class="op">-</span> learning_rate <span class="op">*</span> db</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    parameters <span class="op">=</span> {<span class="st">"W"</span>: W,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"b"</span>: b}</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> parameters</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>parameters_updated <span class="op">=</span> update_parameters(parameters, grads)</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"W updated = "</span> <span class="op">+</span> <span class="bu">str</span>(parameters_updated[<span class="st">"W"</span>]))</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"b updated = "</span> <span class="op">+</span> <span class="bu">str</span>(parameters_updated[<span class="st">"b"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Modelo de rede neural</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nn_model(X, Y, num_iterations<span class="op">=</span><span class="dv">10</span>, learning_rate<span class="op">=</span><span class="fl">1.2</span>, print_cost<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">    X -- dataset of shape (n_x, number of examples)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Y -- labels of shape (n_y, number of examples)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">    num_iterations -- number of iterations in the loop</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">    learning_rate -- learning rate parameter for gradient descent</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">    print_cost -- if True, print the cost every iteration</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">    parameters -- parameters learnt by the model. They can then be used to make predictions.</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    n_x <span class="op">=</span> layer_sizes(X, Y)[<span class="dv">0</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    n_y <span class="op">=</span> layer_sizes(X, Y)[<span class="dv">1</span>]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    parameters <span class="op">=</span> initialize_parameters(n_x, n_y)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loop</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, num_iterations):</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Forward propagation. Inputs: "X, parameters". Outputs: "Y_hat".</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        Y_hat <span class="op">=</span> forward_propagation(X, parameters)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cost function. Inputs: "Y_hat, Y". Outputs: "cost".</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        cost <span class="op">=</span> compute_cost(Y_hat, Y)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Backpropagation. Inputs: "Y_hat, X, Y". Outputs: "grads".</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        grads <span class="op">=</span> backward_propagation(Y_hat, X, Y)</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Gradient descent parameter update. Inputs: "parameters, grads, learning_rate". Outputs: "parameters".</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        parameters <span class="op">=</span> update_parameters(parameters, grads, learning_rate)</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print the cost every iteration.</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> print_cost:</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span> (<span class="st">"Cost after iteration </span><span class="sc">%i</span><span class="st">: </span><span class="sc">%f</span><span class="st">"</span> <span class="op">%</span>(i, cost))</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> parameters</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>parameters_simple <span class="op">=</span> nn_model(X_norm, Y_norm, num_iterations<span class="op">=</span><span class="dv">30</span>, learning_rate<span class="op">=</span><span class="fl">1.2</span>, print_cost<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"W = "</span> <span class="op">+</span> <span class="bu">str</span>(parameters_simple[<span class="st">"W"</span>]))</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"b = "</span> <span class="op">+</span> <span class="bu">str</span>(parameters_simple[<span class="st">"b"</span>]))</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>W_simple <span class="op">=</span> parameters[<span class="st">"W"</span>]</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>b_simple <span class="op">=</span> parameters[<span class="st">"b"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Você pode ver que, após algumas iterações, a função de custo não se altera mais (o modelo converge).</p>
+<p><em>Observação</em>: Esse é um modelo muito simples. Na realidade, os modelos não convergem tão rapidamente.</p>
+<p>Os parâmetros finais do modelo podem ser usados para fazer previsões, mas não se esqueça da normalização e da desnormalização.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict(X, Y, parameters, X_pred):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Retrieve each parameter from the dictionary "parameters".</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> parameters[<span class="st">"W"</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> parameters[<span class="st">"b"</span>]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use the same mean and standard deviation of the original training array X.</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(X, pd.Series):</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        X_mean <span class="op">=</span> np.mean(X)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        X_std <span class="op">=</span> np.std(X)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        X_pred_norm <span class="op">=</span> ((X_pred <span class="op">-</span> X_mean)<span class="op">/</span>X_std).reshape((<span class="dv">1</span>, <span class="bu">len</span>(X_pred)))</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        X_mean <span class="op">=</span> np.array(np.mean(X)).reshape((<span class="bu">len</span>(X.axes[<span class="dv">1</span>]),<span class="dv">1</span>))</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        X_std <span class="op">=</span> np.array(np.std(X)).reshape((<span class="bu">len</span>(X.axes[<span class="dv">1</span>]),<span class="dv">1</span>))</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        X_pred_norm <span class="op">=</span> ((X_pred <span class="op">-</span> X_mean)<span class="op">/</span>X_std)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make predictions.</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    Y_pred_norm <span class="op">=</span> np.matmul(W, X_pred_norm) <span class="op">+</span> b</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use the same mean and standard deviation of the original training array Y.</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    Y_pred <span class="op">=</span> Y_pred_norm <span class="op">*</span> np.std(Y) <span class="op">+</span> np.mean(Y)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Y_pred[<span class="dv">0</span>]</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>X_pred <span class="op">=</span> np.array([<span class="dv">50</span>, <span class="dv">120</span>, <span class="dv">280</span>])</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>Y_pred <span class="op">=</span> predict(adv[<span class="st">"TV"</span>], adv[<span class="st">"Sales"</span>], parameters_simple, X_pred)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"TV marketing expenses:</span><span class="ch">\n</span><span class="sc">{</span>X_pred<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predictions of sales:</span><span class="ch">\n</span><span class="sc">{</span>Y_pred<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Plot</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(adv[<span class="st">"TV"</span>], adv[<span class="st">"Sales"</span>], color<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$x$"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$y$"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>X_line <span class="op">=</span> np.arange(np.<span class="bu">min</span>(adv[<span class="st">"TV"</span>]),np.<span class="bu">max</span>(adv[<span class="st">"TV"</span>])<span class="op">*</span><span class="fl">1.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>Y_line <span class="op">=</span> predict(adv[<span class="st">"TV"</span>], adv[<span class="st">"Sales"</span>], parameters_simple, X_line)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax.plot(X_line, Y_line, <span class="st">"r"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>ax.plot(X_pred, Y_pred, <span class="st">"bo"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>plt.plot()</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="método-de-newton" class="level2">
+<h2 class="anchored" data-anchor-id="método-de-newton">Método de Newton</h2>
+
+
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -346,7 +850,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -378,29 +893,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/welli45\.github\.io\/portifolio-dados\.github\.io\/");
@@ -408,7 +901,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

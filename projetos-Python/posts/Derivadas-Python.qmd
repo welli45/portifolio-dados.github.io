@@ -4,7 +4,11 @@ subtitle: "Derivadas com Python"
 description: ""
 author: "Wellington Santos Souza"
 date: "2024-08-23"
-format: html
+format: 
+  html:
+    code-fold: true
+    code-copy: true
+    code-tools: true
 categories: [Derivadas, Python]
 open-graph:
   description: "Derivadas"
