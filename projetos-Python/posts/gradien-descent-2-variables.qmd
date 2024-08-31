@@ -11,7 +11,8 @@ format:
     code-tools: true
 categories: ["curso", "coursera", "Algebra Linear", "calculo", "Machine Learning", "Data Science", "Deep Learning", "Python", "R", "Algebra Linear"]
 ---
-Método de **Gradient Descent** otimizando algumas funções em duas variáveis. 
+
+Método de **Gradient Descent** otimizando algumas funções em duas variáveis.
 
 Vamos carregar os pacotes que utilizaremos aqui:
 
@@ -25,7 +26,7 @@ from w2_tools import (plot_f_cont_and_surf, gradient_descent_two_variables,
 
 Agora vamos explorar um exemplo simples de uma função em duas variáveis $f(x,y)$ com um mínimo global.
 
-``````{python}
+```{python}
 plot_f_cont_and_surf([0, 5], [0, 5], [74, 85], f_example_3, cmap='coolwarm', view={'azim':-60,'elev':28})
 ```
 
@@ -88,6 +89,7 @@ print("Gradient descent result: x_min, y_min =",
 ```
 
 Visualizando
+
 ```{python}
 # Converges to the global minimum point.
 num_iterations = 30; learning_rate = 0.2; x_initial = 0.5; y_initial = 3
@@ -103,4 +105,3 @@ gd_example_4 = gradient_descent_two_variables([0, 5], [0, 5], [6, 9.5],
                                               [2, 2, 6], 0.5, [2, 1, 63], 
                                               cmap='terrain', view={'azim':-63,'elev':21})
 ```
-

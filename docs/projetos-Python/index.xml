@@ -973,7 +973,7 @@ font-style: inherit;">abs</span>(x_array_2), x_array_2))</span></code></pre></di
 
 <p>Método de <strong>Gradient Descent</strong> otimizando algumas funções em duas variáveis.</p>
 <p>Vamos carregar os pacotes que utilizaremos aqui:</p>
-<div id="a96c951d" class="cell" data-execution_count="1">
+<div id="2f029156" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -996,32 +996,98 @@ font-style: inherit;">import</span> (plot_f_cont_and_surf, gradient_descent_two_
 </details>
 </div>
 <p>Agora vamos explorar um exemplo simples de uma função em duas variáveis <img src="https://latex.codecogs.com/png.latex?f(x,y)"> com um mínimo global.</p>
-<p>plot_f_cont_and_surf([0, 5], [0, 5], [74, 85], f_example_3, cmap=‘coolwarm’, view={‘azim’:-60,‘elev’:28})</p>
-<pre><code>
-Para encontrarmos o mínimo, você podemos implementar a **gradient descent** a partir do ponto inicial $(x_0,y_0)$ e realizar etapas iteração por iteração usando as seguintes equações:
-
-$$
-x_1 = x_0 - \alpha \frac{\partial f}{\partial x}(x_0, y_0),
-$$
-
-$$
-y_1 = y_0 - \alpha \frac{\partial f}{\partial y}(x_0, y_0),\tag{1}
-$$
-
-em que $\alpha&gt;0$ é uma taxa de aprendizado. O número de iterações também é um parâmetro. O método é implementado com o seguinte código:
-
-::: {#1b50eba1 .cell execution_count=2}
-``` {.python .cell-code}
-def gradient_descent(dfdx, dfdy, x, y, learning_rate = 0.1, num_iterations = 100):
-    for iteration in range(num_iterations):
-        x, y = x - learning_rate * dfdx(x, y), y - learning_rate * dfdy(x, y)
-    return x, y</code></pre>
-<p>:::</p>
-<p>Agora, para otimizar a função, configuramos os parâmetros <code>num_iterations</code>, <code>learning_rate</code>, <code>x_initial</code>, <code>y_initial</code> e executar o <strong>gradient descent</strong>:</p>
-<div id="04870755" class="cell" data-execution_count="3">
+<div id="ba1ddf23" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">num_iterations <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">plot_f_cont_and_surf([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>], [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>], [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">74</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">85</span>], f_example_3, cmap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'coolwarm'</span>, view<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'azim'</span>:<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'elev'</span>:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>})</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(&lt;Figure size 960x480 with 2 Axes&gt;,
+ &lt;Axes: xlabel='$x$', ylabel='$y$'&gt;,
+ &lt;Axes3D: xlabel='$x$', ylabel='$y$', zlabel='$f$'&gt;)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-3-output-2.png" width="817" height="403" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Para encontrarmos o mínimo, você podemos implementar a <strong>gradient descent</strong> a partir do ponto inicial <img src="https://latex.codecogs.com/png.latex?(x_0,y_0)"> e realizar etapas iteração por iteração usando as seguintes equações:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax_1%20=%20x_0%20-%20%5Calpha%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20x%7D(x_0,%20y_0),%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ay_1%20=%20y_0%20-%20%5Calpha%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20y%7D(x_0,%20y_0),%5Ctag%7B1%7D%0A"></p>
+<p>em que <img src="https://latex.codecogs.com/png.latex?%5Calpha%3E0"> é uma taxa de aprendizado. O número de iterações também é um parâmetro. O método é implementado com o seguinte código:</p>
+<div id="08ae7431" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> gradient_descent(dfdx, dfdy, x, y, learning_rate <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, num_iterations <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>):</span>
+<span id="cb4-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> iteration <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(num_iterations):</span>
+<span id="cb4-3">        x, y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> learning_rate <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> dfdx(x, y), y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> learning_rate <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> dfdy(x, y)</span>
+<span id="cb4-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> x, y</span></code></pre></div>
+</details>
+</div>
+<p>Agora, para otimizar a função, configuramos os parâmetros <code>num_iterations</code>, <code>learning_rate</code>, <code>x_initial</code>, <code>y_initial</code> e executar o <strong>gradient descent</strong>:</p>
+<div id="0b8ff1de" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1044,22 +1110,22 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.6</span></span>
-<span id="cb3-2"><span class="bu" style="color: null;
+<span id="cb5-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Gradient descent result: x_min, y_min ="</span>, </span>
-<span id="cb3-3">      gradient_descent(dfdx_example_3, dfdy_example_3, x_initial, y_initial, learning_rate, num_iterations)) </span></code></pre></div>
+<span id="cb5-3">      gradient_descent(dfdx_example_3, dfdy_example_3, x_initial, y_initial, learning_rate, num_iterations)) </span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Gradient descent result: x_min, y_min = (4.0, 4.0)</code></pre>
 </div>
 </div>
 <p>Pode ver a visualização executando o código a seguir. Observe que a descida de gradiente em duas variáveis executa etapas no plano, em uma direção oposta ao vetor de gradiente <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bbmatrix%7D%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20x%7D(x_0,%20y_0)%20%5C%5C%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20y%7D(x_0,%20y_0)%5Cend%7Bbmatrix%7D"> com a taxa de aprendizado <img src="https://latex.codecogs.com/png.latex?%5Calpha"> como um fator de escala.</p>
-<div id="f2c158d5" class="cell" data-execution_count="4">
+<div id="298747ce" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">num_iterations <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1082,7 +1148,7 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.6</span></span>
-<span id="cb5-2">num_iterations <span class="op" style="color: #5E5E5E;
+<span id="cb7-2">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1105,7 +1171,7 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.6</span></span>
-<span id="cb5-3">num_iterations <span class="op" style="color: #5E5E5E;
+<span id="cb7-3">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1128,7 +1194,7 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.6</span></span>
-<span id="cb5-4">num_iterations <span class="op" style="color: #5E5E5E;
+<span id="cb7-4">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1151,8 +1217,8 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3.6</span></span>
-<span id="cb5-5"></span>
-<span id="cb5-6">gd_example_3 <span class="op" style="color: #5E5E5E;
+<span id="cb7-5"></span>
+<span id="cb7-6">gd_example_3 <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> gradient_descent_two_variables([<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1167,10 +1233,10 @@ background-color: null;
 font-style: inherit;">74</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">85</span>], </span>
-<span id="cb5-7">                                              f_example_3, dfdx_example_3, dfdy_example_3, </span>
-<span id="cb5-8">                                              gradient_descent, num_iterations, learning_rate, </span>
-<span id="cb5-9">                                              x_initial, y_initial, </span>
-<span id="cb5-10">                                              [<span class="fl" style="color: #AD0000;
+<span id="cb7-7">                                              f_example_3, dfdx_example_3, dfdy_example_3, </span>
+<span id="cb7-8">                                              gradient_descent, num_iterations, learning_rate, </span>
+<span id="cb7-9">                                              x_initial, y_initial, </span>
+<span id="cb7-10">                                              [<span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -1185,7 +1251,7 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">171</span>], </span>
-<span id="cb5-11">                                              cmap<span class="op" style="color: #5E5E5E;
+<span id="cb7-11">                                              cmap<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -1206,16 +1272,16 @@ font-style: inherit;">28</span>})</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-5-output-1.png" width="817" height="403" class="figure-img"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-6-output-1.png" width="817" height="403" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Vamos dar uma olhada nessa outra função</p>
-<div id="334d7ab3" class="cell" data-execution_count="5">
+<div id="e269b0ef" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">plot_f_cont_and_surf([<span class="dv" style="color: #AD0000;
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">plot_f_cont_and_surf([<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1245,7 +1311,7 @@ font-style: inherit;">'elev'</span>:<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">21</span>})</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>(&lt;Figure size 960x480 with 2 Axes&gt;,
  &lt;Axes: xlabel='$x$', ylabel='$y$'&gt;,
  &lt;Axes3D: xlabel='$x$', ylabel='$y$', zlabel='$f$'&gt;)</code></pre>
@@ -1253,16 +1319,16 @@ font-style: inherit;">21</span>})</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-6-output-2.png" width="815" height="403" class="figure-img"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-7-output-2.png" width="815" height="403" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Podemos encontrar o mínimo global com:</p>
-<div id="7b4c6648" class="cell" data-execution_count="6">
+<div id="388a488a" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">num_iterations <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1285,26 +1351,26 @@ background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span></span>
-<span id="cb8-2"></span>
-<span id="cb8-3"><span class="bu" style="color: null;
+<span id="cb10-2"></span>
+<span id="cb10-3"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Gradient descent result: x_min, y_min ="</span>, </span>
-<span id="cb8-4">      gradient_descent(dfdx_example_4, dfdy_example_4, x_initial, y_initial, learning_rate, num_iterations)) </span></code></pre></div>
+<span id="cb10-4">      gradient_descent(dfdx_example_4, dfdy_example_4, x_initial, y_initial, learning_rate, num_iterations)) </span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Gradient descent result: x_min, y_min = (0.5230322579358745, 0.5169891562802605)</code></pre>
 </div>
 </div>
 <p>Visualizando</p>
-<div id="672abe3f" class="cell" data-execution_count="7">
+<div id="f2b480c2" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Converges to the global minimum point.</span></span>
-<span id="cb10-2">num_iterations <span class="op" style="color: #5E5E5E;
+<span id="cb12-2">num_iterations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1327,20 +1393,20 @@ background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span></span>
-<span id="cb10-3"><span class="co" style="color: #5E5E5E;
+<span id="cb12-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Converges to a local minimum point.</span></span>
-<span id="cb10-4"><span class="co" style="color: #5E5E5E;
+<span id="cb12-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># num_iterations = 20; learning_rate = 0.2; x_initial = 2; y_initial = 3</span></span>
-<span id="cb10-5"><span class="co" style="color: #5E5E5E;
+<span id="cb12-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Converges to another local minimum point.</span></span>
-<span id="cb10-6"><span class="co" style="color: #5E5E5E;
+<span id="cb12-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># num_iterations = 20; learning_rate = 0.2; x_initial = 4; y_initial = 0.5</span></span>
-<span id="cb10-7"></span>
-<span id="cb10-8">gd_example_4 <span class="op" style="color: #5E5E5E;
+<span id="cb12-7"></span>
+<span id="cb12-8">gd_example_4 <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> gradient_descent_two_variables([<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1355,10 +1421,10 @@ background-color: null;
 font-style: inherit;">6</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">9.5</span>], </span>
-<span id="cb10-9">                                              f_example_4, dfdx_example_4, dfdy_example_4, </span>
-<span id="cb10-10">                                              gradient_descent, num_iterations, learning_rate, </span>
-<span id="cb10-11">                                              x_initial, y_initial, </span>
-<span id="cb10-12">                                              [<span class="dv" style="color: #AD0000;
+<span id="cb12-9">                                              f_example_4, dfdx_example_4, dfdy_example_4, </span>
+<span id="cb12-10">                                              gradient_descent, num_iterations, learning_rate, </span>
+<span id="cb12-11">                                              x_initial, y_initial, </span>
+<span id="cb12-12">                                              [<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1373,7 +1439,7 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">63</span>], </span>
-<span id="cb10-13">                                              cmap<span class="op" style="color: #5E5E5E;
+<span id="cb12-13">                                              cmap<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -1394,7 +1460,7 @@ font-style: inherit;">21</span>})</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-8-output-1.png" width="815" height="403" class="figure-img"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/gradien-descent-2-variables_files/figure-html/cell-9-output-1.png" width="815" height="403" class="figure-img"></p>
 </figure>
 </div>
 </div>
