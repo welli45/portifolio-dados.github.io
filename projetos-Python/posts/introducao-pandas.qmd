@@ -16,7 +16,7 @@ twitter-card:
   image: ../images/03.pandas/pandas.svg
 ---
 
-*Este artigo foi reescrito em Segunda, 25 de Março de 2024.*
+*Este artigo foi reescrito em Domingo, 08 de Setembro de 2024.*
 
 ![](../images/03.pandas/pandas.svg){fig-alt="Pandas" fig-title="Pandas"}
 
