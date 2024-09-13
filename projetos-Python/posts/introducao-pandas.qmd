@@ -24,8 +24,9 @@ twitter-card:
 
 O pandas é uma ferramenta de análise e manipulação de dados de código aberto rápida, poderosa, flexível e fácil de usar, desenvolvida com base na linguagem de programação Python. Clique [aqui!](https://pandas.pydata.org/docs/index.html) para acessar a documentação oficial do Pandas.
 
-Para instalar o Pandas, basta executar o comando abaixo: `pip install pandas` no terminal.
-Com o pandas instalado, podemos carrega-lo em nosso script com o comando `import pandas as pd`. Além disso vamos importar a biblioteca seaborn para plotar gráficos com o comando `import seaborn as sns`.
+Para instalar o Pandas, basta executar o comando: `pip install pandas` no terminal.
+Com o pandas instalado, podemos carrega-lo com o comando `import pandas as pd`. 
+Vamos importar a biblioteca seaborn para plotar gráficos com o comando `import seaborn as sns`.
 
 ```{python}
 import pandas as pd

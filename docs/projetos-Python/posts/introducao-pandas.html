@@ -107,7 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -264,22 +267,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introdução" class="level1">
 <h1>Introdução</h1>
 <p>O pandas é uma ferramenta de análise e manipulação de dados de código aberto rápida, poderosa, flexível e fácil de usar, desenvolvida com base na linguagem de programação Python. Clique <a href="https://pandas.pydata.org/docs/index.html">aqui!</a> para acessar a documentação oficial do Pandas.</p>
-<p>Para instalar o Pandas, basta executar o comando abaixo: <code>pip install pandas</code> no terminal. Com o pandas instalado, podemos carrega-lo em nosso script com o comando <code>import pandas as pd</code>. Além disso vamos importar a biblioteca seaborn para plotar gráficos com o comando <code>import seaborn as sns</code>.</p>
-<div id="f7f5d885" class="cell" data-execution_count="1">
+<p>Para instalar o Pandas, basta executar o comando: <code>pip install pandas</code> no terminal. Com o pandas instalado, podemos carrega-lo com o comando <code>import pandas as pd</code>. Vamos importar a biblioteca seaborn para plotar gráficos com o comando <code>import seaborn as sns</code>.</p>
+<div id="865e0f9e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Agora que temos o pandas carregado podemos importar um arquivo CSV para análise. Além disso, podemos usar o pandas para coletar dados em diversos formatos, como JSON, HTML, SQL, Excel, entre outros. Para mais informações sobre como carregar dados com o pandas, clique <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">aqui!</a>.</p>
-<div id="f8d66913" class="cell" data-execution_count="2">
+<div id="e2153c5a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../dados/world_happiness.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="operações-básicas-com-o-pandas" class="level2">
 <h2 class="anchored" data-anchor-id="operações-básicas-com-o-pandas">Operações básicas com o Pandas</h2>
 <p>Podemos visualizar as primeiras linhas do nosso DataFrame com o comando <code>df.head()</code>. Para visualizar as últimas linhas, basta usar o comando <code>df.tail()</code>.</p>
-<div id="765e4c49" class="cell" data-execution_count="3">
+<div id="1f1c7b5d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando as primeiras linhas do DataFrame</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -377,10 +380,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="00ec3efd" class="cell" data-execution_count="4">
+<div id="627e697d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando as últimas linhas do DataFrame</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -479,17 +482,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Podemos visualizar os índices e nome das colunas do DataFrame com os comandos <code>df.index</code> e <code>df.columns</code>, respectivamente.</p>
-<div id="5c7bf8f5" class="cell" data-execution_count="5">
+<div id="00fe002c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando os índices do DataFrame</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>RangeIndex(start=0, stop=2199, step=1)</code></pre>
 </div>
 </div>
-<div id="bbbcd455" class="cell" data-execution_count="6">
+<div id="15a62947" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando os nomes das colunas do DataFrame</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>Index(['Country name', 'year', 'Life Ladder', 'Log GDP per capita',
        'Social support', 'Healthy life expectancy at birth',
        'Freedom to make life choices', 'Generosity',
@@ -498,19 +501,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Como vimos as colunas possuem espaços em seus nomes, para remover esses espaços podemos usar o comando <code>df.columns = df.columns.str.replace(' ', '_')</code>.</p>
-<div id="aadd4dc4" class="cell" data-execution_count="7">
+<div id="ae82afe6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removendo os espaços dos nomes das colunas</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Além disso, podemos colocar os nomes das colunas em minúsculo.</p>
-<div id="4ca7a44f" class="cell" data-execution_count="8">
+<div id="4c57b3b9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Colocando os nomes das colunas em minúsculo</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="93df5bc2" class="cell" data-execution_count="9">
+<div id="82721449" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando os nomes das colunas do DataFrame</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>Index(['country_name', 'year', 'life_ladder', 'log_gdp_per_capita',
        'social_support', 'healthy_life_expectancy_at_birth',
        'freedom_to_make_life_choices', 'generosity',
@@ -519,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Podemos visualizar as informações do DataFrame com o comando <code>df.info()</code>. Além disso, podemos visualizar o tipo dos dados de cada coluna com o comando <code>df.dtypes</code>.</p>
-<div id="27ffd39d" class="cell" data-execution_count="10">
+<div id="7a0525cd" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando as informações do DataFrame</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -543,10 +546,10 @@ dtypes: float64(9), int64(1), object(1)
 memory usage: 189.1+ KB</code></pre>
 </div>
 </div>
-<div id="5a25026d" class="cell" data-execution_count="11">
+<div id="a360088d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o tipo dos dados de cada coluna</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>country_name                         object
 year                                  int64
 life_ladder                         float64
@@ -568,7 +571,7 @@ dtype: object</code></pre>
 <section id="selecionando-colunas-do-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="selecionando-colunas-do-dataframe">Selecionando colunas do DataFrame</h2>
 <p>Podemos selecionar a coluna <code>life_ladder</code> do DataFrame com o comando <code>df.life_ladder</code>. Além disso, podemos selecionar mais de uma coluna passando uma lista com os nomes das colunas desejadas.</p>
-<div id="1a7e9a1a" class="cell" data-execution_count="12">
+<div id="0ce29595" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando a coluna life_ladder</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df.life_ladder</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -588,7 +591,7 @@ Name: life_ladder, Length: 2199, dtype: float64</code></pre>
 </div>
 </div>
 <p>Uma outra forma é passar o nome da coluna entre colchetes, como no exemplo abaixo.</p>
-<div id="d5e2e8c3" class="cell" data-execution_count="13">
+<div id="fedcb68c" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando a coluna life_ladder</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'life_ladder'</span>]</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -611,7 +614,7 @@ Name: life_ladder, Length: 2199, dtype: float64</code></pre>
 <section id="selecionando-linhas-do-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="selecionando-linhas-do-dataframe">Selecionando linhas do DataFrame</h2>
 <p>Podemos selecionar as linhas de um DataFrame com o comando <code>df[1:5]</code>.</p>
-<div id="b05fed72" class="cell" data-execution_count="14">
+<div id="9ee85dc7" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as linhas de 1 a 5</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="dv">1</span>:<span class="dv">5</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,7 +643,7 @@ Name: life_ladder, Length: 2199, dtype: float64</code></pre>
 <section id="operadores-lógicos" class="level1">
 <h1>Operadores lógicos</h1>
 <p>Podemos usar operadores lógicos para selecionar linhas do DataFrame. Por exemplo, podemos selecionar as linhas onde o valor da coluna <code>year</code> é igual a 2018.</p>
-<div id="3d3cb9bb" class="cell" data-execution_count="15">
+<div id="ecb78f9e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as linhas onde o valor da coluna year é igual a 2018</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[df.year <span class="op">==</span> <span class="dv">2018</span>]</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -688,11 +691,11 @@ Name: life_ladder, Length: 2199, dtype: float64</code></pre>
 </div>
 </div>
 <p>Selecioando linhas onde life_ladder é maior que 5.</p>
-<div id="e26a105e" class="cell" data-execution_count="16">
+<div id="f106804c" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as linhas onde o valor da coluna life_ladder é maior que 5</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[df.life_ladder <span class="op">&gt;</span> <span class="dv">5</span>]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
@@ -876,11 +879,11 @@ Name: life_ladder, Length: 2199, dtype: float64</code></pre>
 </div>
 </div>
 <p>Resetando o índice do DataFrame filtrado.</p>
-<div id="076e0880" class="cell" data-execution_count="17">
+<div id="79f80ba0" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> df[df[<span class="st">"year"</span>] <span class="op">==</span> <span class="dv">2022</span>]</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> new_df.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>new_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -1067,9 +1070,9 @@ Name: life_ladder, Length: 2199, dtype: float64</code></pre>
 <section id="visualizando-dados-faltantes" class="level1">
 <h1>Visualizando dados faltantes</h1>
 <p>Podemos visualizar os dados faltantes do DataFrame com o comando <code>df.isnull().sum()</code>.</p>
-<div id="6a6bffe5" class="cell" data-execution_count="18">
+<div id="ddee0b7c" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>country_name                          0
 year                                  0
 life_ladder                           0
@@ -1088,9 +1091,9 @@ dtype: int64</code></pre>
 <section id="estatísticas-descritivas" class="level1">
 <h1>Estatísticas descritivas</h1>
 <p>Podemos visualizar as estatísticas descritivas do DataFrame com o comando <code>df.describe()</code>.</p>
-<div id="1f6772e2" class="cell" data-execution_count="19">
+<div id="2b5a12c8" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -1224,7 +1227,7 @@ dtype: int64</code></pre>
 </section>
 <section id="plotando-gráficos" class="level1">
 <h1>Plotando gráficos</h1>
-<div id="d3b2313a" class="cell" data-execution_count="20">
+<div id="af0e2c15" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1235,7 +1238,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Como pudemos notar a plotagem do gráfico não ficou muito legível. Podemos melhorar a visualização do gráfico. Para isso, vamos plotar um gráfico de dispersão com a coluna <code>log_gdp_per_capita</code> no eixo x e a coluna <code>life_ladder</code> no eixo y.</p>
-<div id="d8bb3bfb" class="cell" data-execution_count="21">
+<div id="92b30bcb" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.plot(kind<span class="op">=</span><span class="st">'scatter'</span>, x<span class="op">=</span><span class="st">'log_gdp_per_capita'</span>, y<span class="op">=</span><span class="st">'life_ladder'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1246,7 +1249,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Podemos melhorar a visualização do gráfico adicionando cores e alterando o tamanho dos pontos. Para isso, vamos criar um dicionário com as cores que queremos usar e passar esse dicionário para o parâmetro <code>c</code> do método <code>plot</code>.</p>
-<div id="af2828a5" class="cell" data-execution_count="22">
+<div id="5760328b" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> {</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Brazil'</span>: <span class="st">'Green'</span>,</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Slovenia'</span>: <span class="st">'Orange'</span>,</span>
@@ -1269,9 +1272,9 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Podemos plotar um histograma da coluna <code>life_ladder</code> com o comando <code>df.hist("life_ladder")</code>.</p>
-<div id="ef25f9c6" class="cell" data-execution_count="23">
+<div id="046203ba" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df.hist(<span class="st">"life_ladder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([[&lt;Axes: title={'center': 'life_ladder'}&gt;]], dtype=object)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1283,7 +1286,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Além disso podemos criar gráficos com o seaborn. Por exemplo, podemos criar um gráfico de dispersão com a coluna <code>log_gdp_per_capita</code> no eixo x e a coluna <code>life_ladder</code> no eixo y.</p>
-<div id="980e169e" class="cell" data-execution_count="24">
+<div id="7e54935b" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'log_gdp_per_capita'</span>, y<span class="op">=</span><span class="st">'life_ladder'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1294,7 +1297,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Podemos plotar vários gráficos ao mesmo tempo com o seaborn.</p>
-<div id="137710d7" class="cell" data-execution_count="25">
+<div id="f5176a7e" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1308,12 +1311,12 @@ dtype: int64</code></pre>
 <section id="operações-com-colunas" class="level1">
 <h1>Operações com colunas</h1>
 <p>Podemos criar uma nova coluna no DataFrame com o comando <code>df['nova_coluna'] = df['coluna1'] + df['coluna2']</code>.</p>
-<div id="cf6e55cc" class="cell" data-execution_count="26">
+<div id="0d176217" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'this_column_makes_no_sense'</span>] <span class="op">=</span> df[<span class="st">"year"</span>] <span class="op">+</span> df[<span class="st">"life_ladder"</span>]</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"net_affect_difference"</span>] <span class="op">=</span> df[<span class="st">"positive_affect"</span>] <span class="op">-</span> df[<span class="st">"negative_affect"</span>]</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="52">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
