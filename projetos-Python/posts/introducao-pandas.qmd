@@ -18,7 +18,7 @@ twitter-card:
 
 *Este artigo foi reescrito em Segunda, 25 de Março de 2024.*
 
-![](https://pandas.pydata.org/docs/_static/pandas.svg){fig-alt="Pandas" fig-title="Pandas"}
+![](../images/03.pandas/pandas.svg){fig-alt="Pandas" fig-title="Pandas"}
 
 # Introdução
 
