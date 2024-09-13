@@ -1,0 +1,187 @@
+---
+title: "Análise exploratória de dados"
+subtitle: "Introdução ao Pandas"
+description: "Pandas"
+author: "Wellington Santos Souza"
+date: "2024-09-12"
+format: 
+  html:
+    code-fold: false
+categories: [Pandas, Python]
+open-graph:
+  description: "Pandas"
+  image: https://pandas.pydata.org/docs/_static/pandas.svg
+twitter-card:
+  description: "Pandas"
+  image: https://pandas.pydata.org/docs/_static/pandas.svg
+---
+
+*Este artigo foi reescrito em Segunda, 25 de Março de 2024.*
+
+![](https://pandas.pydata.org/docs/_static/pandas.svg){fig-alt="Pandas" fig-title="Pandas"}
+
+# Introdução
+
+O pandas é uma ferramenta de análise e manipulação de dados de código aberto rápida, poderosa, flexível e fácil de usar, desenvolvida com base na linguagem de programação Python. Clique [aqui!](https://pandas.pydata.org/docs/index.html) para acessar a documentação oficial do Pandas.
+
+Para instalar o Pandas, basta executar o comando abaixo: `pip install pandas` no terminal.
+Com o pandas instalado, podemos carrega-lo em nosso script com o comando `import pandas as pd`. Além disso vamos importar a biblioteca seaborn para plotar gráficos com o comando `import seaborn as sns`.
+
+```{python}
+import pandas as pd
+import seaborn as sns
+```
+
+Agora que temos o pandas carregado podemos importar um arquivo CSV para análise. Além disso, podemos usar o pandas para coletar dados em diversos formatos, como JSON, HTML, SQL, Excel, entre outros. Para mais informações sobre como carregar dados com o pandas, clique [aqui!](https://pandas.pydata.org/pandas-docs/stable/reference/io.html).
+
+```{python}
+df = pd.read_csv('../dados/world_happiness.csv')
+```
+
+## Operações básicas com o Pandas
+
+Podemos visualizar as primeiras linhas do nosso DataFrame com o comando `df.head()`. Para visualizar as últimas linhas, basta usar o comando `df.tail()`.
+```{python}
+# Visualizando as primeiras linhas do DataFrame
+df.head()
+```
+```{python}
+# Visualizando as últimas linhas do DataFrame
+df.tail()
+```
+Podemos visualizar os índices e nome das colunas do DataFrame com os comandos `df.index` e `df.columns`, respectivamente.
+```{python}
+# Visualizando os índices do DataFrame
+df.index
+```
+```{python}
+# Visualizando os nomes das colunas do DataFrame
+df.columns
+```
+Como vimos as colunas possuem espaços em seus nomes, para remover esses espaços podemos usar o comando `df.columns = df.columns.str.replace(' ', '_')`.
+```{python}
+# Removendo os espaços dos nomes das colunas
+df.columns = df.columns.str.replace(' ', '_')
+```
+Além disso, podemos colocar os nomes das colunas em minúsculo.
+```{python}
+# Colocando os nomes das colunas em minúsculo
+df.columns = df.columns.str.lower()
+```
+
+```{python}
+# Visualizando os nomes das colunas do DataFrame
+df.columns
+
+```
+Podemos visualizar as informações do DataFrame com o comando `df.info()`. Além disso, podemos visualizar o tipo dos dados de cada coluna com o comando `df.dtypes`.
+```{python}
+# Visualizando as informações do DataFrame
+df.info()
+```
+```{python}
+# Visualizando o tipo dos dados de cada coluna
+df.dtypes
+```
+# Selecionando linhas e colunas do DataFrame
+
+## Selecionando colunas do DataFrame
+
+Podemos selecionar a coluna `life_ladder` do DataFrame com o comando `df.life_ladder`. Além disso, podemos selecionar mais de uma coluna passando uma lista com os nomes das colunas desejadas.
+```{python}
+# Selecionando a coluna life_ladder
+x = df.life_ladder
+print(x)
+```
+Uma outra forma é passar o nome da coluna entre colchetes, como no exemplo abaixo.
+```{python}
+# Selecionando a coluna life_ladder
+x = df['life_ladder']
+print(x)
+```
+## Selecionando linhas do DataFrame
+
+Podemos selecionar as linhas de um DataFrame com o comando `df[1:5]`. 
+```{python}
+# Selecionando as linhas de 1 a 5
+x = df[1:5]
+print(x)
+```
+# Operadores lógicos
+
+Podemos usar operadores lógicos para selecionar linhas do DataFrame. Por exemplo, podemos selecionar as linhas onde o valor da coluna `year` é igual a 2018.
+```{python}
+# Selecionando as linhas onde o valor da coluna year é igual a 2018
+x = df[df.year == 2018]
+print(x)
+```
+Selecioando linhas onde life_ladder é maior que 5.
+```{python}
+# Selecionando as linhas onde o valor da coluna life_ladder é maior que 5
+x = df[df.life_ladder > 5]
+x
+```
+Resetando o índice do DataFrame filtrado.
+```{python}
+new_df = df[df["year"] == 2022]
+new_df = new_df.reset_index(drop=True)
+new_df
+```
+# Visualizando dados faltantes
+Podemos visualizar os dados faltantes do DataFrame com o comando `df.isnull().sum()`.
+```{python}
+df.isnull().sum()
+```
+
+# Estatísticas descritivas
+Podemos visualizar as estatísticas descritivas do DataFrame com o comando `df.describe()`.
+```{python}
+df.describe()
+```
+# Plotando gráficos
+
+```{python}
+df.plot()
+```
+Como pudemos notar a plotagem do gráfico não ficou muito legível. Podemos melhorar a visualização do gráfico. Para isso, vamos plotar um gráfico de dispersão com a coluna `log_gdp_per_capita` no eixo x e a coluna `life_ladder` no eixo y.
+```{python}
+df.plot(kind='scatter', x='log_gdp_per_capita', y='life_ladder')
+```
+Podemos melhorar a visualização do gráfico adicionando cores e alterando o tamanho dos pontos. Para isso, vamos criar um dicionário com as cores que queremos usar e passar esse dicionário para o parâmetro `c` do método `plot`.
+```{python}
+cmap = {
+    'Brazil': 'Green',
+    'Slovenia': 'Orange',
+    'India': 'purple'
+}
+
+df.plot(
+    kind='scatter',
+    x='log_gdp_per_capita',
+    y='life_ladder',
+    c=[cmap.get(c, 'yellow') for c in df.country_name], # Set the colors
+    s=2 # Set the size of the points
+    )
+```
+Podemos plotar um histograma da coluna `life_ladder` com o comando `df.hist("life_ladder")`.
+```{python}
+df.hist("life_ladder")
+```
+Além disso podemos criar gráficos com o seaborn. Por exemplo, podemos criar um gráfico de dispersão com a coluna `log_gdp_per_capita` no eixo x e a coluna `life_ladder` no eixo y.
+```{python}
+sns.scatterplot(data=df, x='log_gdp_per_capita', y='life_ladder')
+```
+Podemos plotar vários gráficos ao mesmo tempo com o seaborn. 
+```{python}
+sns.pairplot(df)
+```
+
+# Operações com colunas
+
+Podemos criar uma nova coluna no DataFrame com o comando `df['nova_coluna'] = df['coluna1'] + df['coluna2']`.
+```{python}
+df['this_column_makes_no_sense'] = df["year"] + df["life_ladder"]
+df["net_affect_difference"] = df["positive_affect"] - df["negative_affect"]
+
+df.head()
+```

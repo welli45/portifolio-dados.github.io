@@ -15,7 +15,1376 @@
 <link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/</link>
 </image>
 <generator>quarto-1.4.555</generator>
-<lastBuildDate>Fri, 23 Aug 2024 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Sep 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Análise exploratória de dados</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><em>Este artigo foi reescrito em Segunda, 25 de Março de 2024.</em></p>
+<p><img src="https://pandas.pydata.org/docs/_static/pandas.svg" class="img-fluid" data-fig-title="Pandas" alt="Pandas"></p>
+<section id="introdução" class="level1">
+<h1>Introdução</h1>
+<p>O pandas é uma ferramenta de análise e manipulação de dados de código aberto rápida, poderosa, flexível e fácil de usar, desenvolvida com base na linguagem de programação Python. Clique <a href="https://pandas.pydata.org/docs/index.html">aqui!</a> para acessar a documentação oficial do Pandas.</p>
+<p>Para instalar o Pandas, basta executar o comando abaixo: <code>pip install pandas</code> no terminal. Com o pandas instalado, podemos carrega-lo em nosso script com o comando <code>import pandas as pd</code>. Além disso vamos importar a biblioteca seaborn para plotar gráficos com o comando <code>import seaborn as sns</code>.</p>
+<div id="c2fdf479" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> seaborn <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> sns</span></code></pre></div>
+</div>
+<p>Agora que temos o pandas carregado podemos importar um arquivo CSV para análise. Além disso, podemos usar o pandas para coletar dados em diversos formatos, como JSON, HTML, SQL, Excel, entre outros. Para mais informações sobre como carregar dados com o pandas, clique <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">aqui!</a>.</p>
+<div id="5cbd96d0" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'../dados/world_happiness.csv'</span>)</span></code></pre></div>
+</div>
+<section id="operações-básicas-com-o-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="operações-básicas-com-o-pandas">Operações básicas com o Pandas</h2>
+<p>Podemos visualizar as primeiras linhas do nosso DataFrame com o comando <code>df.head()</code>. Para visualizar as últimas linhas, basta usar o comando <code>df.tail()</code>.</p>
+<div id="222b1768" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando as primeiras linhas do DataFrame</span></span>
+<span id="cb3-2">df.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Country name</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">Life Ladder</th>
+<th data-quarto-table-cell-role="th">Log GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy at birth</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Positive affect</th>
+<th data-quarto-table-cell-role="th">Negative affect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>2008</td>
+<td>3.724</td>
+<td>7.350</td>
+<td>0.451</td>
+<td>50.5</td>
+<td>0.718</td>
+<td>0.168</td>
+<td>0.882</td>
+<td>0.414</td>
+<td>0.258</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Afghanistan</td>
+<td>2009</td>
+<td>4.402</td>
+<td>7.509</td>
+<td>0.552</td>
+<td>50.8</td>
+<td>0.679</td>
+<td>0.191</td>
+<td>0.850</td>
+<td>0.481</td>
+<td>0.237</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Afghanistan</td>
+<td>2010</td>
+<td>4.758</td>
+<td>7.614</td>
+<td>0.539</td>
+<td>51.1</td>
+<td>0.600</td>
+<td>0.121</td>
+<td>0.707</td>
+<td>0.517</td>
+<td>0.275</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Afghanistan</td>
+<td>2011</td>
+<td>3.832</td>
+<td>7.581</td>
+<td>0.521</td>
+<td>51.4</td>
+<td>0.496</td>
+<td>0.164</td>
+<td>0.731</td>
+<td>0.480</td>
+<td>0.267</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Afghanistan</td>
+<td>2012</td>
+<td>3.783</td>
+<td>7.661</td>
+<td>0.521</td>
+<td>51.7</td>
+<td>0.531</td>
+<td>0.238</td>
+<td>0.776</td>
+<td>0.614</td>
+<td>0.268</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2b0a35a5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando as últimas linhas do DataFrame</span></span>
+<span id="cb4-2">df.tail()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Country name</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">Life Ladder</th>
+<th data-quarto-table-cell-role="th">Log GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy at birth</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Positive affect</th>
+<th data-quarto-table-cell-role="th">Negative affect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2194</td>
+<td>Zimbabwe</td>
+<td>2018</td>
+<td>3.616</td>
+<td>7.783</td>
+<td>0.775</td>
+<td>52.625</td>
+<td>0.763</td>
+<td>-0.051</td>
+<td>0.844</td>
+<td>0.658</td>
+<td>0.212</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2195</td>
+<td>Zimbabwe</td>
+<td>2019</td>
+<td>2.694</td>
+<td>7.698</td>
+<td>0.759</td>
+<td>53.100</td>
+<td>0.632</td>
+<td>-0.047</td>
+<td>0.831</td>
+<td>0.658</td>
+<td>0.235</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2196</td>
+<td>Zimbabwe</td>
+<td>2020</td>
+<td>3.160</td>
+<td>7.596</td>
+<td>0.717</td>
+<td>53.575</td>
+<td>0.643</td>
+<td>0.006</td>
+<td>0.789</td>
+<td>0.661</td>
+<td>0.346</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2197</td>
+<td>Zimbabwe</td>
+<td>2021</td>
+<td>3.155</td>
+<td>7.657</td>
+<td>0.685</td>
+<td>54.050</td>
+<td>0.668</td>
+<td>-0.076</td>
+<td>0.757</td>
+<td>0.610</td>
+<td>0.242</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2198</td>
+<td>Zimbabwe</td>
+<td>2022</td>
+<td>3.296</td>
+<td>7.670</td>
+<td>0.666</td>
+<td>54.525</td>
+<td>0.652</td>
+<td>-0.070</td>
+<td>0.753</td>
+<td>0.641</td>
+<td>0.191</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Podemos visualizar os índices e nome das colunas do DataFrame com os comandos <code>df.index</code> e <code>df.columns</code>, respectivamente.</p>
+<div id="f72d1691" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando os índices do DataFrame</span></span>
+<span id="cb5-2">df.index</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>RangeIndex(start=0, stop=2199, step=1)</code></pre>
+</div>
+</div>
+<div id="3c18e662" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando os nomes das colunas do DataFrame</span></span>
+<span id="cb7-2">df.columns</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>Index(['Country name', 'year', 'Life Ladder', 'Log GDP per capita',
+       'Social support', 'Healthy life expectancy at birth',
+       'Freedom to make life choices', 'Generosity',
+       'Perceptions of corruption', 'Positive affect', 'Negative affect'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>Como vimos as colunas possuem espaços em seus nomes, para remover esses espaços podemos usar o comando <code>df.columns = df.columns.str.replace(' ', '_')</code>.</p>
+<div id="4ff8b776" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Removendo os espaços dos nomes das colunas</span></span>
+<span id="cb9-2">df.columns <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.columns.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.replace(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'_'</span>)</span></code></pre></div>
+</div>
+<p>Além disso, podemos colocar os nomes das colunas em minúsculo.</p>
+<div id="b3b066e4" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Colocando os nomes das colunas em minúsculo</span></span>
+<span id="cb10-2">df.columns <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.columns.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.lower()</span></code></pre></div>
+</div>
+<div id="b227fc95" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando os nomes das colunas do DataFrame</span></span>
+<span id="cb11-2">df.columns</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>Index(['country_name', 'year', 'life_ladder', 'log_gdp_per_capita',
+       'social_support', 'healthy_life_expectancy_at_birth',
+       'freedom_to_make_life_choices', 'generosity',
+       'perceptions_of_corruption', 'positive_affect', 'negative_affect'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>Podemos visualizar as informações do DataFrame com o comando <code>df.info()</code>. Além disso, podemos visualizar o tipo dos dados de cada coluna com o comando <code>df.dtypes</code>.</p>
+<div id="e7e3fcd0" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando as informações do DataFrame</span></span>
+<span id="cb13-2">df.info()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 2199 entries, 0 to 2198
+Data columns (total 11 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   country_name                      2199 non-null   object 
+ 1   year                              2199 non-null   int64  
+ 2   life_ladder                       2199 non-null   float64
+ 3   log_gdp_per_capita                2179 non-null   float64
+ 4   social_support                    2186 non-null   float64
+ 5   healthy_life_expectancy_at_birth  2145 non-null   float64
+ 6   freedom_to_make_life_choices      2166 non-null   float64
+ 7   generosity                        2126 non-null   float64
+ 8   perceptions_of_corruption         2083 non-null   float64
+ 9   positive_affect                   2175 non-null   float64
+ 10  negative_affect                   2183 non-null   float64
+dtypes: float64(9), int64(1), object(1)
+memory usage: 189.1+ KB</code></pre>
+</div>
+</div>
+<div id="1a8907a6" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualizando o tipo dos dados de cada coluna</span></span>
+<span id="cb15-2">df.dtypes</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>country_name                         object
+year                                  int64
+life_ladder                         float64
+log_gdp_per_capita                  float64
+social_support                      float64
+healthy_life_expectancy_at_birth    float64
+freedom_to_make_life_choices        float64
+generosity                          float64
+perceptions_of_corruption           float64
+positive_affect                     float64
+negative_affect                     float64
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="selecionando-linhas-e-colunas-do-dataframe" class="level1">
+<h1>Selecionando linhas e colunas do DataFrame</h1>
+<section id="selecionando-colunas-do-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="selecionando-colunas-do-dataframe">Selecionando colunas do DataFrame</h2>
+<p>Podemos selecionar a coluna <code>life_ladder</code> do DataFrame com o comando <code>df.life_ladder</code>. Além disso, podemos selecionar mais de uma coluna passando uma lista com os nomes das colunas desejadas.</p>
+<div id="8ed10888" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Selecionando a coluna life_ladder</span></span>
+<span id="cb17-2">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.life_ladder</span>
+<span id="cb17-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(x)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0       3.724
+1       4.402
+2       4.758
+3       3.832
+4       3.783
+        ...  
+2194    3.616
+2195    2.694
+2196    3.160
+2197    3.155
+2198    3.296
+Name: life_ladder, Length: 2199, dtype: float64</code></pre>
+</div>
+</div>
+<p>Uma outra forma é passar o nome da coluna entre colchetes, como no exemplo abaixo.</p>
+<div id="1a48e350" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Selecionando a coluna life_ladder</span></span>
+<span id="cb19-2">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'life_ladder'</span>]</span>
+<span id="cb19-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(x)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0       3.724
+1       4.402
+2       4.758
+3       3.832
+4       3.783
+        ...  
+2194    3.616
+2195    2.694
+2196    3.160
+2197    3.155
+2198    3.296
+Name: life_ladder, Length: 2199, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="selecionando-linhas-do-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="selecionando-linhas-do-dataframe">Selecionando linhas do DataFrame</h2>
+<p>Podemos selecionar as linhas de um DataFrame com o comando <code>df[1:5]</code>.</p>
+<div id="67ea3cee" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Selecionando as linhas de 1 a 5</span></span>
+<span id="cb21-2">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]</span>
+<span id="cb21-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(x)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_name  year  life_ladder  log_gdp_per_capita  social_support  \
+1  Afghanistan  2009        4.402               7.509           0.552   
+2  Afghanistan  2010        4.758               7.614           0.539   
+3  Afghanistan  2011        3.832               7.581           0.521   
+4  Afghanistan  2012        3.783               7.661           0.521   
+
+   healthy_life_expectancy_at_birth  freedom_to_make_life_choices  generosity  \
+1                              50.8                         0.679       0.191   
+2                              51.1                         0.600       0.121   
+3                              51.4                         0.496       0.164   
+4                              51.7                         0.531       0.238   
+
+   perceptions_of_corruption  positive_affect  negative_affect  
+1                      0.850            0.481            0.237  
+2                      0.707            0.517            0.275  
+3                      0.731            0.480            0.267  
+4                      0.776            0.614            0.268  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="operadores-lógicos" class="level1">
+<h1>Operadores lógicos</h1>
+<p>Podemos usar operadores lógicos para selecionar linhas do DataFrame. Por exemplo, podemos selecionar as linhas onde o valor da coluna <code>year</code> é igual a 2018.</p>
+<div id="3e8fa3af" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Selecionando as linhas onde o valor da coluna year é igual a 2018</span></span>
+<span id="cb23-2">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[df.year <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2018</span>]</span>
+<span id="cb23-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(x)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     country_name  year  life_ladder  log_gdp_per_capita  social_support  \
+10    Afghanistan  2018        2.694               7.631           0.508   
+24        Albania  2018        5.004               9.497           0.684   
+35        Algeria  2018        5.043               9.370           0.799   
+55      Argentina  2018        5.793              10.032           0.900   
+72        Armenia  2018        5.062               9.490           0.814   
+...           ...   ...          ...                 ...             ...   
+2133    Venezuela  2018        5.006               5.935           0.887   
+2150      Vietnam  2018        5.296               9.173           0.832   
+2165        Yemen  2018        3.058               7.444           0.789   
+2178       Zambia  2018        4.041               8.139           0.718   
+2194     Zimbabwe  2018        3.616               7.783           0.775   
+
+      healthy_life_expectancy_at_birth  freedom_to_make_life_choices  \
+10                              53.575                         0.374   
+24                              69.075                         0.824   
+35                              66.300                         0.583   
+55                              67.050                         0.846   
+72                              66.825                         0.808   
+...                                ...                           ...   
+2133                            64.575                         0.611   
+2150                            65.200                         0.909   
+2165                            57.725                         0.553   
+2178                            53.975                         0.791   
+2194                            52.625                         0.763   
+
+      generosity  perceptions_of_corruption  positive_affect  negative_affect  
+10        -0.091                      0.928            0.385            0.405  
+24         0.007                      0.899            0.592            0.319  
+35        -0.151                      0.759            0.534            0.293  
+55        -0.214                      0.855            0.732            0.321  
+72        -0.169                      0.677            0.535            0.455  
+...          ...                        ...              ...              ...  
+2133       0.072                      0.828            0.723            0.374  
+2150      -0.061                      0.808            0.614            0.191  
+2165      -0.124                      0.793            0.409            0.315  
+2178       0.048                      0.811            0.662            0.351  
+2194      -0.051                      0.844            0.658            0.212  
+
+[141 rows x 11 columns]</code></pre>
+</div>
+</div>
+<p>Selecioando linhas onde life_ladder é maior que 5.</p>
+<div id="2465cf7c" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Selecionando as linhas onde o valor da coluna life_ladder é maior que 5</span></span>
+<span id="cb25-2">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[df.life_ladder <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]</span>
+<span id="cb25-3">x</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country_name</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">life_ladder</th>
+<th data-quarto-table-cell-role="th">log_gdp_per_capita</th>
+<th data-quarto-table-cell-role="th">social_support</th>
+<th data-quarto-table-cell-role="th">healthy_life_expectancy_at_birth</th>
+<th data-quarto-table-cell-role="th">freedom_to_make_life_choices</th>
+<th data-quarto-table-cell-role="th">generosity</th>
+<th data-quarto-table-cell-role="th">perceptions_of_corruption</th>
+<th data-quarto-table-cell-role="th">positive_affect</th>
+<th data-quarto-table-cell-role="th">negative_affect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Albania</td>
+<td>2009</td>
+<td>5.485</td>
+<td>9.241</td>
+<td>0.833</td>
+<td>67.320</td>
+<td>0.525</td>
+<td>-0.159</td>
+<td>0.864</td>
+<td>0.564</td>
+<td>0.279</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Albania</td>
+<td>2010</td>
+<td>5.269</td>
+<td>9.283</td>
+<td>0.733</td>
+<td>67.600</td>
+<td>0.569</td>
+<td>-0.174</td>
+<td>0.726</td>
+<td>0.576</td>
+<td>0.300</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Albania</td>
+<td>2011</td>
+<td>5.867</td>
+<td>9.311</td>
+<td>0.759</td>
+<td>67.880</td>
+<td>0.487</td>
+<td>-0.206</td>
+<td>0.877</td>
+<td>0.566</td>
+<td>0.257</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Albania</td>
+<td>2012</td>
+<td>5.510</td>
+<td>9.326</td>
+<td>0.785</td>
+<td>68.160</td>
+<td>0.602</td>
+<td>-0.170</td>
+<td>0.848</td>
+<td>0.553</td>
+<td>0.271</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Albania</td>
+<td>2018</td>
+<td>5.004</td>
+<td>9.497</td>
+<td>0.684</td>
+<td>69.075</td>
+<td>0.824</td>
+<td>0.007</td>
+<td>0.899</td>
+<td>0.592</td>
+<td>0.319</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2153</td>
+<td>Vietnam</td>
+<td>2021</td>
+<td>5.540</td>
+<td>9.271</td>
+<td>0.799</td>
+<td>65.500</td>
+<td>0.897</td>
+<td>0.107</td>
+<td>0.798</td>
+<td>0.651</td>
+<td>0.280</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2154</td>
+<td>Vietnam</td>
+<td>2022</td>
+<td>6.267</td>
+<td>9.333</td>
+<td>0.879</td>
+<td>65.600</td>
+<td>0.975</td>
+<td>-0.179</td>
+<td>0.703</td>
+<td>0.774</td>
+<td>0.108</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2170</td>
+<td>Zambia</td>
+<td>2009</td>
+<td>5.260</td>
+<td>7.971</td>
+<td>0.782</td>
+<td>48.740</td>
+<td>0.696</td>
+<td>-0.097</td>
+<td>0.917</td>
+<td>0.693</td>
+<td>0.123</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2172</td>
+<td>Zambia</td>
+<td>2012</td>
+<td>5.013</td>
+<td>8.094</td>
+<td>0.780</td>
+<td>50.720</td>
+<td>0.788</td>
+<td>0.007</td>
+<td>0.806</td>
+<td>0.676</td>
+<td>0.250</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2173</td>
+<td>Zambia</td>
+<td>2013</td>
+<td>5.244</td>
+<td>8.111</td>
+<td>0.761</td>
+<td>51.380</td>
+<td>0.770</td>
+<td>-0.105</td>
+<td>0.732</td>
+<td>0.727</td>
+<td>0.308</td>
+</tr>
+</tbody>
+</table>
+
+<p>1410 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<p>Resetando o índice do DataFrame filtrado.</p>
+<div id="a1f915cc" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1">new_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2022</span>]</span>
+<span id="cb26-2">new_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> new_df.reset_index(drop<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb26-3">new_df</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country_name</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">life_ladder</th>
+<th data-quarto-table-cell-role="th">log_gdp_per_capita</th>
+<th data-quarto-table-cell-role="th">social_support</th>
+<th data-quarto-table-cell-role="th">healthy_life_expectancy_at_birth</th>
+<th data-quarto-table-cell-role="th">freedom_to_make_life_choices</th>
+<th data-quarto-table-cell-role="th">generosity</th>
+<th data-quarto-table-cell-role="th">perceptions_of_corruption</th>
+<th data-quarto-table-cell-role="th">positive_affect</th>
+<th data-quarto-table-cell-role="th">negative_affect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>2022</td>
+<td>1.281</td>
+<td>NaN</td>
+<td>0.228</td>
+<td>54.875</td>
+<td>0.368</td>
+<td>NaN</td>
+<td>0.733</td>
+<td>0.206</td>
+<td>0.576</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Albania</td>
+<td>2022</td>
+<td>5.212</td>
+<td>9.626</td>
+<td>0.724</td>
+<td>69.175</td>
+<td>0.802</td>
+<td>-0.066</td>
+<td>0.846</td>
+<td>0.547</td>
+<td>0.255</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Argentina</td>
+<td>2022</td>
+<td>6.261</td>
+<td>10.011</td>
+<td>0.893</td>
+<td>67.250</td>
+<td>0.825</td>
+<td>-0.128</td>
+<td>0.810</td>
+<td>0.724</td>
+<td>0.284</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Armenia</td>
+<td>2022</td>
+<td>5.382</td>
+<td>9.668</td>
+<td>0.811</td>
+<td>67.925</td>
+<td>0.790</td>
+<td>-0.154</td>
+<td>0.705</td>
+<td>0.531</td>
+<td>0.549</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Australia</td>
+<td>2022</td>
+<td>7.035</td>
+<td>10.854</td>
+<td>0.942</td>
+<td>71.125</td>
+<td>0.854</td>
+<td>0.153</td>
+<td>0.545</td>
+<td>0.711</td>
+<td>0.244</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">109</td>
+<td>Uruguay</td>
+<td>2022</td>
+<td>6.671</td>
+<td>10.084</td>
+<td>0.905</td>
+<td>67.500</td>
+<td>0.878</td>
+<td>-0.052</td>
+<td>0.631</td>
+<td>0.775</td>
+<td>0.267</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">110</td>
+<td>Uzbekistan</td>
+<td>2022</td>
+<td>6.016</td>
+<td>8.990</td>
+<td>0.879</td>
+<td>65.600</td>
+<td>0.959</td>
+<td>0.309</td>
+<td>0.616</td>
+<td>0.741</td>
+<td>0.225</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">111</td>
+<td>Venezuela</td>
+<td>2022</td>
+<td>5.949</td>
+<td>NaN</td>
+<td>0.899</td>
+<td>63.875</td>
+<td>0.770</td>
+<td>NaN</td>
+<td>0.798</td>
+<td>0.754</td>
+<td>0.292</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">112</td>
+<td>Vietnam</td>
+<td>2022</td>
+<td>6.267</td>
+<td>9.333</td>
+<td>0.879</td>
+<td>65.600</td>
+<td>0.975</td>
+<td>-0.179</td>
+<td>0.703</td>
+<td>0.774</td>
+<td>0.108</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">113</td>
+<td>Zimbabwe</td>
+<td>2022</td>
+<td>3.296</td>
+<td>7.670</td>
+<td>0.666</td>
+<td>54.525</td>
+<td>0.652</td>
+<td>-0.070</td>
+<td>0.753</td>
+<td>0.641</td>
+<td>0.191</td>
+</tr>
+</tbody>
+</table>
+
+<p>114 rows × 11 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizando-dados-faltantes" class="level1">
+<h1>Visualizando dados faltantes</h1>
+<p>Podemos visualizar os dados faltantes do DataFrame com o comando <code>df.isnull().sum()</code>.</p>
+<div id="349b2c2f" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1">df.isnull().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>country_name                          0
+year                                  0
+life_ladder                           0
+log_gdp_per_capita                   20
+social_support                       13
+healthy_life_expectancy_at_birth     54
+freedom_to_make_life_choices         33
+generosity                           73
+perceptions_of_corruption           116
+positive_affect                      24
+negative_affect                      16
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="estatísticas-descritivas" class="level1">
+<h1>Estatísticas descritivas</h1>
+<p>Podemos visualizar as estatísticas descritivas do DataFrame com o comando <code>df.describe()</code>.</p>
+<div id="1c04e2c6" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1">df.describe()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">life_ladder</th>
+<th data-quarto-table-cell-role="th">log_gdp_per_capita</th>
+<th data-quarto-table-cell-role="th">social_support</th>
+<th data-quarto-table-cell-role="th">healthy_life_expectancy_at_birth</th>
+<th data-quarto-table-cell-role="th">freedom_to_make_life_choices</th>
+<th data-quarto-table-cell-role="th">generosity</th>
+<th data-quarto-table-cell-role="th">perceptions_of_corruption</th>
+<th data-quarto-table-cell-role="th">positive_affect</th>
+<th data-quarto-table-cell-role="th">negative_affect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>2199.000000</td>
+<td>2199.000000</td>
+<td>2179.000000</td>
+<td>2186.000000</td>
+<td>2145.000000</td>
+<td>2166.000000</td>
+<td>2126.000000</td>
+<td>2083.000000</td>
+<td>2175.000000</td>
+<td>2183.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>2014.161437</td>
+<td>5.479227</td>
+<td>9.389760</td>
+<td>0.810681</td>
+<td>63.294582</td>
+<td>0.747847</td>
+<td>0.000091</td>
+<td>0.745208</td>
+<td>0.652148</td>
+<td>0.271493</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>4.718736</td>
+<td>1.125527</td>
+<td>1.153402</td>
+<td>0.120953</td>
+<td>6.901104</td>
+<td>0.140137</td>
+<td>0.161079</td>
+<td>0.185835</td>
+<td>0.105913</td>
+<td>0.086872</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>2005.000000</td>
+<td>1.281000</td>
+<td>5.527000</td>
+<td>0.228000</td>
+<td>6.720000</td>
+<td>0.258000</td>
+<td>-0.338000</td>
+<td>0.035000</td>
+<td>0.179000</td>
+<td>0.083000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>2010.000000</td>
+<td>4.647000</td>
+<td>8.500000</td>
+<td>0.747000</td>
+<td>59.120000</td>
+<td>0.656250</td>
+<td>-0.112000</td>
+<td>0.688000</td>
+<td>0.572000</td>
+<td>0.208000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2014.000000</td>
+<td>5.432000</td>
+<td>9.499000</td>
+<td>0.836000</td>
+<td>65.050000</td>
+<td>0.770000</td>
+<td>-0.023000</td>
+<td>0.800000</td>
+<td>0.663000</td>
+<td>0.261000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2018.000000</td>
+<td>6.309500</td>
+<td>10.373500</td>
+<td>0.905000</td>
+<td>68.500000</td>
+<td>0.859000</td>
+<td>0.092000</td>
+<td>0.869000</td>
+<td>0.738000</td>
+<td>0.323000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2022.000000</td>
+<td>8.019000</td>
+<td>11.664000</td>
+<td>0.987000</td>
+<td>74.475000</td>
+<td>0.985000</td>
+<td>0.703000</td>
+<td>0.983000</td>
+<td>0.884000</td>
+<td>0.705000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="plotando-gráficos" class="level1">
+<h1>Plotando gráficos</h1>
+<div id="472dac00" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1">df.plot()</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas_files/figure-html/cell-21-output-1.png" width="583" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Como pudemos notar a plotagem do gráfico não ficou muito legível. Podemos melhorar a visualização do gráfico. Para isso, vamos plotar um gráfico de dispersão com a coluna <code>log_gdp_per_capita</code> no eixo x e a coluna <code>life_ladder</code> no eixo y.</p>
+<div id="7b6379ca" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1">df.plot(kind<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'scatter'</span>, x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'log_gdp_per_capita'</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'life_ladder'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas_files/figure-html/cell-22-output-1.png" width="576" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Podemos melhorar a visualização do gráfico adicionando cores e alterando o tamanho dos pontos. Para isso, vamos criar um dicionário com as cores que queremos usar e passar esse dicionário para o parâmetro <code>c</code> do método <code>plot</code>.</p>
+<div id="b5d77d7e" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1">cmap <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {</span>
+<span id="cb32-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Brazil'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Green'</span>,</span>
+<span id="cb32-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Slovenia'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Orange'</span>,</span>
+<span id="cb32-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'India'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'purple'</span></span>
+<span id="cb32-5">}</span>
+<span id="cb32-6"></span>
+<span id="cb32-7">df.plot(</span>
+<span id="cb32-8">    kind<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'scatter'</span>,</span>
+<span id="cb32-9">    x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'log_gdp_per_capita'</span>,</span>
+<span id="cb32-10">    y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'life_ladder'</span>,</span>
+<span id="cb32-11">    c<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[cmap.get(c, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'yellow'</span>) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> df.country_name], <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Set the colors</span></span>
+<span id="cb32-12">    s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Set the size of the points</span></span>
+<span id="cb32-13">    )</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas_files/figure-html/cell-23-output-1.png" width="576" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Podemos plotar um histograma da coluna <code>life_ladder</code> com o comando <code>df.hist("life_ladder")</code>.</p>
+<div id="b5568b9d" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1">df.hist(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"life_ladder"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>array([[&lt;Axes: title={'center': 'life_ladder'}&gt;]], dtype=object)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas_files/figure-html/cell-24-output-2.png" width="575" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Além disso podemos criar gráficos com o seaborn. Por exemplo, podemos criar um gráfico de dispersão com a coluna <code>log_gdp_per_capita</code> no eixo x e a coluna <code>life_ladder</code> no eixo y.</p>
+<div id="c071769e" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1">sns.scatterplot(data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>df, x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'log_gdp_per_capita'</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'life_ladder'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas_files/figure-html/cell-25-output-1.png" width="576" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Podemos plotar vários gráficos ao mesmo tempo com o seaborn.</p>
+<div id="118255b2" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1">sns.pairplot(df)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas_files/figure-html/cell-26-output-1.png" width="2370" height="2359" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="operações-com-colunas" class="level1">
+<h1>Operações com colunas</h1>
+<p>Podemos criar uma nova coluna no DataFrame com o comando <code>df['nova_coluna'] = df['coluna1'] + df['coluna2']</code>.</p>
+<div id="337455cd" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'this_column_makes_no_sense'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"life_ladder"</span>]</span>
+<span id="cb37-2">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"net_affect_difference"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"positive_affect"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"negative_affect"</span>]</span>
+<span id="cb37-3"></span>
+<span id="cb37-4">df.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country_name</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">life_ladder</th>
+<th data-quarto-table-cell-role="th">log_gdp_per_capita</th>
+<th data-quarto-table-cell-role="th">social_support</th>
+<th data-quarto-table-cell-role="th">healthy_life_expectancy_at_birth</th>
+<th data-quarto-table-cell-role="th">freedom_to_make_life_choices</th>
+<th data-quarto-table-cell-role="th">generosity</th>
+<th data-quarto-table-cell-role="th">perceptions_of_corruption</th>
+<th data-quarto-table-cell-role="th">positive_affect</th>
+<th data-quarto-table-cell-role="th">negative_affect</th>
+<th data-quarto-table-cell-role="th">this_column_makes_no_sense</th>
+<th data-quarto-table-cell-role="th">net_affect_difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>2008</td>
+<td>3.724</td>
+<td>7.350</td>
+<td>0.451</td>
+<td>50.5</td>
+<td>0.718</td>
+<td>0.168</td>
+<td>0.882</td>
+<td>0.414</td>
+<td>0.258</td>
+<td>2011.724</td>
+<td>0.156</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Afghanistan</td>
+<td>2009</td>
+<td>4.402</td>
+<td>7.509</td>
+<td>0.552</td>
+<td>50.8</td>
+<td>0.679</td>
+<td>0.191</td>
+<td>0.850</td>
+<td>0.481</td>
+<td>0.237</td>
+<td>2013.402</td>
+<td>0.244</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Afghanistan</td>
+<td>2010</td>
+<td>4.758</td>
+<td>7.614</td>
+<td>0.539</td>
+<td>51.1</td>
+<td>0.600</td>
+<td>0.121</td>
+<td>0.707</td>
+<td>0.517</td>
+<td>0.275</td>
+<td>2014.758</td>
+<td>0.242</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Afghanistan</td>
+<td>2011</td>
+<td>3.832</td>
+<td>7.581</td>
+<td>0.521</td>
+<td>51.4</td>
+<td>0.496</td>
+<td>0.164</td>
+<td>0.731</td>
+<td>0.480</td>
+<td>0.267</td>
+<td>2014.832</td>
+<td>0.213</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Afghanistan</td>
+<td>2012</td>
+<td>3.783</td>
+<td>7.661</td>
+<td>0.521</td>
+<td>51.7</td>
+<td>0.531</td>
+<td>0.238</td>
+<td>0.776</td>
+<td>0.614</td>
+<td>0.268</td>
+<td>2015.783</td>
+<td>0.346</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Pandas</category>
+  <category>Python</category>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/posts/introducao-pandas.html</guid>
+  <pubDate>Thu, 12 Sep 2024 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Derivadas usando Sympy e Numpy</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
