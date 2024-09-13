@@ -10,10 +10,10 @@ format:
 categories: [Pandas, Python]
 open-graph:
   description: "Pandas"
-  image: https://pandas.pydata.org/docs/_static/pandas.svg
+  image: ../images/03.pandas/pandas.svg
 twitter-card:
   description: "Pandas"
-  image: https://pandas.pydata.org/docs/_static/pandas.svg
+  image: ../images/03.pandas/pandas.svg
 ---
 
 *Este artigo foi reescrito em Segunda, 25 de Março de 2024.*
