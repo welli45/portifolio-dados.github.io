@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Portifólio de Dados</title>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-excel/</link>
+<atom:link href="https://welli45.github.io/portifolio-dados.github.io/projetos-excel/index.xml" rel="self" type="application/rss+xml"/>
+<description>O Excel é uma ferramenta de planilhas eletrônicas que permite a criação de gráficos, tabelas e cálculos. Aqui você tem acesso aos projetos que desenvolvi em Excel.</description>
+<image>
+<url>https://welli45.github.io/portifolio-dados.github.io/images/profile.png</url>
+<title>Portifólio de Dados</title>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-excel/</link>
+</image>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Sat, 28 Sep 2024 01:23:32 GMT</lastBuildDate>
+</channel>
+</rss>

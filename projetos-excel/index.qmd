@@ -1,0 +1,45 @@
+---
+title: "Projetos desenvolvidos em Excel"
+subtitle: "Aqui você tem acesso aos projetos que desenvolvi em Excel"
+description: "O Excel é uma ferramenta de planilhas eletrônicas que permite a criação de gráficos, tabelas e cálculos. Aqui você tem acesso aos projetos que desenvolvi em Excel."
+comments: false
+margin-header: "[Welli45](https://github.com/welli45) © 2024 by [Wellington S.](https://github.com/welli45)"
+toc: false
+listing:
+  - id: posts
+    contents: posts
+    sort: 
+      - "date desc"
+      - "title asc"
+    categories: true
+    sort-ui: [date, author]
+    filter-ui: [title, date, author]
+    feed: true
+    type: default
+    page-size: 7
+    image-align: left
+    date-format: "DD MMMM YYYY"
+    fields: [title, subtitle, author, description, date, image, reading-time]
+format:
+  html:
+    page-layout: full
+website:
+  back-to-top-navigation: true
+open-graph:
+  description: "Aqui você pode encontrar meus Projetos e Aprendizados."
+twitter-card:
+  description: "Aqui você pode encontrar meus Projetos e Aprendizados."
+---
+![](excel.webp){fig-alt="SQL" width=50%}
+
+<!-- ### Featured Posts
+:::{#featured}
+:::
+
+<br></br>
+--- -->
+<br></br>
+
+<!-- ### All Posts -->
+:::{#posts}
+:::

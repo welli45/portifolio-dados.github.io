@@ -14,7 +14,7 @@
 <title>Portifólio de Dados</title>
 <link>https://welli45.github.io/portifolio-dados.github.io/projetos-Python/</link>
 </image>
-<generator>quarto-1.4.555</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Thu, 12 Sep 2024 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Análise exploratória de dados</title>
@@ -1167,8 +1167,10 @@ font-style: inherit;">=</span>[cmap.get(c, <span class="st" style="color: #20794
 background-color: null;
 font-style: inherit;">'yellow'</span>) <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> c <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> df.country_name], <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Set the colors</span></span>
@@ -1409,9 +1411,11 @@ font-style: inherit;">"negative_affect"</span>]</span>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> f(x):</span>
 <span id="cb1-2">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> x<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
@@ -1434,9 +1438,11 @@ font-style: inherit;">3</span>))</span></code></pre></div>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> dfdx(x):</span>
 <span id="cb3-2">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
@@ -1533,6 +1539,7 @@ font-style: inherit;">as</span> plt</span>
 <span id="cb7-3"></span>
 <span id="cb7-4"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> plot_f1_and_f2(f1, f2<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
@@ -1607,16 +1614,20 @@ background-color: null;
 font-style: inherit;">=</span>label1)</span>
 <span id="cb7-18">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">not</span> f2 <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">is</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span>:</span>
 <span id="cb7-19">             </span>
 <span id="cb7-20">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">isinstance</span>(f2, np.ndarray):</span>
@@ -1631,6 +1642,7 @@ background-color: null;
 font-style: inherit;">=</span>label2,)</span>
 <span id="cb7-22">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>:</span>
 <span id="cb7-23">            plt.plot(x, f2(x), <span class="st" style="color: #20794D;
 background-color: null;
@@ -1906,10 +1918,12 @@ font-style: inherit;">3</span>])</span>
 <span id="cb22-4"></span>
 <span id="cb22-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">try</span>:</span>
 <span id="cb22-6">    f_symb(x_array)</span>
 <span id="cb22-7"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">TypeError</span> <span class="im" style="color: #00769E;
@@ -2218,9 +2232,11 @@ background-color: null;
 font-style: inherit;"># plote a função e sua derivada</span></span>
 <span id="cb34-4"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> f_composed(x):</span>
 <span id="cb34-5">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> np.exp(<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
@@ -2267,9 +2283,11 @@ font-style: inherit;">"f'(x) approximate"</span>)</span></code></pre></div>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> dfdx_abs(x):</span>
 <span id="cb35-2">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> x <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
@@ -2277,14 +2295,17 @@ background-color: null;
 font-style: inherit;">0</span>:</span>
 <span id="cb35-3">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span></span>
 <span id="cb35-4">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>:</span>
 <span id="cb35-5">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> x <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
@@ -2292,6 +2313,7 @@ background-color: null;
 font-style: inherit;">0</span>:</span>
 <span id="cb35-6">            <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
@@ -2299,9 +2321,11 @@ background-color: null;
 font-style: inherit;">1</span></span>
 <span id="cb35-7">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>:</span>
 <span id="cb35-8">            <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
@@ -2420,6 +2444,7 @@ font-style: inherit;">28</span>})</span></code></pre></div>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> gradient_descent(dfdx, dfdy, x, y, learning_rate <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
@@ -2431,8 +2456,10 @@ background-color: null;
 font-style: inherit;">100</span>):</span>
 <span id="cb4-2">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> iteration <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">range</span>(num_iterations):</span>
@@ -2449,6 +2476,7 @@ background-color: null;
 font-style: inherit;">*</span> dfdy(x, y)</span>
 <span id="cb4-4">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> x, y</span></code></pre></div>
 </details>
 </div>
@@ -2897,18 +2925,22 @@ font-style: inherit;">import</span> plot_f, gradient_descent_one_variable, f_exa
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> f_example_1(x):</span>
 <span id="cb2-2">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> np.exp(x) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> np.log(x)</span>
 <span id="cb2-3"></span>
 <span id="cb2-4"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> dfdx_example_1(x):</span>
 <span id="cb2-5">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> np.exp(x) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
@@ -2950,6 +2982,7 @@ font-style: inherit;">0.0</span>)</span></code></pre></div>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> gradient_descent(dfdx, x, learning_rate <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
@@ -2961,8 +2994,10 @@ background-color: null;
 font-style: inherit;">100</span>):</span>
 <span id="cb4-2">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> iteration <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">range</span>(num_iterations):</span>
@@ -2975,6 +3010,7 @@ background-color: null;
 font-style: inherit;">*</span> dfdx(x)</span>
 <span id="cb4-4">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> x</span></code></pre></div>
 </details>
 </div>

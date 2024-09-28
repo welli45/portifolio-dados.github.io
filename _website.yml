@@ -26,6 +26,12 @@ website:
         - icon: filetype-py
           text: Projetos em Python
           href: projetos-Python/index.qmd
+        - icon: filetype-sql
+          text: Projetos em SQL
+          href: projetos-SQL/index.qmd
+        - icon: file-earmark-excel-fill
+          text: Projetos em Excel
+          href: projetos-excel/index.qmd
       - icon: mortarboard-fill
         text: Estudos e Projetos Acadêmicos
         href: Vida-Academica/index.qmd

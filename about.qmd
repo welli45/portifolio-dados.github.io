@@ -149,8 +149,9 @@ Período: Janeiro de 2021 - Janeiro de 2024
 -   Elaboração de relatórios de pesquisa detalhados, consolidando os resultados e insights obtidos ao longo do projeto.
 
 # Certificações/Cursos
-
-- 08/2024: Linear Algebra for Machine Learning and Data Science 
+- 09/2024: Calculus for Machine Learning and Data Science - DeepLearning.AI
+- 08/2024: Linear Algebra for Machine Learning and Data Science - DeepLearning.AI
+- 01/2024: SQL para Análise de Dados – Udemy
 - 07/2024: Regressão Linear – MQ – UFMG
 - 08/2023: Master DAX – Power BI Orientado ao Projeto – Udemy
 - 08/2023: Data Storytelling – Udemy 
