@@ -6,27 +6,27 @@
       version="2.0">
 <channel>
 <title>Portifólio de Dados</title>
-<link>https://github.com/welli45/portifolio/projetos-R/</link>
-<atom:link href="https://github.com/welli45/portifolio/projetos-R/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/</link>
+<atom:link href="https://welli45.github.io/portifolio-dados.github.io/projetos-R/index.xml" rel="self" type="application/rss+xml"/>
 <description>R é uma linguagem versátil, desenvolvida por dois pesquisadores do departamento de Estatística da Universidade Auckland, na Nova Zelândia. Ela surgiu a partir da necessidade de um programa que auxiliasse na manipulação, análise e visualização de dados. [Fonte](https://blog.betrybe.com/linguagem-de-programacao/linguagem-r-tudo-sobre/)</description>
 <image>
-<url>https://github.com/welli45/portifolio/images/profile.png</url>
+<url>https://welli45.github.io/portifolio-dados.github.io/images/profile.png</url>
 <title>Portifólio de Dados</title>
-<link>https://github.com/welli45/portifolio/projetos-R/</link>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/</link>
 </image>
-<generator>quarto-1.5.56</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Sat, 03 Aug 2024 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Introdução Álgebra Matricial</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/algebra-matricial.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/algebra-matricial.html</link>
   <description><![CDATA[ 
 
 
 
 
 <p><em>Este artigo foi escrito em Segunda, 03 de Agosto de 2024.</em></p>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/06.matriz/OIP.jpg" class="img-fluid" data-fig-title="Matriz" alt="Matriz"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/06.matriz/OIP.jpg" class="img-fluid" data-fig-title="Matriz" alt="Matriz"></p>
 <section id="porque-devemos-estudar-álgebra-matricial" class="level1">
 <h1>Porque devemos estudar álgebra matricial?</h1>
 <p>A teoria é métodos estatísticos multivariados é baseada em álgebra matricial. Por essa razão, é útil, se não essencial, ter uma compreensão sólida de álgebra matricial <span class="citation" data-cites="métodos2021">(<em>Métodos estatísticos multivariados: uma introdução</em> 2021)</span>.</p>
@@ -1035,13 +1035,13 @@ font-style: inherit;">%*%</span>x</span>
   <category>R</category>
   <category>matrizes</category>
   <category>métodos-multivaridados</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/algebra-matricial.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/algebra-matricial.html</guid>
   <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Teste de significância com dados multivariados</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/teste-sig-multivariados.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/teste-sig-multivariados.html</link>
   <description><![CDATA[ 
 
 
@@ -1058,20 +1058,20 @@ font-style: inherit;">%*%</span>x</span>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Teste de significância</category>
   <category>Multivariados</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/teste-sig-multivariados.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/teste-sig-multivariados.html</guid>
   <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Teste T para amostras independentes e amostras pareadas</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T.html</link>
   <description><![CDATA[ 
 
 
 
 
 <p><em>Este artigo foi escrito em Sábado, 25 de Maio de 2024.</em></p>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/05.test-t/OIP.jpg" class="img-fluid" data-fig-title="Curva Normal" alt="Curva-Normal"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/05.test-t/OIP.jpg" class="img-fluid" data-fig-title="Curva Normal" alt="Curva-Normal"></p>
 <section id="teste-t-para-amostras-independentes" class="level2">
 <h2 class="anchored" data-anchor-id="teste-t-para-amostras-independentes">Teste T para amostras independentes</h2>
 <p>Quando queremos comparar as médias de duas amostras independentes, utilizamos o teste T para amostras independentes. A hipótese nula é que as médias das duas amostras são iguais. A hipótese alternativa é que as médias das duas amostras são diferentes.</p>
@@ -1412,7 +1412,7 @@ font-style: inherit;">1</span>) </span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1460,7 +1460,7 @@ font-style: inherit;">"Boxplot das notas em Biologia por Gênero"</span>)</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1553,7 +1553,7 @@ font-style: inherit;">1</span>) </span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1601,7 +1601,7 @@ font-style: inherit;">"Boxplot das notas em História por Gênero"</span>)</span
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1983,7 +1983,7 @@ font-style: inherit;">1</span>) </span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2031,7 +2031,7 @@ font-style: inherit;">"Boxplot das notas em Física por Escola"</span>)</span></
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2124,7 +2124,7 @@ font-style: inherit;">1</span>) </span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2172,7 +2172,7 @@ font-style: inherit;">"Boxplot das notas em Biologia por Escola"</span>)</span><
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2265,7 +2265,7 @@ font-style: inherit;">1</span>) </span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2313,7 +2313,7 @@ font-style: inherit;">"Boxplot das notas em História por Escola"</span>)</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2602,7 +2602,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2650,7 +2650,7 @@ font-style: inherit;">"Boxplot das notas em Biologia por Posição na Sala"</spa
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2743,7 +2743,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2791,7 +2791,7 @@ font-style: inherit;">"Boxplot das notas em História por Posição na Sala"</sp
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -3177,7 +3177,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -3239,7 +3239,7 @@ font-style: inherit;">"Boxplot das notas de Biologia e Biologia 2"</span>)</span
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -3331,13 +3331,13 @@ font-style: inherit;">TRUE</span>)))</span></code></pre></div>
   <category>teste de hipóteses</category>
   <category>teste-t-amostras-independentes</category>
   <category>teste-t-amostras-pareadas</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/Script-Teste-T.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T.html</guid>
   <pubDate>Sat, 25 May 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Análise de dados do Programa Universidade para Todos (ProUni)</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/analise-PROUNI.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-PROUNI.html</link>
   <description><![CDATA[ 
 
 
@@ -3346,7 +3346,7 @@ font-style: inherit;">TRUE</span>)))</span></code></pre></div>
 <p><em>Artigo em construção</em></p>
 <section id="transformando-vidas-o-impacto-do-prouni-no-brasil" class="level1">
 <h1>Transformando Vidas: O Impacto do Prouni no Brasil</h1>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/04.prouni/logo_prouni.svg" class="img-fluid" data-fig-title="ProUni" alt="ProUni"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/04.prouni/logo_prouni.svg" class="img-fluid" data-fig-title="ProUni" alt="ProUni"></p>
 <section id="sobre-o-programa-universidade-para-todos-prouni" class="level3">
 <h3 class="anchored" data-anchor-id="sobre-o-programa-universidade-para-todos-prouni">Sobre o Programa Universidade para Todos (Prouni)</h3>
 <p>O Programa Universidade para Todos (Prouni) é uma iniciativa do Ministério da Educação, estabelecida pelo governo federal em 2004. Ele oferece bolsas de estudo, tanto integrais quanto parciais (50%), em instituições privadas de ensino superior do Brasil, para estudantes brasileiros que ainda não possuem diploma de nível superior. Para mais informações, acesse <a href="https://acessounico.mec.gov.br/prouni/duvidas#o-prouni">aqui</a>.</p>
@@ -3809,7 +3809,7 @@ font-style: inherit;">element_blank</span>())</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-PROUNI_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-PROUNI_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -4010,7 +4010,7 @@ font-style: inherit;">"Set1"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-PROUNI_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-PROUNI_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -4273,7 +4273,7 @@ font-style: inherit;">"Set1"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-PROUNI_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-PROUNI_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -4290,13 +4290,13 @@ font-style: inherit;">"Set1"</span>)</span></code></pre></div>
   <category>r</category>
   <category>dados</category>
   <category>Estatística</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/analise-PROUNI.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-PROUNI.html</guid>
   <pubDate>Thu, 09 May 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Análise de dados da pesquisa DataSenado</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado.html</link>
   <description><![CDATA[ 
 
 
@@ -4305,7 +4305,7 @@ font-style: inherit;">"Set1"</span>)</span></code></pre></div>
 <p><em>Este artigo foi reescrito em Sexta-Feira, 03 de maio de 2024.</em></p>
 <section id="análise-descritiva-dos-dados-do-datasenado" class="level1">
 <h1>Análise descritiva dos dados do DataSenado</h1>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/03.dataSenado/Logo_Senado_Federal_Brasil.png" class="img-fluid" data-fig-title="DataSenado" alt="DataSenado"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/03.dataSenado/Logo_Senado_Federal_Brasil.png" class="img-fluid" data-fig-title="DataSenado" alt="DataSenado"></p>
 <section id="resumo" class="level2">
 <h2 class="anchored" data-anchor-id="resumo">Resumo</h2>
 <p>O código começa carregando os dados necessários para a análise do site do Data Senado. Em seguida, são realizadas algumas transformações nos dados, como mudança de nomenclatura e agrupamento por região, sexo, idade, entre outros, para facilitar a compreensão e análise futura.</p>
@@ -5861,7 +5861,7 @@ font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.9</span>))</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 <p>Qual é a opinião predominante da população brasileira em relação à redução da maioridade penal?</p>
 <details class="code-fold">
 <summary>Code</summary>
@@ -6046,7 +6046,7 @@ font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.9</span>))</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 <p>Qual é a opinião predominante da população brasileira em relação à criar impostos sobre grandes fortunas?</p>
 <details class="code-fold">
 <summary>Code</summary>
@@ -6231,7 +6231,7 @@ font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.9</span>))</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 <p>Para a população brasileira a partir de que valor seria uma grande fortuna?</p>
 <details class="code-fold">
 <summary>Code</summary>
@@ -6428,7 +6428,7 @@ font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.9</span>))</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 <section id="análise-multivariada" class="level3">
 <h3 class="anchored" data-anchor-id="análise-multivariada">Análise multivariada</h3>
 <p>Qual a principal preocupação da população brasileira por sexo</p>
@@ -6630,7 +6630,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6830,7 +6830,7 @@ font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 <p>Qual a opinião da população brasileira sobre a redução maioridade penal por quem votou na última eleição (Voto no 1° Turno)?</p>
 <details class="code-fold">
 <summary>Code</summary>
@@ -7032,7 +7032,7 @@ font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 <p>Qual a opinião da população brasileira sobre a redução maioridade penal por quem votou na última eleição (Voto no 2° Turno)?</p>
 <details class="code-fold">
 <summary>Code</summary>
@@ -7234,7 +7234,7 @@ font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div>
 </details>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 <p>Qual a opinião da população brasileira sobre a redução maioridade penal por Religião?</p>
 <div class="cell">
 <details class="code-fold">
@@ -7434,7 +7434,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -7451,19 +7451,19 @@ font-style: inherit;">3</span>)</span></code></pre></div>
   <category>r</category>
   <category>DataSenado</category>
   <category>Estatística</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/analise-DataSenado.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/analise-DataSenado.html</guid>
   <pubDate>Fri, 03 May 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Acessando dados da PNADC disponíveis no site do IBGE com o pacote PNADcIBGE</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p><em>Este artigo foi reescrito em Domingo, 12 de Abril de 2024.</em> <img src="https://github.com/welli45/portifolio/projetos-R/images/07.pnadc/pnadc.webp" class="img-fluid" data-fig-title="pnadc" alt="pnadc"></p>
+<p><em>Este artigo foi reescrito em Domingo, 12 de Abril de 2024.</em> <img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/07.pnadc/pnadc.webp" class="img-fluid" data-fig-title="pnadc" alt="pnadc"></p>
 <section id="tutorial-pnadcibge" class="level1">
 <h1>Tutorial PNADcIBGE</h1>
 <p>Este tutorial destina-se a auxiliar pesquisadores, analistas de dados e outros interessados em acessar os dados da PNAD Contínua utilizando a linguagem de programação estatística R.</p>
@@ -8017,7 +8017,7 @@ font-style: inherit;">element_blank</span>())   </span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8163,7 +8163,7 @@ font-style: inherit;">element_blank</span>())</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8327,7 +8327,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8369,7 +8369,7 @@ font-style: inherit;">"blue"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8411,7 +8411,7 @@ font-style: inherit;">"blue"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8452,7 +8452,7 @@ font-style: inherit;">"blue"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8478,7 +8478,7 @@ font-style: inherit;">"Boxplot da Idade por sexo"</span>)</span></code></pre></d
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8504,7 +8504,7 @@ font-style: inherit;">"Boxplot da rendimentos efetivos por sexo"</span>)</span><
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8531,7 +8531,7 @@ font-style: inherit;">"Boxplot da rendimentos efetivos por concluintes ou não d
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8568,7 +8568,7 @@ font-style: inherit;">"blue"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8685,20 +8685,20 @@ Number of Fisher Scoring iterations: 2</code></pre>
   <category>r</category>
   <category>PNADc</category>
   <category>dados</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/projeto-PNADc.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-PNADc.html</guid>
   <pubDate>Sun, 14 Apr 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/projeto-sidrar.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-sidrar.html</link>
   <description><![CDATA[ 
 
 
 
 
 <p><em>Este artigo foi reescrito em Domingo, 11 de Fevereiro de 2024.</em></p>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/01.sidrar/sidra.png" class="img-fluid" data-fig-title="Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar" alt="SIDRAr"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/01.sidrar/sidra.png" class="img-fluid" data-fig-title="Acessando dados disponíveis no SIDRA IBGE com o pacote sidrar" alt="SIDRAr"></p>
 <section id="introdução" class="level2">
 <h2 class="anchored" data-anchor-id="introdução">Introdução</h2>
 <p>Esse tutorial tem como objetivo mostar como podemos acessar de forma fácil os dados disponíveis no <strong>SIDRA</strong> com o auxílio da linguagem estatística R. Bem como, mostrar alguns exemplos apresentando tabelas e gráficos.</p>
@@ -8986,7 +8986,7 @@ font-style: inherit;">theme_grey</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-sidrar_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-sidrar_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9142,20 +9142,20 @@ $geo
   <category>r</category>
   <category>sidra</category>
   <category>ibge</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/projeto-sidrar.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-sidrar.html</guid>
   <pubDate>Sun, 11 Feb 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Análise de Redes Usando R</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS.html</link>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS.html</link>
   <description><![CDATA[ 
 
 
 
 
 <p><em>Este artigo foi reescrito em Domingo, 11 de Fevereiro de 2024.</em></p>
-<p><img src="https://github.com/welli45/portifolio/projetos-R/images/02.ars/Rplot.png" class="img-fluid" style="width:50.0%" alt="Gráfico"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/02.ars/Rplot.png" class="img-fluid" style="width:50.0%" alt="Gráfico"></p>
 <section id="introdução" class="level2">
 <h2 class="anchored" data-anchor-id="introdução">Introdução</h2>
 <p>A análise de redes sociais (ARS) é uma abordagem teórico-metodológica que tem como objetivo estudar as relações sociais entre atores. A ARS tem sido amplamente utilizada em diversas áreas do conhecimento, tais como sociologia, antropologia, psicologia, administração, economia, ciência política, entre outras. A ARS tem como base teórica a teoria dos grafos, que é um ramo da matemática que estuda as relações entre os objetos de um conjunto. A teoria dos grafos é uma ferramenta poderosa para a análise de redes sociais, pois permite a representação e a análise de redes sociais de forma rigorosa e sistemática.A análise de redes sociais permite a identificação de padrões de relações sociais, tais como centralidade, coesão, densidade, entre outros.</p>
@@ -9375,7 +9375,7 @@ font-style: inherit;">plot</span>(aidsblog)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9396,7 +9396,7 @@ font-style: inherit;">NA</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9423,7 +9423,7 @@ font-style: inherit;">layout=</span>layout.kamada.kawai)</span></code></pre></di
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9453,7 +9453,7 @@ font-style: inherit;">0.3</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9509,7 +9509,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9918,7 +9918,7 @@ N: 146
   <category>Redes Sociais</category>
   <category>igraph</category>
   <category>sand</category>
-  <guid>https://github.com/welli45/portifolio/projetos-R/posts/projeto-ARS.html</guid>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/projeto-ARS.html</guid>
   <pubDate>Sun, 11 Feb 2024 03:00:00 GMT</pubDate>
 </item>
 </channel>
