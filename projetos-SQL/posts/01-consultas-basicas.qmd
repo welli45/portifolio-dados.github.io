@@ -18,7 +18,7 @@ twitter-card:
   image: ../images/sql_01.png
 ---
 
-*Este artigo foi reescrito em Sexat, 29 de novembro de 2024.*
+*Este artigo foi reescrito em Sexta, 29 de novembro de 2024.*
 
 ![](../images/sql_01.png){fig-alt="Gráfico" width="50%"}
 
