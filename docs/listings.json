@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/projetos-R/posts/criando-planilha.html",
       "/projetos-R/posts/algebra-matricial.html",
       "/projetos-R/posts/teste-sig-multivariados.html",
       "/projetos-R/posts/Script-Teste-T.html",
@@ -20,6 +21,7 @@
   {
     "listing": "/projetos-R/index.html",
     "items": [
+      "/projetos-R/posts/criando-planilha.html",
       "/projetos-R/posts/algebra-matricial.html",
       "/projetos-R/posts/teste-sig-multivariados.html",
       "/projetos-R/posts/Script-Teste-T.html",
@@ -63,7 +65,9 @@
   },
   {
     "listing": "/projetos-excel/index.html",
-    "items": []
+    "items": [
+      "/projetos-excel/posts/01-analises.html"
+    ]
   },
   {
     "listing": "/peojetos-SQL/index.html",
