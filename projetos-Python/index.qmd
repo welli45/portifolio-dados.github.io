@@ -4,7 +4,6 @@ subtitle: "Aqui você tem acesso aos projetos que desenvolvi usando a liguagem d
 description: "O Python é uma linguagem de programação de alto nível utilizada em diferentes tipos de aplicações, como para o desenvolvimento web, em Machine Learning, no desenvolvimento de jogos e muito mais.[Fonte](https://blog.betrybe.com/python/)"
 comments: false
 margin-header: "[Welli45](https://github.com/welli45) © 2024 by [Wellington S.](https://github.com/welli45)"
-# Can't seem to get ToC working.
 toc: false
 listing:
   - id: posts
