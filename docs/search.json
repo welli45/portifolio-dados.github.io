@@ -74,7 +74,7 @@
     "href": "projetos-Python/index.html",
     "title": "Projetos em Python",
     "section": "",
-    "text": "Aqui você pode encontrar meus Projetos e Aprendizados.\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nAnálise exploratória de dados\n\n\nIntrodução ao Pandas\n\n\nPandas\n\n\n\n\n\n12 September 2024\n\n\nWellington Santos Souza\n\n\n4 min\n\n\n\n\n\n\n\n\n\n\n\n\nDerivadas usando Sympy e Numpy\n\n\nDerivadas com Python\n\n\n\n\n\n\n\n\n23 August 2024\n\n\nWellington Santos Souza\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nOtimização usando Gradient Descent em duas variáveis usando Python\n\n\n\n\n\nAnotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nOtimização usando Gradient Descent em uma variável Usando Python\n\n\n\n\n\nAnotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nCOLETANDO DADOS DO SIDRA COM O PYTHON\n\n\nsidrapy\n\n\n\n\n\n\n\n\n12 February 2024\n\n\nWellington Santos Souza\n\n\n2 min\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+    "text": "Aqui você pode encontrar meus Projetos e Aprendizados.\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnálise exploratória de dados\n\n\nIntrodução ao Pandas\n\n\nPandas\n\n\n\n\n\n12 September 2024\n\n\nWellington Santos Souza\n\n\n4 min\n\n\n\n\n\n\n\n\n\n\n\n\nDerivadas usando Sympy e Numpy\n\n\nDerivadas com Python\n\n\n\n\n\n\n\n\n23 August 2024\n\n\nWellington Santos Souza\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nOtimização usando Gradient Descent em duas variáveis usando Python\n\n\n\n\n\nAnotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nOtimização usando Gradient Descent em uma variável Usando Python\n\n\n\n\n\nAnotações do módulo 2 do curso de Cálculo para aprendizado de máquina e ciência de dados\n\n\n\n\n\n04 August 2024\n\n\nWellington Santos Souza\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nCOLETANDO DADOS DO SIDRA COM O PYTHON\n\n\nsidrapy\n\n\n\n\n\n\n\n\n12 February 2024\n\n\nWellington Santos Souza\n\n\n2 min\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "projetos-Python/posts/projeto-sidrapy.html",
@@ -1111,5 +1111,54 @@
     "title": "Projetos desenvolvidos em SQL",
     "section": "",
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "projetos-Python/posts/Untitled.html",
+    "href": "projetos-Python/posts/Untitled.html",
+    "title": "Portifólio de Dados",
+    "section": "",
+    "text": "import pandas as pd\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "projetos-SQL/index.html",
+    "href": "projetos-SQL/index.html",
+    "title": "Projetos desenvolvidos em SQL",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nConsultas Básicas em SQL\n\n\nIntrodução ao SQL\n\n\nEste tutorial é uma introdução a consultas básicas em SQL. Aqui você aprenderá a realizar consultas simples em um banco de dados relacional.\n\n\n\n\n\n29 November 2024\n\n\nWellington Santos Souza\n\n\n3 min\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "projetos-SQL/posts/01-consultas-basicas.html",
+    "href": "projetos-SQL/posts/01-consultas-basicas.html",
+    "title": "Consultas Básicas em SQL",
+    "section": "",
+    "text": "Este artigo foi reescrito em Sexat, 29 de novembro de 2024."
+  },
+  {
+    "objectID": "projetos-SQL/posts/01-consultas-basicas.html#select",
+    "href": "projetos-SQL/posts/01-consultas-basicas.html#select",
+    "title": "Consultas Básicas em SQL",
+    "section": "SELECT",
+    "text": "SELECT\nA instrução SELECT é usada para selecionar dados de um banco de dados. Os dados retornados são armazenados em um conjunto de resultados.\nSELECT column1, column2, ...\nFROM table_name;\nAqui, column1, column2, … são os nomes das colunas da tabela que você deseja selecionar. Se você deseja selecionar todas as colunas, use o caractere asterísco *.\nSELECT *\nFROM table_name;"
+  },
+  {
+    "objectID": "projetos-SQL/posts/01-consultas-basicas.html#where",
+    "href": "projetos-SQL/posts/01-consultas-basicas.html#where",
+    "title": "Consultas Básicas em SQL",
+    "section": "WHERE",
+    "text": "WHERE\nA cláusula WHERE é usada para filtrar registros. A cláusula WHERE é usada para extrair apenas os registros que atendem a uma condição específica.\nSELECT column1, column2, ...\nFROM table_name\nWHERE condition;\nAqui, condition é a condição que os registros devem atender para serem selecionados."
+  },
+  {
+    "objectID": "projetos-SQL/posts/01-consultas-basicas.html#order-by",
+    "href": "projetos-SQL/posts/01-consultas-basicas.html#order-by",
+    "title": "Consultas Básicas em SQL",
+    "section": "ORDER BY",
+    "text": "ORDER BY\nA cláusula ORDER BY é usada para classificar os registros em ordem crescente ou decrescente.\nSELECT column1, column2, ...\nFROM table_name\nORDER BY column1, column2, ... ASC|DESC;\nAqui, column1, column2, … são os nomes das colunas pelas quais você deseja classificar os registros. ASC é usado para classificar em ordem crescente e DESC é usado para classificar em ordem decrescente."
+  },
+  {
+    "objectID": "projetos-SQL/posts/01-consultas-basicas.html#exemplo",
+    "href": "projetos-SQL/posts/01-consultas-basicas.html#exemplo",
+    "title": "Consultas Básicas em SQL",
+    "section": "Exemplo",
+    "text": "Exemplo\nVamos considerar uma tabela chamada employees com as seguintes colunas: id, name, age, salary.\nCREATE TABLE employees (\n    id INT PRIMARY KEY,\n    name VARCHAR(50),\n    age INT,\n    salary DECIMAL(10, 2)\n);\n\nINSERT INTO employees (id, name, age, salary) VALUES (1, 'Alice', 25, 50000.00);\nINSERT INTO employees (id, name, age, salary) VALUES (2, 'Bob', 30, 60000.00);\nINSERT INTO employees (id, name, age, salary) VALUES (3, 'Charlie', 35, 70000.00);\nINSERT INTO employees (id, name, age, salary) VALUES (4, 'David', 40, 80000.00);\nAgora, vamos executar algumas consultas básicas na tabela employees.\n-- Selecionar todos os registros da tabela employees\nSELECT * FROM employees;\n\n-- Selecionar apenas o nome e a idade dos funcionários\nSELECT name, age FROM employees;\n\n-- Selecionar funcionários com idade superior a 30\nSELECT * FROM employees WHERE age &gt; 30;\n\n-- Selecionar funcionários com salário superior a 60000\nSELECT * FROM employees WHERE salary &gt; 60000;\n\n-- Selecionar funcionários com salário superior a 60000 e idade superior a 30\nSELECT * FROM employees WHERE salary &gt; 60000 AND age &gt; 30;\n\n-- Selecionar funcionários com salário superior a 60000 ou idade superior a 30\nSELECT * FROM employees WHERE salary &gt; 60000 OR age &gt; 30;\n\n-- Selecionar todos os registros da tabela employees ordenados por idade em ordem decrescente\nSELECT * FROM employees ORDER BY age DESC;\n\n-- Selecionar todos os registros da tabela employees ordenados por salário em ordem crescente\nSELECT * FROM employees ORDER BY salary ASC;\n\n-- Selecionar apenas o nome e o salário dos funcionários ordenados por salário em ordem decrescente\nSELECT name, salary FROM employees ORDER BY salary DESC;"
   }
 ]

@@ -1,0 +1,122 @@
+---
+title: "Consultas Básicas em SQL"  
+subtitle: "Introdução ao SQL"
+description: "Este tutorial é uma introdução a consultas básicas em SQL. Aqui você aprenderá a realizar consultas simples em um banco de dados relacional."
+author: "Wellington Santos Souza"
+date: "2024-11-29"
+format: 
+  html:
+    code-fold: true
+    code-copy: true
+    code-tools: true
+categories: [SQL, Banco de Dados, Tutorial]
+open-graph:
+  description: "Em constru..."
+  image: ../images/sql_01.png
+twitter-card:
+  description: "Em constru..."
+  image: ../images/sql_01.png
+---
+
+*Este artigo foi reescrito em Sexat, 29 de novembro de 2024.*
+
+![](../images/sql_01.png){fig-alt="Gráfico" width="50%"}
+
+# Introdução
+
+SQL (Structured Query Language) é uma linguagem de consulta estruturada usada para interagir com bancos de dados relacionais. SQL é uma linguagem padrão para acessar e manipular bancos de dados.
+
+Este tutorial é uma introdução a consultas básicas em SQL. Aqui você aprenderá a realizar consultas simples em um banco de dados relacional.
+
+# Consultas Básicas
+
+## SELECT
+
+A instrução `SELECT` é usada para selecionar dados de um banco de dados. Os dados retornados são armazenados em um conjunto de resultados.
+
+```sql
+SELECT column1, column2, ...
+FROM table_name;
+```
+
+Aqui, `column1`, `column2`, ... são os nomes das colunas da tabela que você deseja selecionar. Se você deseja selecionar todas as colunas, use o caractere asterísco `*`.
+
+
+```sql
+SELECT *
+FROM table_name;
+```
+
+## WHERE
+
+A cláusula `WHERE` é usada para filtrar registros. A cláusula `WHERE` é usada para extrair apenas os registros que atendem a uma condição específica.
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Aqui, `condition` é a condição que os registros devem atender para serem selecionados.
+
+## ORDER BY
+
+A cláusula `ORDER BY` é usada para classificar os registros em ordem crescente ou decrescente.
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+```
+
+Aqui, `column1`, `column2`, ... são os nomes das colunas pelas quais você deseja classificar os registros. `ASC` é usado para classificar em ordem crescente e `DESC` é usado para classificar em ordem decrescente.
+
+## Exemplo
+
+Vamos considerar uma tabela chamada `employees` com as seguintes colunas: `id`, `name`, `age`, `salary`.
+
+```sql
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    salary DECIMAL(10, 2)
+);
+
+INSERT INTO employees (id, name, age, salary) VALUES (1, 'Alice', 25, 50000.00);
+INSERT INTO employees (id, name, age, salary) VALUES (2, 'Bob', 30, 60000.00);
+INSERT INTO employees (id, name, age, salary) VALUES (3, 'Charlie', 35, 70000.00);
+INSERT INTO employees (id, name, age, salary) VALUES (4, 'David', 40, 80000.00);
+```
+
+Agora, vamos executar algumas consultas básicas na tabela `employees`.
+
+```sql
+-- Selecionar todos os registros da tabela employees
+SELECT * FROM employees;
+
+-- Selecionar apenas o nome e a idade dos funcionários
+SELECT name, age FROM employees;
+
+-- Selecionar funcionários com idade superior a 30
+SELECT * FROM employees WHERE age > 30;
+
+-- Selecionar funcionários com salário superior a 60000
+SELECT * FROM employees WHERE salary > 60000;
+
+-- Selecionar funcionários com salário superior a 60000 e idade superior a 30
+SELECT * FROM employees WHERE salary > 60000 AND age > 30;
+
+-- Selecionar funcionários com salário superior a 60000 ou idade superior a 30
+SELECT * FROM employees WHERE salary > 60000 OR age > 30;
+
+-- Selecionar todos os registros da tabela employees ordenados por idade em ordem decrescente
+SELECT * FROM employees ORDER BY age DESC;
+
+-- Selecionar todos os registros da tabela employees ordenados por salário em ordem crescente
+SELECT * FROM employees ORDER BY salary ASC;
+
+-- Selecionar apenas o nome e o salário dos funcionários ordenados por salário em ordem decrescente
+SELECT name, salary FROM employees ORDER BY salary DESC;
+```
+

@@ -43,6 +43,7 @@
   {
     "listing": "/projetos-Python/index.html",
     "items": [
+      "/projetos-Python/posts/Untitled.html",
       "/projetos-Python/posts/introducao-pandas.html",
       "/projetos-Python/posts/Derivadas-Python.html",
       "/projetos-Python/posts/gradien-descent-2-variables.html",
@@ -68,5 +69,11 @@
   {
     "listing": "/peojetos-SQL/index.html",
     "items": []
+  },
+  {
+    "listing": "/projetos-SQL/index.html",
+    "items": [
+      "/projetos-SQL/posts/01-consultas-basicas.html"
+    ]
   }
 ]

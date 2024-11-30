@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Portifólio de Dados</title>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-SQL/</link>
+<atom:link href="https://welli45.github.io/portifolio-dados.github.io/projetos-SQL/index.xml" rel="self" type="application/rss+xml"/>
+<description>O SQL é uma linguagem utilizada para manipular e consultar bancos de dados relacionais. Aqui você tem acesso aos projetos que desenvolvi em SQL.</description>
+<image>
+<url>https://welli45.github.io/portifolio-dados.github.io/images/profile.png</url>
+<title>Portifólio de Dados</title>
+<link>https://welli45.github.io/portifolio-dados.github.io/projetos-SQL/</link>
+</image>
+<generator>quarto-1.6.35</generator>
+<lastBuildDate>Fri, 29 Nov 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Consultas Básicas em SQL</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-SQL/posts/01-consultas-basicas.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><em>Este artigo foi reescrito em Sexat, 29 de novembro de 2024.</em></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-SQL/images/sql_01.png" class="img-fluid" style="width:50.0%" alt="Gráfico"></p>
+<section id="introdução" class="level1">
+<h1>Introdução</h1>
+<p>SQL (Structured Query Language) é uma linguagem de consulta estruturada usada para interagir com bancos de dados relacionais. SQL é uma linguagem padrão para acessar e manipular bancos de dados.</p>
+<p>Este tutorial é uma introdução a consultas básicas em SQL. Aqui você aprenderá a realizar consultas simples em um banco de dados relacional.</p>
+</section>
+<section id="consultas-básicas" class="level1">
+<h1>Consultas Básicas</h1>
+<section id="select" class="level2">
+<h2 class="anchored" data-anchor-id="select">SELECT</h2>
+<p>A instrução <code>SELECT</code> é usada para selecionar dados de um banco de dados. Os dados retornados são armazenados em um conjunto de resultados.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> column1, column2, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">..</span>.</span>
+<span id="cb1-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> table_name;</span></code></pre></div>
+<p>Aqui, <code>column1</code>, <code>column2</code>, … são os nomes das colunas da tabela que você deseja selecionar. Se você deseja selecionar todas as colunas, use o caractere asterísco <code>*</code>.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb2-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> table_name;</span></code></pre></div>
+</section>
+<section id="where" class="level2">
+<h2 class="anchored" data-anchor-id="where">WHERE</h2>
+<p>A cláusula <code>WHERE</code> é usada para filtrar registros. A cláusula <code>WHERE</code> é usada para extrair apenas os registros que atendem a uma condição específica.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> column1, column2, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">..</span>.</span>
+<span id="cb3-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> table_name</span>
+<span id="cb3-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WHERE</span> condition;</span></code></pre></div>
+<p>Aqui, <code>condition</code> é a condição que os registros devem atender para serem selecionados.</p>
+</section>
+<section id="order-by" class="level2">
+<h2 class="anchored" data-anchor-id="order-by">ORDER BY</h2>
+<p>A cláusula <code>ORDER BY</code> é usada para classificar os registros em ordem crescente ou decrescente.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> column1, column2, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">..</span>.</span>
+<span id="cb4-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> table_name</span>
+<span id="cb4-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">BY</span> column1, column2, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">..</span>. <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ASC</span>|<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">DESC</span>;</span></code></pre></div>
+<p>Aqui, <code>column1</code>, <code>column2</code>, … são os nomes das colunas pelas quais você deseja classificar os registros. <code>ASC</code> é usado para classificar em ordem crescente e <code>DESC</code> é usado para classificar em ordem decrescente.</p>
+</section>
+<section id="exemplo" class="level2">
+<h2 class="anchored" data-anchor-id="exemplo">Exemplo</h2>
+<p>Vamos considerar uma tabela chamada <code>employees</code> com as seguintes colunas: <code>id</code>, <code>name</code>, <code>age</code>, <code>salary</code>.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">CREATE</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">TABLE</span> employees (</span>
+<span id="cb5-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">id</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">INT</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">PRIMARY</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">KEY</span>,</span>
+<span id="cb5-3">    name <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">VARCHAR</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>),</span>
+<span id="cb5-4">    age <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">INT</span>,</span>
+<span id="cb5-5">    salary <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">DECIMAL</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb5-6">);</span>
+<span id="cb5-7"></span>
+<span id="cb5-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INSERT</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INTO</span> employees (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">id</span>, name, age, salary) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">VALUES</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Alice'</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50000.00</span>);</span>
+<span id="cb5-9"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INSERT</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INTO</span> employees (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">id</span>, name, age, salary) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">VALUES</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Bob'</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60000.00</span>);</span>
+<span id="cb5-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INSERT</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INTO</span> employees (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">id</span>, name, age, salary) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">VALUES</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Charlie'</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">70000.00</span>);</span>
+<span id="cb5-11"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INSERT</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">INTO</span> employees (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">id</span>, name, age, salary) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">VALUES</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'David'</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80000.00</span>);</span></code></pre></div>
+<p>Agora, vamos executar algumas consultas básicas na tabela <code>employees</code>.</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar todos os registros da tabela employees</span></span>
+<span id="cb6-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees;</span>
+<span id="cb6-3"></span>
+<span id="cb6-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar apenas o nome e a idade dos funcionários</span></span>
+<span id="cb6-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> name, age <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees;</span>
+<span id="cb6-6"></span>
+<span id="cb6-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar funcionários com idade superior a 30</span></span>
+<span id="cb6-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WHERE</span> age <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>;</span>
+<span id="cb6-9"></span>
+<span id="cb6-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar funcionários com salário superior a 60000</span></span>
+<span id="cb6-11"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WHERE</span> salary <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60000</span>;</span>
+<span id="cb6-12"></span>
+<span id="cb6-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar funcionários com salário superior a 60000 e idade superior a 30</span></span>
+<span id="cb6-14"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WHERE</span> salary <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60000</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">AND</span> age <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>;</span>
+<span id="cb6-15"></span>
+<span id="cb6-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar funcionários com salário superior a 60000 ou idade superior a 30</span></span>
+<span id="cb6-17"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WHERE</span> salary <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60000</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">OR</span> age <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>;</span>
+<span id="cb6-18"></span>
+<span id="cb6-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar todos os registros da tabela employees ordenados por idade em ordem decrescente</span></span>
+<span id="cb6-20"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">BY</span> age <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">DESC</span>;</span>
+<span id="cb6-21"></span>
+<span id="cb6-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar todos os registros da tabela employees ordenados por salário em ordem crescente</span></span>
+<span id="cb6-23"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">BY</span> salary <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ASC</span>;</span>
+<span id="cb6-24"></span>
+<span id="cb6-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-- Selecionar apenas o nome e o salário dos funcionários ordenados por salário em ordem decrescente</span></span>
+<span id="cb6-26"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> name, salary <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> employees <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">BY</span> salary <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">DESC</span>;</span></code></pre></div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>SQL</category>
+  <category>Banco de Dados</category>
+  <category>Tutorial</category>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-SQL/posts/01-consultas-basicas.html</guid>
+  <pubDate>Fri, 29 Nov 2024 03:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
