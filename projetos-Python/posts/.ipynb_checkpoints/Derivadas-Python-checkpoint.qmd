@@ -1,0 +1,322 @@
+---
+title: "Derivadas usando Sympy e Numpy"
+subtitle: "Derivadas com Python"
+description: ""
+author: "Wellington Santos Souza"
+date: "2024-08-23"
+format: 
+  html:
+    code-fold: true
+    code-copy: true
+    code-tools: true
+categories: [Derivadas, Python]
+open-graph:
+  description: "Derivadas"
+  image: ../images/02.calculo_python/derivadas.jpeg
+twitter-card:
+  description: "Derivadas"
+  image: ../images/02.calculo_python/derivadas.jpeg
+---
+
+*Este artigo foi reescrito em Sexta, 23 de Agosto de 2024.*
+
+![](../images/02.calculo_python/derivadas.jpeg){fig-alt="Python" fig-title="Derivadas Usando Python"}
+
+### Funções usando `Python`
+
+Para instalar as bibliotecas necessárias, use o comando: `!pip install sympy numpy`
+
+Usaremos as bibliotecas `Sympy`, `Numpy` e `JAX`
+
+**Definição de uma função usando Python**
+
+-   Se quisermos definir a função $f(x) = x^2$
+
+```{python}
+def f(x):
+    return x**2
+
+print(f(3))
+
+```
+
+Podemos encontrar a derivada dessa função facilmente usando:
+
+```{python}
+def dfdx(x):
+    return 2*x
+
+print(dfdx(3))
+```
+
+Além disso, podemos aplicar essa função e calcular a derivada para cada elemento de uma array criada com Numpy:
+
+```{python}
+# primeiro importamos a biblioteca
+import numpy as np
+# criamos o array
+x_array = np.array([1, 2, 3])
+# calculamos x^2 para cada elemento do array 
+#e depois calculamos a derivada para cada elemento
+print("x: \n", x_array)
+print("f(x) = x**2: \n", f(x_array))
+print("f'(x) = 2x: \n", dfdx(x_array))
+```
+
+Podemos também aplicar as funções f e dfdx para arrays maiores, além disso podemos plotar os gráficos de f e dfdx
+
+```{python}
+import matplotlib.pyplot as plt
+
+
+def plot_f1_and_f2(f1, f2=None, x_min=-5, x_max=5, label1="f(x)", label2="f'(x)"):
+    x = np.linspace(x_min, x_max,100)
+
+ 
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+    ax.spines['left'].set_position('center')
+    ax.spines['bottom'].set_position('zero')
+    ax.spines['right'].set_color('none')
+    ax.spines['top'].set_color('none')
+    ax.xaxis.set_ticks_position('bottom')
+    ax.yaxis.set_ticks_position('left')
+
+    plt.plot(x, f1(x), 'r', label=label1)
+    if not f2 is None:
+             
+        if isinstance(f2, np.ndarray):
+            plt.plot(x, f2, 'bo', markersize=3, label=label2,)
+        else:
+            plt.plot(x, f2(x), 'b', label=label2)
+    plt.legend()
+
+    plt.show()
+    
+plot_f1_and_f2(f, dfdx)
+```
+
+## Derivadas simbólicas
+
+**Computação simbólica** lida com a computação de objetos matemáticos que são representados na forma exata, e não aproximadamente (por exemplo, $\sqrt{2}$ será escrito exatamente assim, e não como $1.41421356237$. Para a derivada, isso significa que o resultado será de certa forma semelhante ao que seria se você estivesse calculando derivadas manualmente usando regras (analiticamente). Assim, derivadas simbólicas podem produzir resultados exatos.
+
+-   Derivadas simbólicas em `Python` usando a biblioteca `SymPy`.
+
+-   Podemos calcular o valor decimal aproximado de $\sqrt{18}$
+
+```{python}
+import math
+
+math.sqrt(18)
+```
+
+**Introdução à Computação Simbólica com `SymPy`**
+
+-   O valor obtido é: $4.242640687119285$
+
+Agora se quisermos calcular: $\sqrt{18} = \sqrt{9 \cdot 2} = 3\sqrt{2}$
+
+```{python}
+# Esse formato de importação de módulo permite
+# usar as funções sympy sem o prefixo sympy.
+from sympy import *
+
+# Na verdade, essa é a função sympy.sqrt,
+# mas o prefixo sympy. foi omitido.
+sqrt(18)
+```
+
+Para obtermos o valor aproximado fazemos
+
+```{python}
+N(sqrt(18))
+```
+
+No SymPy, as variáveis são definidas usando símbolos. Nesta biblioteca específica, elas precisam ser pré-definidas (uma lista delas deve ser fornecida). Veja na célula abaixo como a expressão simbólica, correspondente à expressão matemática $2x^2 - xy$, é definida:
+
+```{python}
+# Lista de símboos
+x, y = symbols('x y')
+# Definição da expressão.
+expr = 2 * x**2 - x * y
+expr
+```
+
+Pode realizar várias manipulações com essa expressão: adicionar ou subtrair alguns termos, multiplicar por outras expressões, etc., assim como se estivesse fazendo isso manualmente:
+
+```{python}
+expr_manip = x * (expr + x * y + x**3)
+expr_manip
+```
+
+Agora, vamos calcular a derivada da expressão $2x^2 - xy$ em relação a $x$:
+
+```{python}
+# Derivada da expressão em relação a x.
+diff(expr, x)
+```
+
+Podemos expandir a função expr_manipulada para obter a expressão completa:
+
+```{python}
+expand(expr_manip)
+```
+
+Podemos também simplificar a expressão:
+
+```{python}
+simplify(expr_manip)
+```
+
+Também podemos fatorear a expressão:
+
+```{python}
+factor(expr_manip)
+```
+
+Podemos também resolver equações simbolicamente:
+
+```{python}
+# Resolvendo a equação x^2 - 1 = 0.
+solve(x**2 - 1, x)
+```
+
+Podemos substituir valores específicos para as variáveis na expressão
+
+```{python}
+expr.evalf(subs={x:-1, y:2})
+```
+
+Isso pode ser usado para avaliar uma função $f\left(x\right) = x^2$:
+
+```{python}
+f_symb = x ** 2
+f_symb.evalf(subs={x:3})
+```
+
+Podemos avaliar uma função simbólica para cada elemento de uma matriz:
+
+```{python}
+# Definindo uma matriz simbólica.
+
+x_array = np.array([1, 2, 3])
+
+try:
+    f_symb(x_array)
+except TypeError as err:
+    print(err)
+# Convertendo a função simbólica em uma função numpy.
+from sympy.utilities.lambdify import lambdify
+
+f_symb_numpy = lambdify(x, f_symb, 'numpy')
+
+print("x: \n", x_array)
+print("f(x) = x**2: \n", f_symb_numpy(x_array))
+```
+
+## Derivadas Simbólicas com `SymPy`
+
+Se quisermos calcular a derivada da função $f(x) = x^2$ simbolicamente, podemos fazer isso com o `SymPy`:
+
+```{python}
+# Definindo a função simbólica.
+f_symb = x ** 2
+# Calculando a derivada da função simbólica.
+dfdx_symb = diff(f_symb, x)
+dfdx_symb
+```
+
+O Sympy aplica todas as regras de derivação para obter a derivada da função $(exp(-2x) + 3sin(3x), x)$:
+
+```{python}
+f_symb = exp(-2*x) + 3*sin(3*x)
+dfdx_symb = diff(f_symb, x)
+f_symb, dfdx_symb
+```
+
+Agora vamos plotar a função e sua derivada:
+
+```{python}
+f_symb_numpy = lambdify(x, f_symb, 'numpy')
+dfdx_symb_numpy = lambdify(x, dfdx_symb, 'numpy')
+
+plot_f1_and_f2(f_symb_numpy, dfdx_symb_numpy)
+```
+
+Agora vamos calcular a derivada da função $f(x) = 2x$ simbolicamente:
+
+```{python}
+f_symb_numpy = lambdify(x, f_symb, 'numpy')
+
+dfdx_symb_numpy = lambdify(x, dfdx_symb, 'numpy')
+
+print("x: \n", x_array)
+print("f'(x) = 2x: \n", dfdx_symb_numpy(x_array))
+```
+
+Agora vamos plotar a função e sua derivada:
+
+```{python}
+# plote a função e sua derivada
+plot_f1_and_f2(f_symb_numpy, dfdx_symb_numpy)
+```
+
+## Limitações da derivada simbólica
+
+-   Às vezes, as expressões de saída são muito complicadas e até mesmo impossíveis de serem avaliadas. Por exemplo, encontrar a derivada da função.
+
+$$\left|x\right| = \begin{cases} x, \ \text{if}\ x > 0\\  -x, \ \text{if}\ x < 0 \\ 0, \ \text{if}\ x = 0\end{cases}$$ Analiticamente, anderivada é: $$\frac{d}{dx}\left(\left|x\right|\right) = \begin{cases} 1, \ \text{if}\ x > 0\\  -1, \ \text{if}\ x < 0\\\ \text{does not exist}, \ \text{if}\ x = 0\end{cases}$$
+Podemos calcular a derivada da função $f(x) = \left|x\right|$ simbolicamente:
+```{python}
+dfdx_abs = diff(abs(x),x)
+dfdx_abs
+```
+
+Outro exemplo $x=-2$:
+```{python}
+dfdx_abs.evalf(subs={x:-2})
+```
+
+De fato, há problemas com a avaliação das expressões simbólicas sempre que há um "salto" na derivada (por exemplo, as expressões da função são diferentes para diferentes intervalos de $x$), como acontece com $\frac{d}{dx}(|x|)$.
+
+Além disso, você pode ver neste exemplo que é possível obter uma função muito complicada como resultado da computação simbólica. Isso é chamado de aumento de expressão, que resulta em cálculos não suficientemente lentos. 
+
+# Derivadas Numéricas
+
+**Derivadas Numéricas** são calculadas numericamente, ou seja, aproximadamente. Isso significa que a derivada é calculada para um valor específico de $x$ e é uma aproximação do valor real da derivada. A precisão da derivada numérica depende do valor de $h$ (o passo de Derivada). Quanto menor o valor de $h$, mais precisa será a derivada, mas também mais lenta será a computação.
+
+#### Derivadas numéricas em `Python` usando a biblioteca `NumPy`.
+```{python}
+x_array_2 = np.linspace(-5, 5, 100)
+dfdx_numerical = np.gradient(f(x_array_2), x_array_2)
+
+plot_f1_and_f2(dfdx_symb_numpy, dfdx_numerical, label1="f'(x) exact", label2="f'(x) approximate")
+```
+
+```{python}
+dfdx_composed = diff(exp(-2*x) + 3*sin(3*x), x)
+dfdx_symb_numpy = lambdify(x, dfdx_symb, 'numpy')
+# plote a função e sua derivada
+def f_composed(x):
+    return np.exp(-2*x) + 3*np.sin(3*x)
+
+plot_f1_and_f2(lambdify(x, dfdx_composed, 'numpy'), np.gradient(f_composed(x_array_2), x_array_2),
+              label1="f'(x) exact", label2="f'(x) approximate")
+```
+Obviamente, a primeira desvantagem da Derivada numérica é que ela não é exata. No entanto, sua precisão normalmente é suficiente para aplicativos de aprendizado de máquina. Nesse estágio, não há necessidade de avaliar os erros da Derivada numérica.
+
+Outro problema é semelhante ao que apareceu na Derivada simbólica: ela é imprecisa nos pontos em que há "saltos" da derivada. Vamos comparar a derivada exata da função de valor absoluto e a aproximação numérica:
+
+```{python}
+def dfdx_abs(x):
+    if x > 0:
+        return 1
+    else:
+        if x < 0:
+            return -1
+        else:
+            return None
+
+plot_f1_and_f2(np.vectorize(dfdx_abs), np.gradient(abs(x_array_2), x_array_2))
+```
+

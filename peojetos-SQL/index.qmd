@@ -30,7 +30,7 @@ open-graph:
 twitter-card:
   description: "Aqui você pode encontrar meus Projetos e Aprendizados."
 ---
-![](SQL.png){fig-alt="SQL" width=50%}
+![](SQL.jpeg){fig-alt="SQL" width=50%}
 
 <!-- ### Featured Posts
 :::{#featured}
