@@ -27,8 +27,8 @@
 
 <p><em>Este artigo foi reescrito em Sábado, 30 de Novembro de 2024.</em></p>
 <p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-excel/images/excel.webp" class="img-fluid" style="width:50.0%" alt="Excel"></p>
-<section id="análise-descritiva-de-dados-usando-ecel" class="level1">
-<h1>Análise descritiva de dados Usando Ecel</h1>
+<section id="análise-descritiva-de-dados-usando-excel" class="level1">
+<h1>Análise descritiva de dados Usando Excel</h1>
 <section id="introdução" class="level2">
 <h2 class="anchored" data-anchor-id="introdução">Introdução</h2>
 <p>A análise descritiva de dados é uma etapa fundamental em qualquer projeto de análise de dados. Ela permite que você entenda melhor os dados com os quais está trabalhando e fornece insights que podem ser usados para tomar decisões informadas.</p>
@@ -104,13 +104,249 @@
 <p>1.1 Arrastar o mês para a área de linhas e o custo para a área de valores.</p>
 <p>1.2 Selecionar a opção Linha de Tendência.</p>
 <p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-excel/posts/01-analise/08.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+</section>
+<section id="conclusão" class="level1">
+<h1>Conclusão</h1>
+<p>Neste tutorial, mostramos como realizar uma análise descritiva de dados usando o Excel. A análise descritiva de dados é uma etapa fundamental em qualquer projeto de análise de dados e fornece <em>insights</em> que podem ser usados para tomar decisões informadas.</p>
+<p>Sobre os dados fictícios usados neste tutorial, eles foram criados usando o código R abaixo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"writexl"</span>)) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"writexl"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Carregando pacotes exigidos: writexl</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(writexl)</span>
+<span id="cb3-2"></span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">123</span>) </span>
+<span id="cb3-5"></span>
+<span id="cb3-6">n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span></span>
+<span id="cb3-7"></span>
+<span id="cb3-8">dados_negocios <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb3-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Mes =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Janeiro"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Fevereiro"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Março"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Abril"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Maio"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Junho"</span>, </span>
+<span id="cb3-10">                 <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Julho"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Agosto"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Setembro"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Outubro"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Novembro"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Dezembro"</span>), </span>
+<span id="cb3-11">               n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb3-12">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Produto =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Produto A"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Produto B"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Produto C"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Produto D"</span>), n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb3-13">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Categoria =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Eletrônicos"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Vestuário"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Cosméticos"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Alimentos"</span>), n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb3-14">  Região <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Norte"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sul"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Centro-Oeste"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nordeste"</span>), n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb3-15">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Vendas =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100000</span>), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), </span>
+<span id="cb3-16">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Custo =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80000</span>), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),  </span>
+<span id="cb3-17">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Lucro_Porcento =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),  </span>
+<span id="cb3-18">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Clientes_Atendidos =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span>, n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)   </span>
+<span id="cb3-19">)</span>
+<span id="cb3-20"></span>
+<span id="cb3-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Exportar para Excel</span></span>
+<span id="cb3-22"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">write_xlsx</span>(dados_negocios, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dados_negocios_1000_linhas.xlsx"</span>)</span>
+<span id="cb3-23"></span>
+<span id="cb3-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Mensagem de sucesso</span></span>
+<span id="cb3-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Planilha 'dados_negocios_1000_linhas.xlsx' gerada com sucesso na pasta de trabalho!"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Planilha 'dados_negocios_1000_linhas.xlsx' gerada com sucesso na pasta de trabalho!</code></pre>
+</div>
+</div>
 
 
 <!-- -->
 
-</section>
-</section>
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
