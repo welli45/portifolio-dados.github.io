@@ -2,6 +2,7 @@ website:
   title: "Portifólio de Dados"
   site-url: https://welli45.github.io/portifolio-dados.github.io/
   description: "Portifólio de Wellington S. Souza!"
+  favicon: bar-chart-line.svg
   image: images/profile.png
   back-to-top-navigation: true
   navbar:
