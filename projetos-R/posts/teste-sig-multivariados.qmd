@@ -8,14 +8,16 @@ format:
   html:
     code-fold: true
     code-copy: true
-    code-tools: true
+    code-tools: false
 categories: ["Teste de significância", "Multivariados"]
 open-graph:
   description: "Curva-Normal"
-  image: ../images/05.test-t/OIP.jpg
+  image: ../images/09-multi/mukti.png
 twitter-card:
   description: "Curva-Normal"
-  image: ../images/05.test-t/OIP.jpg
+  image: ../images/09-multi/mukti.png
 ---
 
 # Projeto em construção...
+
+![](../images/../images/09-multi/mukti.png){fig-alt="Excel" width=50%}
