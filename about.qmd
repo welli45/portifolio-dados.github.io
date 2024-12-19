@@ -94,7 +94,7 @@ Estatística Descritiva, Estatística para Análise de Dados, Estatística para 
 
 # Ferramentas
 
-Microsoft Power BI, Tableau, Google Data Studio, Microsoft Excel, Google Sheets, Microsoft Word, Google Docs, Microsoft PowerPoint, Google Slides
+Microsoft Power BI, Tableau, Google Data Studio, Microsoft Excel, Google Sheets, Microsoft Word, Google Docs, Microsoft PowerPoint, Google Slides, Rstudio
 
 # Idiomas
 
@@ -109,6 +109,10 @@ Microsoft Power BI, Tableau, Google Data Studio, Microsoft Excel, Google Sheets,
 :::{.panel-tabset}
 
 # Formação
+
+**Mestrado em Sociologia Econômica**
+
+Universidade Federal de Minas Gerais, fevereiro de 2024 – fevereiro de 2026
 
 **Licenciatura em Ciências Sociais**
 
@@ -149,6 +153,8 @@ Período: Janeiro de 2021 - Janeiro de 2024
 -   Elaboração de relatórios de pesquisa detalhados, consolidando os resultados e insights obtidos ao longo do projeto.
 
 # Certificações/Cursos
+- 11/2024: Probability & Statistics for Machine Learning & Data Science
+- 11/2024: Mathematics for Machine Learning and Data Science
 - 09/2024: Calculus for Machine Learning and Data Science - DeepLearning.AI
 - 08/2024: Linear Algebra for Machine Learning and Data Science - DeepLearning.AI
 - 01/2024: SQL para Análise de Dados – Udemy
