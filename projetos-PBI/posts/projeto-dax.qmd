@@ -26,6 +26,6 @@ Ao compartilhar este projeto, desejo ressaltar a importância da Linguagem DAX c
 
 **Você pode explorar o Dashboard interativo abaixo**
 
-<iframe title="ProjetoMajestic" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiZGI3NWQ0YjItNDNiMS00NmFlLTk2ZTMtNjg3MTQ4ZTNhZGVhIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowFullScreen="true"></iframe>
+<iframe title="ProjetoMajestic" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiOGQzNGY0YmEtZjk1MS00ZTgxLTliYTktMWRkMjA2ZTdkZmFiIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowFullScreen="true"></iframe>
 
-[Projeto Majestic](https://app.powerbi.com/view?r=eyJrIjoiZGI3NWQ0YjItNDNiMS00NmFlLTk2ZTMtNjg3MTQ4ZTNhZGVhIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9)
+[Projeto Majestic](https://app.powerbi.com/view?r=eyJrIjoiOGQzNGY0YmEtZjk1MS00ZTgxLTliYTktMWRkMjA2ZTdkZmFiIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9)

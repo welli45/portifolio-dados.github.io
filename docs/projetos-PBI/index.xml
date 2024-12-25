@@ -14,7 +14,7 @@
 <title>Portifólio de Dados</title>
 <link>https://welli45.github.io/portifolio-dados.github.io/projetos-PBI/</link>
 </image>
-<generator>quarto-1.6.35</generator>
+<generator>quarto-1.6.39</generator>
 <lastBuildDate>Mon, 12 Feb 2024 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Dashboard - Projeto Majestic</title>
@@ -32,9 +32,9 @@
 <section id="dashboard-interativo" class="level1">
 <h1>Dashboard Interativo</h1>
 <p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
-<iframe title="ProjetoMajestic" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiZGI3NWQ0YjItNDNiMS00NmFlLTk2ZTMtNjg3MTQ4ZTNhZGVhIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
+<iframe title="ProjetoMajestic" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiOGQzNGY0YmEtZjk1MS00ZTgxLTliYTktMWRkMjA2ZTdkZmFiIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowfullscreen="true">
 </iframe>
-<p><a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3NWQ0YjItNDNiMS00NmFlLTk2ZTMtNjg3MTQ4ZTNhZGVhIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Download Dashboard - Projeto Majestic</a></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiOGQzNGY0YmEtZjk1MS00ZTgxLTliYTktMWRkMjA2ZTdkZmFiIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9">Projeto Majestic</a></p>
 
 
 </section>
@@ -68,10 +68,8 @@
 </section>
 <section id="dashboard-interativo" class="level1">
 <h1>Dashboard Interativo</h1>
-<p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
-<iframe title="Quality Dashboard" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
-</iframe>
-<p><a href="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard de Qualidade</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo</strong> <iframe title="Quality Dashboard" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiM2NlZmIwMmEtZTcxNS00ZjJiLWFmYTgtMWJhZTUwNDQwNTUyIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowfullscreen="true"></iframe></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiM2NlZmIwMmEtZTcxNS00ZjJiLWFmYTgtMWJhZTUwNDQwNTUyIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9">Dashboard de Qualidade</a></p>
 
 
 </section>
@@ -99,9 +97,9 @@
 <section id="dashboard-interativo" class="level1">
 <h1>Dashboard Interativo</h1>
 <p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
-<iframe title="Sistema de Informações sobre Mortalidade" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiODRiYTZiMWEtM2Q1YS00MzkxLTg2OTctYWFhNGI2Yzk0NDg4IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
+<iframe title="Sistema de Informações sobre Mortalidade" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNzlkNDI3ZmYtMjE0My00ZWY3LTk2M2MtOTQyNDkxMDlhMDBkIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowfullscreen="true">
 </iframe>
-<p><a href="https://app.powerbi.com/view?r=eyJrIjoiODRiYTZiMWEtM2Q1YS00MzkxLTg2OTctYWFhNGI2Yzk0NDg4IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard Sistema de Informações sobre Mortalidade</a></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNzlkNDI3ZmYtMjE0My00ZWY3LTk2M2MtOTQyNDkxMDlhMDBkIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9">Dashboard Sistema de Informações sobre Mortalidade</a></p>
 
 
 </section>
@@ -177,8 +175,8 @@
 </section>
 <section id="dashboard-interativo" class="level1">
 <h1>Dashboard Interativo</h1>
-<p><strong>Você pode explorar o Dashboard interativo abaixo</strong> <iframe title="Projeto Final G. Analytics" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiNjc3NDA0ZGQtYWQ1Ny00MGM1LWIwNmMtZDFkNDA5YzAyZWYxIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true"></iframe></p>
-<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNjc3NDA0ZGQtYWQ1Ny00MGM1LWIwNmMtZDFkNDA5YzAyZWYxIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard Projeto Final G. Analytics</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo</strong> <iframe title="Projeto Final G. Analytics" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiMjZiNTc0ZTYtNmZiNS00ODlkLWI4MmUtMGM4ODBlYWY0OWNlIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowfullscreen="true"></iframe></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiMjZiNTc0ZTYtNmZiNS00ODlkLWI4MmUtMGM4ODBlYWY0OWNlIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9">Dashboard Projeto Final G. Analytics</a></p>
 <p>Além disso, você pode acessar o script R que usei para limpar os dados e criar a tabela de dados.</p>
 <p><a href="https://github.com/welli45/Projeto-final-de-Data-Analytics-do-Google">Link do repositório do GitHub</a></p>
 
@@ -214,9 +212,9 @@
 <section id="dashboard-interativo" class="level1">
 <h1>Dashboard Interativo</h1>
 <p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
-<iframe title="Corruption Perceptions Index (CPI)" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiMTk4NzE1ZDMtNDRlOC00OGYzLWJkZWMtNjI4NzljN2Q1MGI1IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9&amp;pageName=a10698ecc860e9722a36" frameborder="0" allowfullscreen="true">
+<iframe title="Corruption Perceptions Index (CPI)" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiOTJhZWY4YTYtMTJkYy00NzNkLTlmYTMtNDBkMTQ0YTIzZmM3IiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowfullscreen="true">
 </iframe>
-<p><a href="https://app.powerbi.com/view?r=eyJrIjoiMTk4NzE1ZDMtNDRlOC00OGYzLWJkZWMtNjI4NzljN2Q1MGI1IiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9&amp;pageName=a10698ecc860e9722a36">Dashboard Corruption Perceptions Index (CPI)</a></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiOTJhZWY4YTYtMTJkYy00NzNkLTlmYTMtNDBkMTQ0YTIzZmM3IiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9">Dashboard Corruption Perceptions Index (CPI)</a></p>
 
 
 </section>

@@ -31,10 +31,9 @@ Ao compartilhar este projeto, desejo ressaltar a relevância da integração ent
 # Dashboard Interativo
 
 **Você pode explorar o Dashboard interativo abaixo**
+<iframe title="Quality Dashboard" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiM2NlZmIwMmEtZTcxNS00ZjJiLWFmYTgtMWJhZTUwNDQwNTUyIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowFullScreen="true"></iframe>
 
-<iframe title="Quality Dashboard" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowFullScreen="true"></iframe>
-
-[Dashboard de Qualidade](https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9)
+[Dashboard de Qualidade](https://app.powerbi.com/view?r=eyJrIjoiM2NlZmIwMmEtZTcxNS00ZjJiLWFmYTgtMWJhZTUwNDQwNTUyIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9)
 
 
 

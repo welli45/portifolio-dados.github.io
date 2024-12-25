@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,17 +32,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../bar-chart-line.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-c673f34e15cdee94befc4d0424d30270.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-70e11ed3cea8f8148b8fb6889169fcb3.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,13 +77,13 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Dashboard de Qualidade – Portifólio de Dados">
 <meta property="og:description" content="Dashboard de Qualidade">
-<meta property="og:image" content="https://github.com/welli45/portifolio/projetos-PBI/images/04.qualidade/qualidade.png">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/projetos-PBI/images/04.qualidade/qualidade.png">
 <meta property="og:site_name" content="Portifólio de Dados">
 <meta property="og:image:height" content="496">
 <meta property="og:image:width" content="876">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Dashboard de Qualidade">
-<meta name="twitter:image" content="https://github.com/welli45/portifolio/projetos-PBI/images/04.qualidade/qualidade.png">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/projetos-PBI/images/04.qualidade/qualidade.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
@@ -139,6 +140,16 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="dropdown-text">Projetos em Python</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../projetos-SQL/index.html"><i class="bi bi-filetype-sql" role="img">
+</i> 
+ <span class="dropdown-text">Projetos em SQL</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projetos-excel/index.html"><i class="bi bi-file-earmark-excel-fill" role="img">
+</i> 
+ <span class="dropdown-text">Projetos em Excel</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -149,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/welli45/portifolio" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
+    <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
     <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -227,10 +238,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dashboard-interativo" class="level1">
 <h1>Dashboard Interativo</h1>
-<p><strong>Você pode explorar o Dashboard interativo abaixo</strong></p>
-<iframe title="Quality Dashboard" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9" frameborder="0" allowfullscreen="true">
-</iframe>
-<p><a href="https://app.powerbi.com/view?r=eyJrIjoiYjJkMzQwYjMtYTFjOS00ZTk2LTk0ZjEtYmY3MWFmNmNhOGFiIiwidCI6IjU0YWQ1Y2I4LTRkMGYtNGQyNC04YmZhLTY3ZjYwNDBkOWVhMyJ9">Dashboard de Qualidade</a></p>
+<p><strong>Você pode explorar o Dashboard interativo abaixo</strong> <iframe title="Quality Dashboard" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiM2NlZmIwMmEtZTcxNS00ZjJiLWFmYTgtMWJhZTUwNDQwNTUyIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9" frameborder="0" allowfullscreen="true"></iframe></p>
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiM2NlZmIwMmEtZTcxNS00ZjJiLWFmYTgtMWJhZTUwNDQwNTUyIiwidCI6ImVkYzRiYTQ1LTQ3NDItNDNhMy04MTYzLWY3MTY1MDFmMzZkNyJ9">Dashboard de Qualidade</a></p>
 
 
 </section>
@@ -462,8 +471,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -472,7 +479,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/welli45\/portifolio");
+      var filterRegex = new RegExp("https:\/\/welli45\.github\.io\/portifolio-dados\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -574,7 +581,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -804,7 +810,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://welli45.github.io/portifolio/">Portifólio de Wellington S. Souza</a></p>
+<p><a href="https://welli45.github.io/portifolio-dados.github.io/">Portifólio de Wellington S. Souza</a></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
