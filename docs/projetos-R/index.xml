@@ -14,8 +14,472 @@
 <title>Portifólio de Dados</title>
 <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/</link>
 </image>
-<generator>quarto-1.6.35</generator>
-<lastBuildDate>Sat, 03 Aug 2024 03:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.39</generator>
+<lastBuildDate>Sat, 28 Dec 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>ANOVA</title>
+  <dc:creator>Wellington Santos Souza</dc:creator>
+  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="análise-de-variância---anova" class="level1">
+<h1>Análise de Variância - ANOVA</h1>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png" class="img-fluid" style="width:50.0%" alt="anova"></p>
+<p>Para a análise de variância devemos ter uma variável numérica no eixo <img src="https://latex.codecogs.com/png.latex?y">, nossa variável respota, e uma variável categórica com mais de dois tratamentos no eixo <img src="https://latex.codecogs.com/png.latex?x">, nossa variável explicativa.</p>
+<p>As hipótese nula e alternativas a serem testadas são:</p>
+<p><img src="https://latex.codecogs.com/png.latex?H_0">: igualdade entre as médias dos tratamentos</p>
+<p><img src="https://latex.codecogs.com/png.latex?H_1">: diferença entre as médias dos tratamentos</p>
+<p>Rejeitamos <img src="https://latex.codecogs.com/png.latex?H_0"> com um <img src="https://latex.codecogs.com/png.latex?%5Calpha"> de <img src="https://latex.codecogs.com/png.latex?0,05">, para um valor-p maior que <img src="https://latex.codecogs.com/png.latex?0,05"></p>
+<p>Para praticar vamos usar a base dados <code>pinguins</code> do pacote <code>dados</code>. Para instalar e carregar o pacote fazemos:</p>
+<div class="cell" data-result="hide">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dados'</span>)){</span>
+<span id="cb1-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dados"</span>)</span>
+<span id="cb1-3">}; <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dados)</span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'kableExtra'</span>)){</span>
+<span id="cb1-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"kableExtra"</span>)</span>
+<span id="cb1-7">}; <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(kableExtra)</span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'tidyverse'</span>)){</span>
+<span id="cb1-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tidyverse"</span>)</span>
+<span id="cb1-11">}; <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-12"></span>
+<span id="cb1-13"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(report)){</span>
+<span id="cb1-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"report"</span>)</span>
+<span id="cb1-15">  }; <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(report)</span></code></pre></div>
+</details>
+</div>
+<p>Agora que temos o pacote instalado e carregado podemos acessar a base de dados com:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">pinguins <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> pinguins</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(pinguins) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>()</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 5%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">especie</th>
+<th style="text-align: left;">ilha</th>
+<th style="text-align: right;">comprimento_bico</th>
+<th style="text-align: right;">profundidade_bico</th>
+<th style="text-align: right;">comprimento_nadadeira</th>
+<th style="text-align: right;">massa_corporal</th>
+<th style="text-align: left;">sexo</th>
+<th style="text-align: right;">ano</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">3750</td>
+<td style="text-align: left;">macho</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">17.4</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">3800</td>
+<td style="text-align: left;">fêmea</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">3250</td>
+<td style="text-align: left;">fêmea</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">3450</td>
+<td style="text-align: left;">fêmea</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">3650</td>
+<td style="text-align: left;">macho</td>
+<td style="text-align: right;">2007</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Verificando a estrutura dos dados</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(pinguins)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
+ $ especie              : Factor w/ 3 levels "Pinguim-de-adélia",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ ilha                 : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ comprimento_bico     : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+ $ profundidade_bico    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+ $ comprimento_nadadeira: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+ $ massa_corporal       : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+ $ sexo                 : Factor w/ 2 levels "fêmea","macho": 2 1 1 NA 1 2 1 2 NA NA ...
+ $ ano                  : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+</div>
+</div>
+<p>Como nossas variáveis já estão estruturados vamos verificar essas variáveis com uma análise exploratória.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(pinguins)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "especie"               "ilha"                  "comprimento_bico"     
+[4] "profundidade_bico"     "comprimento_nadadeira" "massa_corporal"       
+[7] "sexo"                  "ano"                  </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(pinguins<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>comprimento_bico,</span>
+<span id="cb7-2">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> T,</span>
+<span id="cb7-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span>
+<span id="cb7-4"></span>
+<span id="cb7-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">density</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> pinguins<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>comprimento_bico[<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(pinguins<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>comprimento_bico)], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">adjust =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>),</span>
+<span id="cb7-6">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,</span>
+<span id="cb7-7">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'red'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="rodando-anova" class="level2">
+<h2 class="anchored" data-anchor-id="rodando-anova">Rodando anova</h2>
+<p>Agora, criaremos o objeto com as variáveis de interesse usando a função aov, o nosso objetivo aqui é testar os pressupostos.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">mod_01 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aov</span>(comprimento_bico <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> especie, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> pinguins)</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="testando-pressupostos" class="level2">
+<h2 class="anchored" data-anchor-id="testando-pressupostos">Testando pressupostos</h2>
+<p>Gráficos para testar:</p>
+<ol type="1">
+<li>linearidade</li>
+<li>normalidade</li>
+<li>homogeneidade</li>
+<li>alavancagem</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">par</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mfrow =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>))</span>
+<span id="cb9-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(mod_01)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="linearidade" class="level4">
+<h4 class="anchored" data-anchor-id="linearidade">Linearidade</h4>
+<p>Como podemos notar no gráfico de linearidade <code>Residuals vc Fitted</code> o pressupposto de linearidade é atendido, pois a linha pontilhada vermelha está bem reta.</p>
+</section>
+<section id="normalidade" class="level4">
+<h4 class="anchored" data-anchor-id="normalidade">Normalidade</h4>
+<p>O gráfico <code>Q-Q Residuals</code> mostra os pontos bem encima da linha pontilhada, isso mostra que o pressuposto de Normalidade foi atendido.</p>
+</section>
+<section id="homogeneidade" class="level4">
+<h4 class="anchored" data-anchor-id="homogeneidade">Homogeneidade</h4>
+<p>O gráfico <code>Scale-Location</code> indica que nossos dados são bem homogêneos, pois a linha vermelha está bem reta.</p>
+</section>
+<section id="alavancagem" class="level4">
+<h4 class="anchored" data-anchor-id="alavancagem">Alavancagem</h4>
+<p>O gráfico de alavancagem mostra poucos pontos influentes, mas não estão muito longe dos demais.</p>
+<p>Por fim, podemos notar que todos os pressupostos foram atendidos, assim podemos seguir com a análise de variância.</p>
+</section>
+</section>
+<section id="interpretando-o-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="interpretando-o-modelo">Interpretando o modelo</h2>
+<p>O nosso objetivo aqui é verificar se existe diferência no tamanho do bico dos pinguins entre as espécies.</p>
+<p>Para ver o resultado:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">anova</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">test =</span> F, mod_01) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb10-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>()</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Df</th>
+<th style="text-align: right;">Sum Sq</th>
+<th style="text-align: right;">Mean Sq</th>
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">especie</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7194.317</td>
+<td style="text-align: right;">3597.158720</td>
+<td style="text-align: right;">410.6003</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">339</td>
+<td style="text-align: right;">2969.888</td>
+<td style="text-align: right;">8.760732</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Usando o pacote <code>report</code></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">mod_01 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb11-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">report</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The ANOVA (formula: comprimento_bico ~ especie) suggests that:
+
+  - The main effect of especie is statistically significant and large (F(2, 339)
+= 410.60, p &lt; .001; Eta2 = 0.71, 95% CI [0.67, 1.00])
+
+Effect sizes were labelled following Field's (2013) recommendations.</code></pre>
+</div>
+</div>
+<p>A análise de variância (ANOVA) realizada, utilizando o modelo <em>comprimento_bico ~ especie</em>, revelou que o fator “espécie” tem um efeito principal estatisticamente significativo e de grande magnitude sobre o comprimento do bico. O teste F indicou $F(2, 339) = 410,60 $, com um valor de p menor que 0,001, o que demonstra que as diferenças entre as médias do comprimento do bico para as três espécies analisadas são altamente improváveis de serem atribuídas ao acaso. O tamanho do efeito <img src="https://latex.codecogs.com/png.latex?(Eta%5E2%20=%200,71)"> sugere que 71% da variabilidade total no comprimento do bico é explicada pelas diferenças entre as espécies, o que, segundo os critérios de Field (2013), é considerado um efeito muito grande. O intervalo de confiança de 95% para <img src="https://latex.codecogs.com/png.latex?Eta%5E2%20%5B0,67,%201,00%5D"> reforça a robustez dessa estimativa. Esses resultados indicam que as diferenças no comprimento do bico entre as espécies são substanciais e estatisticamente relevantes.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">boxplot</span>(comprimento_bico <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> especie, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> pinguins)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Análise de Variância</category>
+  <category>ANOVA</category>
+  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova.html</guid>
+  <pubDate>Sat, 28 Dec 2024 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Introdução Álgebra Matricial</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
@@ -1039,28 +1503,6 @@ font-style: inherit;">%*%</span>x</span>
   <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Teste de significância com dados multivariados</title>
-  <dc:creator>Wellington Santos Souza</dc:creator>
-  <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/teste-sig-multivariados.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="projeto-em-construção" class="level1">
-<h1>Projeto em construção…</h1>
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-multi/mukti.png" class="img-fluid" style="width:50.0%" alt="Excel"></p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Teste de significância</category>
-  <category>Multivariados</category>
-  <guid>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/teste-sig-multivariados.html</guid>
-  <pubDate>Sat, 03 Aug 2024 03:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Teste T para amostras independentes e amostras pareadas</title>
   <dc:creator>Wellington Santos Souza</dc:creator>
   <link>https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/Script-Teste-T.html</link>
@@ -1202,7 +1644,7 @@ background-color: null;
 font-style: inherit;">head</span>(dados))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 12%">
 <col style="width: 10%">
@@ -1629,7 +2071,7 @@ background-color: null;
 font-style: inherit;">shapiro_test</span>(Nota_Biol, Nota_Hist))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Genero</th>
@@ -1693,7 +2135,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -1732,7 +2174,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -1779,7 +2221,7 @@ background-color: null;
 font-style: inherit;">data =</span> dados)))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 9%">
@@ -1845,7 +2287,7 @@ background-color: null;
 font-style: inherit;">data =</span> dados)))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 9%">
@@ -2340,7 +2782,7 @@ background-color: null;
 font-style: inherit;">shapiro_test</span>(Nota_Fis, Nota_Biol, Nota_Hist))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Escola</th>
@@ -2412,7 +2854,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -2450,7 +2892,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -2488,7 +2930,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -2818,7 +3260,7 @@ background-color: null;
 font-style: inherit;">shapiro_test</span>(Nota_Biol, Nota_Hist))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Posicao_Sala</th>
@@ -2878,7 +3320,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -2917,7 +3359,7 @@ background-color: null;
 font-style: inherit;">"mean"</span>))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">df1</th>
@@ -2959,7 +3401,7 @@ background-color: null;
 font-style: inherit;">data =</span> dados)))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 9%">
@@ -3265,7 +3707,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>)))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 11%">

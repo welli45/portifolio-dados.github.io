@@ -1,1 +1,74 @@
-/* css styles */
+/* Justifica o texto */
+p {
+  text-align: justify;
+  line-height: 1.6; /* Aumenta o espaçamento entre linhas para melhor leitura */
+  margin: 10px 0; /* Adiciona espaçamento entre os parágrafos */
+}
+
+/* Formata títulos principais */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', sans-serif; /* Define uma fonte limpa para os títulos */
+  color: #2c3e50; /* Usa uma cor neutra e profissional */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Realça links */
+a {
+  color: #3498db; /* Azul para links */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Ajusta listas */
+ul, ol {
+  margin: 10px 20px; /* Margem para afastar do texto principal */
+  padding-left: 20px; /* Indentação das listas */
+  line-height: 1.5; /* Espaçamento entre os itens */
+}
+
+/* Formata tabelas */
+table {
+  width: 100%; /* Garante que a tabela ocupa todo o espaço disponível */
+  border-collapse: collapse; /* Remove espaços entre bordas */
+  margin: 20px 0;
+}
+
+table th, table td {
+  border: 1px solid #ddd; /* Bordas finas e discretas */
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4; /* Fundo claro para cabeçalhos */
+  color: #333; /* Cor escura para contraste */
+  font-weight: bold;
+}
+
+/* Blocos de código */
+pre {
+  background-color: #f8f9fa; /* Fundo leve para destaque */
+  border: 1px solid #ddd; /* Bordas para delimitação */
+  padding: 10px;
+  border-radius: 5px; /* Cantos arredondados */
+  overflow-x: auto; /* Scroll horizontal para evitar quebra */
+}
+
+code {
+  font-family: 'Courier New', monospace; /* Fonte monoespaçada para código */
+  color: #e74c3c; /* Vermelho para destaque */
+}
+
+/* Destaca citações */
+blockquote {
+  font-style: italic;
+  color: #7f8c8d; /* Cinza claro para contraste */
+  border-left: 4px solid #bdc3c7; /* Barra vertical à esquerda */
+  padding-left: 10px;
+  margin: 10px 0;
+}
+

@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Estudos">
+<meta name="author" content="Wellington Santos Souza">
+<meta name="description" content="Esse documento foi desenvolvido para organizar meus estudos em Análise de Variância - ANOVA.">
 
-<title>Estuos e Projetos Acadêmicos – Portifólio de Dados</title>
+<title>ANOVA – Portifólio de Dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,30 +22,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../bar-chart-line.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c673f34e15cdee94befc4d0424d30270.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-70e11ed3cea8f8148b8fb6889169fcb3.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../bar-chart-line.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-7d3c093a5437776bc308203de3e79d08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-40d839717c0c4fdc0792b4616e7cab70.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,35 +105,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-author','listing-description','listing-date','listing-image','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-date","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -133,18 +137,22 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Portifólio de Dados" href="index.xml" data-external="1"><meta property="og:title" content="Estuos e Projetos Acadêmicos – Portifólio de Dados">
-<meta property="og:description" content="Aqui você pode encontrar meus Projetos e Aprendizados.">
-<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/trajetoria.webp">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="ANOVA – Portifólio de Dados">
+<meta property="og:description" content="ANOVA">
+<meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png">
 <meta property="og:site_name" content="Portifólio de Dados">
-<meta property="og:image:alt" content="R">
+<meta property="og:image:height" content="576">
+<meta property="og:image:width" content="1248">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
-<meta name="twitter:description" content="Aqui você pode encontrar meus Projetos e Aprendizados.">
-<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/Vida-Academica/cover.png">
+<meta name="twitter:description" content="Curva-Normal">
+<meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="576">
+<meta name="twitter:image-width" content="1248">
 </head>
 
 <body class="nav-fixed">
@@ -154,7 +162,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Portifólio de Dados</span>
     </a>
   </div>
@@ -165,12 +173,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door" role="img">
 </i> 
 <span class="menu-text">Página Inicial</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> <i class="bi bi-file-person" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-file-person" role="img">
 </i> 
 <span class="menu-text">Sobre</span></a>
   </li>  
@@ -182,34 +190,34 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projetos">    
         <li>
-    <a class="dropdown-item" href="../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-R/index.html"><i class="bi bi-r-circle-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-PBI/index.html"><i class="bi bi-file-bar-graph-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Power BI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
+    <a class="dropdown-item" href="../../projetos-Python/index.html"><i class="bi bi-filetype-py" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-SQL/index.html"><i class="bi bi-filetype-sql" role="img">
+    <a class="dropdown-item" href="../../projetos-SQL/index.html"><i class="bi bi-filetype-sql" role="img">
 </i> 
  <span class="dropdown-text">Projetos em SQL</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../projetos-excel/index.html"><i class="bi bi-file-earmark-excel-fill" role="img">
+    <a class="dropdown-item" href="../../projetos-excel/index.html"><i class="bi bi-file-earmark-excel-fill" role="img">
 </i> 
  <span class="dropdown-text">Projetos em Excel</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="../Vida-Academica/index.html" aria-current="page"> <i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="../../Vida-Academica/index.html"> <i class="bi bi-mortarboard-fill" role="img">
 </i> 
 <span class="menu-text">Estudos e Projetos Acadêmicos</span></a>
   </li>  
@@ -217,39 +225,71 @@ window.Quarto = {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://welli45.github.io/portifolio-dados.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-code-slash"></i></a>
-    <a href="../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="../../projetos-PBI/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><a href="https://github.com/welli45">Welli45</a> © 2024 by <a href="https://github.com/welli45">Wellington S.</a></p>
-</div></div>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGVlcCUyMExlYXJuaW5n">Deep Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RXhjZWw=">Excel <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluaW5nJTIwTGVhcm5pbmc=">Machining Learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UEVTQ0FSVEU=">PESCARTE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG93ZXIlMjBCSQ==">Power BI <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U1FM">SQL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="VGFibGVhdQ==">Tableau <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YW4lQzMlQTFsaXNpcyUyMGRlJTIwcmVkZXMlMjBzb2NpYWxlcw==">análisis de redes sociales <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aXZlJTIwbmV0d29ya3M=">cognitive networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tbXVuaXRhcmlhbiUyMGxlYWRlcnM=">communitarian leaders <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y291cnNlcmE=">coursera <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Vyc28=">curso <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bCVDMyVBRGRlcmVzJTIwY29tdW5pdGFyaW9z">líderes comunitarios <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVkZXMlMjBjb2duaXRpdmFz">redes cognitivas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVsYXRpb25hbCUyMHNvY2lvbG9neQ==">relational sociology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c29jaWFsJTIwbmV0d29yayUyMGFuYWx5c2lz">social network analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c29jaW9sb2clQzMlQURhJTIwcmVsYWNpb25hbA==">sociología relacional <span class="quarto-category-count">(1)</span></div></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#análise-de-variância---anova" id="toc-análise-de-variância---anova" class="nav-link active" data-scroll-target="#análise-de-variância---anova">Análise de Variância - ANOVA</a>
+  <ul>
+  <li><a href="#rodando-anova" id="toc-rodando-anova" class="nav-link" data-scroll-target="#rodando-anova">Rodando anova</a></li>
+  <li><a href="#testando-pressupostos" id="toc-testando-pressupostos" class="nav-link" data-scroll-target="#testando-pressupostos">Testando pressupostos</a>
+  <ul class="collapse">
+  <li><a href="#linearidade" id="toc-linearidade" class="nav-link" data-scroll-target="#linearidade">Linearidade</a></li>
+  <li><a href="#normalidade" id="toc-normalidade" class="nav-link" data-scroll-target="#normalidade">Normalidade</a></li>
+  <li><a href="#homogeneidade" id="toc-homogeneidade" class="nav-link" data-scroll-target="#homogeneidade">Homogeneidade</a></li>
+  <li><a href="#alavancagem" id="toc-alavancagem" class="nav-link" data-scroll-target="#alavancagem">Alavancagem</a></li>
+  </ul></li>
+  <li><a href="#interpretando-o-modelo" id="toc-interpretando-o-modelo" class="nav-link" data-scroll-target="#interpretando-o-modelo">Interpretando o modelo</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Estuos e Projetos Acadêmicos</h1>
-<p class="subtitle lead">Nessa página você pode acompanhar meus trabalhos acadêmicos na área de sociologia, bem como anotações sobre cursos que venho fazendo, demais informações sobre minha trajetória profissional e acadêmica como estudante de Sociologia na UFMG.</p>
-</div>
+<h1 class="title">ANOVA</h1>
+<p class="subtitle lead">Aplicação em R</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Análise de Variância</div>
+    <div class="quarto-category">ANOVA</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Estudos
+    Esse documento foi desenvolvido para organizar meus estudos em Análise de Variância - ANOVA.
   </div>
 </div>
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wellington Santos Souza </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Saturday, 28 December 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -259,113 +299,309 @@ window.Quarto = {
 </header>
 
 
-<hr>
-<p><img src="trajetoria.webp" class="img-fluid" style="width:50.0%" alt="R"></p>
-<section id="publicações" class="level1">
-<h1>Publicações</h1>
-<hr>
-<!-- ### Featured Posts
-:::{#featured}
-:::
+<section id="análise-de-variância---anova" class="level1">
+<h1>Análise de Variância - ANOVA</h1>
+<p><img src="../images/../images/09-anova/anova.png" class="img-fluid" style="width:50.0%" alt="anova"></p>
+<p>Para a análise de variância devemos ter uma variável numérica no eixo <span class="math inline">\(y\)</span>, nossa variável respota, e uma variável categórica com mais de dois tratamentos no eixo <span class="math inline">\(x\)</span>, nossa variável explicativa.</p>
+<p>As hipótese nula e alternativas a serem testadas são:</p>
+<p><span class="math inline">\(H_0\)</span>: igualdade entre as médias dos tratamentos</p>
+<p><span class="math inline">\(H_1\)</span>: diferença entre as médias dos tratamentos</p>
+<p>Rejeitamos <span class="math inline">\(H_0\)</span> com um <span class="math inline">\(\alpha\)</span> de <span class="math inline">\(0,05\)</span>, para um valor-p maior que <span class="math inline">\(0,05\)</span></p>
+<p>Para praticar vamos usar a base dados <code>pinguins</code> do pacote <code>dados</code>. Para instalar e carregar o pacote fazemos:</p>
+<div class="cell" data-result="hide">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'dados'</span>)){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"dados"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}; <span class="fu">library</span>(dados)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'kableExtra'</span>)){</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"kableExtra"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}; <span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'tidyverse'</span>)){</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}; <span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(report)){</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"report"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }; <span class="fu">library</span>(report)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Agora que temos o pacote instalado e carregado podemos acessar a base de dados com:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pinguins <span class="ot">&lt;-</span> pinguins</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pinguins) <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 5%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">especie</th>
+<th style="text-align: left;">ilha</th>
+<th style="text-align: right;">comprimento_bico</th>
+<th style="text-align: right;">profundidade_bico</th>
+<th style="text-align: right;">comprimento_nadadeira</th>
+<th style="text-align: right;">massa_corporal</th>
+<th style="text-align: left;">sexo</th>
+<th style="text-align: right;">ano</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">3750</td>
+<td style="text-align: left;">macho</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">17.4</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">3800</td>
+<td style="text-align: left;">fêmea</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">3250</td>
+<td style="text-align: left;">fêmea</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">3450</td>
+<td style="text-align: left;">fêmea</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pinguim-de-adélia</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">3650</td>
+<td style="text-align: left;">macho</td>
+<td style="text-align: right;">2007</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Verificando a estrutura dos dados</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
+ $ especie              : Factor w/ 3 levels "Pinguim-de-adélia",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ ilha                 : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ comprimento_bico     : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+ $ profundidade_bico    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+ $ comprimento_nadadeira: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+ $ massa_corporal       : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+ $ sexo                 : Factor w/ 2 levels "fêmea","macho": 2 1 1 NA 1 2 1 2 NA NA ...
+ $ ano                  : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+</div>
+</div>
+<p>Como nossas variáveis já estão estruturados vamos verificar essas variáveis com uma análise exploratória.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "especie"               "ilha"                  "comprimento_bico"     
+[4] "profundidade_bico"     "comprimento_nadadeira" "massa_corporal"       
+[7] "sexo"                  "ano"                  </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pinguins<span class="sc">$</span>comprimento_bico,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">prob =</span> T,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(<span class="at">x =</span> pinguins<span class="sc">$</span>comprimento_bico[<span class="sc">!</span><span class="fu">is.na</span>(pinguins<span class="sc">$</span>comprimento_bico)], <span class="at">adjust =</span> <span class="dv">3</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="anova_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="rodando-anova" class="level2">
+<h2 class="anchored" data-anchor-id="rodando-anova">Rodando anova</h2>
+<p>Agora, criaremos o objeto com as variáveis de interesse usando a função aov, o nosso objetivo aqui é testar os pressupostos.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod_01 <span class="ot">&lt;-</span> <span class="fu">aov</span>(comprimento_bico <span class="sc">~</span> especie, <span class="at">data =</span> pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="testando-pressupostos" class="level2">
+<h2 class="anchored" data-anchor-id="testando-pressupostos">Testando pressupostos</h2>
+<p>Gráficos para testar:</p>
+<ol type="1">
+<li>linearidade</li>
+<li>normalidade</li>
+<li>homogeneidade</li>
+<li>alavancagem</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="anova_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="linearidade" class="level4">
+<h4 class="anchored" data-anchor-id="linearidade">Linearidade</h4>
+<p>Como podemos notar no gráfico de linearidade <code>Residuals vc Fitted</code> o pressupposto de linearidade é atendido, pois a linha pontilhada vermelha está bem reta.</p>
+</section>
+<section id="normalidade" class="level4">
+<h4 class="anchored" data-anchor-id="normalidade">Normalidade</h4>
+<p>O gráfico <code>Q-Q Residuals</code> mostra os pontos bem encima da linha pontilhada, isso mostra que o pressuposto de Normalidade foi atendido.</p>
+</section>
+<section id="homogeneidade" class="level4">
+<h4 class="anchored" data-anchor-id="homogeneidade">Homogeneidade</h4>
+<p>O gráfico <code>Scale-Location</code> indica que nossos dados são bem homogêneos, pois a linha vermelha está bem reta.</p>
+</section>
+<section id="alavancagem" class="level4">
+<h4 class="anchored" data-anchor-id="alavancagem">Alavancagem</h4>
+<p>O gráfico de alavancagem mostra poucos pontos influentes, mas não estão muito longe dos demais.</p>
+<p>Por fim, podemos notar que todos os pressupostos foram atendidos, assim podemos seguir com a análise de variância.</p>
+</section>
+</section>
+<section id="interpretando-o-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="interpretando-o-modelo">Interpretando o modelo</h2>
+<p>O nosso objetivo aqui é verificar se existe diferência no tamanho do bico dos pinguins entre as espécies.</p>
+<p>Para ver o resultado:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="at">test =</span> F, mod_01) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Df</th>
+<th style="text-align: right;">Sum Sq</th>
+<th style="text-align: right;">Mean Sq</th>
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">especie</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7194.317</td>
+<td style="text-align: right;">3597.158720</td>
+<td style="text-align: right;">410.6003</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">339</td>
+<td style="text-align: right;">2969.888</td>
+<td style="text-align: right;">8.760732</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Usando o pacote <code>report</code></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mod_01 <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">report</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The ANOVA (formula: comprimento_bico ~ especie) suggests that:
 
-<br></br>
---- -->
-<p><br><br></p>
-<!-- ### All Posts -->
-<div id="listing-posts" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-posts-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-posts'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="Y3Vyc28lMkNjb3Vyc2VyYSUyQ01hY2hpbmluZyUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNEZWVwJTIwTGVhcm5pbmclMkNQeXRob24lMkNSJTJDU1FMJTJDVGFibGVhdSUyQ0V4Y2VsJTJDUG93ZXIlMjBCSSUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ0RhdGElMjBTY2llbmNlJTJDRGVlcCUyMExlYXJuaW5nJTJDUHl0aG9uJTJDUiUyQ1NRTCUyQ1RhYmxlYXUlMkNFeGNlbCUyQ1Bvd2VyJTIwQkk=" data-listing-date-sort="1722740400000" data-listing-file-modified-sort="1724264362000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="31">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a></p><a href="../Vida-Academica/posts/Cursera.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/cursera.svg" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title" data-anchor-id="publicações">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">Anotações do cursos feitos na plataforma Coursera</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">Anotações dos cursos feitos na plataforma Coursera</a>
+  - The main effect of especie is statistically significant and large (F(2, 339)
+= 410.60, p &lt; .001; Eta2 = 0.71, 95% CI [0.67, 1.00])
+
+Effect sizes were labelled following Field's (2013) recommendations.</code></pre>
 </div>
 </div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/Cursera.html" class="no-external">
-<div class="listing-date">
-04 August 2024
+<p>A análise de variância (ANOVA) realizada, utilizando o modelo <em>comprimento_bico ~ especie</em>, revelou que o fator “espécie” tem um efeito principal estatisticamente significativo e de grande magnitude sobre o comprimento do bico. O teste F indicou $F(2, 339) = 410,60 $, com um valor de p menor que 0,001, o que demonstra que as diferenças entre as médias do comprimento do bico para as três espécies analisadas são altamente improváveis de serem atribuídas ao acaso. O tamanho do efeito <span class="math inline">\((Eta^2 = 0,71)\)</span> sugere que 71% da variabilidade total no comprimento do bico é explicada pelas diferenças entre as espécies, o que, segundo os critérios de Field (2013), é considerado um efeito muito grande. O intervalo de confiança de 95% para <span class="math inline">\(Eta^2 [0,67, 1,00]\)</span> reforça a robustez dessa estimativa. Esses resultados indicam que as diferenças no comprimento do bico entre as espécies são substanciais e estatisticamente relevantes.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(comprimento_bico <span class="sc">~</span> especie, <span class="at">data =</span> pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="anova_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1" data-categories="YW4lQzMlQTFsaXNpcyUyMGRlJTIwcmVkZXMlMjBzb2NpYWxlcyUyQ3NvY2lvbG9nJUMzJUFEYSUyMHJlbGFjaW9uYWwlMkNyZWRlcyUyMGNvZ25pdGl2YXMlMkNsJUMzJUFEZGVyZXMlMjBjb211bml0YXJpb3MlMkNQRVNDQVJURSUyQ3NvY2lhbCUyMG5ldHdvcmslMjBhbmFseXNpcyUyQ3JlbGF0aW9uYWwlMjBzb2Npb2xvZ3klMkNjb2duaXRpdmUlMjBuZXR3b3JrcyUyQ2NvbW11bml0YXJpYW4lMjBsZWFkZXJz" data-listing-date-sort="1707274800000" data-listing-file-modified-sort="1716659418000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="212">
-<div class="thumbnail">
-<p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a></p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external">
-<p><img loading="lazy" src="../Vida-Academica/images/redes.png" class="thumbnail-image"></p>
-</a><p><a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">Entre redes completas y personales: estrategia de recolección de datos cognitivos con informantes clave</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">Artigo Publicado!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../Vida-Academica/posts/redes_completas.html" class="no-external">
-<div class="listing-date">
-07 February 2024
-</div>
-<div class="listing-author">
-Wellington Santos Souza
-</div>
-<div class="listing-reading-time">
-2 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
 </div>
 </div>
 
 
-
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -979,5 +1215,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
