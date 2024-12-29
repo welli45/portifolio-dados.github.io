@@ -163,7 +163,7 @@ ggbetweenstats(
   labs(
     x = "Espécies",
     y = "Comprimento do Bico",
-    title = "Dsitribuição do tamanho do bico por espécie"
+    title = "Disitribuição do tamanho do bico por espécie"
   ) + 
   theme(
     text = element_text(size = 8, color = "black"),
