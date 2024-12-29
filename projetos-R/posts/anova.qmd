@@ -21,7 +21,7 @@ twitter-card:
 
 # Análise de Variância - ANOVA
 
-![](../images/../images/09-anova/anova.png){fig-alt="anova" width="50%"}
+![](../images/../images/09-anova/anova.png)
 
 Se vamos realizar uma análise de variância, precisamos de uma variável numérica no eixo $y$ (nossa variável resposta) e uma variável categórica com mais de dois tratamentos no eixo $x$ (nossa variável explicativa).
 

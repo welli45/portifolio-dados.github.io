@@ -27,7 +27,7 @@
 
 <section id="análise-de-variância---anova" class="level1">
 <h1>Análise de Variância - ANOVA</h1>
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png" class="img-fluid" style="width:50.0%" alt="anova"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png" class="img-fluid"></p>
 <p>Se vamos realizar uma análise de variância, precisamos de uma variável numérica no eixo <img src="https://latex.codecogs.com/png.latex?y"> (nossa variável resposta) e uma variável categórica com mais de dois tratamentos no eixo <img src="https://latex.codecogs.com/png.latex?x"> (nossa variável explicativa).</p>
 <p>A ideia é simples: queremos testar duas hipóteses:</p>
 <ul>
