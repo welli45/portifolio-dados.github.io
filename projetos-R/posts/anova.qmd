@@ -23,18 +23,21 @@ twitter-card:
 
 ![](../images/../images/09-anova/anova.png){fig-alt="anova" width="50%"}
 
-Para a análise de variância devemos ter uma variável numérica no eixo $y$, nossa variável respota, e uma variável categórica com mais de dois tratamentos no eixo $x$, nossa variável explicativa.
+Se vamos realizar uma análise de variância, precisamos de uma variável numérica no eixo $y$ (nossa variável resposta) e uma variável categórica com mais de dois tratamentos no eixo $x$ (nossa variável explicativa).
 
-As hipótese nula e alternativas a serem testadas são:
+A ideia é simples: queremos testar duas hipóteses:
 
-$H_0$: igualdade entre as médias dos tratamentos 
+- $H_0$: As médias dos tratamentos são iguais.
 
-$H_1$: diferença entre as médias dos tratamentos
+- $H_1$: Há diferenças entre as médias dos tratamentos.
 
-Rejeitamos $H_0$ com um $\alpha$ de $0,05$, para um valor-p maior que $0,05$
+Para decidir, usamos um nível de significância ($\alpha$) de 0,05. Isso significa que rejeitamos $H_0$ se o valor-p for menor que 0,05.
 
-Para praticar vamos usar a base dados `pinguins` do pacote `dados`.
-Para instalar e carregar o pacote fazemos:
+## Vamos praticar
+
+A ANOVA é uma técnica poderosa quando queremos comparar mais de dois grupos e entender se algo realmente está diferente entre eles. Por exemplo, podemos usá-la para verificar se diferentes espécies de pinguins possuem características físicas distintas, como o comprimento do bico.
+
+Para isso, usaremos a base de dados `pinguins` do pacote `dados`. Caso ainda não tenha esse pacote instalado, aqui vai o código para instalar e carregar tudo o que precisamos:
 ```{r}
 #| result: hide
 #| message: false
@@ -54,10 +57,12 @@ if(!require(report)){
   install.packages("report")
   }; library(report)
 
-
+if(!require(ggstatsplot)){
+  install.packages("ggstatsplot")
+}; library(ggstatsplot)
 ```
 
-Agora que temos o pacote instalado e carregado podemos acessar a base de dados com:
+Depois de carregar o pacote, basta acessar a base:
 ```{r}
 pinguins <- pinguins
 
@@ -65,82 +70,139 @@ head(pinguins) |>
   kable()
 ```
 
-Verificando a estrutura dos dados
+Para entender melhor os dados, podemos verificar sua estrutura:
 ```{r}
 str(pinguins)
 ```
-Como nossas variáveis já estão estruturados vamos verificar essas variáveis com uma análise exploratória.
+
+E listar as variáveis disponíveis:
 ```{r}
 names(pinguins)
 ```
+Removendo NA´s da coluna comprimento do bico
+```{r}
+pinguins <- data.frame(pinguins)
+pinguins <- pinguins |> 
+  filter(!is.na(comprimento_bico))
 
+```
+
+Agora, que tal explorar um pouco os dados? Vamos criar um histograma para o comprimento do bico:
 ```{r}
 hist(pinguins$comprimento_bico,
      prob = T,
      col = "lightblue")
 
-lines(density(x = pinguins$comprimento_bico[!is.na(pinguins$comprimento_bico)], adjust = 3),
+lines(density(x = pinguins$comprimento_bico, adjust = 3),
       lwd = 2,
       col = 'red')
 
 ```
+
 ## Rodando anova
-Agora, criaremos o objeto com as variáveis de interesse usando a função aov, o nosso objetivo aqui é testar os pressupostos.
+
+Nosso próximo passo é criar um modelo para testar os pressupostos da análise de variância. Vamos usar a função aov:
 ```{r}
 mod_01 <- aov(comprimento_bico ~ especie, data = pinguins)
 ```
 
 ## Testando pressupostos
 
-Gráficos para testar:
+Agora, vamos verificar se os pressupostos são atendidos. Para isso, criamos alguns gráficos:
 
-1. linearidade
-2. normalidade
-3. homogeneidade
-4. alavancagem
 ```{r}
 par(mfrow = c(2,2))
 plot(mod_01)
 ```
 #### Linearidade
-Como podemos notar no gráfico de linearidade `Residuals vc Fitted` o pressupposto de linearidade é atendido, pois a linha pontilhada vermelha está bem reta. 
+
+O gráfico `Residuals vs Fitted` mostra que a linha pontilhada vermelha está bem reta, indicando que o pressuposto foi atendido. 
 
 #### Normalidade
 
-O gráfico `Q-Q Residuals` mostra os pontos bem encima da linha pontilhada, isso mostra que o pressuposto de Normalidade foi atendido. 
+No gráfico `Q-Q Residuals`, os pontos estão bem alinhados na linha pontilhada, confirmando que os resíduos seguem uma distribuição normal.
 
 #### Homogeneidade
 
-O gráfico `Scale-Location` indica que nossos dados são bem homogêneos, pois a linha vermelha está bem reta.
+No gráfico `Scale-Location`, a linha vermelha se mantém reta, mostrando que os dados têm variância homogênea.
 
 #### Alavancagem
 
-O gráfico de alavancagem mostra poucos pontos influentes, mas não estão muito longe dos demais.
+O gráfico de alavancagem apresenta poucos pontos influentes, e eles não estão muito distantes dos demais.
 
-Por fim, podemos notar que todos os pressupostos foram atendidos, assim podemos seguir com a análise de variância. 
+Os pressupostos da ANOVA são como os pilares de uma casa. Se não forem atendidos, nossos resultados podem ser enganosos ou frágeis. Com todos os pressupostos atendidos, podemos prosseguir com a análise de variância. 
 
-## Interpretando o modelo
+## Interpretando os resultados
 
-O nosso objetivo aqui é verificar se existe diferência no tamanho do bico dos pinguins entre as espécies. 
-
-Para ver o resultado:
+Queremos descobrir se o comprimento do bico varia entre as espécies. Para isso, analisamos o resultado da ANOVA:
 ```{r}
 anova(test = F, mod_01) |> 
   kable()
 ```
 
-Usando o pacote `report`
+E, com o pacote `report`, obtemos uma descrição mais completa:
 ```{r}
 mod_01 |> 
   report()
 ```
 
-A análise de variância (ANOVA) realizada, utilizando o modelo *comprimento_bico ~ especie*, revelou que o fator "espécie" tem um efeito principal estatisticamente significativo e de grande magnitude sobre o comprimento do bico. O teste F indicou $F(2, 339) = 410,60 $, com um valor de p menor que 0,001, o que demonstra que as diferenças entre as médias do comprimento do bico para as três espécies analisadas são altamente improváveis de serem atribuídas ao acaso. O tamanho do efeito $(Eta^2 = 0,71)$ sugere que 71% da variabilidade total no comprimento do bico é explicada pelas diferenças entre as espécies, o que, segundo os critérios de Field (2013), é considerado um efeito muito grande. O intervalo de confiança de 95% para $Eta^2 [0,67, 1,00]$ reforça a robustez dessa estimativa. Esses resultados indicam que as diferenças no comprimento do bico entre as espécies são substanciais e estatisticamente relevantes.
+A análise mostrou que a espécie tem um impacto significativo no comprimento do bico. O teste F indicou $F(2, 339) = 410,60$ com um valor-p menor que 0,001, o que significa que as diferenças entre as médias são muito improváveis de ocorrer por acaso.
+
+Além disso, o tamanho do efeito ($Eta^2 = 0,71$) revela que 71% da variação no comprimento do bico pode ser explicada pelas diferenças entre as espécies, um efeito considerado muito grande segundo os critérios de Field (2013).
+
+O intervalo de confiança de 95% para $Eta^2 [0,67, 1,00]$ reforça a confiabilidade desses resultados. Em resumo, há diferenças substanciais e estatisticamente relevantes no comprimento do bico entre as espécies de pinguins analisadas.
+
+Para visualizar melhor, criamos um boxplot:
 
 ```{r}
-boxplot(comprimento_bico ~ especie, data = pinguins)
+ggbetweenstats(
+  data = pinguins,
+  x = especie,
+  y = comprimento_bico
+) + 
+  labs(
+    x = "Espécies",
+    y = "Comprimento do Bico",
+    title = "Dsitribuição do tamanho do bico por espécie"
+  ) + 
+  theme(
+    text = element_text(size = 8, color = "black"),
+    plot.title = element_text( 
+      size = 20,
+      face = "bold",
+      color = "#2a475e"
+    ),
+    plot.subtitle = element_text( 
+      size = 15, 
+      face = "bold",
+      color="#1b2838"
+    ),
+    plot.title.position = "plot", 
+    axis.text = element_text(size = 10, color = "black"),
+    axis.title = element_text(size = 12)
+  )+
+  theme(
+    axis.ticks = element_blank(),
+    axis.line = element_line(colour = "grey50"),
+    panel.grid = element_line(color = "#b4aea9"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(linetype = "dashed"),
+    panel.background = element_rect(fill = "#fbf9f4", color = "#fbf9f4"),
+    plot.background = element_rect(fill = "#fbf9f4", color = "#fbf9f4")
+  )
 ```
 
+## E agora?
 
+Esses resultados mostram que a ANOVA pode ser aplicada em diversos contextos. Por exemplo:
+
+- **Saúde:** Comparar a eficácia de diferentes tratamentos médicos em pacientes.
+
+- **Educação:** Verificar se diferentes métodos de ensino influenciam o desempenho dos alunos.
+
+- **Biologia:** Investigar diferenças em características físicas ou comportamentais entre espécies.
+
+- **Negócios:** Avaliar o impacto de estratégias de marketing em diferentes grupos de consumidores.
 
 

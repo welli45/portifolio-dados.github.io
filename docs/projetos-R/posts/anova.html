@@ -143,16 +143,16 @@ window.Quarto = {
 <meta property="og:description" content="ANOVA">
 <meta property="og:image" content="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png">
 <meta property="og:site_name" content="Portifólio de Dados">
-<meta property="og:image:height" content="888">
-<meta property="og:image:width" content="1852">
+<meta property="og:image:height" content="1017">
+<meta property="og:image:width" content="1892">
 <meta name="twitter:title" content="Portifólio // Wellington S. Souza">
 <meta name="twitter:description" content="Curva-Normal">
 <meta name="twitter:image" content="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png">
 <meta name="twitter:creator" content="@welli45">
 <meta name="twitter:site" content="@welli45">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="888">
-<meta name="twitter:image-width" content="1852">
+<meta name="twitter:image-height" content="1017">
+<meta name="twitter:image-width" content="1892">
 </head>
 
 <body class="nav-fixed">
@@ -242,6 +242,7 @@ window.Quarto = {
   <ul>
   <li><a href="#análise-de-variância---anova" id="toc-análise-de-variância---anova" class="nav-link active" data-scroll-target="#análise-de-variância---anova">Análise de Variância - ANOVA</a>
   <ul>
+  <li><a href="#vamos-praticar" id="toc-vamos-praticar" class="nav-link" data-scroll-target="#vamos-praticar">Vamos praticar</a></li>
   <li><a href="#rodando-anova" id="toc-rodando-anova" class="nav-link" data-scroll-target="#rodando-anova">Rodando anova</a></li>
   <li><a href="#testando-pressupostos" id="toc-testando-pressupostos" class="nav-link" data-scroll-target="#testando-pressupostos">Testando pressupostos</a>
   <ul class="collapse">
@@ -250,7 +251,8 @@ window.Quarto = {
   <li><a href="#homogeneidade" id="toc-homogeneidade" class="nav-link" data-scroll-target="#homogeneidade">Homogeneidade</a></li>
   <li><a href="#alavancagem" id="toc-alavancagem" class="nav-link" data-scroll-target="#alavancagem">Alavancagem</a></li>
   </ul></li>
-  <li><a href="#interpretando-o-modelo" id="toc-interpretando-o-modelo" class="nav-link" data-scroll-target="#interpretando-o-modelo">Interpretando o modelo</a></li>
+  <li><a href="#interpretando-os-resultados" id="toc-interpretando-os-resultados" class="nav-link" data-scroll-target="#interpretando-os-resultados">Interpretando os resultados</a></li>
+  <li><a href="#e-agora" id="toc-e-agora" class="nav-link" data-scroll-target="#e-agora">E agora?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -302,12 +304,17 @@ window.Quarto = {
 <section id="análise-de-variância---anova" class="level1">
 <h1>Análise de Variância - ANOVA</h1>
 <p><img src="../images/../images/09-anova/anova.png" class="img-fluid" style="width:50.0%" alt="anova"></p>
-<p>Para a análise de variância devemos ter uma variável numérica no eixo <span class="math inline">\(y\)</span>, nossa variável respota, e uma variável categórica com mais de dois tratamentos no eixo <span class="math inline">\(x\)</span>, nossa variável explicativa.</p>
-<p>As hipótese nula e alternativas a serem testadas são:</p>
-<p><span class="math inline">\(H_0\)</span>: igualdade entre as médias dos tratamentos</p>
-<p><span class="math inline">\(H_1\)</span>: diferença entre as médias dos tratamentos</p>
-<p>Rejeitamos <span class="math inline">\(H_0\)</span> com um <span class="math inline">\(\alpha\)</span> de <span class="math inline">\(0,05\)</span>, para um valor-p maior que <span class="math inline">\(0,05\)</span></p>
-<p>Para praticar vamos usar a base dados <code>pinguins</code> do pacote <code>dados</code>. Para instalar e carregar o pacote fazemos:</p>
+<p>Se vamos realizar uma análise de variância, precisamos de uma variável numérica no eixo <span class="math inline">\(y\)</span> (nossa variável resposta) e uma variável categórica com mais de dois tratamentos no eixo <span class="math inline">\(x\)</span> (nossa variável explicativa).</p>
+<p>A ideia é simples: queremos testar duas hipóteses:</p>
+<ul>
+<li><p><span class="math inline">\(H_0\)</span>: As médias dos tratamentos são iguais.</p></li>
+<li><p><span class="math inline">\(H_1\)</span>: Há diferenças entre as médias dos tratamentos.</p></li>
+</ul>
+<p>Para decidir, usamos um nível de significância (<span class="math inline">\(\alpha\)</span>) de 0,05. Isso significa que rejeitamos <span class="math inline">\(H_0\)</span> se o valor-p for menor que 0,05.</p>
+<section id="vamos-praticar" class="level2">
+<h2 class="anchored" data-anchor-id="vamos-praticar">Vamos praticar</h2>
+<p>A ANOVA é uma técnica poderosa quando queremos comparar mais de dois grupos e entender se algo realmente está diferente entre eles. Por exemplo, podemos usá-la para verificar se diferentes espécies de pinguins possuem características físicas distintas, como o comprimento do bico.</p>
+<p>Para isso, usaremos a base de dados <code>pinguins</code> do pacote <code>dados</code>. Caso ainda não tenha esse pacote instalado, aqui vai o código para instalar e carregar tudo o que precisamos:</p>
 <div class="cell" data-result="hide">
 <details class="code-fold">
 <summary>Code</summary>
@@ -325,10 +332,14 @@ window.Quarto = {
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(report)){</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"report"</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }; <span class="fu">library</span>(report)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }; <span class="fu">library</span>(report)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggstatsplot)){</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggstatsplot"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}; <span class="fu">library</span>(ggstatsplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Agora que temos o pacote instalado e carregado podemos acessar a base de dados com:</p>
+<p>Depois de carregar o pacote, basta acessar a base:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -426,7 +437,7 @@ window.Quarto = {
 </table>
 </div>
 </div>
-<p>Verificando a estrutura dos dados</p>
+<p>Para entender melhor os dados, podemos verificar sua estrutura:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -444,7 +455,7 @@ window.Quarto = {
  $ ano                  : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
 </div>
 </div>
-<p>Como nossas variáveis já estão estruturados vamos verificar essas variáveis com uma análise exploratória.</p>
+<p>E listar as variáveis disponíveis:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -456,85 +467,89 @@ window.Quarto = {
 [7] "sexo"                  "ano"                  </code></pre>
 </div>
 </div>
+<p>Removendo NA´s da coluna comprimento do bico</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pinguins<span class="sc">$</span>comprimento_bico,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">prob =</span> T,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(<span class="at">x =</span> pinguins<span class="sc">$</span>comprimento_bico[<span class="sc">!</span><span class="fu">is.na</span>(pinguins<span class="sc">$</span>comprimento_bico)], <span class="at">adjust =</span> <span class="dv">3</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pinguins <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(pinguins)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pinguins <span class="ot">&lt;-</span> pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(comprimento_bico))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Agora, que tal explorar um pouco os dados? Vamos criar um histograma para o comprimento do bico:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pinguins<span class="sc">$</span>comprimento_bico,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">prob =</span> T,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(<span class="at">x =</span> pinguins<span class="sc">$</span>comprimento_bico, <span class="at">adjust =</span> <span class="dv">3</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="anova_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="anova_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
 <section id="rodando-anova" class="level2">
 <h2 class="anchored" data-anchor-id="rodando-anova">Rodando anova</h2>
-<p>Agora, criaremos o objeto com as variáveis de interesse usando a função aov, o nosso objetivo aqui é testar os pressupostos.</p>
+<p>Nosso próximo passo é criar um modelo para testar os pressupostos da análise de variância. Vamos usar a função aov:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod_01 <span class="ot">&lt;-</span> <span class="fu">aov</span>(comprimento_bico <span class="sc">~</span> especie, <span class="at">data =</span> pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod_01 <span class="ot">&lt;-</span> <span class="fu">aov</span>(comprimento_bico <span class="sc">~</span> especie, <span class="at">data =</span> pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="testando-pressupostos" class="level2">
 <h2 class="anchored" data-anchor-id="testando-pressupostos">Testando pressupostos</h2>
-<p>Gráficos para testar:</p>
-<ol type="1">
-<li>linearidade</li>
-<li>normalidade</li>
-<li>homogeneidade</li>
-<li>alavancagem</li>
-</ol>
+<p>Agora, vamos verificar se os pressupostos são atendidos. Para isso, criamos alguns gráficos:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="anova_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="anova_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="linearidade" class="level4">
 <h4 class="anchored" data-anchor-id="linearidade">Linearidade</h4>
-<p>Como podemos notar no gráfico de linearidade <code>Residuals vc Fitted</code> o pressupposto de linearidade é atendido, pois a linha pontilhada vermelha está bem reta.</p>
+<p>O gráfico <code>Residuals vs Fitted</code> mostra que a linha pontilhada vermelha está bem reta, indicando que o pressuposto foi atendido.</p>
 </section>
 <section id="normalidade" class="level4">
 <h4 class="anchored" data-anchor-id="normalidade">Normalidade</h4>
-<p>O gráfico <code>Q-Q Residuals</code> mostra os pontos bem encima da linha pontilhada, isso mostra que o pressuposto de Normalidade foi atendido.</p>
+<p>No gráfico <code>Q-Q Residuals</code>, os pontos estão bem alinhados na linha pontilhada, confirmando que os resíduos seguem uma distribuição normal.</p>
 </section>
 <section id="homogeneidade" class="level4">
 <h4 class="anchored" data-anchor-id="homogeneidade">Homogeneidade</h4>
-<p>O gráfico <code>Scale-Location</code> indica que nossos dados são bem homogêneos, pois a linha vermelha está bem reta.</p>
+<p>No gráfico <code>Scale-Location</code>, a linha vermelha se mantém reta, mostrando que os dados têm variância homogênea.</p>
 </section>
 <section id="alavancagem" class="level4">
 <h4 class="anchored" data-anchor-id="alavancagem">Alavancagem</h4>
-<p>O gráfico de alavancagem mostra poucos pontos influentes, mas não estão muito longe dos demais.</p>
-<p>Por fim, podemos notar que todos os pressupostos foram atendidos, assim podemos seguir com a análise de variância.</p>
+<p>O gráfico de alavancagem apresenta poucos pontos influentes, e eles não estão muito distantes dos demais.</p>
+<p>Os pressupostos da ANOVA são como os pilares de uma casa. Se não forem atendidos, nossos resultados podem ser enganosos ou frágeis. Com todos os pressupostos atendidos, podemos prosseguir com a análise de variância.</p>
 </section>
 </section>
-<section id="interpretando-o-modelo" class="level2">
-<h2 class="anchored" data-anchor-id="interpretando-o-modelo">Interpretando o modelo</h2>
-<p>O nosso objetivo aqui é verificar se existe diferência no tamanho do bico dos pinguins entre as espécies.</p>
-<p>Para ver o resultado:</p>
+<section id="interpretando-os-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="interpretando-os-resultados">Interpretando os resultados</h2>
+<p>Queremos descobrir se o comprimento do bico varia entre as espécies. Para isso, analisamos o resultado da ANOVA:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="at">test =</span> F, mod_01) <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="at">test =</span> F, mod_01) <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -569,12 +584,12 @@ window.Quarto = {
 </table>
 </div>
 </div>
-<p>Usando o pacote <code>report</code></p>
+<p>E, com o pacote <code>report</code>, obtemos uma descrição mais completa:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mod_01 <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">report</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mod_01 <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">report</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The ANOVA (formula: comprimento_bico ~ especie) suggests that:
@@ -585,20 +600,68 @@ window.Quarto = {
 Effect sizes were labelled following Field's (2013) recommendations.</code></pre>
 </div>
 </div>
-<p>A análise de variância (ANOVA) realizada, utilizando o modelo <em>comprimento_bico ~ especie</em>, revelou que o fator “espécie” tem um efeito principal estatisticamente significativo e de grande magnitude sobre o comprimento do bico. O teste F indicou $F(2, 339) = 410,60 $, com um valor de p menor que 0,001, o que demonstra que as diferenças entre as médias do comprimento do bico para as três espécies analisadas são altamente improváveis de serem atribuídas ao acaso. O tamanho do efeito <span class="math inline">\((Eta^2 = 0,71)\)</span> sugere que 71% da variabilidade total no comprimento do bico é explicada pelas diferenças entre as espécies, o que, segundo os critérios de Field (2013), é considerado um efeito muito grande. O intervalo de confiança de 95% para <span class="math inline">\(Eta^2 [0,67, 1,00]\)</span> reforça a robustez dessa estimativa. Esses resultados indicam que as diferenças no comprimento do bico entre as espécies são substanciais e estatisticamente relevantes.</p>
+<p>A análise mostrou que a espécie tem um impacto significativo no comprimento do bico. O teste F indicou <span class="math inline">\(F(2, 339) = 410,60\)</span> com um valor-p menor que 0,001, o que significa que as diferenças entre as médias são muito improváveis de ocorrer por acaso.</p>
+<p>Além disso, o tamanho do efeito (<span class="math inline">\(Eta^2 = 0,71\)</span>) revela que 71% da variação no comprimento do bico pode ser explicada pelas diferenças entre as espécies, um efeito considerado muito grande segundo os critérios de Field (2013).</p>
+<p>O intervalo de confiança de 95% para <span class="math inline">\(Eta^2 [0,67, 1,00]\)</span> reforça a confiabilidade desses resultados. Em resumo, há diferenças substanciais e estatisticamente relevantes no comprimento do bico entre as espécies de pinguins analisadas.</p>
+<p>Para visualizar melhor, criamos um boxplot:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(comprimento_bico <span class="sc">~</span> especie, <span class="at">data =</span> pinguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pinguins,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> especie,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> comprimento_bico</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Espécies"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Comprimento do Bico"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Dsitribuição do tamanho do bico por espécie"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>( </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">20</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"#2a475e"</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>( </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">15</span>, </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">color=</span><span class="st">"#1b2838"</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>, </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>),</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#b4aea9"</span>),</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>),</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#fbf9f4"</span>, <span class="at">color =</span> <span class="st">"#fbf9f4"</span>),</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#fbf9f4"</span>, <span class="at">color =</span> <span class="st">"#fbf9f4"</span>)</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="anova_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="anova_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="e-agora" class="level2">
+<h2 class="anchored" data-anchor-id="e-agora">E agora?</h2>
+<p>Esses resultados mostram que a ANOVA pode ser aplicada em diversos contextos. Por exemplo:</p>
+<ul>
+<li><p><strong>Saúde:</strong> Comparar a eficácia de diferentes tratamentos médicos em pacientes.</p></li>
+<li><p><strong>Educação:</strong> Verificar se diferentes métodos de ensino influenciam o desempenho dos alunos.</p></li>
+<li><p><strong>Biologia:</strong> Investigar diferenças em características físicas ou comportamentais entre espécies.</p></li>
+<li><p><strong>Negócios:</strong> Avaliar o impacto de estratégias de marketing em diferentes grupos de consumidores.</p></li>
+</ul>
 
 
 </section>

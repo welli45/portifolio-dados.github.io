@@ -28,12 +28,17 @@
 <section id="análise-de-variância---anova" class="level1">
 <h1>Análise de Variância - ANOVA</h1>
 <p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/images/09-anova/anova.png" class="img-fluid" style="width:50.0%" alt="anova"></p>
-<p>Para a análise de variância devemos ter uma variável numérica no eixo <img src="https://latex.codecogs.com/png.latex?y">, nossa variável respota, e uma variável categórica com mais de dois tratamentos no eixo <img src="https://latex.codecogs.com/png.latex?x">, nossa variável explicativa.</p>
-<p>As hipótese nula e alternativas a serem testadas são:</p>
-<p><img src="https://latex.codecogs.com/png.latex?H_0">: igualdade entre as médias dos tratamentos</p>
-<p><img src="https://latex.codecogs.com/png.latex?H_1">: diferença entre as médias dos tratamentos</p>
-<p>Rejeitamos <img src="https://latex.codecogs.com/png.latex?H_0"> com um <img src="https://latex.codecogs.com/png.latex?%5Calpha"> de <img src="https://latex.codecogs.com/png.latex?0,05">, para um valor-p maior que <img src="https://latex.codecogs.com/png.latex?0,05"></p>
-<p>Para praticar vamos usar a base dados <code>pinguins</code> do pacote <code>dados</code>. Para instalar e carregar o pacote fazemos:</p>
+<p>Se vamos realizar uma análise de variância, precisamos de uma variável numérica no eixo <img src="https://latex.codecogs.com/png.latex?y"> (nossa variável resposta) e uma variável categórica com mais de dois tratamentos no eixo <img src="https://latex.codecogs.com/png.latex?x"> (nossa variável explicativa).</p>
+<p>A ideia é simples: queremos testar duas hipóteses:</p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?H_0">: As médias dos tratamentos são iguais.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?H_1">: Há diferenças entre as médias dos tratamentos.</p></li>
+</ul>
+<p>Para decidir, usamos um nível de significância (<img src="https://latex.codecogs.com/png.latex?%5Calpha">) de 0,05. Isso significa que rejeitamos <img src="https://latex.codecogs.com/png.latex?H_0"> se o valor-p for menor que 0,05.</p>
+<section id="vamos-praticar" class="level2">
+<h2 class="anchored" data-anchor-id="vamos-praticar">Vamos praticar</h2>
+<p>A ANOVA é uma técnica poderosa quando queremos comparar mais de dois grupos e entender se algo realmente está diferente entre eles. Por exemplo, podemos usá-la para verificar se diferentes espécies de pinguins possuem características físicas distintas, como o comprimento do bico.</p>
+<p>Para isso, usaremos a base de dados <code>pinguins</code> do pacote <code>dados</code>. Caso ainda não tenha esse pacote instalado, aqui vai o código para instalar e carregar tudo o que precisamos:</p>
 <div class="cell" data-result="hide">
 <details class="code-fold">
 <summary>Code</summary>
@@ -109,10 +114,27 @@ background-color: null;
 font-style: inherit;">"report"</span>)</span>
 <span id="cb1-15">  }; <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(report)</span></code></pre></div>
+font-style: inherit;">library</span>(report)</span>
+<span id="cb1-16"></span>
+<span id="cb1-17"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(ggstatsplot)){</span>
+<span id="cb1-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ggstatsplot"</span>)</span>
+<span id="cb1-19">}; <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggstatsplot)</span></code></pre></div>
 </details>
 </div>
-<p>Agora que temos o pacote instalado e carregado podemos acessar a base de dados com:</p>
+<p>Depois de carregar o pacote, basta acessar a base:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -218,7 +240,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
 </table>
 </div>
 </div>
-<p>Verificando a estrutura dos dados</p>
+<p>Para entender melhor os dados, podemos verificar sua estrutura:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -238,7 +260,7 @@ font-style: inherit;">str</span>(pinguins)</span></code></pre></div>
  $ ano                  : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
 </div>
 </div>
-<p>Como nossas variáveis já estão estruturados vamos verificar essas variáveis com uma análise exploratória.</p>
+<p>E listar as variáveis disponíveis:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -252,24 +274,48 @@ font-style: inherit;">names</span>(pinguins)</span></code></pre></div>
 [7] "sexo"                  "ano"                  </code></pre>
 </div>
 </div>
+<p>Removendo NA´s da coluna comprimento do bico</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">pinguins <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(pinguins)</span>
+<span id="cb7-2">pinguins <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> pinguins <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(comprimento_bico))</span></code></pre></div>
+</details>
+</div>
+<p>Agora, que tal explorar um pouco os dados? Vamos criar um histograma para o comprimento do bico:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">hist</span>(pinguins<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>comprimento_bico,</span>
-<span id="cb7-2">     <span class="at" style="color: #657422;
+<span id="cb8-2">     <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">prob =</span> T,</span>
-<span id="cb7-3">     <span class="at" style="color: #657422;
+<span id="cb8-3">     <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"lightblue"</span>)</span>
-<span id="cb7-4"></span>
-<span id="cb7-5"><span class="fu" style="color: #4758AB;
+<span id="cb8-4"></span>
+<span id="cb8-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">lines</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -277,23 +323,17 @@ font-style: inherit;">density</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> pinguins<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>comprimento_bico[<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">is.na</span>(pinguins<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>comprimento_bico)], <span class="at" style="color: #657422;
+font-style: inherit;">$</span>comprimento_bico, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">adjust =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>),</span>
-<span id="cb7-6">      <span class="at" style="color: #657422;
+<span id="cb8-6">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>,</span>
-<span id="cb7-7">      <span class="at" style="color: #657422;
+<span id="cb8-7">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -302,18 +342,19 @@ font-style: inherit;">'red'</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
 <section id="rodando-anova" class="level2">
 <h2 class="anchored" data-anchor-id="rodando-anova">Rodando anova</h2>
-<p>Agora, criaremos o objeto com as variáveis de interesse usando a função aov, o nosso objetivo aqui é testar os pressupostos.</p>
+<p>Nosso próximo passo é criar um modelo para testar os pressupostos da análise de variância. Vamos usar a função aov:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">mod_01 <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">mod_01 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -327,17 +368,11 @@ font-style: inherit;">data =</span> pinguins)</span></code></pre></div>
 </section>
 <section id="testando-pressupostos" class="level2">
 <h2 class="anchored" data-anchor-id="testando-pressupostos">Testando pressupostos</h2>
-<p>Gráficos para testar:</p>
-<ol type="1">
-<li>linearidade</li>
-<li>normalidade</li>
-<li>homogeneidade</li>
-<li>alavancagem</li>
-</ol>
+<p>Agora, vamos verificar se os pressupostos são atendidos. Para isso, criamos alguns gráficos:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">par</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -348,51 +383,50 @@ background-color: null;
 font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>))</span>
-<span id="cb9-2"><span class="fu" style="color: #4758AB;
+<span id="cb10-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(mod_01)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="linearidade" class="level4">
 <h4 class="anchored" data-anchor-id="linearidade">Linearidade</h4>
-<p>Como podemos notar no gráfico de linearidade <code>Residuals vc Fitted</code> o pressupposto de linearidade é atendido, pois a linha pontilhada vermelha está bem reta.</p>
+<p>O gráfico <code>Residuals vs Fitted</code> mostra que a linha pontilhada vermelha está bem reta, indicando que o pressuposto foi atendido.</p>
 </section>
 <section id="normalidade" class="level4">
 <h4 class="anchored" data-anchor-id="normalidade">Normalidade</h4>
-<p>O gráfico <code>Q-Q Residuals</code> mostra os pontos bem encima da linha pontilhada, isso mostra que o pressuposto de Normalidade foi atendido.</p>
+<p>No gráfico <code>Q-Q Residuals</code>, os pontos estão bem alinhados na linha pontilhada, confirmando que os resíduos seguem uma distribuição normal.</p>
 </section>
 <section id="homogeneidade" class="level4">
 <h4 class="anchored" data-anchor-id="homogeneidade">Homogeneidade</h4>
-<p>O gráfico <code>Scale-Location</code> indica que nossos dados são bem homogêneos, pois a linha vermelha está bem reta.</p>
+<p>No gráfico <code>Scale-Location</code>, a linha vermelha se mantém reta, mostrando que os dados têm variância homogênea.</p>
 </section>
 <section id="alavancagem" class="level4">
 <h4 class="anchored" data-anchor-id="alavancagem">Alavancagem</h4>
-<p>O gráfico de alavancagem mostra poucos pontos influentes, mas não estão muito longe dos demais.</p>
-<p>Por fim, podemos notar que todos os pressupostos foram atendidos, assim podemos seguir com a análise de variância.</p>
+<p>O gráfico de alavancagem apresenta poucos pontos influentes, e eles não estão muito distantes dos demais.</p>
+<p>Os pressupostos da ANOVA são como os pilares de uma casa. Se não forem atendidos, nossos resultados podem ser enganosos ou frágeis. Com todos os pressupostos atendidos, podemos prosseguir com a análise de variância.</p>
 </section>
 </section>
-<section id="interpretando-o-modelo" class="level2">
-<h2 class="anchored" data-anchor-id="interpretando-o-modelo">Interpretando o modelo</h2>
-<p>O nosso objetivo aqui é verificar se existe diferência no tamanho do bico dos pinguins entre as espécies.</p>
-<p>Para ver o resultado:</p>
+<section id="interpretando-os-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="interpretando-os-resultados">Interpretando os resultados</h2>
+<p>Queremos descobrir se o comprimento do bico varia entre as espécies. Para isso, analisamos o resultado da ANOVA:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">anova</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">test =</span> F, mod_01) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb10-2">  <span class="fu" style="color: #4758AB;
+<span id="cb11-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 </details>
@@ -429,14 +463,14 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
 </table>
 </div>
 </div>
-<p>Usando o pacote <code>report</code></p>
+<p>E, com o pacote <code>report</code>, obtemos uma descrição mais completa:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">mod_01 <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">mod_01 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb11-2">  <span class="fu" style="color: #4758AB;
+<span id="cb12-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">report</span>()</span></code></pre></div>
 </details>
@@ -449,26 +483,228 @@ font-style: inherit;">report</span>()</span></code></pre></div>
 Effect sizes were labelled following Field's (2013) recommendations.</code></pre>
 </div>
 </div>
-<p>A análise de variância (ANOVA) realizada, utilizando o modelo <em>comprimento_bico ~ especie</em>, revelou que o fator “espécie” tem um efeito principal estatisticamente significativo e de grande magnitude sobre o comprimento do bico. O teste F indicou $F(2, 339) = 410,60 $, com um valor de p menor que 0,001, o que demonstra que as diferenças entre as médias do comprimento do bico para as três espécies analisadas são altamente improváveis de serem atribuídas ao acaso. O tamanho do efeito <img src="https://latex.codecogs.com/png.latex?(Eta%5E2%20=%200,71)"> sugere que 71% da variabilidade total no comprimento do bico é explicada pelas diferenças entre as espécies, o que, segundo os critérios de Field (2013), é considerado um efeito muito grande. O intervalo de confiança de 95% para <img src="https://latex.codecogs.com/png.latex?Eta%5E2%20%5B0,67,%201,00%5D"> reforça a robustez dessa estimativa. Esses resultados indicam que as diferenças no comprimento do bico entre as espécies são substanciais e estatisticamente relevantes.</p>
+<p>A análise mostrou que a espécie tem um impacto significativo no comprimento do bico. O teste F indicou <img src="https://latex.codecogs.com/png.latex?F(2,%20339)%20=%20410,60"> com um valor-p menor que 0,001, o que significa que as diferenças entre as médias são muito improváveis de ocorrer por acaso.</p>
+<p>Além disso, o tamanho do efeito (<img src="https://latex.codecogs.com/png.latex?Eta%5E2%20=%200,71">) revela que 71% da variação no comprimento do bico pode ser explicada pelas diferenças entre as espécies, um efeito considerado muito grande segundo os critérios de Field (2013).</p>
+<p>O intervalo de confiança de 95% para <img src="https://latex.codecogs.com/png.latex?Eta%5E2%20%5B0,67,%201,00%5D"> reforça a confiabilidade desses resultados. Em resumo, há diferenças substanciais e estatisticamente relevantes no comprimento do bico entre as espécies de pinguins analisadas.</p>
+<p>Para visualizar melhor, criamos um boxplot:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">boxplot</span>(comprimento_bico <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">ggbetweenstats</span>(</span>
+<span id="cb14-2">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">~</span> especie, <span class="at" style="color: #657422;
+font-style: inherit;">data =</span> pinguins,</span>
+<span id="cb14-3">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">data =</span> pinguins)</span></code></pre></div>
+font-style: inherit;">x =</span> especie,</span>
+<span id="cb14-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> comprimento_bico</span>
+<span id="cb14-5">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb14-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb14-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Espécies"</span>,</span>
+<span id="cb14-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Comprimento do Bico"</span>,</span>
+<span id="cb14-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Dsitribuição do tamanho do bico por espécie"</span></span>
+<span id="cb14-10">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb14-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb14-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>),</span>
+<span id="cb14-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>( </span>
+<span id="cb14-14">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span id="cb14-15">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>,</span>
+<span id="cb14-16">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#2a475e"</span></span>
+<span id="cb14-17">    ),</span>
+<span id="cb14-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>( </span>
+<span id="cb14-19">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>, </span>
+<span id="cb14-20">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>,</span>
+<span id="cb14-21">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#1b2838"</span></span>
+<span id="cb14-22">    ),</span>
+<span id="cb14-23">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title.position =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"plot"</span>, </span>
+<span id="cb14-24">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>),</span>
+<span id="cb14-25">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb14-26">  )<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb14-27">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb14-28">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.ticks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb14-29">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.line =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_line</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colour =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"grey50"</span>),</span>
+<span id="cb14-30">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_line</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#b4aea9"</span>),</span>
+<span id="cb14-31">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb14-32">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.major.x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb14-33">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.major.y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_line</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dashed"</span>),</span>
+<span id="cb14-34">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.background =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_rect</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#fbf9f4"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#fbf9f4"</span>),</span>
+<span id="cb14-35">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.background =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_rect</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#fbf9f4"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#fbf9f4"</span>)</span>
+<span id="cb14-36">  )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://welli45.github.io/portifolio-dados.github.io/projetos-R/posts/anova_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="e-agora" class="level2">
+<h2 class="anchored" data-anchor-id="e-agora">E agora?</h2>
+<p>Esses resultados mostram que a ANOVA pode ser aplicada em diversos contextos. Por exemplo:</p>
+<ul>
+<li><p><strong>Saúde:</strong> Comparar a eficácia de diferentes tratamentos médicos em pacientes.</p></li>
+<li><p><strong>Educação:</strong> Verificar se diferentes métodos de ensino influenciam o desempenho dos alunos.</p></li>
+<li><p><strong>Biologia:</strong> Investigar diferenças em características físicas ou comportamentais entre espécies.</p></li>
+<li><p><strong>Negócios:</strong> Avaliar o impacto de estratégias de marketing em diferentes grupos de consumidores.</p></li>
+</ul>
 
 
 </section>
